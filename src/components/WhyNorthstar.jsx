@@ -73,7 +73,7 @@ export default function WhyNorthstar() {
                   key={idx} 
                   className="flex items-start gap-5 group"
                 >
-                  <div className="w-[52px] h-[52px] rounded-2xl bg-soft flex items-center justify-center text-accent shrink-0 group-hover:scale-110 group-hover:bg-accent group-hover:text-white shadow-sm transition-all duration-300">
+                  <div className="w-[52px] h-[52px] rounded-2xl bg-soft flex items-center justify-center text-accent shrink-0 lg:group-hover:scale-110 lg:group-hover:bg-accent lg:group-hover:text-white shadow-sm transition-all duration-300">
                     {item.icon}
                   </div>
                   <div className="pt-1">
@@ -101,7 +101,7 @@ export default function WhyNorthstar() {
                   <img 
                     src={propchkImg} 
                     alt="PropChk Quality Inspection" 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 lg:hover:scale-105"
                   />
                 </div>
                 

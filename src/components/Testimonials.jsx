@@ -43,18 +43,18 @@ export default function Testimonials() {
               className="flex-shrink-0 w-[75vw] sm:w-[320px] mx-4 group cursor-pointer"
               onClick={() => setActiveVideo(video.id)}
             >
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-soft shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-soft shadow-md lg:group-hover:shadow-xl transition-all duration-300 lg:group-hover:-translate-y-1">
                 {/* YouTube Thumbnail */}
                 <img 
                   src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
                   alt={video.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-105"
                   loading="lazy"
                 />
                 
                 {/* Custom Play Button Overlay */}
-                <div className="absolute inset-0 bg-ink/20 group-hover:bg-ink/10 transition-colors flex items-center justify-center">
-                  <div className="w-14 h-14 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-ink/20 lg:group-hover:bg-ink/10 transition-colors flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent shadow-lg lg:group-hover:scale-110 transition-transform duration-300">
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-1">
                       <path d="M5 3l14 9-14 9V3z" />
                     </svg>
@@ -82,7 +82,7 @@ export default function Testimonials() {
           >
             {/* Close Button */}
             <button 
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white transition-colors"
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 lg:hover:bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white transition-colors"
               onClick={() => setActiveVideo(null)}
               aria-label="Close video"
             >

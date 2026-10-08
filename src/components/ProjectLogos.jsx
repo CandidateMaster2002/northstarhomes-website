@@ -41,12 +41,12 @@ export default function ProjectLogos() {
           {infiniteLogos.map((logo, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-[200px] h-[100px] mx-8 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+              className="flex-shrink-0 w-[200px] h-[100px] mx-8 flex items-center justify-center transition-all duration-300 lg:hover:-translate-y-1 cursor-pointer group"
             >
               <img 
                 src={logo} 
                 alt="Northstar Project Logo" 
-                className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                className="max-w-full max-h-full object-contain transition-transform duration-500 lg:group-hover:scale-110"
               />
             </div>
           ))}
