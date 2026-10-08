@@ -1,5 +1,5 @@
 import React from 'react'
-import heroVideo from '../assets/hero video eden.mp4'
+import heroVideo from '../assets/hero video eden compr.mp4'
 
 export default function Hero() {
   return (
