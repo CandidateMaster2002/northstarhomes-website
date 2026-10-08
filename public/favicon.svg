@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Outer Blue Star Outline -->
+  <path d="M50 8 L62 40 L95 40 L68 60 L78 95 L50 75 L22 95 L32 60 L5 40 L38 40 Z" stroke="#0B6FB5" stroke-width="9" stroke-linejoin="round"/>
+  <!-- Inner Green Triangle -->
+  <path d="M50 20 L65 50 L35 50 Z" fill="#27702F"/>
+</svg>

@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand Blue & Green palette ── */
+  --color-bg: #FFFFFF;
+  --color-soft: #EEF5FB;
+  --color-ink: #07294A;
+  --color-muted: #4F6378;
+  --color-accent: #0B6FB5;
+  --color-accent2: #27702F;
+  --color-accent2d: #5CC266;
+  --color-line: #D8E6F2;
+  --color-deep: #07294A;
+  --color-deep-ink: #E9F2FA;
+  --color-btn-bg: #0B6FB5;
+  --color-btn-ink: #FFFFFF;
+  --color-ph1: #E4EEF7;
+  --color-ph2: #D2E1EF;
+
+  /* ── Typography ── */
+  --font-heading: "Marcellus", Georgia, serif;
+  --font-body: "Jost", system-ui, sans-serif;
+}
+
+/* ── Base resets ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+a:hover {
+  opacity: 0.7;
+}
+
+/* ── Image placeholders ── */
+.ph {
+  background-color: var(--color-ph1);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-ph2) 0 14px,
+    var(--color-ph1) 14px 28px
+  );
+  display: flex;
+  align-items: flex-end;
+}
+
+.ph span {
+  margin: 12px;
+  padding: 6px 10px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Marquee Animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: scroll 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: scroll-reverse 50s linear infinite;
+}
+
+.animate-marquee:hover, .animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Timeline arrow pulse animation */
+@keyframes arrowPulse {
+  0%, 100% { opacity: 0.3; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(4px); }
+}
+
+@keyframes arrowPulseReverse {
+  0%, 100% { opacity: 0.3; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(-4px); }
+}
+
+.animate-arrow {
+  animation: arrowPulse 1.5s ease-in-out infinite;
+}
+
+.animate-arrow-reverse {
+  animation: arrowPulseReverse 1.5s ease-in-out infinite;
+}
