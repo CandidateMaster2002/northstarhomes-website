@@ -40,7 +40,7 @@ export default function Testimonials() {
           {infiniteVideos.map((video, idx) => (
             <div 
               key={idx}
-              className="flex-shrink-0 w-[280px] sm:w-[320px] mx-4 group cursor-pointer"
+              className="flex-shrink-0 w-[75vw] sm:w-[320px] mx-4 group cursor-pointer"
               onClick={() => setActiveVideo(video.id)}
             >
               <div className="relative aspect-video rounded-xl overflow-hidden bg-soft shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
