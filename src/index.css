@@ -24,7 +24,7 @@
 
 /* ── Base resets ── */
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; removed for Lenis */
 }
 
 body {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { ReactLenis } from '@studio-freight/react-lenis'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import CredentialBand from './components/CredentialBand'
@@ -33,21 +34,30 @@ export default function App() {
     )
   }
 
+  // Smooth scroll configuration
+  const lenisOptions = {
+    lerp: 0.07, // The lower the number, the smoother/heavier the scroll
+    smoothWheel: true,
+    wheelMultiplier: 1.1, // Slightly faster wheel speed for better UX
+  };
+
   return (
-    <div className="bg-bg text-ink font-body text-base leading-relaxed overflow-x-hidden">
-      <Header />
-      <Hero />
-      <CredentialBand />
-      <About />
-      <Timeline />
-      <OngoingProjects />
-      <CompletedProjects />
-      <ProjectLogos />
-      <WhyNorthstar />
-      <Testimonials />
-      <Enquiry />
-      <Footer />
-      <FloatingContact />
-    </div>
+    <ReactLenis root options={lenisOptions}>
+      <div className="bg-bg text-ink font-body text-base leading-relaxed overflow-x-hidden">
+        <Header />
+        <Hero />
+        <CredentialBand />
+        <About />
+        <Timeline />
+        <OngoingProjects />
+        <CompletedProjects />
+        <ProjectLogos />
+        <WhyNorthstar />
+        <Testimonials />
+        <Enquiry />
+        <Footer />
+        <FloatingContact />
+      </div>
+    </ReactLenis>
   )
 }
