@@ -1,5 +1,6 @@
 import React from 'react'
 import propchkImg from '../assets/propchk before building.webp'
+import ScrollReveal from './ScrollReveal'
 
 export default function WhyNorthstar() {
   const checkpoints = [
@@ -43,21 +44,27 @@ export default function WhyNorthstar() {
           {/* Left — Text Content */}
           <div className="flex-1 min-w-0 basis-[480px]">
             {/* Minimal Eyebrow */}
-            <p className="text-[12px] tracking-[0.3em] uppercase text-accent font-bold mb-6">
-              Quality Assurance
-            </p>
+            <ScrollReveal>
+              <p className="text-[12px] tracking-[0.3em] uppercase text-accent font-bold mb-6">
+                Quality Assurance
+              </p>
+            </ScrollReveal>
 
             {/* Elegant Headline */}
-            <h2 className="text-[40px] lg:text-[54px] leading-[1.1] font-heading text-ink mb-8">
-              At Northstar,<br />
-              <span className="text-ink/60">every home is built</span><br />
-              with care.
-            </h2>
+            <ScrollReveal delay={0.1}>
+              <h2 className="text-[40px] lg:text-[54px] leading-[1.1] font-heading text-ink mb-8">
+                At Northstar,<br />
+                <span className="text-ink/60">every home is built</span><br />
+                with care.
+              </h2>
+            </ScrollReveal>
 
             {/* Description */}
-            <p className="text-[18px] leading-[1.8] text-ink/70 mb-14 max-w-[50ch]">
-              Before handover, our projects undergo comprehensive <strong>PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
-            </p>
+            <ScrollReveal delay={0.2}>
+              <p className="text-[18px] leading-[1.8] text-ink/70 mb-14 max-w-[50ch]">
+                Before handover, our projects undergo comprehensive <strong>PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
+              </p>
+            </ScrollReveal>
 
             {/* Quality Checkpoints - Upgraded */}
             <div className="flex flex-col gap-8">
@@ -84,20 +91,22 @@ export default function WhyNorthstar() {
 
           {/* Right — Image with Offset Frame */}
           <div className="flex-1 min-w-0 basis-[460px] max-[880px]:w-full px-4">
-            <div className="relative">
-              {/* Offset Decorative Background */}
-              <div className="absolute -inset-6 bg-soft rounded-[32px] -z-10 translate-x-6 translate-y-6 max-[880px]:translate-x-3 max-[880px]:translate-y-3"></div>
-              
-              {/* Main Image */}
-              <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[5/4]">
-                <img 
-                  src={propchkImg} 
-                  alt="PropChk Quality Inspection" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
+            <ScrollReveal delay={0.4}>
+              <div className="relative">
+                {/* Offset Decorative Background */}
+                <div className="absolute -inset-6 bg-soft rounded-[32px] -z-10 translate-x-6 translate-y-6 max-[880px]:translate-x-3 max-[880px]:translate-y-3"></div>
+                
+                {/* Main Image */}
+                <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[5/4]">
+                  <img 
+                    src={propchkImg} 
+                    alt="PropChk Quality Inspection" 
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+                
               </div>
-              
-            </div>
+            </ScrollReveal>
           </div>
 
         </div>

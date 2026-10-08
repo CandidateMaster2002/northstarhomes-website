@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
 
 function parseValue(val) {
@@ -19,41 +20,37 @@ function parseValue(val) {
 
 function AnimatedCounter({ value }) {
   const { num, prefix, suffix, isFloat } = parseValue(value);
-  const [count, setCount] = useState(0);
   const ref = useRef(null);
+  
+  // Only start the animation when 50% of the element is visible
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  
+  const count = useMotionValue(0);
+  
+  // Transform the raw motion value into a formatted string
+  const rounded = useTransform(count, (latest) => {
+    return isFloat ? latest.toFixed(1) : Math.floor(latest);
+  });
 
   useEffect(() => {
-    if (isNaN(num)) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          let startTime;
-          const duration = 2000;
-
-          const step = (timestamp) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            setCount(easeOut * num);
-            if (progress < 1) requestAnimationFrame(step);
-            else setCount(num);
-          };
-          
-          requestAnimationFrame(step);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [num]);
+    if (isInView && !isNaN(num)) {
+      const controls = animate(count, num, { 
+        duration: 2.5, 
+        ease: "easeOut" 
+      });
+      return controls.stop;
+    }
+  }, [isInView, num, count]);
 
   if (isNaN(num)) return <span ref={ref}>{value}</span>;
-  const displayNum = isFloat ? count.toFixed(1) : Math.floor(count);
-  return <span ref={ref}>{prefix}{displayNum}{suffix}</span>;
+  
+  return (
+    <span ref={ref}>
+      {prefix}
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </span>
+  );
 }
 
 const StatIcon = ({ id }) => {
