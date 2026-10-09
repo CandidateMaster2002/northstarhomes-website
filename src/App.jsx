@@ -10,7 +10,6 @@ import CompletedProjects from './components/CompletedProjects'
 import ProjectLogos from './components/ProjectLogos'
 import WhyNorthstar from './components/WhyNorthstar'
 import Testimonials from './components/Testimonials'
-import Enquiry from './components/Enquiry'
 import Footer from './components/Footer'
 import FloatingContact from './components/FloatingContact'
 import ComingSoon from './components/ComingSoon'
@@ -54,7 +53,6 @@ export default function App() {
         <ProjectLogos />
         <WhyNorthstar />
         <Testimonials />
-        <Enquiry />
         <Footer />
         <FloatingContact />
       </div>
