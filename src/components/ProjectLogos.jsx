@@ -17,7 +17,22 @@ import l13 from '../assets/AllLogosColorfulWEBP/Northstar_Veda.webp';
 import l14 from '../assets/AllLogosColorfulWEBP/Sanctuary.webp';
 
 export default function ProjectLogos() {
-  const logos = [l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14];
+  const logos = [
+    { src: l1, scale: 'scale-100' },
+    { src: l2, scale: 'scale-100' },
+    { src: l3, scale: 'scale-125 saturate-200' }, // AMG Plaza
+    { src: l4, scale: 'scale-100' },
+    { src: l5, scale: 'scale-100' },
+    { src: l6, scale: 'scale-100' },
+    { src: l7, scale: 'scale-150' }, // Golden Valley
+    { src: l8, scale: 'scale-100' },
+    { src: l9, scale: 'scale-100' },
+    { src: l10, scale: 'scale-100' },
+    { src: l11, scale: 'scale-100' },
+    { src: l12, scale: 'scale-100' },
+    { src: l13, scale: 'scale-100' },
+    { src: l14, scale: 'scale-100' },
+  ];
   
   // Duplicate array twice to ensure seamless infinite scroll
   const infiniteLogos = [...logos, ...logos, ...logos, ...logos];
@@ -38,16 +53,18 @@ export default function ProjectLogos() {
         
         {/* Scrolling Content */}
         <div className="flex animate-marquee w-max items-center">
-          {infiniteLogos.map((logo, index) => (
+          {infiniteLogos.map((logoItem, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-[200px] h-[100px] mx-8 flex items-center justify-center transition-all duration-300 lg:hover:-translate-y-1 cursor-pointer group"
+              className="flex-shrink-0 w-[180px] h-[100px] mx-8 flex items-center justify-center transition-all duration-300 lg:hover:-translate-y-1 cursor-pointer group"
             >
-              <img 
-                src={logo} 
-                alt="Northstar Project Logo" 
-                className="max-w-full max-h-full object-contain transition-transform duration-500 lg:group-hover:scale-110"
-              />
+              <div className={`w-full h-full flex items-center justify-center ${logoItem.scale}`}>
+                <img 
+                  src={logoItem.src} 
+                  alt="Northstar Project Logo" 
+                  className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
             </div>
           ))}
         </div>

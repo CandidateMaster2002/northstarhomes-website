@@ -101,7 +101,7 @@ export default function Timeline() {
                   <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 ${isEven ? 'md:pr-[60px] md:text-right' : 'md:pl-[60px] md:order-last md:text-left'}`}>
                     
                     {/* The Year */}
-                    <h3 className="text-[42px] lg:text-[56px] font-heading font-bold text-ink/10 leading-none mb-4 md:mb-6">
+                    <h3 className="text-[42px] lg:text-[56px] font-heading font-bold text-ink/40 leading-none mb-4 md:mb-6">
                       {entry.year}
                     </h3>
 
@@ -110,19 +110,24 @@ export default function Timeline() {
                       {/* Projects (Monochromatic Logos) */}
                       {projects.length > 0 && (
                         <div className={`flex flex-wrap gap-5 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
-                          {projects.map((item, i) => (
-                            <div key={i} className="group cursor-pointer">
-                              {item.logoKey && logoMap[item.logoKey] ? (
-                                <img 
-                                  src={logoMap[item.logoKey]} 
-                                  alt={item.title || "Project Logo"} 
-                                  className="h-[35px] lg:h-[45px] w-auto object-contain opacity-70 transition-opacity duration-300 lg:hover:opacity-100" 
-                                />
-                              ) : (
-                                <span className="text-[14px] font-bold text-ink/70">{item.title}</span>
-                              )}
-                            </div>
-                          ))}
+                          {projects.map((item, i) => {
+                            // Specifically scale Golden Valley or AMG if they have too much padding
+                            const scaleClass = item.logoKey === 'goldenvalley' ? 'scale-150' : item.logoKey === 'amgplaza' ? 'scale-125 saturate-200' : 'scale-100';
+                            
+                            return (
+                              <div key={i} className="group cursor-pointer flex items-center justify-center">
+                                {item.logoKey && logoMap[item.logoKey] ? (
+                                  <img 
+                                    src={logoMap[item.logoKey]} 
+                                    alt={item.title || "Project Logo"} 
+                                    className={`h-[45px] lg:h-[65px] w-auto max-w-[180px] object-contain opacity-70 transition-all duration-300 lg:hover:opacity-100 ${scaleClass}`} 
+                                  />
+                                ) : (
+                                  <span className="text-[14px] font-bold text-ink/70">{item.title}</span>
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
                       )}
 
