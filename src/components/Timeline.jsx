@@ -3,19 +3,19 @@ import { siteConfig } from '../siteConfig'
 
 // Import project logos
 import logoNorthstar from '../assets/Northstar-logo_webp_file-removebg-preview.webp'; // Kept original
-import logoVeda from '../assets/logos_mono/Veda logo Monochromatic Image.png';
-import logoGardenSuites from '../assets/logos_mono/Northstar Garden Suites Monochromatic image.png';
-import logoEdenGardens from '../assets/logos_mono/Eden Garden Monochromatic Image.png';
-import logoAmgPlaza from '../assets/logos_mono/AMG Plaza Monochromatic Image.png';
-import logoDistrict1 from '../assets/logos_mono/District 1 Monochromatic Image1.png';
-import logoHillside from '../assets/logos_mono/Hill Side Monochromatic Image.png';
-import logoAirport from '../assets/logos_mono/Airport Boulevard Monochromatic image.png';
-import logoLeela from '../assets/logos_mono/Leela Logo Monochromatic image.png';
-import logoAllura from '../assets/logos_mono/Allura Monochromatic Image.png';
-import logoParkAve from '../assets/logos_mono/Park Avenue Logo Monochromatic Image..png';
-import logoPalacio from '../assets/logos_mono/SP Palacio logo Monochromatic image.png';
-import logoSanctuary from '../assets/logos_mono/Sanctuary Logo Monochromatic image.png';
-import logoGoldenValley from '../assets/logotoWEBP/Northstar_GoldenValley.webp'; // Client hasn't provided Golden Valley mono yet, or it's named differently.
+import logoVeda from '../assets/monochromelogostoWEBP/Veda logo Monochromatic Image.webp';
+import logoGardenSuites from '../assets/monochromelogostoWEBP/Northstar Garden Suites Monochromatic image.webp';
+import logoEdenGardens from '../assets/monochromelogostoWEBP/Eden Garden Monochromatic Image.webp';
+import logoAmgPlaza from '../assets/monochromelogostoWEBP/AMG Plaza Monochromatic Image.webp';
+import logoDistrict1 from '../assets/monochromelogostoWEBP/District 1 Monochromatic Image1.webp';
+import logoHillside from '../assets/monochromelogostoWEBP/Hill Side Monochromatic Image.webp';
+import logoAirport from '../assets/monochromelogostoWEBP/Airport Boulevard Monochromatic image.webp';
+import logoLeela from '../assets/monochromelogostoWEBP/Leela Logo Monochromatic image.webp';
+import logoAllura from '../assets/monochromelogostoWEBP/Allura Monochromatic Image.webp';
+import logoParkAve from '../assets/monochromelogostoWEBP/Park Avenue Logo Monochromatic Image..webp';
+import logoPalacio from '../assets/monochromelogostoWEBP/SP Palacio logo Monochromatic image.webp';
+import logoSanctuary from '../assets/monochromelogostoWEBP/Sanctuary Logo Monochromatic image.webp';
+import logoGoldenValley from '../assets/monochromelogostoWEBP/Golden Valley Logo Final Approved-monochrome.webp';
 
 const logoMap = {
   northstar: logoNorthstar,

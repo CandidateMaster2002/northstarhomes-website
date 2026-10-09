@@ -1,20 +1,20 @@
 import React from 'react';
 
 // Import all logos
-import l1 from '../assets/logotoWEBP/Norhstar_Allura.webp';
-import l2 from '../assets/logotoWEBP/Northsatr_Airport.webp';
-import l3 from '../assets/logotoWEBP/Northstar_Amgplaza.webp';
-import l4 from '../assets/logotoWEBP/Northstar_Distrcit 1.webp';
-import l5 from '../assets/logotoWEBP/Northstar_Eden Gardens.webp';
-import l6 from '../assets/logotoWEBP/Northstar_Gardensuits.webp';
-import l7 from '../assets/logotoWEBP/Northstar_GoldenValley.webp';
-import l8 from '../assets/logotoWEBP/Northstar_Hillside.webp';
-import l9 from '../assets/logotoWEBP/Northstar_Leela.webp';
-import l10 from '../assets/logotoWEBP/Northstar_Mangogrove.webp';
-import l11 from '../assets/logotoWEBP/Northstar_Palacio.webp';
-import l12 from '../assets/logotoWEBP/Northstar_Parkave.webp';
-import l13 from '../assets/logotoWEBP/Northstar_Veda.webp';
-import l14 from '../assets/logotoWEBP/Sanctuary.webp';
+import l1 from '../assets/AllLogosColorfulWEBP/Norhstar_Allura.webp';
+import l2 from '../assets/AllLogosColorfulWEBP/Northsatr_Airport.webp';
+import l3 from '../assets/AllLogosColorfulWEBP/Northstar_Amgplaza.webp';
+import l4 from '../assets/AllLogosColorfulWEBP/Northstar_Distrcit 1.webp';
+import l5 from '../assets/AllLogosColorfulWEBP/Northstar_Eden Gardens.webp';
+import l6 from '../assets/AllLogosColorfulWEBP/Northstar_Gardensuits.webp';
+import l7 from '../assets/AllLogosColorfulWEBP/Golden Valley Logo Final Approved.webp';
+import l8 from '../assets/AllLogosColorfulWEBP/Northstar_Hillside.webp';
+import l9 from '../assets/AllLogosColorfulWEBP/Northstar_Leela.webp';
+import l10 from '../assets/AllLogosColorfulWEBP/Northstar_Mangogrove.webp';
+import l11 from '../assets/AllLogosColorfulWEBP/Northstar_Palacio.webp';
+import l12 from '../assets/AllLogosColorfulWEBP/Northstar_Parkave.webp';
+import l13 from '../assets/AllLogosColorfulWEBP/Northstar_Veda.webp';
+import l14 from '../assets/AllLogosColorfulWEBP/Sanctuary.webp';
 
 export default function ProjectLogos() {
   const logos = [l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14];
