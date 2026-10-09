@@ -111,8 +111,8 @@ export default function Timeline() {
                       {projects.length > 0 && (
                         <div className={`flex flex-wrap gap-5 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
                           {projects.map((item, i) => {
-                            // Specifically scale Golden Valley or AMG if they have too much padding
-                            const scaleClass = item.logoKey === 'goldenvalley' ? 'scale-150' : item.logoKey === 'amgplaza' ? 'scale-125 saturate-200' : 'scale-100';
+                            // Specifically scale Golden Valley, and apply brightness-0 to AMG Plaza since its file is pure white
+                            const specialClass = item.logoKey === 'goldenvalley' ? 'scale-150' : item.logoKey === 'amgplaza' ? 'scale-125 brightness-0' : 'scale-100';
                             
                             return (
                               <div key={i} className="group cursor-pointer flex items-center justify-center">
@@ -120,7 +120,7 @@ export default function Timeline() {
                                   <img 
                                     src={logoMap[item.logoKey]} 
                                     alt={item.title || "Project Logo"} 
-                                    className={`h-[45px] lg:h-[65px] w-auto max-w-[180px] object-contain opacity-70 transition-all duration-300 lg:hover:opacity-100 ${scaleClass}`} 
+                                    className={`h-[45px] lg:h-[65px] w-auto max-w-[180px] object-contain opacity-70 transition-all duration-300 lg:hover:opacity-100 ${specialClass}`} 
                                   />
                                 ) : (
                                   <span className="text-[14px] font-bold text-ink/70">{item.title}</span>

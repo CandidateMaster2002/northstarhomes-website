@@ -20,7 +20,7 @@ export default function ProjectLogos() {
   const logos = [
     { src: l1, scale: 'scale-100' },
     { src: l2, scale: 'scale-100' },
-    { src: l3, scale: 'scale-125 saturate-200' }, // AMG Plaza
+    { src: l3, scale: 'scale-125 brightness-0' }, // AMG Plaza
     { src: l4, scale: 'scale-100' },
     { src: l5, scale: 'scale-100' },
     { src: l6, scale: 'scale-100' },
