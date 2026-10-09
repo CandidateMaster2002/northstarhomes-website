@@ -7,6 +7,7 @@ export default function CompletedProjects() {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isHovered, setIsHovered] = useState(false); // Track hover for auto-play pause
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -24,11 +25,29 @@ export default function CompletedProjects() {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      // Scroll by roughly one card width + gap (approx 320px)
       const scrollAmount = direction === 'left' ? -340 : 340;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (isHovered) return; // Pause when user hovers
+
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        // If we reached the end, smoothly scroll back to the start
+        if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scroll('right');
+        }
+      }
+    }, 3500); // Slides every 3.5 seconds
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   return (
     <section id="completed-projects" className="bg-bg border-b border-line pt-[60px] pb-16 max-[880px]:pt-[36px] max-[880px]:pb-[72px] overflow-hidden">
@@ -44,7 +63,11 @@ export default function CompletedProjects() {
         </div>
 
         {/* Carousel Container with Arrows */}
-        <div className="relative group">
+        <div 
+          className="relative group"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           
           {/* Left Arrow */}
           <button 
