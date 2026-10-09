@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
+import statsBg from '../assets/stats-bg.png'
 
 function parseValue(val) {
   const strVal = String(val);
@@ -21,23 +22,16 @@ function parseValue(val) {
 function AnimatedCounter({ value }) {
   const { num, prefix, suffix, isFloat } = parseValue(value);
   const ref = useRef(null);
-  
-  // Only start the animation when 50% of the element is visible
   const isInView = useInView(ref, { once: true, amount: 0.5 });
-  
   const count = useMotionValue(0);
   
-  // Transform the raw motion value into a formatted string
   const rounded = useTransform(count, (latest) => {
     return isFloat ? latest.toFixed(1) : Math.floor(latest);
   });
 
   useEffect(() => {
     if (isInView && !isNaN(num)) {
-      const controls = animate(count, num, { 
-        duration: 2.5, 
-        ease: "easeOut" 
-      });
+      const controls = animate(count, num, { duration: 2.5, ease: "easeOut" });
       return controls.stop;
     }
   }, [isInView, num, count]);
@@ -53,75 +47,76 @@ function AnimatedCounter({ value }) {
   );
 }
 
-const StatIcon = ({ id }) => {
-  const props = {
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.25",
-    className: "w-8 h-8 text-accent2",
-  };
-
-  switch (id) {
-    case 'years':
-      return (
-        <svg {...props}>
-          <path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
-        </svg>
-      );
-    case 'customers':
-      return (
-        <svg {...props}>
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      );
-    case 'awards':
-      return (
-        <svg {...props}>
-          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7c0 6 6 7.5 6 7.5s6-1.5 6-7.5Z"/>
-        </svg>
-      );
-    case 'completed':
-      return (
-        <svg {...props}>
-          <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
-        </svg>
-      );
-    case 'area':
-      return (
-        <svg {...props}>
-          <path d="M21.3 15.3l-7.1-7.1a2 2 0 0 0-2.82 0l-7.1 7.1a2 2 0 0 0 0 2.82l7.1 7.1a2 2 0 0 0 2.82 0l7.1-7.1a2 2 0 0 0 0-2.82z"/><path d="M14.2 11.8l-2.4-2.4"/><path d="M11.8 14.2l-2.4-2.4"/><path d="M9.4 16.6l-2.4-2.4"/>
-        </svg>
-      );
-    case 'ongoing':
-      return (
-        <svg {...props}>
-          <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/>
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
-
 export default function CredentialBand() {
+  // Select the 4 most impactful stats for the editorial layout
+  const selectedStats = siteConfig.stats.filter(s => 
+    ['years', 'area', 'completed', 'customers'].includes(s.id)
+  );
+
   return (
-    <section className="bg-bg border-y border-line">
-      <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-12 divide-x-0 lg:divide-x divide-line/70">
-          {siteConfig.stats.map((stat, idx) => (
-            <div key={stat.id} className="flex flex-col items-center text-center px-4 relative group">
-              <div className="mb-5 p-4 rounded-full bg-soft/50 group-hover:bg-soft transition-colors duration-300">
-                <StatIcon id={stat.id} />
+    <section className="bg-bg py-[80px] lg:py-[160px] overflow-hidden border-b border-line">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+        
+        {/* Floating Title (Desktop) */}
+        <div className="lg:absolute lg:top-10 lg:left-10 z-20 max-w-[320px] mb-12 lg:mb-0 text-center lg:text-left mx-auto">
+          <div className="w-[1px] h-12 bg-accent mx-auto lg:mx-0 mb-6 hidden lg:block" />
+          <h2 className="text-[40px] lg:text-[56px] leading-[1.05] font-heading text-ink mb-4">
+            Our Legacy, <br/> Measured.
+          </h2>
+          <div className="w-12 h-[1px] bg-accent mx-auto lg:hidden mb-6 mt-6" />
+        </div>
+
+        {/* The Editorial Layout */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-0 relative">
+          
+          {/* Subtle Background Swoosh */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-[120%] h-[120%] z-0 pointer-events-none hidden lg:block">
+            <svg viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent/10 opacity-70">
+              <path d="M-100,500 C200,500 300,100 500,100 C700,100 800,400 1100,400" stroke="currentColor" strokeWidth="1" />
+              <path d="M-100,400 C200,400 300,200 500,200 C700,200 800,500 1100,500" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+            </svg>
+          </div>
+
+          {/* Left Stats (Desktop) */}
+          <div className="w-full lg:w-[25%] flex flex-row lg:flex-col justify-center gap-8 lg:gap-[160px] z-10 mt-0 lg:mt-[100px] order-2 lg:order-1">
+            {selectedStats.slice(0, 2).map((stat, idx) => (
+              <div key={stat.id} className={`text-center flex flex-col items-center ${idx === 1 ? 'lg:-mr-12' : 'lg:ml-8'}`}>
+                <p className="font-heading text-[48px] lg:text-[64px] text-ink leading-none mb-2">
+                  <AnimatedCounter value={stat.value} />
+                </p>
+                <p className="text-[13px] tracking-[0.15em] uppercase text-muted font-medium max-w-[140px]">
+                  {stat.label}
+                </p>
               </div>
-              <p className="m-0 font-heading text-[42px] leading-none text-accent">
-                <AnimatedCounter value={stat.value} />
-              </p>
-              <p className="mt-4 m-0 text-[11px] tracking-[0.2em] uppercase text-muted/80 font-medium">
-                {stat.label}
-              </p>
+            ))}
+          </div>
+
+          {/* Center Image */}
+          <div className="w-full lg:w-[50%] flex justify-center z-10 order-1 lg:order-2">
+            <div className="relative w-full max-w-[540px] aspect-[4/5] lg:aspect-[3/4] rounded-t-[100px] lg:rounded-t-[200px] rounded-b-3xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(7,41,74,0.2)] border-8 border-white group">
+              <img 
+                src={statsBg} 
+                alt="Northstar Homes Legacy" 
+                className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent pointer-events-none" />
             </div>
-          ))}
+          </div>
+
+          {/* Right Stats (Desktop) */}
+          <div className="w-full lg:w-[25%] flex flex-row lg:flex-col justify-center gap-8 lg:gap-[160px] z-10 mt-0 lg:mt-[100px] order-3">
+            {selectedStats.slice(2, 4).map((stat, idx) => (
+              <div key={stat.id} className={`text-center flex flex-col items-center ${idx === 0 ? 'lg:-ml-12' : 'lg:mr-8'}`}>
+                <p className="font-heading text-[48px] lg:text-[64px] text-ink leading-none mb-2">
+                  <AnimatedCounter value={stat.value} />
+                </p>
+                <p className="text-[13px] tracking-[0.15em] uppercase text-muted font-medium max-w-[140px]">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
