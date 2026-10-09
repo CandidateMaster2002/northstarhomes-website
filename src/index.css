@@ -18,7 +18,7 @@
   --color-ph2: #D2E1EF;
 
   /* ── Typography ── */
-  --font-heading: "Marcellus", Georgia, serif;
+  --font-heading: "Montserrat", system-ui, sans-serif;
   --font-body: "Jost", system-ui, sans-serif;
 }
 
