@@ -5,82 +5,55 @@ import ScrollReveal from './ScrollReveal'
 export default function WhyNorthstar() {
   const checkpoints = [
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeLinecap="round" strokeLinejoin="round"/>
-          <polyline points="9 22 9 12 15 12 15 22" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
       text: 'Built with care',
       subtext: 'Rigorous supervision and quality materials.'
     },
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65" strokeLinecap="round"/>
-        </svg>
-      ),
       text: 'Checked with precision',
       subtext: 'Multi-point structural and finish inspections.'
     },
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" strokeLinecap="round" strokeLinejoin="round"/>
-          <polyline points="22 4 12 14.01 9 11.01" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
       text: 'Delivered with confidence',
       subtext: 'Handed over only when perfectly ready.'
     },
   ];
 
   return (
-    <section className="bg-bg py-12 max-[880px]:py-12 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6">
-        <div className="flex flex-wrap items-center gap-10 max-[880px]:gap-10">
+    <section className="bg-bg py-[72px] lg:py-[120px] overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+        
+        <div className="flex flex-wrap items-center gap-10 lg:gap-[72px]">
           
-          {/* Left — Text Content */}
-          <div className="flex-1 min-w-0 basis-[480px]">
-            {/* Minimal Eyebrow */}
+          {/* Left - Content */}
+          <div className="flex-1 min-w-0 basis-[460px]">
             <ScrollReveal>
-              <p className="text-[12px] tracking-[0.3em] uppercase text-accent font-bold mb-6">
-                Quality Assurance
-              </p>
-            </ScrollReveal>
-
-            {/* Elegant Headline */}
-            <ScrollReveal delay={0.1}>
-              <h2 className="text-[40px] lg:text-[54px] leading-[1.1] font-heading text-ink mb-8">
-                At Northstar,<br />
-                <span className="text-ink/60">every home is built</span><br />
-                with care.
+              <h2 className="text-[32px] lg:text-[46px] leading-[1.15] font-heading text-ink mb-6">
+                Not just built. <br/>
+                <span className="italic text-accent">Inspected.</span>
               </h2>
             </ScrollReveal>
-
-            {/* Description */}
+            
             <ScrollReveal delay={0.2}>
-              <p className="text-[18px] leading-[1.8] text-ink/70 mb-14 max-w-[50ch]">
-                Before handover, our projects undergo comprehensive <strong>PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
+              <p className="text-[16px] leading-[1.8] text-muted mb-10">
+                Before handover, our projects undergo comprehensive <strong className="text-ink font-medium">PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
               </p>
             </ScrollReveal>
 
-            {/* Quality Checkpoints - Upgraded */}
-            <div className="flex flex-col gap-8">
+            {/* Quality Checkpoints - Editorial Luxury Styling */}
+            <div className="flex flex-col">
               {checkpoints.map((item, idx) => (
                 <div 
                   key={idx} 
-                  className="flex items-start gap-5 group"
+                  className="flex items-start gap-6 group border-t border-line py-6 first:border-t-0 first:pt-0 last:pb-0"
                 >
-                  <div className="w-[52px] h-[52px] rounded-2xl bg-soft flex items-center justify-center text-accent shrink-0 lg:group-hover:scale-110 lg:group-hover:bg-accent lg:group-hover:text-white shadow-sm transition-all duration-300">
-                    {item.icon}
+                  <div className="text-[18px] tracking-[0.1em] font-heading font-bold text-accent/40 lg:group-hover:text-accent transition-colors duration-500 pt-0.5">
+                    0{idx + 1}
                   </div>
-                  <div className="pt-1">
-                    <p className="text-[19px] font-heading text-ink leading-tight mb-1">
+                  <div>
+                    <p className="text-[20px] font-heading text-ink leading-tight mb-2">
                       {item.text}
                     </p>
-                    <p className="text-[14px] text-muted">
+                    <p className="text-[15px] text-muted leading-relaxed">
                       {item.subtext}
                     </p>
                   </div>
@@ -89,26 +62,25 @@ export default function WhyNorthstar() {
             </div>
           </div>
 
-          {/* Right — Image with Offset Frame */}
-          <div className="flex-1 min-w-0 basis-[460px] max-[880px]:w-full px-4">
+          {/* Right - Image with Offset Frame */}
+          <div className="flex-1 min-w-0 basis-[460px] w-full mt-6 lg:mt-0">
             <ScrollReveal delay={0.4}>
               <div className="relative">
-                {/* Offset Decorative Background */}
-                <div className="absolute -inset-6 bg-soft rounded-[32px] -z-10 translate-x-6 translate-y-6 max-[880px]:translate-x-3 max-[880px]:translate-y-3"></div>
+                {/* Decorative Offset Background */}
+                <div className="absolute -inset-4 lg:-inset-6 bg-soft rounded-2xl translate-x-3 translate-y-3 lg:translate-x-6 lg:translate-y-6 z-0" />
                 
-                {/* Main Image */}
-                <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[5/4]">
+                {/* Image Container */}
+                <div className="relative z-10 aspect-[5/4] rounded-2xl overflow-hidden shadow-lg border border-line bg-bg">
                   <img 
                     src={propchkImg} 
                     alt="PropChk Quality Inspection" 
                     className="w-full h-full object-cover transition-transform duration-700 lg:hover:scale-105"
                   />
                 </div>
-                
               </div>
             </ScrollReveal>
           </div>
-
+          
         </div>
       </div>
     </section>
