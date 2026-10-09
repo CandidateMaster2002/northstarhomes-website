@@ -2,20 +2,20 @@ import React, { useRef, useEffect, useState } from 'react'
 import { siteConfig } from '../siteConfig'
 
 // Import project logos
-import logoNorthstar from '../assets/Northstar-logo_webp_file-removebg-preview.webp';
-import logoVeda from '../assets/logotoWEBP/Northstar_Veda.webp';
-import logoGardenSuites from '../assets/logotoWEBP/Northstar_Gardensuits.webp';
-import logoEdenGardens from '../assets/logotoWEBP/Northstar_Eden Gardens.webp';
-import logoAmgPlaza from '../assets/logotoWEBP/Northstar_Amgplaza.webp';
-import logoDistrict1 from '../assets/logotoWEBP/Northstar_Distrcit 1.webp';
-import logoHillside from '../assets/logotoWEBP/Northstar_Hillside.webp';
-import logoAirport from '../assets/logotoWEBP/Northsatr_Airport.webp';
-import logoLeela from '../assets/logotoWEBP/Northstar_Leela.webp';
-import logoAllura from '../assets/logotoWEBP/Norhstar_Allura.webp';
-import logoParkAve from '../assets/logotoWEBP/Northstar_Parkave.webp';
-import logoPalacio from '../assets/logotoWEBP/Northstar_Palacio.webp';
-import logoSanctuary from '../assets/logotoWEBP/Sanctuary.webp';
-import logoGoldenValley from '../assets/logotoWEBP/Northstar_GoldenValley.webp';
+import logoNorthstar from '../assets/Northstar-logo_webp_file-removebg-preview.webp'; // Kept original
+import logoVeda from '../assets/logos_mono/Veda logo Monochromatic Image.png';
+import logoGardenSuites from '../assets/logos_mono/Northstar Garden Suites Monochromatic image.png';
+import logoEdenGardens from '../assets/logos_mono/Eden Garden Monochromatic Image.png';
+import logoAmgPlaza from '../assets/logos_mono/AMG Plaza Monochromatic Image.png';
+import logoDistrict1 from '../assets/logos_mono/District 1 Monochromatic Image1.png';
+import logoHillside from '../assets/logos_mono/Hill Side Monochromatic Image.png';
+import logoAirport from '../assets/logos_mono/Airport Boulevard Monochromatic image.png';
+import logoLeela from '../assets/logos_mono/Leela Logo Monochromatic image.png';
+import logoAllura from '../assets/logos_mono/Allura Monochromatic Image.png';
+import logoParkAve from '../assets/logos_mono/Park Avenue Logo Monochromatic Image..png';
+import logoPalacio from '../assets/logos_mono/SP Palacio logo Monochromatic image.png';
+import logoSanctuary from '../assets/logos_mono/Sanctuary Logo Monochromatic image.png';
+import logoGoldenValley from '../assets/logotoWEBP/Northstar_GoldenValley.webp'; // Client hasn't provided Golden Valley mono yet, or it's named differently.
 
 const logoMap = {
   northstar: logoNorthstar,
@@ -116,7 +116,7 @@ export default function Timeline() {
                                 <img 
                                   src={logoMap[item.logoKey]} 
                                   alt={item.title || "Project Logo"} 
-                                  className="h-[35px] lg:h-[45px] w-auto object-contain grayscale mix-blend-multiply opacity-50 transition-all duration-500 lg:group-hover:grayscale-0 lg:group-hover:opacity-100 lg:group-hover:mix-blend-normal" 
+                                  className="h-[35px] lg:h-[45px] w-auto object-contain opacity-70 transition-opacity duration-300 lg:hover:opacity-100" 
                                 />
                               ) : (
                                 <span className="text-[14px] font-bold text-ink/70">{item.title}</span>
