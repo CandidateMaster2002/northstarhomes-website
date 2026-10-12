@@ -82,9 +82,9 @@ export default function WhyNorthstar() {
           </div>
 
           {/* Right - Clean Architectural Image Frame */}
-          <div className="flex-1 min-w-0 basis-[460px] w-full mt-6 lg:mt-0">
+          <div className="flex-1 min-w-0 basis-[480px] w-full mt-6 lg:mt-0">
             <ScrollReveal delay={0.4}>
-              <div className="aspect-[5/4] rounded-2xl overflow-hidden shadow-[0_24px_50px_rgba(7,41,74,0.12)] border border-line bg-bg group">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_24px_50px_rgba(7,41,74,0.12)] border border-line bg-bg group">
                 <img 
                   src={propchkImg} 
                   alt="PropChk Quality Inspection" 
