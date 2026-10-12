@@ -20,7 +20,7 @@ export default function WhyNorthstar() {
   ];
 
   return (
-    <section className="bg-bg py-[72px] lg:py-[120px] overflow-hidden">
+    <section className="bg-bg py-[72px] lg:py-[120px] overflow-hidden" id="quality">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         
         <div className="flex flex-wrap items-center gap-10 lg:gap-[72px]">
@@ -43,41 +43,78 @@ export default function WhyNorthstar() {
               </p>
             </ScrollReveal>
 
-            {/* Quality Checkpoints — Sequential 3-Step Scroll Reveal */}
-            <div className="flex flex-col">
-              {checkpoints.map((item, idx) => (
-                <motion.div 
-                  key={idx} 
-                  initial={{ opacity: 0, y: 30, x: -12 }}
-                  whileInView={{ opacity: 1, y: 0, x: 0 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{ 
-                    duration: 0.75, 
-                    delay: idx * 0.28, // Sequential delay: 0s, 0.28s, 0.56s
-                    ease: [0.22, 1, 0.36, 1] 
-                  }}
-                  className="flex items-start gap-6 group border-t border-line py-6 first:border-t-0 first:pt-0 last:pb-0"
-                >
-                  {/* Step Numeral (01, 02, 03) */}
-                  <motion.div 
-                    initial={{ scale: 0.8 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.28 + 0.1 }}
-                    className="text-[22px] font-heading font-normal text-accent/50 lg:group-hover:text-accent transition-colors duration-500 pt-0.5"
-                  >
-                    0{idx + 1}
-                  </motion.div>
-                  <div>
-                    <p className="text-[22px] font-heading font-normal text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
-                      {item.text}
-                    </p>
-                    <p className="text-[15px] font-body font-light text-muted leading-relaxed">
-                      {item.subtext}
-                    </p>
+            {/* Quality Checkpoints — Sequential 3-Step Numbered Scroll Reveal */}
+            <div className="flex flex-col relative">
+              {checkpoints.map((item, idx) => {
+                const stepDelay = idx * 0.45;
+
+                return (
+                  <div key={idx} className="relative py-6 first:pt-0 last:pb-0">
+                    {/* Animated Divider Line drawing smoothly from left to right */}
+                    {idx > 0 && (
+                      <motion.div 
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ 
+                          duration: 0.65, 
+                          delay: stepDelay, 
+                          ease: [0.22, 1, 0.36, 1] 
+                        }}
+                        style={{ originX: 0 }}
+                        className="absolute top-0 left-0 right-0 h-[1px] bg-line"
+                      />
+                    )}
+
+                    <motion.div 
+                      initial={{ opacity: 0, y: 28 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ 
+                        duration: 0.75, 
+                        delay: stepDelay, 
+                        ease: [0.22, 1, 0.36, 1] 
+                      }}
+                      className="flex items-start gap-6 group"
+                    >
+                      {/* Step Numeral (01, 02, 03) — Prominent Spring Pop Animation */}
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.5, y: 8 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ 
+                          duration: 0.55, 
+                          delay: stepDelay + 0.1, 
+                          ease: [0.34, 1.56, 0.64, 1] 
+                        }}
+                        className="text-[24px] font-heading font-medium text-accent pt-0.5 w-10 flex-shrink-0 transition-transform duration-300 lg:group-hover:scale-110"
+                      >
+                        0{idx + 1}
+                      </motion.div>
+
+                      {/* Content: Title & Subtext Glide In */}
+                      <motion.div
+                        initial={{ opacity: 0, x: 16 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ 
+                          duration: 0.65, 
+                          delay: stepDelay + 0.18, 
+                          ease: [0.22, 1, 0.36, 1] 
+                        }}
+                        className="flex-1"
+                      >
+                        <p className="text-[22px] font-heading font-normal text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
+                          {item.text}
+                        </p>
+                        <p className="text-[15px] font-body font-light text-muted leading-relaxed">
+                          {item.subtext}
+                        </p>
+                      </motion.div>
+                    </motion.div>
                   </div>
-                </motion.div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
