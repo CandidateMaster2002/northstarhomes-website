@@ -48,91 +48,48 @@ function AnimatedCounter({ value }) {
 
 const StatIcon = ({ id }) => {
   const props = {
-    viewBox: "0 0 48 48",
+    viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    className: "w-12 h-12 lg:w-14 lg:h-14 text-accent transition-all duration-500 group-hover:scale-110 group-hover:text-ink",
+    strokeWidth: "1.25",
+    className: "w-10 h-10 text-accent transition-transform duration-500 group-hover:scale-110 group-hover:text-ink",
   };
 
   switch (id) {
     case 'years':
-      // 14+ Years: Bespoke 8-point North Star & Heritage Compass Crest
       return (
-        <svg {...props} strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="24" cy="24" r="20" strokeWidth="0.75" strokeDasharray="1.5 2.5" className="opacity-40" />
-          <path d="M24 5L27 19L41 22L27 25L24 39L21 25L7 22L21 19Z" strokeWidth="1.1" />
-          <path d="M14 14L18 18M34 14L30 18M14 30L18 26M34 30L30 26" strokeWidth="0.8" className="opacity-60" />
-          <circle cx="24" cy="22" r="1.5" fill="currentColor" />
+        <svg {...props}>
+          <path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
         </svg>
       );
     case 'customers':
-      // 600+ Customers: Luxury Villa Residence Facade
       return (
-        <svg {...props} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M7 23L24 8L41 23" strokeWidth="1.15" />
-          <path d="M11 19.5V39H37V19.5" strokeWidth="1" />
-          <path d="M32 15V10H36V18" strokeWidth="0.9" />
-          <rect x="20" y="27" width="8" height="12" strokeWidth="0.9" />
-          <line x1="24" y1="27" x2="24" y2="39" strokeWidth="0.75" />
-          <rect x="14" y="24" width="4" height="5" strokeWidth="0.85" />
-          <rect x="30" y="24" width="4" height="5" strokeWidth="0.85" />
-          <line x1="5" y1="39" x2="43" y2="39" strokeWidth="1" />
+        <svg {...props}>
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
       );
     case 'awards':
-      // 8 Awards: Classical Aristocratic Laurel Wreath & Crest Star
       return (
-        <svg {...props} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M24 38C15 38 10 31 10 23C10 15 15 8 24 6" strokeWidth="0.9" />
-          <path d="M24 38C33 38 38 31 38 23C38 15 33 8 24 6" strokeWidth="0.9" />
-          <path d="M11 18C8 17 8 14 11 14C14 14 13 17 11 18Z" strokeWidth="0.85" />
-          <path d="M12 26C9 26 9 23 12 23C15 23 14 26 12 26Z" strokeWidth="0.85" />
-          <path d="M37 18C40 17 40 14 37 14C34 14 35 17 37 18Z" strokeWidth="0.85" />
-          <path d="M36 26C39 26 39 23 36 23C33 23 34 26 36 26Z" strokeWidth="0.85" />
-          <path d="M24 15L25.3 19.2L29.5 19.6L26.3 22.4L27.2 26.5L24 24.3L20.8 26.5L21.7 22.4L18.5 19.6L22.7 19.2Z" strokeWidth="0.95" />
-          <path d="M20 38L17 43M28 38L31 43" strokeWidth="0.9" />
-          <circle cx="24" cy="38" r="1.5" fill="currentColor" />
+        <svg {...props}>
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7c0 6 6 7.5 6 7.5s6-1.5 6-7.5Z"/>
         </svg>
       );
     case 'completed':
-      // 10 Completed: Classical Architectural Portico & Heritage Columns
       return (
-        <svg {...props} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M6 14L24 6L42 14H6Z" strokeWidth="1.1" />
-          <line x1="8" y1="17" x2="40" y2="17" strokeWidth="0.9" />
-          <line x1="12" y1="17" x2="12" y2="37" strokeWidth="1.1" />
-          <line x1="19" y1="17" x2="19" y2="37" strokeWidth="0.9" />
-          <line x1="29" y1="17" x2="29" y2="37" strokeWidth="0.9" />
-          <line x1="36" y1="17" x2="36" y2="37" strokeWidth="1.1" />
-          <path d="M19 28C19 24.5 21.2 22 24 22C26.8 22 29 24.5 29 28V37H19V28Z" strokeWidth="0.85" />
-          <line x1="6" y1="37" x2="42" y2="37" strokeWidth="1" />
-          <line x1="4" y1="40" x2="44" y2="40" strokeWidth="1.1" />
+        <svg {...props}>
+          <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
         </svg>
       );
     case 'area':
-      // 1.3 mn Sq Ft: Masterplan Blueprint Quadrants & Precision Coordinates
       return (
-        <svg {...props} strokeLinecap="round" strokeLinejoin="round">
-          <rect x="9" y="9" width="30" height="30" strokeWidth="1" />
-          <line x1="9" y1="24" x2="39" y2="24" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-60" />
-          <line x1="24" y1="9" x2="24" y2="39" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-60" />
-          <path d="M5 9H9V5M43 9H39V5M5 39H9V43M43 39H39V43" strokeWidth="0.95" />
-          <circle cx="24" cy="24" r="4.5" strokeWidth="0.9" />
-          <circle cx="24" cy="24" r="1.5" fill="currentColor" />
-          <path d="M24 15V17M24 31V33M15 24H17M31 24H33" strokeWidth="0.75" />
+        <svg {...props}>
+          <path d="M21.3 15.3l-7.1-7.1a2 2 0 0 0-2.82 0l-7.1 7.1a2 2 0 0 0 0 2.82l7.1 7.1a2 2 0 0 0 2.82 0l7.1-7.1a2 2 0 0 0 0-2.82z"/><path d="M14.2 11.8l-2.4-2.4"/><path d="M11.8 14.2l-2.4-2.4"/><path d="M9.4 16.6l-2.4-2.4"/>
         </svg>
       );
     case 'ongoing':
-      // 6 Ongoing: Rising Masterplan Community with Elevation Horizon
       return (
-        <svg {...props} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M6 25L17 16L28 25V39H6V25Z" strokeWidth="1.1" />
-          <rect x="13" y="30" width="8" height="9" strokeWidth="0.85" />
-          <path d="M25 19L35 11L42 17V36H28" strokeWidth="1" />
-          <path d="M35 5V8M29 8L31 10M41 8L39 10" strokeWidth="0.85" className="opacity-60" />
-          <line x1="3" y1="39" x2="45" y2="39" strokeWidth="1.15" />
-          <line x1="17" y1="39" x2="17" y2="42" strokeWidth="0.8" />
-          <line x1="35" y1="39" x2="35" y2="42" strokeWidth="0.8" />
+        <svg {...props}>
+          <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/>
         </svg>
       );
     default:
