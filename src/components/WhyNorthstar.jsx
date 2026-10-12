@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import propchkImg from '../assets/propchk before building.webp'
 import ScrollReveal from './ScrollReveal'
 
@@ -42,25 +43,40 @@ export default function WhyNorthstar() {
               </p>
             </ScrollReveal>
 
-            {/* Quality Checkpoints - Editorial Luxury Styling */}
+            {/* Quality Checkpoints — Sequential 3-Step Scroll Reveal */}
             <div className="flex flex-col">
               {checkpoints.map((item, idx) => (
-                <div 
+                <motion.div 
                   key={idx} 
+                  initial={{ opacity: 0, y: 30, x: -12 }}
+                  whileInView={{ opacity: 1, y: 0, x: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ 
+                    duration: 0.75, 
+                    delay: idx * 0.28, // Sequential delay: 0s, 0.28s, 0.56s
+                    ease: [0.22, 1, 0.36, 1] 
+                  }}
                   className="flex items-start gap-6 group border-t border-line py-6 first:border-t-0 first:pt-0 last:pb-0"
                 >
-                  <div className="text-[22px] font-heading font-normal text-accent/50 lg:group-hover:text-accent transition-colors duration-500 pt-0.5">
+                  {/* Step Numeral (01, 02, 03) */}
+                  <motion.div 
+                    initial={{ scale: 0.8 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.28 + 0.1 }}
+                    className="text-[22px] font-heading font-normal text-accent/50 lg:group-hover:text-accent transition-colors duration-500 pt-0.5"
+                  >
                     0{idx + 1}
-                  </div>
+                  </motion.div>
                   <div>
-                    <p className="text-[22px] font-heading font-normal text-ink leading-tight mb-1.5">
+                    <p className="text-[22px] font-heading font-normal text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
                       {item.text}
                     </p>
                     <p className="text-[15px] font-body font-light text-muted leading-relaxed">
                       {item.subtext}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -77,7 +93,7 @@ export default function WhyNorthstar() {
                   <img 
                     src={propchkImg} 
                     alt="PropChk Quality Inspection" 
-                    className="w-full h-full object-cover transition-transform duration-700 lg:hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 lg:hover:scale-105" 
                   />
                 </div>
               </div>

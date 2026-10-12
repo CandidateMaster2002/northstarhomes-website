@@ -1,8 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
+import { motion } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
+import ScrollReveal from './ScrollReveal'
 
 // Import project logos
-import logoNorthstar from '../assets/Northstar-logo_webp_file-removebg-preview.webp'; // Kept original
+import logoNorthstar from '../assets/Northstar-logo_webp_file-removebg-preview.webp';
 import logoVeda from '../assets/monochromelogostoWEBP/Veda logo Monochromatic Image.webp';
 import logoGardenSuites from '../assets/monochromelogostoWEBP/Northstar Garden Suites Monochromatic image.webp';
 import logoEdenGardens from '../assets/monochromelogostoWEBP/Eden Garden Monochromatic Image.webp';
@@ -35,48 +37,37 @@ const logoMap = {
 };
 
 export default function Timeline() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   const timeline = siteConfig.timeline;
 
   return (
-    <section ref={sectionRef} id="legacy" className="bg-soft py-[72px] lg:py-[120px] overflow-hidden border-t border-line">
+    <section id="legacy" className="bg-soft py-[72px] lg:py-[120px] overflow-hidden border-t border-line">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
         
         {/* Header */}
         <div className="text-center mb-20 lg:mb-28">
-          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
-            Milestones & Heritage
-          </p>
-          <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink">
-            A Decade of Building Trust.
-          </h2>
+          <ScrollReveal>
+            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+              Milestones & Heritage
+            </p>
+            <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink">
+              A Decade of Building Trust.
+            </h2>
+          </ScrollReveal>
         </div>
 
         {/* Timeline Container */}
         <div className="relative">
-          {/* Vertical Center Line */}
-          <div className={`absolute top-0 bottom-0 left-[24px] md:left-1/2 md:-ml-[1px] w-[2px] bg-line transition-all duration-[2s] ease-out origin-top ${
-            isVisible ? 'scale-y-100' : 'scale-y-0'
-          }`} />
+          {/* Vertical Center Line — Grows downwards */}
+          <motion.div 
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 1.8, ease: "easeInOut" }}
+            className="absolute top-0 bottom-0 left-[24px] md:left-1/2 md:-ml-[1px] w-[2px] bg-line origin-top" 
+          />
 
-          {/* Timeline Items */}
-          <div className="flex flex-col gap-12 lg:gap-8">
+          {/* Timeline Items — Progressive Scroll Reveal */}
+          <div className="flex flex-col gap-14 lg:gap-10">
             {timeline.map((entry, idx) => {
               const projects = entry.items.filter(i => i.type === 'project');
               const awards = entry.items.filter(i => i.type === 'award');
@@ -86,41 +77,60 @@ export default function Timeline() {
               const isEven = idx % 2 === 0;
 
               return (
-                <div 
+                <motion.div 
                   key={entry.year} 
-                  className={`relative flex flex-col md:flex-row items-start md:items-center w-full transition-all duration-1000 ease-out ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                  }`}
-                  style={{ transitionDelay: `${idx * 150}ms` }}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25, margin: "-40px" }}
+                  transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative flex flex-col md:flex-row items-start md:items-center w-full group"
                 >
                   
-                  {/* The Node (Dot on the line) */}
-                  <div className="absolute left-[24px] md:left-1/2 w-4 h-4 rounded-full border-[3px] border-bg bg-accent shadow-sm -ml-[7px] md:-ml-[8px] z-10 mt-1.5 md:mt-0" />
+                  {/* The Node (Dot on the line) with scale-in animation */}
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+                    className="absolute left-[24px] md:left-1/2 w-4 h-4 rounded-full border-[3px] border-bg bg-accent shadow-sm -ml-[7px] md:-ml-[8px] z-10 mt-1.5 md:mt-0 group-hover:scale-125 transition-transform duration-300" 
+                  />
 
                   {/* Desktop: Content block (Left or Right) */}
                   <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 ${isEven ? 'md:pr-[60px] md:text-right' : 'md:pl-[60px] md:order-last md:text-left'}`}>
                     
-                    {/* The Year */}
-                    <h3 className="text-[48px] lg:text-[68px] font-heading font-normal text-ink/35 leading-none mb-4 md:mb-6">
+                    {/* The Year — Slides smoothly into view */}
+                    <motion.h3 
+                      initial={{ opacity: 0, x: isEven ? -25 : 25 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.25 }}
+                      transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                      className="text-[48px] lg:text-[68px] font-heading font-normal text-ink/35 leading-none mb-4 md:mb-6 group-hover:text-accent/60 transition-colors duration-500"
+                    >
                       {entry.year}
-                    </h3>
+                    </motion.h3>
 
-                    <div className={`flex flex-col gap-6 ${isEven ? 'md:items-end' : 'md:items-start'}`}>
+                    {/* Milestone Details Card */}
+                    <motion.div 
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.25 }}
+                      transition={{ duration: 0.75, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                      className={`flex flex-col gap-6 ${isEven ? 'md:items-end' : 'md:items-start'}`}
+                    >
                       
                       {/* Projects (Monochromatic Logos) */}
                       {projects.length > 0 && (
                         <div className={`flex flex-wrap gap-5 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
                           {projects.map((item, i) => {
-                            // Specifically scale Golden Valley, and apply brightness-0 to AMG Plaza since its file is pure white
                             const specialClass = item.logoKey === 'goldenvalley' ? 'scale-150' : item.logoKey === 'amgplaza' ? 'scale-125 brightness-0' : 'scale-100';
                             
                             return (
-                              <div key={i} className="group cursor-pointer flex items-center justify-center">
+                              <div key={i} className="group/logo cursor-pointer flex items-center justify-center">
                                 {item.logoKey && logoMap[item.logoKey] ? (
                                   <img 
                                     src={logoMap[item.logoKey]} 
                                     alt={item.title || "Project Logo"} 
-                                    className={`h-[45px] lg:h-[65px] w-auto max-w-[180px] object-contain opacity-70 transition-all duration-300 lg:hover:opacity-100 ${specialClass}`} 
+                                    className={`h-[45px] lg:h-[65px] w-auto max-w-[180px] object-contain opacity-70 transition-all duration-300 group-hover/logo:opacity-100 group-hover/logo:scale-105 ${specialClass}`} 
                                   />
                                 ) : (
                                   <span className="text-[14px] font-bold text-ink/70">{item.title}</span>
@@ -165,12 +175,12 @@ export default function Timeline() {
                         </div>
                       )}
 
-                    </div>
+                    </motion.div>
                   </div>
                   
                   {/* Empty space for the other half on desktop */}
                   <div className="hidden md:block w-1/2" />
-                </div>
+                </motion.div>
               );
             })}
           </div>

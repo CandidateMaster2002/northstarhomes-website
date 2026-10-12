@@ -88,11 +88,15 @@ a:hover {
   animation: scroll 40s linear infinite;
 }
 
+.animate-marquee-slow {
+  animation: scroll 65s linear infinite;
+}
+
 .animate-marquee-reverse {
   animation: scroll-reverse 50s linear infinite;
 }
 
-.animate-marquee:hover, .animate-marquee-reverse:hover {
+.animate-marquee:hover, .animate-marquee-slow:hover, .animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
 
