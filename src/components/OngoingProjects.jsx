@@ -9,14 +9,14 @@ export default function OngoingProjects() {
       <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6">
         <div className="mb-10 flex flex-wrap justify-between items-end gap-6">
           <div>
-            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
               Our Presence
             </p>
             <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-normal text-ink">
               Iconic Developments
             </h2>
           </div>
-          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-accent2 transition-colors flex items-center gap-2 font-body">
+          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body">
             View All <span className="text-lg leading-none">&rarr;</span>
           </a>
         </div>
@@ -35,7 +35,7 @@ export default function OngoingProjects() {
                 className={`group relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-[380px] lg:h-[440px] ${spanClass}`}
               >
                 {/* Background Image */}
-                <div className="absolute inset-0 bg-[#AECFA9]">
+                <div className="absolute inset-0 bg-[#D8E6F2]">
                   {project.image && (
                     <img src={project.image} alt={project.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   )}
@@ -49,7 +49,7 @@ export default function OngoingProjects() {
                   <span className="bg-white/95 backdrop-blur-sm text-ink text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     {project.city}
                   </span>
-                  <span className="bg-accent2d/90 text-white text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
+                  <span className="bg-accent text-white text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     Ongoing
                   </span>
                 </div>

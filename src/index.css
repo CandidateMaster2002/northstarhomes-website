@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Brand Blue & Green palette ── */
+  /* ── Monochromatic Brand Blue Palette ── */
   --color-bg: #FFFFFF;
   --color-soft: #EEF5FB;
   --color-ink: #07294A;
   --color-muted: #4F6378;
   --color-accent: #0B6FB5;
-  --color-accent2: #27702F;
-  --color-accent2d: #5CC266;
+  --color-accent2: #0B6FB5;
+  --color-accent2d: #3898E2;
   --color-line: #D8E6F2;
   --color-deep: #07294A;
   --color-deep-ink: #E9F2FA;

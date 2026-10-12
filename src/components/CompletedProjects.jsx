@@ -55,14 +55,14 @@ export default function CompletedProjects() {
         
         <div className="mb-8 flex flex-wrap justify-between items-end gap-6">
           <div>
-            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
               Delivered Communities
             </p>
             <h2 className="text-[clamp(32px,3.4vw,48px)] leading-[1.12] font-heading font-normal text-ink">
               Completed Projects
             </h2>
           </div>
-          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent lg:hover:text-accent2 transition-colors flex items-center gap-2 font-body">
+          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent lg:hover:text-ink transition-colors flex items-center gap-2 font-body">
             View All <span className="text-lg leading-none">&rarr;</span>
           </a>
         </div>

@@ -52,7 +52,7 @@ const StatIcon = ({ id }) => {
     fill: "none",
     stroke: "currentColor",
     strokeWidth: "1.25",
-    className: "w-12 h-12 lg:w-14 lg:h-14 text-accent transition-transform duration-500 group-hover:scale-110 group-hover:text-accent2",
+    className: "w-12 h-12 lg:w-14 lg:h-14 text-accent transition-transform duration-500 group-hover:scale-110 group-hover:text-ink",
   };
 
   switch (id) {
@@ -104,7 +104,7 @@ export default function CredentialBand() {
         
         {/* Header Section */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
             Northstar Credentials
           </p>
           <h2 className="text-[26px] lg:text-[36px] font-heading font-normal text-ink mb-6">

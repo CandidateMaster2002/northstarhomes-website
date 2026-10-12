@@ -40,7 +40,7 @@ export default function ProjectLogos() {
   return (
     <section className="bg-soft py-[60px] border-t border-line overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6 mb-10 text-center flex flex-col items-center">
-        <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+        <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
           Our Portfolio
         </p>
         <h2 className="text-[clamp(28px,2.8vw,42px)] font-heading font-normal text-ink leading-tight">

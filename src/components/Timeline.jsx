@@ -60,7 +60,7 @@ export default function Timeline() {
         
         {/* Header */}
         <div className="text-center mb-20 lg:mb-28">
-          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
             Milestones & Heritage
           </p>
           <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink">

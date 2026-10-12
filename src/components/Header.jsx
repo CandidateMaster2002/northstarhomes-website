@@ -185,7 +185,7 @@ export default function Header() {
             className={`hidden xl:flex items-center gap-2 text-[13px] font-semibold tracking-wide transition-colors ${
               isScrolled 
                 ? 'text-ink hover:text-accent' 
-                : 'text-white hover:text-accent2d drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'
+                : 'text-white hover:text-accent drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'
             }`}
           >
             <svg className="w-3.5 h-3.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">

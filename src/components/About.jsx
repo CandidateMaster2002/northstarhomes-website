@@ -28,7 +28,7 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             <ScrollReveal delay={0.1}>
-              <p className="mb-3 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+              <p className="mb-3 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
                 About Northstar
               </p>
             </ScrollReveal>
@@ -40,7 +40,7 @@ export default function About() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.3}>
-              <p className="text-[20px] lg:text-[24px] leading-[1.45] text-ink font-heading italic font-normal mb-8 lg:mb-10 border-l-2 border-accent2 pl-5">
+              <p className="text-[20px] lg:text-[24px] leading-[1.45] text-ink font-heading italic font-normal mb-8 lg:mb-10 border-l-2 border-accent pl-5">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
             </ScrollReveal>

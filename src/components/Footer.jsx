@@ -13,55 +13,67 @@ export default function Footer() {
             <img src={logoImg} alt="Northstar Homes Logo" className="h-12 w-auto object-contain" />
           </div>
 
-          <p className="mb-2 text-muted">
-            <a href="tel:+918657553355" className="hover:opacity-70 transition-opacity">
+          <p className="mb-2 text-muted font-body font-light">
+            <a href="tel:+918657553355" className="hover:text-accent transition-colors">
               +91 86575 53355
             </a>
           </p>
-          <p className="mb-6 text-muted">
-            <a href="mailto:support@northstarhomes.in" className="hover:opacity-70 transition-opacity">
+          <p className="mb-6 text-muted font-body font-light">
+            <a href="mailto:support@northstarhomes.in" className="hover:text-accent transition-colors">
               support@northstarhomes.in
             </a>
           </p>
 
           <div className="flex gap-4 items-center">
             {/* Facebook */}
-            <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 transition-transform" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" width="24" height="24">
-                <path fill="#1877F2" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/>
-                <path fill="#FFF" d="M16.47 15.58l.53-3.5h-3.32v-2.27c0-.96.47-1.89 1.96-1.89h1.5V4.95s-1.36-.24-2.67-.24c-2.73 0-4.54 1.68-4.54 4.7v2.73H7.08v3.5h3.04V24c.61.1 1.25.1 1.88.1s1.26-.01 1.88-.1v-8.42h2.59z"/>
+            <a 
+              href={siteConfig.socials.facebook} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-accent hover:text-ink hover:-translate-y-0.5 transition-all duration-300" 
+              aria-label="Facebook"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
             
             {/* Instagram */}
-            <a href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 transition-transform" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="24" height="24">
-                <defs>
-                  <linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#f09433"/>
-                    <stop offset="25%" stopColor="#e6683c"/>
-                    <stop offset="50%" stopColor="#dc2743"/>
-                    <stop offset="75%" stopColor="#cc2366"/>
-                    <stop offset="100%" stopColor="#bc1888"/>
-                  </linearGradient>
-                </defs>
-                <rect width="24" height="24" rx="5" fill="url(#ig)"/>
-                <path fill="#fff" d="M12 5.84c2.01 0 2.25.01 3.04.04.73.03 1.13.16 1.4.26.35.14.6.31.87.58.26.27.44.52.58.87.1.27.23.67.26 1.4.04.79.05 1.03.05 3.01s-.01 2.22-.05 3.01c-.03.73-.16 1.13-.26 1.4-.14.35-.31.6-.58.87-.27.26-.52.44-.87.58-.27.1-.67.23-1.4.26-.79.04-1.03.05-3.01.05s-2.22-.01-3.01-.05c-.73-.03-1.13-.16-1.4-.26-.35-.14-.6-.31-.87-.58-.26-.27-.44-.52-.58-.87-.1-.27-.23-.67-.26-1.4-.04-.79-.05-1.03-.05-3.01s.01-2.22.05-3.01c.03-.73.16-1.13.26-1.4.14-.35.31-.6.58-.87.27-.26.52-.44.87-.58.27-.1.67-.23 1.4-.26.79-.04 1.03-.05 3.01-.05m0-2.14c-2.04 0-2.3.01-3.1.05-.8.03-1.35.16-1.83.35-.49.19-.9.45-1.32.87-.41.42-.67.83-.87 1.32-.19.48-.32 1.03-.35 1.83-.04.8-.05 1.06-.05 3.1s.01 2.3.05 3.1c.03.8.16 1.35.35 1.83.19.49.45.9.87 1.32.42.41.83.67 1.32.87.48.19 1.03.32 1.83.35.8.04 1.06.05 3.1.05s2.3-.01 3.1-.05c.8-.03 1.35-.16 1.83-.35.49-.19.9-.45 1.32-.87.41-.42.67-.83.87-1.32.19-.48.32-1.03.35-1.83.04-.8.05-1.06.05-3.1s-.01-2.3-.05-3.1c-.03-.8-.16-1.35-.35-1.83-.19-.49-.45-.9-.87-1.32-.42-.41-.83-.67-1.32-.87-.48-.19-1.03-.32-1.83-.35-.8-.04-1.06-.05-3.1-.05zM12 8.16a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68m0 5.54a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4m2.5-4.8a1.14 1.14 0 1 1-2.28 0 1.14 1.14 0 0 1 2.28 0"/>
+            <a 
+              href={siteConfig.socials.instagram} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-accent hover:text-ink hover:-translate-y-0.5 transition-all duration-300" 
+              aria-label="Instagram"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
 
             {/* X / Twitter */}
-            <a href={siteConfig.socials.x} target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 transition-transform" aria-label="X (Twitter)">
-              <svg viewBox="0 0 24 24" width="20" height="20" className="ml-1">
-                <path fill="#000" d="M13.68 10.4L22.9 0h-2.18L13.06 8.68 6.94 0H0l9.64 13.56L0 24h2.18l8.07-9.08L16.66 24h6.94l-9.92-13.6zM2.8 1.54h3.36l15.02 21.05h-3.36L2.8 1.54z"/>
+            <a 
+              href={siteConfig.socials.x} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-accent hover:text-ink hover:-translate-y-0.5 transition-all duration-300" 
+              aria-label="X (Twitter)"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
 
             {/* YouTube */}
-            <a href={siteConfig.socials.youtube} target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 transition-transform" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" width="28" height="28" className="ml-1">
-                <path fill="#FF0000" d="M23.5 6.18a3 3 0 0 0-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3 3 0 0 0 .5 6.18C0 8.06 0 12 0 12s0 3.94.5 5.82a3 3 0 0 0 2.12 2.13c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3 3 0 0 0 2.12-2.13C24 15.94 24 12 24 12s0-3.94-.5-5.82z"/>
-                <path fill="#FFF" d="M9.54 15.57l6.76-3.57-6.76-3.57v7.14z"/>
+            <a 
+              href={siteConfig.socials.youtube} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-accent hover:text-ink hover:-translate-y-0.5 transition-all duration-300" 
+              aria-label="YouTube"
+            >
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
           </div>
@@ -69,7 +81,7 @@ export default function Footer() {
 
         {/* Column 2: Company */}
         <div>
-          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent2 font-heading font-bold mb-[22px]">
+          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent font-heading font-bold mb-[22px]">
             Company
           </h4>
           <ul className="list-none p-0 m-0">
@@ -93,7 +105,7 @@ export default function Footer() {
 
         {/* Column 3: Projects */}
         <div>
-          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent2 font-heading font-bold mb-[22px]">
+          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent font-heading font-bold mb-[22px]">
             Projects
           </h4>
           <ul className="list-none p-0 m-0">
@@ -117,7 +129,7 @@ export default function Footer() {
 
         {/* Column 4: Quick Links */}
         <div>
-          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent2 font-heading font-bold mb-[22px]">
+          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent font-heading font-bold mb-[22px]">
             Quick Links
           </h4>
           <ul className="list-none p-0 m-0">
