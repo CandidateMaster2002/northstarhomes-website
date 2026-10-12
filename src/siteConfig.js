@@ -16,12 +16,11 @@ export const siteConfig = {
   // Global stats for the website
   // You can change these numbers and they will update everywhere they are used.
   stats: [
-    { id: 'years', value: '14+', label: 'Years', icon: '⏳' },
-    { id: 'customers', value: '600', label: 'Customers', icon: '🤝' },
-    { id: 'awards', value: '8', label: 'Awards', icon: '🏆' },
-    { id: 'completed', value: '10', label: 'Completed Projects', icon: '🏢' },
-    { id: 'area', value: '1.3 mn', label: 'sq ft delivered', icon: '📐' },
-    { id: 'ongoing', value: '6', label: 'Ongoing', icon: '🏗️' },
+    { id: 'years', value: '14+', figure: '14+ Years', label: 'In Hyderabad & Visakhapatnam' },
+    { id: 'customers', value: '600+', figure: '600+', label: 'Homes delivered*' },
+    { id: 'completed', value: '10', figure: '10', label: 'Completed landmark communities' },
+    { id: 'area', value: '1.3+', figure: '1.3+ M SQFT', label: 'Delivered built-up area' },
+    { id: 'ongoing', value: '6', figure: '6', label: 'Communities in planning & progress' },
   ],
 
   // All Projects Data

@@ -2,6 +2,21 @@ import React, { useEffect, useRef } from 'react'
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
 
+// 5 SVG icons from src/assets/credentials
+import iconHourglass from '../assets/credentials/hourglass.svg'
+import iconCustomers from '../assets/credentials/customers.svg'
+import iconBuilding from '../assets/credentials/building.svg'
+import iconArea from '../assets/credentials/area.svg'
+import iconBuilding2 from '../assets/credentials/building2.svg'
+
+const iconMap = {
+  years: iconHourglass,
+  customers: iconCustomers,
+  completed: iconBuilding,
+  area: iconArea,
+  ongoing: iconBuilding2,
+}
+
 function parseValue(val) {
   const strVal = String(val);
   const numMatch = strVal.match(/[\d\.]+/);
@@ -21,7 +36,7 @@ function parseValue(val) {
 function AnimatedCounter({ value }) {
   const { num, prefix, suffix, isFloat } = parseValue(value);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
   const count = useMotionValue(0);
   
   const rounded = useTransform(count, (latest) => {
@@ -30,7 +45,7 @@ function AnimatedCounter({ value }) {
 
   useEffect(() => {
     if (isInView && !isNaN(num)) {
-      const controls = animate(count, num, { duration: 2.5, ease: "easeOut" });
+      const controls = animate(count, num, { duration: 2.2, ease: "easeOut" });
       return controls.stop;
     }
   }, [isInView, num, count]);
@@ -47,35 +62,60 @@ function AnimatedCounter({ value }) {
 }
 
 export default function CredentialBand() {
+  const topRowStats = siteConfig.stats.slice(0, 3);
+  const bottomRowStats = siteConfig.stats.slice(3, 5);
+
   return (
-    <section className="bg-bg py-[80px] lg:py-[130px] border-y border-line">
+    <section className="bg-bg py-20 lg:py-28 border-y border-line" id="credentials">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         
-        {/* Header Section */}
-        <div className="text-center mb-16 lg:mb-24">
-          <p className="mb-2.5 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
-            Northstar Credentials
-          </p>
-          <h2 className="text-[28px] sm:text-[34px] lg:text-[44px] font-heading font-normal text-ink mb-6">
-            The Premier Luxury Property Developer in Hyderabad
-          </h2>
-          <a 
-            href="#about" 
-            className="inline-block text-[12px] tracking-[0.2em] uppercase font-body font-medium text-ink border-b border-ink/30 pb-1 hover:text-accent hover:border-accent transition-all duration-300"
-          >
-            Discover Northstar
-          </a>
+        {/* Eyebrow Header directly styled after DAMAC */}
+        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
+          <div className="inline-flex flex-col items-center">
+            <span className="text-[12px] sm:text-[13px] tracking-[0.26em] uppercase font-body font-medium text-ink pb-2 border-b-2 border-accent">
+              DISCOVER NORTHSTAR
+            </span>
+          </div>
         </div>
 
-        {/* Pure Editorial 3-Column Grid (No Clutter, Pure Typography) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-14 sm:gap-y-16 lg:gap-y-24 gap-x-6 sm:gap-x-12 max-w-[1100px] mx-auto">
-          {siteConfig.stats.map((stat) => (
-            <div key={stat.id} className="flex flex-col items-center text-center group">
-              <h3 className="text-[52px] sm:text-[64px] lg:text-[76px] font-heading font-normal text-ink leading-none mb-3 transition-transform duration-500 lg:group-hover:-translate-y-1">
-                <AnimatedCounter value={stat.value} />
+        {/* Top Row: Exactly 3 items */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 lg:gap-16 max-w-[1100px] mx-auto text-center">
+          {topRowStats.map((stat) => (
+            <div key={stat.id} className="flex flex-col items-center group">
+              <div className="h-16 flex items-center justify-center mb-5 lg:mb-6">
+                <img 
+                  src={iconMap[stat.id]} 
+                  alt="" 
+                  className="h-12 w-12 lg:h-14 lg:w-14 object-contain transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-[34px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-ink leading-tight tracking-tight mb-2 sm:mb-2.5">
+                <AnimatedCounter value={stat.figure || stat.value} />
               </h3>
-              <div className="w-8 h-[1px] bg-accent/40 mb-3.5 transition-all duration-500 lg:group-hover:w-14 lg:group-hover:bg-accent" />
-              <p className="text-[11px] sm:text-[12px] lg:text-[13px] tracking-[0.22em] uppercase text-muted font-body font-light max-w-[200px] leading-relaxed">
+              <p className="text-[13px] sm:text-[14px] text-muted font-body font-light leading-relaxed max-w-[240px] mx-auto">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Row: Exactly 2 items, horizontally centered beneath Row 1 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-20 max-w-[760px] mx-auto mt-14 sm:mt-16 lg:mt-20 text-center">
+          {bottomRowStats.map((stat) => (
+            <div key={stat.id} className="flex flex-col items-center group">
+              <div className="h-16 flex items-center justify-center mb-5 lg:mb-6">
+                <img 
+                  src={iconMap[stat.id]} 
+                  alt="" 
+                  className="h-12 w-12 lg:h-14 lg:w-14 object-contain transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-[34px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-ink leading-tight tracking-tight mb-2 sm:mb-2.5">
+                <AnimatedCounter value={stat.figure || stat.value} />
+              </h3>
+              <p className="text-[13px] sm:text-[14px] text-muted font-body font-light leading-relaxed max-w-[240px] mx-auto">
                 {stat.label}
               </p>
             </div>
