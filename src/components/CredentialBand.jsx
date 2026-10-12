@@ -73,7 +73,7 @@ export default function CredentialBand() {
         <div className="text-center mb-16 sm:mb-20 lg:mb-24">
           <div className="inline-flex flex-col items-center">
             <span className="text-[12px] sm:text-[13px] tracking-[0.26em] uppercase font-body font-medium text-ink pb-2 border-b-2 border-accent">
-              DISCOVER NORTHSTAR
+              NORTHSTAR CREDENTIALS
             </span>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function CredentialBand() {
                 />
               </div>
               <h3 className="text-[34px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-ink leading-tight tracking-tight mb-2 sm:mb-2.5">
-                <AnimatedCounter value={stat.figure || stat.value} />
+                <AnimatedCounter value={stat.value} />
               </h3>
               <p className="text-[13px] sm:text-[14px] text-muted font-body font-light leading-relaxed max-w-[240px] mx-auto">
                 {stat.label}
@@ -113,7 +113,7 @@ export default function CredentialBand() {
                 />
               </div>
               <h3 className="text-[34px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-ink leading-tight tracking-tight mb-2 sm:mb-2.5">
-                <AnimatedCounter value={stat.figure || stat.value} />
+                <AnimatedCounter value={stat.value} />
               </h3>
               <p className="text-[13px] sm:text-[14px] text-muted font-body font-light leading-relaxed max-w-[240px] mx-auto">
                 {stat.label}
