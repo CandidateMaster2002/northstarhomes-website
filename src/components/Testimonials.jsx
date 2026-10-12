@@ -24,10 +24,10 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-bg py-16 lg:py-20 border-t border-line overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10 mb-10 lg:mb-16 text-center">
-        <p className="text-[12px] tracking-[0.3em] uppercase text-accent font-bold mb-4">
-          Testimonials
+        <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold mb-2">
+          Client Experiences
         </p>
-        <h2 className="text-[clamp(32px,3.4vw,46px)] leading-[1.15] font-heading text-ink">
+        <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-normal text-ink">
           Stories from Our Families
         </h2>
       </div>

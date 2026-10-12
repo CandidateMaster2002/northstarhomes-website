@@ -60,11 +60,11 @@ export default function Timeline() {
         
         {/* Header */}
         <div className="text-center mb-20 lg:mb-28">
-          <p className="mb-4 text-[11px] tracking-[0.3em] uppercase text-accent font-bold">
-            Our Legacy
+          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+            Milestones & Heritage
           </p>
-          <h2 className="text-[32px] lg:text-[46px] leading-[1.15] font-heading text-ink">
-            A decade of building trust.
+          <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink">
+            A Decade of Building Trust.
           </h2>
         </div>
 
@@ -101,7 +101,7 @@ export default function Timeline() {
                   <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 ${isEven ? 'md:pr-[60px] md:text-right' : 'md:pl-[60px] md:order-last md:text-left'}`}>
                     
                     {/* The Year */}
-                    <h3 className="text-[42px] lg:text-[56px] font-heading font-bold text-ink/40 leading-none mb-4 md:mb-6">
+                    <h3 className="text-[48px] lg:text-[68px] font-heading font-normal text-ink/35 leading-none mb-4 md:mb-6">
                       {entry.year}
                     </h3>
 

@@ -69,23 +69,23 @@ export default function Footer() {
 
         {/* Column 2: Company */}
         <div>
-          <h4 className="text-[12px] tracking-[0.24em] uppercase text-accent2 font-normal mb-[22px]">
+          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent2 font-heading font-bold mb-[22px]">
             Company
           </h4>
           <ul className="list-none p-0 m-0">
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#about" className="hover:opacity-70 transition-opacity">About Us</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#about" className="hover:opacity-70 transition-opacity">Leadership</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#about" className="hover:opacity-70 transition-opacity">Advisors</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#about" className="hover:opacity-70 transition-opacity">Awards</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#careers" className="hover:opacity-70 transition-opacity">Careers</a>
             </li>
           </ul>
@@ -93,47 +93,47 @@ export default function Footer() {
 
         {/* Column 3: Projects */}
         <div>
-          <h4 className="text-[12px] tracking-[0.24em] uppercase text-accent2 font-normal mb-[22px]">
+          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent2 font-heading font-bold mb-[22px]">
             Projects
           </h4>
           <ul className="list-none p-0 m-0">
-            <li className="mb-3.5 text-base text-muted">
-              <a href="#projects" className="hover:opacity-70 transition-opacity">Allura</a>
+            <li className="mb-3.5 text-base text-muted font-body font-light">
+              <a href="#ongoing-projects" className="hover:opacity-70 transition-opacity">Allura</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
-              <a href="#projects" className="hover:opacity-70 transition-opacity">SP Palacio</a>
+            <li className="mb-3.5 text-base text-muted font-body font-light">
+              <a href="#ongoing-projects" className="hover:opacity-70 transition-opacity">SP Palacio</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
-              <a href="#projects" className="hover:opacity-70 transition-opacity">Sanctuary</a>
+            <li className="mb-3.5 text-base text-muted font-body font-light">
+              <a href="#ongoing-projects" className="hover:opacity-70 transition-opacity">Sanctuary</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
-              <a href="#projects" className="hover:opacity-70 transition-opacity">Park Avenue</a>
+            <li className="mb-3.5 text-base text-muted font-body font-light">
+              <a href="#ongoing-projects" className="hover:opacity-70 transition-opacity">Park Avenue</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
-              <a href="#projects" className="hover:opacity-70 transition-opacity">Golden Valley</a>
+            <li className="mb-3.5 text-base text-muted font-body font-light">
+              <a href="#ongoing-projects" className="hover:opacity-70 transition-opacity">Golden Valley</a>
             </li>
           </ul>
         </div>
 
         {/* Column 4: Quick Links */}
         <div>
-          <h4 className="text-[12px] tracking-[0.24em] uppercase text-accent2 font-normal mb-[22px]">
+          <h4 className="text-[14px] tracking-[0.22em] uppercase text-accent2 font-heading font-bold mb-[22px]">
             Quick Links
           </h4>
           <ul className="list-none p-0 m-0">
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#resources" className="hover:opacity-70 transition-opacity">FAQs</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#resources" className="hover:opacity-70 transition-opacity">Blog</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#resources" className="hover:opacity-70 transition-opacity">Brochures</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#contact" className="hover:opacity-70 transition-opacity">Contact Us</a>
             </li>
-            <li className="mb-3.5 text-base text-muted">
+            <li className="mb-3.5 text-base text-muted font-body font-light">
               <a href="#top" className="hover:opacity-70 transition-opacity">Privacy Policy</a>
             </li>
           </ul>

@@ -103,11 +103,14 @@ export default function CredentialBand() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         
         {/* Header Section */}
-        <div className="text-center mb-20 lg:mb-24">
-          <h2 className="text-[20px] lg:text-[28px] tracking-[0.15em] lg:tracking-[0.25em] font-body font-light text-ink uppercase mb-6">
+        <div className="text-center mb-16 lg:mb-20">
+          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+            Northstar Credentials
+          </p>
+          <h2 className="text-[26px] lg:text-[36px] font-heading font-normal text-ink mb-6">
             The Premier Luxury Property Developer in Hyderabad
           </h2>
-          <a href="#about" className="inline-block text-[11px] lg:text-[12px] tracking-[0.2em] uppercase font-bold text-ink border-b-2 border-ink pb-1 hover:text-accent hover:border-accent transition-colors">
+          <a href="#about" className="inline-block text-[12px] tracking-[0.2em] uppercase font-body font-medium text-ink border-b border-ink/40 pb-1 hover:text-accent hover:border-accent transition-colors">
             Discover Northstar
           </a>
         </div>
@@ -119,10 +122,10 @@ export default function CredentialBand() {
               <div className="mb-6">
                 <StatIcon id={stat.id} />
               </div>
-              <h3 className="text-[38px] lg:text-[46px] font-heading text-ink leading-none mb-3">
+              <h3 className="text-[44px] lg:text-[54px] font-heading font-normal text-ink leading-none mb-2">
                 <AnimatedCounter value={stat.value} />
               </h3>
-              <p className="text-[13px] tracking-[0.1em] uppercase text-muted font-medium">
+              <p className="text-[13px] tracking-[0.14em] uppercase text-muted font-body font-light">
                 {stat.label}
               </p>
             </div>

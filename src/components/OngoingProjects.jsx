@@ -8,10 +8,15 @@ export default function OngoingProjects() {
     <section id="ongoing-projects" className="bg-bg border-t border-line pt-16 pb-8 max-[880px]:pt-10 max-[880px]:pb-6">
       <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6">
         <div className="mb-10 flex flex-wrap justify-between items-end gap-6">
-          <h2 className="text-[clamp(32px,3.4vw,46px)] leading-[1.15] font-heading text-ink">
-            Ongoing Projects
-          </h2>
-          <a href="#coming-soon" className="text-[13px] font-bold tracking-[0.15em] uppercase text-accent hover:text-accent2 transition-colors flex items-center gap-2">
+          <div>
+            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+              Our Presence
+            </p>
+            <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-normal text-ink">
+              Iconic Developments
+            </h2>
+          </div>
+          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-accent2 transition-colors flex items-center gap-2 font-body">
             View All <span className="text-lg leading-none">&rarr;</span>
           </a>
         </div>
@@ -41,10 +46,10 @@ export default function OngoingProjects() {
                 
                 {/* Top Tags */}
                 <div className="absolute top-5 left-5 flex gap-2">
-                  <span className="bg-white/95 backdrop-blur-sm text-ink text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm">
+                  <span className="bg-white/95 backdrop-blur-sm text-ink text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     {project.city}
                   </span>
-                  <span className="bg-accent2d/90 text-white text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm">
+                  <span className="bg-accent2d/90 text-white text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     Ongoing
                   </span>
                 </div>
@@ -52,7 +57,10 @@ export default function OngoingProjects() {
                 {/* Bottom Content */}
                 <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex items-end justify-between">
                   <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-white font-heading text-[28px] lg:text-[34px] leading-none mb-2">{project.name}</h3>
+                    <h3 className="text-white font-heading font-normal text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-sm">{project.name}</h3>
+                    <p className="text-white/80 font-body font-light text-[13px] tracking-wide">
+                      Northstar {project.name} | {project.city}
+                    </p>
                   </div>
                   
                   {/* Hover Arrow */}

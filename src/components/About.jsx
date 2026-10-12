@@ -28,19 +28,19 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             <ScrollReveal delay={0.1}>
-              <p className="mb-4 text-[11px] tracking-[0.3em] uppercase text-accent font-bold">
+              <p className="mb-3 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
                 About Northstar
               </p>
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <h2 className="text-[36px] lg:text-[46px] leading-[1.1] font-heading text-ink mb-6">
+              <h2 className="text-[38px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink mb-6">
                 We Build Spaces Where Life Feels Truly at Home.
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.3}>
-              <p className="text-[17px] lg:text-[20px] leading-[1.6] text-ink/80 font-medium mb-8 lg:mb-10 border-l-2 border-accent pl-5">
+              <p className="text-[20px] lg:text-[24px] leading-[1.45] text-ink font-heading italic font-normal mb-8 lg:mb-10 border-l-2 border-accent2 pl-5">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
             </ScrollReveal>
@@ -48,7 +48,7 @@ export default function About() {
             {/* Magazine-style text split */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-10">
               <ScrollReveal delay={0.4}>
-                <p className="text-[15px] leading-[1.8] text-muted">
+                <p className="text-[15px] lg:text-[16px] leading-[1.85] font-body font-light text-muted">
                   Established in 2012, Northstar Homes has grown into a trusted real estate developer across Hyderabad and Visakhapatnam, creating premium apartments, luxury villas, plotted communities, and commercial spaces. Our developments are shaped with thoughtful design and responsible planning.
                 </p>
               </ScrollReveal>
@@ -57,7 +57,7 @@ export default function About() {
                 <ScrollReveal delay={0.5}>
                   {/* On mobile, this paragraph is hidden unless expanded. On desktop (md), always visible */}
                   <div className={`${isExpanded ? 'block' : 'hidden md:block'}`}>
-                    <p className="text-[15px] leading-[1.8] text-muted mb-6">
+                    <p className="text-[15px] lg:text-[16px] leading-[1.85] font-body font-light text-muted mb-6">
                       For us, real estate is not just about building structures. It is about creating places where families grow, communities come together, and everyday life feels more meaningful.
                     </p>
                   </div>
@@ -67,7 +67,7 @@ export default function About() {
                 <ScrollReveal delay={0.5}>
                   <button 
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="md:hidden text-[12px] font-bold uppercase tracking-[0.15em] text-accent mt-2 flex items-center gap-1"
+                    className="md:hidden text-[12px] font-bold uppercase tracking-[0.18em] text-accent mt-2 flex items-center gap-1 font-body"
                   >
                     {isExpanded ? 'Read Less' : 'Read More'}
                     <svg className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/></svg>
@@ -75,13 +75,12 @@ export default function About() {
                 </ScrollReveal>
                 
                 <ScrollReveal delay={0.6}>
-                  <div className="mt-6 md:mt-0">
+                  <div className="mt-8 md:mt-0">
                     <a
                       href="#coming-soon"
-                      className="inline-flex items-center gap-2 text-[12px] tracking-[0.15em] uppercase text-ink font-bold border-b border-accent pb-[2px] lg:hover:text-accent transition-colors group"
+                      className="inline-flex items-center justify-center px-8 py-3 text-[12px] tracking-[0.2em] uppercase font-body font-medium text-ink border border-ink/30 hover:border-accent hover:text-accent transition-all duration-300"
                     >
-                      Read Our Story 
-                      <span className="transition-transform lg:group-hover:translate-x-1">&rarr;</span>
+                      Know More
                     </a>
                   </div>
                 </ScrollReveal>

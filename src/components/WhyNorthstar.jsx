@@ -27,15 +27,18 @@ export default function WhyNorthstar() {
           {/* Left - Content */}
           <div className="flex-1 min-w-0 basis-[460px]">
             <ScrollReveal>
-              <h2 className="text-[32px] lg:text-[46px] leading-[1.15] font-heading text-ink mb-6">
+              <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent2 font-heading font-bold">
+                Quality Assurance
+              </p>
+              <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink mb-6">
                 Not just built. <br/>
-                <span className="italic text-accent">Inspected.</span>
+                <span className="italic font-heading font-normal text-accent">Inspected.</span>
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <p className="text-[16px] leading-[1.8] text-muted mb-10">
-                Before handover, our projects undergo comprehensive <strong className="text-ink font-medium">PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
+              <p className="text-[16px] lg:text-[17px] leading-[1.85] font-body font-light text-muted mb-10">
+                Before handover, our projects undergo comprehensive <strong className="text-ink font-normal">PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
               </p>
             </ScrollReveal>
 
@@ -46,14 +49,14 @@ export default function WhyNorthstar() {
                   key={idx} 
                   className="flex items-start gap-6 group border-t border-line py-6 first:border-t-0 first:pt-0 last:pb-0"
                 >
-                  <div className="text-[18px] tracking-[0.1em] font-heading font-bold text-accent/40 lg:group-hover:text-accent transition-colors duration-500 pt-0.5">
+                  <div className="text-[22px] font-heading font-normal text-accent/50 lg:group-hover:text-accent transition-colors duration-500 pt-0.5">
                     0{idx + 1}
                   </div>
                   <div>
-                    <p className="text-[20px] font-heading text-ink leading-tight mb-2">
+                    <p className="text-[22px] font-heading font-normal text-ink leading-tight mb-1.5">
                       {item.text}
                     </p>
-                    <p className="text-[15px] text-muted leading-relaxed">
+                    <p className="text-[15px] font-body font-light text-muted leading-relaxed">
                       {item.subtext}
                     </p>
                   </div>
