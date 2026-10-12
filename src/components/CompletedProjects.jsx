@@ -56,6 +56,7 @@ export default function CompletedProjects() {
                     alt={project.name} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" 
                     loading="lazy"
+                    decoding="async"
                   />
                 )}
               </div>
