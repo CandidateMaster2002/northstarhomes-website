@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import logoImg from '../assets/Northstar-logo_webp_file-removebg-preview.webp'
 import { siteConfig } from '../siteConfig'
 
@@ -32,51 +32,11 @@ const advisoryData = [
   { name: 'Frequently Asked Questions', href: '#coming-soon' },
 ];
 
-// Sub-component rendering individual theme variant
-function FooterVariant({ theme, label, badgeColor }) {
-  const isDark = theme === 'deep';
-  const isSlate = theme === 'slate';
-  // Theme styling constants
-  const bgClass = isDark 
-    ? 'bg-[#07294A] text-[#E9F2FA]' 
-    : isSlate 
-      ? 'bg-[#DFE8F1] text-[#07294A]' 
-      : 'bg-[#EEF5FB] text-[#07294A]';
-
-  const borderLineClass = isDark ? 'border-white/10' : isSlate ? 'border-[#C5D7E6]' : 'border-[#D8E6F2]';
-  const headingClass = isDark ? 'text-white' : 'text-[#07294A]';
-  const subtextClass = isDark ? 'text-[#8FA7BD]' : isSlate ? 'text-[#3E556D]' : 'text-[#4F6378]';
-  const cardBgClass = isDark 
-    ? 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08] hover:border-white/20' 
-    : isSlate 
-      ? 'bg-white/95 border-[#C5D7E6] hover:bg-white shadow-sm hover:border-[#0B6FB5]/40' 
-      : 'bg-white border-[#D8E6F2] hover:bg-white shadow-sm hover:border-[#0B6FB5]/40';
-  
-  const iconBgClass = isDark ? 'bg-white/10 text-[#4FA3E3]' : 'bg-[#EEF5FB] text-[#0B6FB5]';
-  const socialBtnClass = isDark
-    ? 'bg-white/[0.06] border-white/15 text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5]'
-    : isSlate
-      ? 'bg-white border-[#C5D7E6] text-[#0B6FB5] hover:bg-[#0B6FB5] hover:text-white shadow-sm'
-      : 'bg-white border-[#D8E6F2] text-[#0B6FB5] hover:bg-[#0B6FB5] hover:text-white shadow-sm';
-
-  const hoverItemClass = isDark ? 'hover:bg-white/[0.05]' : isSlate ? 'hover:bg-white/70' : 'hover:bg-white';
-  const linkTextClass = isDark ? 'text-[#9CB5CB] hover:text-white' : isSlate ? 'text-[#3E556D] hover:text-[#0B6FB5]' : 'text-[#4F6378] hover:text-[#0B6FB5]';
-  const tourCardBg = isDark ? 'bg-white/[0.05] border-white/15' : isSlate ? 'bg-white/95 border-[#C5D7E6] shadow-sm' : 'bg-white border-[#D8E6F2] shadow-sm';
-
+export default function Footer() {
   return (
-    <div className={`relative ${bgClass} border-t ${borderLineClass} pt-16 lg:pt-24 pb-12 overflow-hidden transition-colors duration-500`}>
-      {/* Variant Badge Indicator */}
-      {label && (
-        <div className="max-w-[1360px] mx-auto px-6 sm:px-10 mb-10">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border text-[11px] font-semibold uppercase tracking-[0.18em] shadow-sm font-body backdrop-blur-sm"
-               style={{ backgroundColor: badgeColor.bg, borderColor: badgeColor.border, color: badgeColor.text }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: badgeColor.dot }} />
-            {label}
-          </div>
-        </div>
-      )}
-
+    <footer id="careers" className="bg-[#07294A] text-[#E9F2FA] border-t border-white/10 pt-20 lg:pt-28 pb-12 overflow-hidden">
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10">
+
         {/* Rich 4-Column Architectural Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 pb-16 lg:pb-20">
           
@@ -87,12 +47,10 @@ function FooterVariant({ theme, label, badgeColor }) {
                 <img 
                   src={logoImg} 
                   alt="Northstar Homes Logo" 
-                  className={`h-12 w-auto object-contain transition-all ${
-                    isDark ? 'brightness-0 invert drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)]' : ''
-                  }`} 
+                  className="h-12 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)]" 
                 />
               </a>
-              <p className={`text-[14px] leading-[1.85] font-body font-light mb-8 max-w-[340px] ${subtextClass}`}>
+              <p className="text-[14px] leading-[1.85] font-body font-light mb-8 max-w-[340px] text-[#8FA7BD]">
                 Crafting sustainable luxury villas, plotted developments, and gated communities shaped with uncompromised engineering across South Hyderabad and Visakhapatnam.
               </p>
 
@@ -100,31 +58,31 @@ function FooterVariant({ theme, label, badgeColor }) {
               <div className="space-y-3 mb-8">
                 <a 
                   href="tel:+918657553355" 
-                  className={`flex items-center gap-3.5 p-3 rounded-xl border transition-all group ${cardBgClass}`}
+                  className="flex items-center gap-3.5 p-3 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/20 transition-all group"
                 >
-                  <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm ${iconBgClass} group-hover:bg-[#0B6FB5] group-hover:text-white`}>
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white/10 text-[#4FA3E3] group-hover:bg-[#0B6FB5] group-hover:text-white">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <span className={`block text-[10px] uppercase tracking-[0.16em] font-medium font-body ${isDark ? 'text-[#8FA7BD]' : 'text-muted'}`}>Direct Line</span>
-                    <span className={`block text-[14px] font-medium transition-colors font-body ${isDark ? 'text-white group-hover:text-[#4FA3E3]' : 'text-[#07294A] group-hover:text-[#0B6FB5]'}`}>+91 86575 53355</span>
+                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Direct Line</span>
+                    <span className="block text-[14px] font-medium transition-colors font-body text-white group-hover:text-[#4FA3E3]">+91 86575 53355</span>
                   </div>
                 </a>
 
                 <a 
                   href="mailto:support@northstarhomes.in" 
-                  className={`flex items-center gap-3.5 p-3 rounded-xl border transition-all group ${cardBgClass}`}
+                  className="flex items-center gap-3.5 p-3 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/20 transition-all group"
                 >
-                  <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm ${iconBgClass} group-hover:bg-[#0B6FB5] group-hover:text-white`}>
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white/10 text-[#4FA3E3] group-hover:bg-[#0B6FB5] group-hover:text-white">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <span className={`block text-[10px] uppercase tracking-[0.16em] font-medium font-body ${isDark ? 'text-[#8FA7BD]' : 'text-muted'}`}>Email Concierge</span>
-                    <span className={`block text-[14px] font-medium transition-colors font-body ${isDark ? 'text-white group-hover:text-[#4FA3E3]' : 'text-[#07294A] group-hover:text-[#0B6FB5]'}`}>support@northstarhomes.in</span>
+                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Email Concierge</span>
+                    <span className="block text-[14px] font-medium transition-colors font-body text-white group-hover:text-[#4FA3E3]">support@northstarhomes.in</span>
                   </div>
                 </a>
               </div>
@@ -132,7 +90,7 @@ function FooterVariant({ theme, label, badgeColor }) {
 
             {/* Monochromatic Social Buttons */}
             <div>
-              <p className={`text-[10px] tracking-[0.22em] uppercase font-body font-semibold mb-3 ${isDark ? 'text-[#8FA7BD]' : 'text-muted'}`}>
+              <p className="text-[10px] tracking-[0.22em] uppercase font-body font-semibold mb-3 text-[#8FA7BD]">
                 Official Channels
               </p>
               <div className="flex gap-2.5 items-center">
@@ -141,7 +99,7 @@ function FooterVariant({ theme, label, badgeColor }) {
                   href={siteConfig.socials.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${socialBtnClass}`} 
+                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
                   aria-label="Facebook"
                 >
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -154,7 +112,7 @@ function FooterVariant({ theme, label, badgeColor }) {
                   href={siteConfig.socials.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${socialBtnClass}`} 
+                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -167,7 +125,7 @@ function FooterVariant({ theme, label, badgeColor }) {
                   href={siteConfig.socials.x} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${socialBtnClass}`} 
+                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
                   aria-label="X (Twitter)"
                 >
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -180,7 +138,7 @@ function FooterVariant({ theme, label, badgeColor }) {
                   href={siteConfig.socials.youtube} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${socialBtnClass}`} 
+                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
                   aria-label="YouTube"
                 >
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -193,27 +151,25 @@ function FooterVariant({ theme, label, badgeColor }) {
 
           {/* Column 2: Developments Directory with Location Subtitles (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className={`text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 ${headingClass}`}>
+            <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
               Our Addresses
             </h4>
-            <div className={`w-6 h-[1.5px] mb-6 ${isDark ? 'bg-[#3898E2]' : 'bg-[#0B6FB5]'}`} />
+            <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
 
             <div className="space-y-3.5">
               {addressesData.map((proj) => (
                 <a 
                   key={proj.name}
                   href={proj.href} 
-                  className={`group block p-2 -mx-2 rounded-lg transition-all duration-300 ${hoverItemClass}`}
+                  className="group block p-2 -mx-2 rounded-lg transition-all duration-300 hover:bg-white/[0.05]"
                 >
                   <div className="flex items-center justify-between">
-                    <span className={`text-[14px] font-medium font-body transition-all duration-300 ${
-                      isDark ? 'text-white group-hover:text-[#4FA3E3] group-hover:translate-x-1' : 'text-[#07294A] group-hover:text-[#0B6FB5] group-hover:translate-x-1'
-                    }`}>
+                    <span className="text-[14px] font-medium font-body transition-all duration-300 text-white group-hover:text-[#4FA3E3] group-hover:translate-x-1">
                       Northstar {proj.name}
                     </span>
-                    <span className={`text-[11px] opacity-0 group-hover:opacity-100 transition-opacity ${isDark ? 'text-[#4FA3E3]' : 'text-[#0B6FB5]'}`}>&rarr;</span>
+                    <span className="text-[11px] text-[#4FA3E3] opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                   </div>
-                  <span className={`text-[11px] font-body font-light block mt-0.5 ${subtextClass}`}>
+                  <span className="text-[11px] font-body font-light block mt-0.5 text-[#8FA7BD]">
                     {proj.location}
                   </span>
                 </a>
@@ -223,19 +179,19 @@ function FooterVariant({ theme, label, badgeColor }) {
 
           {/* Column 3: The Company with Numbered Indexing (lg:col-span-2) */}
           <div className="lg:col-span-2">
-            <h4 className={`text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 ${headingClass}`}>
+            <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
               The Company
             </h4>
-            <div className={`w-6 h-[1.5px] mb-6 ${isDark ? 'bg-[#3898E2]' : 'bg-[#0B6FB5]'}`} />
+            <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
 
             <ul className="list-none p-0 m-0 space-y-3">
               {companyData.map((item) => (
                 <li key={item.name}>
                   <a 
                     href={item.href} 
-                    className={`group flex items-center gap-2.5 text-[14px] font-body font-light transition-colors py-0.5 ${linkTextClass}`}
+                    className="group flex items-center gap-2.5 text-[14px] font-body font-light transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
                   >
-                    <span className={`text-[11px] font-mono transition-colors ${isDark ? 'text-[#3898E2]' : 'text-[#0B6FB5]'}`}>
+                    <span className="text-[11px] font-mono transition-colors text-[#3898E2]">
                       {item.no}
                     </span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -250,17 +206,17 @@ function FooterVariant({ theme, label, badgeColor }) {
           {/* Column 4: Client Advisory Desk & Visit Booking Card (lg:col-span-3) */}
           <div className="lg:col-span-3 flex flex-col justify-between">
             <div>
-              <h4 className={`text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 ${headingClass}`}>
+              <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
                 Client Advisory
               </h4>
-              <div className={`w-6 h-[1.5px] mb-6 ${isDark ? 'bg-[#3898E2]' : 'bg-[#0B6FB5]'}`} />
+              <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
 
               <ul className="list-none p-0 m-0 space-y-3">
                 {advisoryData.map((item) => (
                   <li key={item.name}>
                     <a 
                       href={item.href} 
-                      className={`text-[13px] font-body font-light block py-0.5 hover:translate-x-1 transition-all duration-300 ${linkTextClass}`}
+                      className="text-[13px] font-body font-light block py-0.5 hover:translate-x-1 transition-all duration-300 text-[#9CB5CB] hover:text-white"
                     >
                       {item.name}
                     </a>
@@ -270,22 +226,18 @@ function FooterVariant({ theme, label, badgeColor }) {
             </div>
 
             {/* Private Tour Concierge Card */}
-            <div className={`mt-8 p-4 rounded-2xl border transition-all ${tourCardBg}`}>
-              <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] mb-1 font-body ${isDark ? 'text-[#4FA3E3]' : 'text-[#0B6FB5]'}`}>
+            <div className="mt-8 p-4 rounded-2xl border border-white/15 bg-white/[0.05] transition-all">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] mb-1 font-body text-[#4FA3E3]">
                 Experience in Person
               </p>
-              <p className={`text-[12px] font-light leading-relaxed mb-3.5 font-body ${subtextClass}`}>
+              <p className="text-[12px] font-light leading-relaxed mb-3.5 font-body text-[#8FA7BD]">
                 Arrange a walkthrough of our plots, villas, and masterplans.
               </p>
               <a 
                 href="https://wa.me/918657553355?text=Hello%20Northstar%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit."
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl text-[11px] font-semibold tracking-[0.14em] uppercase transition-all shadow-sm ${
-                  isDark
-                    ? 'bg-[#0B6FB5] text-white hover:bg-white hover:text-[#07294A]'
-                    : 'bg-[#0B6FB5] text-white hover:bg-[#07294A]'
-                }`}
+                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl text-[11px] font-semibold tracking-[0.14em] uppercase transition-all shadow-sm bg-[#0B6FB5] text-white hover:bg-white hover:text-[#07294A]"
               >
                 Schedule Site Visit &rarr;
               </a>
@@ -295,7 +247,7 @@ function FooterVariant({ theme, label, badgeColor }) {
         </div>
 
         {/* Bottom Legal & Statutory Bar */}
-        <div className={`pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-light ${borderLineClass} ${subtextClass}`}>
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-light text-[#8FA7BD]">
           <p>© 2026 Northstar Homes. All rights reserved.</p>
           
           <p className="text-center md:text-left">
@@ -303,134 +255,13 @@ function FooterVariant({ theme, label, badgeColor }) {
           </p>
 
           <div className="flex gap-6 items-center pr-14 md:pr-0">
-            <a href="#coming-soon" className="hover:text-[#0B6FB5] transition-colors">Privacy Policy</a>
-            <a href="#coming-soon" className="hover:text-[#0B6FB5] transition-colors">Terms of Use</a>
-            <a href="#coming-soon" className="hover:text-[#0B6FB5] transition-colors">Disclaimer</a>
+            <a href="#coming-soon" className="hover:text-[#4FA3E3] transition-colors">Privacy Policy</a>
+            <a href="#coming-soon" className="hover:text-[#4FA3E3] transition-colors">Terms of Use</a>
+            <a href="#coming-soon" className="hover:text-[#4FA3E3] transition-colors">Disclaimer</a>
           </div>
         </div>
 
       </div>
-    </div>
-  )
-}
-
-export default function Footer() {
-  // Mode can be: 'stacked' (show all 3) | 'soft' | 'deep' | 'slate'
-  const [activeMode, setActiveMode] = useState('stacked');
-
-  return (
-    <footer id="careers" className="relative">
-      
-      {/* ── Prominent Interactive Theme Comparison Controller ── */}
-      <div className="bg-[#07294A] text-white py-5 px-6 border-t-4 border-[#0B6FB5] shadow-md">
-        <div className="max-w-[1360px] mx-auto flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#3898E2] animate-pulse" />
-            <span className="text-[12px] sm:text-[13px] font-semibold tracking-[0.2em] uppercase font-body text-white">
-              Footer Tone Comparison:
-            </span>
-          </div>
-
-          {/* Interactive Mode Pills */}
-          <div className="flex flex-wrap items-center gap-2">
-            {/* Mode 1: Stacked */}
-            <button
-              onClick={() => setActiveMode('stacked')}
-              className={`px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.12em] uppercase transition-all cursor-pointer font-body flex items-center gap-1.5 ${
-                activeMode === 'stacked'
-                  ? 'bg-white text-[#07294A] shadow-md ring-2 ring-white/50'
-                  : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white'
-              }`}
-            >
-              <span>🥞 View All 3 Stacked</span>
-            </button>
-
-            {/* Option 1: Soft Tint */}
-            <button
-              onClick={() => setActiveMode('soft')}
-              className={`px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.12em] uppercase transition-all cursor-pointer font-body flex items-center gap-1.5 ${
-                activeMode === 'soft'
-                  ? 'bg-[#EEF5FB] text-[#07294A] shadow-md ring-2 ring-[#0B6FB5]'
-                  : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white'
-              }`}
-            >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#EEF5FB] border border-[#07294A]/30" />
-              <span>1. Subtle Soft Tint (#EEF5FB)</span>
-            </button>
-
-            {/* Option 2: Deep Navy */}
-            <button
-              onClick={() => setActiveMode('deep')}
-              className={`px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.12em] uppercase transition-all cursor-pointer font-body flex items-center gap-1.5 ${
-                activeMode === 'deep'
-                  ? 'bg-[#0B6FB5] text-white shadow-md ring-2 ring-white'
-                  : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white'
-              }`}
-            >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#07294A] border border-white" />
-              <span>2. Deep Luxury Navy (#07294A)</span>
-            </button>
-
-            {/* Option 3: Medium Slate */}
-            <button
-              onClick={() => setActiveMode('slate')}
-              className={`px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.12em] uppercase transition-all cursor-pointer font-body flex items-center gap-1.5 ${
-                activeMode === 'slate'
-                  ? 'bg-[#DFE8F1] text-[#07294A] shadow-md ring-2 ring-[#0B6FB5]'
-                  : 'bg-white/10 text-white/80 hover:bg-white/20 hover:text-white'
-              }`}
-            >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#DFE8F1] border border-[#07294A]/30" />
-              <span>3. Medium Slate Blue (#DFE8F1)</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Content View ── */}
-      {activeMode === 'stacked' ? (
-        <div className="flex flex-col">
-          {/* Variant 1: Subtle Soft Tint */}
-          <FooterVariant 
-            theme="soft" 
-            label="Option 1: Subtle Soft Tint (#EEF5FB) · Light architectural tone, separates cleanly from white sections"
-            badgeColor={{ bg: '#FFFFFF', border: '#0B6FB5', text: '#07294A', dot: '#0B6FB5' }}
-          />
-
-          {/* Variant 2: Deep Luxury Navy */}
-          <FooterVariant 
-            theme="deep" 
-            label="Option 2: Deep Luxury Navy (#07294A) · Grounded luxury midnight blue, perfectly bookends the Hero section"
-            badgeColor={{ bg: 'rgba(255,255,255,0.08)', border: '#3898E2', text: '#FFFFFF', dot: '#3898E2' }}
-          />
-
-          {/* Variant 3: Medium Slate Blue */}
-          <FooterVariant 
-            theme="slate" 
-            label="Option 3: Medium Slate Blue (#DFE8F1) · Noticeably darker than white with high contrast micro-cards"
-            badgeColor={{ bg: '#FFFFFF', border: '#4F6378', text: '#07294A', dot: '#4F6378' }}
-          />
-        </div>
-      ) : activeMode === 'soft' ? (
-        <FooterVariant 
-          theme="soft" 
-          label="Option 1: Subtle Soft Tint (#EEF5FB) · Currently Active"
-          badgeColor={{ bg: '#FFFFFF', border: '#0B6FB5', text: '#07294A', dot: '#0B6FB5' }}
-        />
-      ) : activeMode === 'deep' ? (
-        <FooterVariant 
-          theme="deep" 
-          label="Option 2: Deep Luxury Navy (#07294A) · Currently Active"
-          badgeColor={{ bg: 'rgba(255,255,255,0.08)', border: '#3898E2', text: '#FFFFFF', dot: '#3898E2' }}
-        />
-      ) : (
-        <FooterVariant 
-          theme="slate" 
-          label="Option 3: Medium Slate Blue (#DFE8F1) · Currently Active"
-          badgeColor={{ bg: '#FFFFFF', border: '#4F6378', text: '#07294A', dot: '#4F6378' }}
-        />
-      )}
-
     </footer>
   )
 }
