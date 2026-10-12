@@ -81,21 +81,15 @@ export default function WhyNorthstar() {
             </div>
           </div>
 
-          {/* Right - Image with Offset Frame */}
+          {/* Right - Clean Architectural Image Frame */}
           <div className="flex-1 min-w-0 basis-[460px] w-full mt-6 lg:mt-0">
             <ScrollReveal delay={0.4}>
-              <div className="relative">
-                {/* Decorative Offset Background */}
-                <div className="absolute -inset-4 lg:-inset-6 bg-soft rounded-2xl translate-x-3 translate-y-3 lg:translate-x-6 lg:translate-y-6 z-0" />
-                
-                {/* Image Container */}
-                <div className="relative z-10 aspect-[5/4] rounded-2xl overflow-hidden shadow-lg border border-line bg-bg">
-                  <img 
-                    src={propchkImg} 
-                    alt="PropChk Quality Inspection" 
-                    className="w-full h-full object-cover transition-transform duration-700 lg:hover:scale-105" 
-                  />
-                </div>
+              <div className="aspect-[5/4] rounded-2xl overflow-hidden shadow-[0_24px_50px_rgba(7,41,74,0.12)] border border-line bg-bg group">
+                <img 
+                  src={propchkImg} 
+                  alt="PropChk Quality Inspection" 
+                  className="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105" 
+                />
               </div>
             </ScrollReveal>
           </div>
