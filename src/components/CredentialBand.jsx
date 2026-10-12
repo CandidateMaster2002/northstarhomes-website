@@ -46,86 +46,36 @@ function AnimatedCounter({ value }) {
   );
 }
 
-const StatIcon = ({ id }) => {
-  const props = {
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.25",
-    className: "w-10 h-10 text-accent transition-transform duration-500 group-hover:scale-110 group-hover:text-ink",
-  };
-
-  switch (id) {
-    case 'years':
-      return (
-        <svg {...props}>
-          <path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
-        </svg>
-      );
-    case 'customers':
-      return (
-        <svg {...props}>
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      );
-    case 'awards':
-      return (
-        <svg {...props}>
-          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7c0 6 6 7.5 6 7.5s6-1.5 6-7.5Z"/>
-        </svg>
-      );
-    case 'completed':
-      return (
-        <svg {...props}>
-          <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
-        </svg>
-      );
-    case 'area':
-      return (
-        <svg {...props}>
-          <path d="M21.3 15.3l-7.1-7.1a2 2 0 0 0-2.82 0l-7.1 7.1a2 2 0 0 0 0 2.82l7.1 7.1a2 2 0 0 0 2.82 0l7.1-7.1a2 2 0 0 0 0-2.82z"/><path d="M14.2 11.8l-2.4-2.4"/><path d="M11.8 14.2l-2.4-2.4"/><path d="M9.4 16.6l-2.4-2.4"/>
-        </svg>
-      );
-    case 'ongoing':
-      return (
-        <svg {...props}>
-          <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/>
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
-
 export default function CredentialBand() {
   return (
-    <section className="bg-bg py-[80px] lg:py-[120px] border-y border-line">
+    <section className="bg-bg py-[80px] lg:py-[130px] border-y border-line">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         
         {/* Header Section */}
-        <div className="text-center mb-16 lg:mb-20">
-          <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="mb-2.5 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
             Northstar Credentials
           </p>
-          <h2 className="text-[26px] lg:text-[36px] font-heading font-normal text-ink mb-6">
+          <h2 className="text-[28px] sm:text-[34px] lg:text-[44px] font-heading font-normal text-ink mb-6">
             The Premier Luxury Property Developer in Hyderabad
           </h2>
-          <a href="#about" className="inline-block text-[12px] tracking-[0.2em] uppercase font-body font-medium text-ink border-b border-ink/40 pb-1 hover:text-accent hover:border-accent transition-colors">
+          <a 
+            href="#about" 
+            className="inline-block text-[12px] tracking-[0.2em] uppercase font-body font-medium text-ink border-b border-ink/30 pb-1 hover:text-accent hover:border-accent transition-all duration-300"
+          >
             Discover Northstar
           </a>
         </div>
 
-        {/* Minimalist 3-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-10 max-w-[1100px] mx-auto">
+        {/* Pure Editorial 3-Column Grid (No Clutter, Pure Typography) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-14 sm:gap-y-16 lg:gap-y-24 gap-x-6 sm:gap-x-12 max-w-[1100px] mx-auto">
           {siteConfig.stats.map((stat) => (
             <div key={stat.id} className="flex flex-col items-center text-center group">
-              <div className="mb-6">
-                <StatIcon id={stat.id} />
-              </div>
-              <h3 className="text-[44px] lg:text-[54px] font-heading font-normal text-ink leading-none mb-2">
+              <h3 className="text-[52px] sm:text-[64px] lg:text-[76px] font-heading font-normal text-ink leading-none mb-3 transition-transform duration-500 lg:group-hover:-translate-y-1">
                 <AnimatedCounter value={stat.value} />
               </h3>
-              <p className="text-[13px] tracking-[0.14em] uppercase text-muted font-body font-light">
+              <div className="w-8 h-[1px] bg-accent/40 mb-3.5 transition-all duration-500 lg:group-hover:w-14 lg:group-hover:bg-accent" />
+              <p className="text-[11px] sm:text-[12px] lg:text-[13px] tracking-[0.22em] uppercase text-muted font-body font-light max-w-[200px] leading-relaxed">
                 {stat.label}
               </p>
             </div>
