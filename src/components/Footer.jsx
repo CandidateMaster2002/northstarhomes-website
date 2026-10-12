@@ -4,61 +4,60 @@ import { siteConfig } from '../siteConfig'
 
 export default function Footer() {
   return (
-    <footer id="careers" className="bg-bg border-t border-line pt-16 lg:pt-24 pb-12 overflow-hidden">
+    <footer id="careers" className="bg-bg border-t border-line pt-20 lg:pt-28 pb-12 overflow-hidden">
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10">
-        
-        {/* Top Tier: Editorial Brand Statement & Concierge Touchpoints */}
-        <div className="pb-14 border-b border-line flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div className="max-w-[640px]">
-            <p className="text-[12px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-              Northstar Homes
-            </p>
-            <h3 className="text-[26px] sm:text-[32px] lg:text-[38px] font-heading font-normal text-ink leading-[1.18]">
-              Crafting sustainable luxury villas, plotted communities, and architectural landmarks.
-            </h3>
-          </div>
 
-          {/* Quick Concierge Touchpoints */}
-          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-            <a 
-              href="tel:+918657553355"
-              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-soft border border-line text-ink hover:border-accent hover:text-accent hover:bg-white text-[13px] font-body font-medium tracking-wide transition-all duration-300 shadow-sm"
-            >
-              <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              +91 86575 53355
-            </a>
-            <a 
-              href="mailto:support@northstarhomes.in"
-              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-soft border border-line text-ink hover:border-accent hover:text-accent hover:bg-white text-[13px] font-body font-medium tracking-wide transition-all duration-300 shadow-sm"
-            >
-              <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              support@northstarhomes.in
-            </a>
-          </div>
-        </div>
-
-        {/* Main 4-Column Architectural Navigation Grid */}
-        <div className="py-14 lg:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
+        {/* Rich 4-Column Architectural Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 pb-16 lg:pb-20">
           
-          {/* Column 1: Brand Anchor (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
+          {/* Column 1: Brand Anchor & Direct Concierge (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-6">
             <div>
-              <a href="#top" className="inline-block mb-6">
+              <a href="#top" className="inline-block mb-6 transition-transform hover:scale-[1.02]">
                 <img src={logoImg} alt="Northstar Homes Logo" className="h-12 w-auto object-contain" />
               </a>
-              <p className="text-[14px] leading-[1.8] text-muted font-body font-light mb-8 max-w-[320px]">
-                Over a decade of uncompromised engineering, masterplanned communities, and enduring trust across Hyderabad and Visakhapatnam.
+              <p className="text-[14px] leading-[1.85] text-muted font-body font-light mb-8 max-w-[340px]">
+                Crafting sustainable luxury villas, plotted developments, and gated communities shaped with uncompromised engineering across South Hyderabad and Visakhapatnam.
               </p>
+
+              {/* Direct Concierge Contact Micro-Cards */}
+              <div className="space-y-3 mb-8">
+                <a 
+                  href="tel:+918657553355" 
+                  className="flex items-center gap-3.5 p-2.5 -mx-2.5 rounded-xl hover:bg-soft transition-colors group"
+                >
+                  <div className="w-9 h-9 rounded-full bg-soft text-accent group-hover:bg-accent group-hover:text-white flex items-center justify-center transition-colors shadow-sm">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="block text-[10px] uppercase tracking-[0.16em] text-muted font-medium font-body">Direct Line</span>
+                    <span className="block text-[14px] font-medium text-ink group-hover:text-accent transition-colors font-body">+91 86575 53355</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="mailto:support@northstarhomes.in" 
+                  className="flex items-center gap-3.5 p-2.5 -mx-2.5 rounded-xl hover:bg-soft transition-colors group"
+                >
+                  <div className="w-9 h-9 rounded-full bg-soft text-accent group-hover:bg-accent group-hover:text-white flex items-center justify-center transition-colors shadow-sm">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="block text-[10px] uppercase tracking-[0.16em] text-muted font-medium font-body">Email Concierge</span>
+                    <span className="block text-[14px] font-medium text-ink group-hover:text-accent transition-colors font-body">support@northstarhomes.in</span>
+                  </div>
+                </a>
+              </div>
             </div>
 
             {/* Monochromatic Brand Blue Social Buttons */}
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-muted font-body font-medium mb-3">
-                Connect With Us
+              <p className="text-[10px] tracking-[0.22em] uppercase text-muted font-body font-semibold mb-3">
+                Official Channels
               </p>
               <div className="flex gap-2.5 items-center">
                 {/* Facebook */}
@@ -116,84 +115,120 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Projects (3 cols) */}
+          {/* Column 2: Developments Directory with Location Subtitles (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-[12px] tracking-[0.24em] uppercase text-ink font-body font-semibold mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent inline-block" />
-              Developments
+            <h4 className="text-[12px] tracking-[0.24em] uppercase text-ink font-body font-semibold mb-2">
+              Our Addresses
             </h4>
-            <ul className="list-none p-0 m-0 space-y-3.5">
+            <div className="w-6 h-[1.5px] bg-accent mb-6" />
+
+            <div className="space-y-4">
               {[
-                { name: 'Allura', href: '#ongoing-projects' },
-                { name: 'SP Palacio', href: '#ongoing-projects' },
-                { name: 'Sanctuary', href: '#ongoing-projects' },
-                { name: 'Park Avenue', href: '#ongoing-projects' },
-                { name: 'Golden Valley', href: '#ongoing-projects' },
-                { name: 'Eden Gardens', href: '#completed-projects' },
-                { name: 'District 1', href: '#completed-projects' },
+                { name: 'Sanctuary', location: 'Plots & Villas · Tukkuguda', href: '#ongoing-projects' },
+                { name: 'SP Palacio', location: 'Luxury Villas · South Hyderabad', href: '#ongoing-projects' },
+                { name: 'Allura', location: 'Gated Community · South Hyderabad', href: '#ongoing-projects' },
+                { name: 'Park Avenue', location: 'Premium Residences · Vizag', href: '#ongoing-projects' },
+                { name: 'Golden Valley', location: 'Plotted Community · Vizag', href: '#ongoing-projects' },
+                { name: 'Eden Gardens', location: 'Completed Community · Vizag', href: '#completed-projects' },
               ].map((proj) => (
-                <li key={proj.name}>
-                  <a 
-                    href={proj.href} 
-                    className="text-[14px] font-body font-light text-muted hover:text-accent hover:translate-x-1 transition-all duration-300 inline-block"
-                  >
-                    Northstar {proj.name}
-                  </a>
-                </li>
+                <a 
+                  key={proj.name}
+                  href={proj.href} 
+                  className="group block p-1.5 -mx-1.5 rounded-lg hover:bg-soft transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[14px] font-medium text-ink group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 font-body">
+                      Northstar {proj.name}
+                    </span>
+                    <span className="text-[11px] text-accent opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+                  </div>
+                  <span className="text-[11px] text-muted font-body font-light block mt-0.5">
+                    {proj.location}
+                  </span>
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Column 3: Company (2.5 cols -> lg:col-span-2) */}
+          {/* Column 3: The Company with Numbered Indexing (2.5 cols -> lg:col-span-2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[12px] tracking-[0.24em] uppercase text-ink font-body font-semibold mb-6">
-              Company
+            <h4 className="text-[12px] tracking-[0.24em] uppercase text-ink font-body font-semibold mb-2">
+              The Company
             </h4>
+            <div className="w-6 h-[1.5px] bg-accent mb-6" />
+
             <ul className="list-none p-0 m-0 space-y-3.5">
               {[
-                { name: 'About Northstar', href: '#about' },
-                { name: 'Leadership', href: '#coming-soon' },
-                { name: 'Advisors', href: '#coming-soon' },
-                { name: 'Awards & Honors', href: '#legacy' },
-                { name: 'Our Legacy', href: '#legacy' },
-                { name: 'Careers', href: '#coming-soon' },
-              ].map((link) => (
-                <li key={link.name}>
+                { no: '01', name: 'About Northstar', href: '#about' },
+                { no: '02', name: 'Our Legacy', href: '#legacy' },
+                { no: '03', name: 'Leadership & Board', href: '#coming-soon' },
+                { no: '04', name: 'Awards & Honors', href: '#legacy' },
+                { no: '05', name: 'Quality Assurance', href: '#coming-soon' },
+                { no: '06', name: 'Advisors', href: '#coming-soon' },
+                { no: '07', name: 'Careers', href: '#coming-soon' },
+              ].map((item) => (
+                <li key={item.name}>
                   <a 
-                    href={link.href} 
-                    className="text-[14px] font-body font-light text-muted hover:text-accent hover:translate-x-1 transition-all duration-300 inline-block"
+                    href={item.href} 
+                    className="group flex items-center gap-2.5 text-[14px] font-body font-light text-muted hover:text-accent transition-colors py-0.5"
                   >
-                    {link.name}
+                    <span className="text-[11px] font-mono text-accent/50 group-hover:text-accent transition-colors">
+                      {item.no}
+                    </span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {item.name}
+                    </span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Resources & Advisory (lg:col-span-3) */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[12px] tracking-[0.24em] uppercase text-ink font-body font-semibold mb-6">
-              Resources & Desk
-            </h4>
-            <ul className="list-none p-0 m-0 space-y-3.5">
-              {[
-                { name: 'Download Brochures', href: '#coming-soon' },
-                { name: 'EMI Calculator', href: '#coming-soon' },
-                { name: 'Home Loan Guide', href: '#coming-soon' },
-                { name: 'NRI Advisory Desk', href: '#coming-soon' },
-                { name: 'Blog & Market Insights', href: '#coming-soon' },
-                { name: 'Frequently Asked Questions', href: '#coming-soon' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href} 
-                    className="text-[14px] font-body font-light text-muted hover:text-accent hover:translate-x-1 transition-all duration-300 inline-block"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Column 4: Client Advisory Desk & Visit Booking Card (lg:col-span-3) */}
+          <div className="lg:col-span-3 flex flex-col justify-between">
+            <div>
+              <h4 className="text-[12px] tracking-[0.24em] uppercase text-ink font-body font-semibold mb-2">
+                Client Advisory
+              </h4>
+              <div className="w-6 h-[1.5px] bg-accent mb-6" />
+
+              <ul className="list-none p-0 m-0 space-y-3">
+                {[
+                  { name: 'Download Masterplans & Brochures', href: '#coming-soon' },
+                  { name: 'Home Loan & EMI Calculator', href: '#coming-soon' },
+                  { name: 'NRI Investment Advisory Desk', href: '#coming-soon' },
+                  { name: 'Customer Video Testimonials', href: '#testimonials' },
+                  { name: 'Frequently Asked Questions', href: '#coming-soon' },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <a 
+                      href={item.href} 
+                      className="text-[13px] font-body font-light text-muted hover:text-accent hover:translate-x-1 transition-all duration-300 block py-0.5"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Private Tour Concierge Card */}
+            <div className="mt-8 p-4 rounded-2xl bg-soft border border-line">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent mb-1 font-body">
+                Experience in Person
+              </p>
+              <p className="text-[12px] text-muted font-light leading-relaxed mb-3.5 font-body">
+                Arrange a walkthrough of our plots, villas, and masterplans.
+              </p>
+              <a 
+                href="https://wa.me/918657553355?text=Hello%20Northstar%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl bg-btn-bg text-btn-ink text-[11px] font-semibold tracking-[0.14em] uppercase hover:bg-ink transition-colors shadow-sm"
+              >
+                Schedule Site Visit &rarr;
+              </a>
+            </div>
           </div>
 
         </div>
