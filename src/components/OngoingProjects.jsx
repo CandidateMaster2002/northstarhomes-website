@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
 
 export default function OngoingProjects() {
@@ -7,7 +8,15 @@ export default function OngoingProjects() {
   return (
     <section id="ongoing-projects" className="bg-bg border-t border-line pt-16 pb-8 max-[880px]:pt-10 max-[880px]:pb-6">
       <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6">
-        <div className="mb-10 flex flex-wrap justify-between items-end gap-6">
+        
+        {/* Animated Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-10 flex flex-wrap justify-between items-end gap-6"
+        >
           <div>
             <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
               Our Presence
@@ -16,22 +25,33 @@ export default function OngoingProjects() {
               Iconic Developments
             </h2>
           </div>
-          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body">
-            View All <span className="text-lg leading-none">&rarr;</span>
+          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body group">
+            View All <span className="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
           </a>
-        </div>
+        </motion.div>
 
-        {/* 6-Column Bento Grid */}
+        {/* 6-Column Bento Grid with Staggered Scroll Reveal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6">
           {ongoing.map((project, idx) => {
             // 3-2 pattern: First 3 take 2 cols each (3 across), Next 2 take 3 cols each (2 across)
             const isWide = idx % 5 === 3 || idx % 5 === 4;
             const spanClass = isWide ? 'lg:col-span-3' : 'lg:col-span-2';
+            
+            // Stagger delay within each visual row
+            const staggerDelay = (idx % 3) * 0.15;
 
             return (
-              <a 
+              <motion.a 
                 href="#coming-soon" 
                 key={project.id} 
+                initial={{ opacity: 0, y: 50, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.18 }}
+                transition={{ 
+                  duration: 0.85, 
+                  delay: staggerDelay, 
+                  ease: [0.22, 1, 0.36, 1] 
+                }}
                 className={`group relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-[380px] lg:h-[440px] ${spanClass}`}
               >
                 {/* Background Image */}
@@ -42,32 +62,54 @@ export default function OngoingProjects() {
                       alt={project.name} 
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" 
                     />
                   )}
                 </div>
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07294A]/90 via-[#07294A]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07294A]/90 via-[#07294A]/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
                 
-                {/* Top Tags */}
-                <div className="absolute top-5 left-5 flex gap-2">
+                {/* Top Tags - Staggered entrance */}
+                <motion.div 
+                  initial={{ opacity: 0, y: -12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.18 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: staggerDelay + 0.15, 
+                    ease: [0.22, 1, 0.36, 1] 
+                  }}
+                  className="absolute top-5 left-5 flex gap-2 z-10"
+                >
                   <span className="bg-white/95 backdrop-blur-sm text-ink text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     {project.city}
                   </span>
                   <span className="bg-accent text-white text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     Ongoing
                   </span>
-                </div>
+                </motion.div>
 
-                {/* Bottom Content */}
-                <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex items-end justify-between">
-                  <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-white font-heading font-normal text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-sm">{project.name}</h3>
+                {/* Bottom Content - Staggered glide-up entrance */}
+                <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex items-end justify-between z-10">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 22 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.18 }}
+                    transition={{ 
+                      duration: 0.65, 
+                      delay: staggerDelay + 0.22, 
+                      ease: [0.22, 1, 0.36, 1] 
+                    }}
+                    className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+                  >
+                    <h3 className="text-white font-heading font-normal text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-sm">
+                      {project.name}
+                    </h3>
                     <p className="text-white/80 font-body font-light text-[13px] tracking-wide">
                       Northstar {project.name} | {project.city}
                     </p>
-                  </div>
+                  </motion.div>
                   
                   {/* Hover Arrow */}
                   <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 border border-white/30">
@@ -76,7 +118,7 @@ export default function OngoingProjects() {
                     </svg>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             )
           })}
         </div>
