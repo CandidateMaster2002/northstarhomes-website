@@ -13,6 +13,7 @@ import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import FloatingContact from './components/FloatingContact'
 import ComingSoon from './components/ComingSoon'
+import ProjectDetail from './components/ProjectDetail'
 
 export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
@@ -22,6 +23,18 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  if (currentHash.startsWith('#project/') || currentHash === '#sanctuary') {
+    const projectId = currentHash === '#sanctuary' ? 'sanctuary' : currentHash.replace('#project/', '');
+    return (
+      <div className="bg-bg text-ink font-body text-base leading-relaxed flex flex-col min-h-screen">
+        <Header />
+        <ProjectDetail projectId={projectId} />
+        <Footer />
+        <FloatingContact />
+      </div>
+    );
+  }
 
   if (currentHash === '#coming-soon') {
     return (

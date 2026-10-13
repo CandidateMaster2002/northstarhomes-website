@@ -1,5 +1,6 @@
 import React from 'react'
 import { siteConfig } from '../siteConfig'
+import { projectsData } from '../data/projectsData'
 
 export default function CompletedProjects() {
   const completed = siteConfig.projects.filter(p => p.status === 'Completed');
@@ -44,7 +45,7 @@ export default function CompletedProjects() {
         <div className="flex animate-marquee-slow w-max items-center py-2 cursor-pointer">
           {infiniteCompleted.map((project, idx) => (
             <a 
-              href="#coming-soon" 
+              href={projectsData[project.id] ? `#project/${project.id}` : '#coming-soon'} 
               key={`${project.id}-${idx}`} 
               className="group/card relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-[280px] lg:h-[340px] w-[270px] lg:w-[320px] flex-shrink-0 mx-3 lg:mx-4 hover:-translate-y-1.5"
             >

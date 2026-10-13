@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
+import { projectsData } from '../data/projectsData'
 
 export default function OngoingProjects() {
   const ongoing = siteConfig.projects.filter(p => p.status === 'Ongoing');
@@ -42,7 +43,7 @@ export default function OngoingProjects() {
 
             return (
               <motion.a 
-                href="#coming-soon" 
+                href={projectsData[project.id] ? `#project/${project.id}` : '#coming-soon'} 
                 key={project.id} 
                 initial={{ opacity: 0, y: 50, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
