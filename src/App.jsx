@@ -49,8 +49,8 @@ export default function App() {
         <About />
         <OngoingProjects />
         <CompletedProjects />
-        <ProjectLogos />
         <Timeline />
+        <ProjectLogos />
         <WhyNorthstar />
         <Testimonials />
         <Footer />
