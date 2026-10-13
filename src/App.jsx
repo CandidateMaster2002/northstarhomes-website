@@ -47,10 +47,10 @@ export default function App() {
         <Hero />
         <CredentialBand />
         <About />
-        <Timeline />
         <OngoingProjects />
         <CompletedProjects />
         <ProjectLogos />
+        <Timeline />
         <WhyNorthstar />
         <Testimonials />
         <Footer />
