@@ -20,6 +20,7 @@ import logoEdenGardens from '../assets/AllLogosColorfulWEBP/Northstar_Eden Garde
 import logoLeela from '../assets/AllLogosColorfulWEBP/Northstar_Leela.webp';
 import logoAmgPlaza from '../assets/AllLogosColorfulWEBP/Northstar_Amgplaza.webp';
 import logoGardenSuites from '../assets/AllLogosColorfulWEBP/Northstar_Gardensuits.webp';
+import heroVideoPlaceholder from '../assets/hero video eden compr.mp4';
 
 export const projectsData = {
   sanctuary: {
@@ -34,6 +35,7 @@ export const projectsData = {
     location: 'Mohabbatnagar, Near Tukkuguda, Srisailam Highway',
     tagline: 'Where Nature Becomes a Way of Life',
     heroImage: imgSanctuary,
+    heroVideo: heroVideoPlaceholder,
     logo: logoSanctuary,
     
     // External Client Assets (Google Drive / Maps)

@@ -8,6 +8,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   // Interactive States
   const [activeExperienceTab, setActiveExperienceTab] = useState('photos');
   const [activeAmenityCategory, setActiveAmenityCategory] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
   const [selectedQualityPoint, setSelectedQualityPoint] = useState(
     project.qualityInfrastructure?.points ? project.qualityInfrastructure.points[0] : null
   );
@@ -43,9 +44,19 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
           SECTION 1: HERO & PROJECT DETAILS
       ───────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-end bg-[#07294A] text-white overflow-hidden pt-28 pb-16 lg:pb-24">
-        {/* Background Visual */}
+        {/* Background Visual / Walkthrough Video */}
         <div className="absolute inset-0 z-0">
-          {project.heroImage ? (
+          {project.heroVideo ? (
+            <video 
+              src={project.heroVideo} 
+              poster={project.heroImage}
+              autoPlay 
+              loop 
+              muted={isMuted} 
+              playsInline 
+              className="w-full h-full object-cover object-center"
+            />
+          ) : project.heroImage ? (
             <img 
               src={project.heroImage} 
               alt={project.name} 
@@ -55,9 +66,36 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             <div className="w-full h-full bg-gradient-to-br from-[#07294A] to-[#041628]" />
           )}
           {/* Subtle Scrims */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07294A] via-[#07294A]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07294A]/90 via-[#07294A]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07294A] via-[#07294A]/50 to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07294A]/90 via-[#07294A]/40 to-transparent pointer-events-none" />
         </div>
+
+        {/* Floating Sound Toggle (for Video Walkthrough) */}
+        {project.heroVideo && (
+          <button
+            type="button"
+            onClick={() => setIsMuted(!isMuted)}
+            aria-label={isMuted ? "Unmute walkthrough video" : "Mute walkthrough video"}
+            className="absolute right-6 sm:right-10 bottom-24 sm:bottom-28 z-20 flex items-center gap-2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white text-[11px] uppercase tracking-wider px-3.5 py-2 rounded-full border border-white/20 transition-all cursor-pointer shadow-lg"
+          >
+            {isMuted ? (
+              <>
+                <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                </svg>
+                <span>Sound Off</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4 text-[#4FA3E3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+                <span>Sound On</span>
+              </>
+            )}
+          </button>
+        )}
 
         <div className="relative z-10 max-w-[1280px] w-full mx-auto px-6 lg:px-10">
           
