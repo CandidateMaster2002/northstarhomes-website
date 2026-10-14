@@ -113,54 +113,38 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             <span className="text-white font-semibold">{project.shortName || project.name}</span>
           </motion.div>
 
-          <div className="max-w-[820px]">
-            {/* Header Eyebrow */}
-            <motion.p 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[12px] sm:text-[13px] tracking-[0.26em] uppercase text-[#4FA3E3] font-heading font-bold mb-3"
-            >
-              {project.eyebrow || 'A Life Crafted Closer to Nature'}
-            </motion.p>
-
-            {/* Status & Type Chips */}
+          <div className="max-w-[900px]">
+            {/* Project Identity & Badges */}
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="flex flex-wrap items-center gap-3 mb-4"
             >
-              <span className="bg-accent text-white text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm">
+              <span className="text-[12px] sm:text-[14px] tracking-[0.26em] uppercase text-[#4FA3E3] font-heading font-bold">
+                {project.name}
+              </span>
+              <span className="text-white/40 hidden sm:inline">•</span>
+              <span className="bg-accent text-white text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1 rounded-full shadow-sm">
                 {project.statusBadge || project.status}
               </span>
-              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 text-[11px] font-medium tracking-widest uppercase px-3.5 py-1.5 rounded-full">
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 text-[10px] sm:text-[11px] font-medium tracking-widest uppercase px-3.5 py-1 rounded-full">
                 {project.type}
               </span>
-              <span className="text-white/80 text-[12px] tracking-wider uppercase font-light">
+              <span className="text-white/80 text-[11px] sm:text-[12px] tracking-wider uppercase font-light">
                 {project.city}
               </span>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Hero Headline — Client Specified: A Life Crafted Closer to Nature (Bigger) */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[44px] sm:text-[58px] lg:text-[76px] font-heading font-normal leading-[1.04] text-white mb-4 tracking-tight"
+              className="text-[44px] sm:text-[62px] lg:text-[78px] font-heading font-normal leading-[1.05] text-white mb-6 tracking-tight"
             >
-              {project.name}
+              {project.headerTitle || project.name}
             </motion.h1>
-
-            {/* Tagline */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-[18px] sm:text-[22px] lg:text-[24px] font-heading font-light text-white/90 leading-relaxed mb-6 max-w-[640px]"
-            >
-              {project.tagline}
-            </motion.p>
 
             {/* Location Line */}
             <motion.div 
