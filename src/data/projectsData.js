@@ -24,8 +24,9 @@ import logoGardenSuites from '../assets/AllLogosColorfulWEBP/Northstar_Gardensui
 export const projectsData = {
   sanctuary: {
     id: 'sanctuary',
-    name: 'Sanctuary',
-    fullName: 'Northstar Sanctuary',
+    name: 'Northstar Sanctuary',
+    shortName: 'Sanctuary',
+    eyebrow: 'A Life Crafted Closer to Nature',
     status: 'Ongoing',
     statusBadge: 'Now Selling',
     type: 'Crafted Plots & Villas',
@@ -34,16 +35,25 @@ export const projectsData = {
     tagline: 'Where Nature Becomes a Way of Life',
     heroImage: imgSanctuary,
     logo: logoSanctuary,
-    brochureUrl: 'https://connectingdomains.in/northstarhomes.in/wp-content/uploads/2026/10/park-avenue-brochure.pdf',
     
-    // SECTION 2 — PROJECT IDENTITY SPECS BAR
+    // External Client Assets (Google Drive / Maps)
+    projectLink: 'https://drive.google.com/drive/folders/1ju7d9FRa4wjUwvqY8qmwMRNfTjWkY005',
+    walkthroughVideoLink: 'https://drive.google.com/drive/folders/1ApGOQ_sPXZR3NO7wCh_a8mcv6emKtd4M',
+    brochureUrl: 'https://drive.google.com/drive/folders/1-Jc3g8LpWF0eT0AKUDioSJrygyQtaJfa',
+    masterPlanLink: 'https://drive.google.com/drive/folders/1PKJaHv_JINeH77CkH8fgKOEveA7N_Omq',
+    googleMapLink: 'https://maps.google.com/maps?q=17.1587666,78.4787074',
+    googleMapEmbed: 'https://maps.google.com/maps?q=17.1587666,78.4787074&hl=en&z=14&output=embed',
+
+    // SECTION 2 — PROJECT IDENTITY SPECS BAR (Full Client Hero Specs)
     specs: [
-      { label: 'Status', value: 'Now Selling' },
       { label: 'Project Type', value: 'Crafted Plots & Villas' },
       { label: 'Total Site Area', value: '14 Acres 11 Guntas' },
-      { label: 'Exclusive Community', value: '63 Addresses' },
-      { label: 'Location', value: 'Near Tukkuguda, Hyderabad' },
-      { label: 'RERA Registration', value: 'Applied / In Progress' }
+      { label: 'Phase 1 Layout', value: '9 Acres 29 Guntas' },
+      { label: 'Phase 2 Layout', value: '4 Acres 21 Guntas' },
+      { label: 'Plot Size Range', value: '600 – 1,000 Sq. Yds.' },
+      { label: 'Villa Plot Range', value: '343 – 500 Sq. Yds.' },
+      { label: 'Community Size', value: 'Exclusive 63 Addresses' },
+      { label: 'Location', value: 'Tukkuguda, Srisailam Hwy' },
     ],
 
     // SECTION 3 — EDITORIAL NARRATIVE & PILLARS
@@ -51,34 +61,39 @@ export const projectsData = {
       {
         tag: 'The Location Advantage',
         headline: 'The Luxury of Living Between Nature and the City.',
-        description: 'Set near Tukkuguda, Sanctuary keeps you connected to the ORR, airport, schools, and key destinations of South Hyderabad. Close enough to everything that matters, yet removed from the pace of the city — offering a rare balance of connectivity, calm, and open living.'
+        description: 'Set near Tukkuguda, Sanctuary keeps you connected to the ORR, airport, schools and key destinations of South Hyderabad. Close enough to everything that matters, yet removed from the pace of the city. A rare balance of connectivity, calm and open living.'
       },
       {
         tag: 'Landscape & Greenery',
         headline: 'Where Nature Becomes a Way of Life.',
-        description: 'Tree-lined avenues, intimate pocket parks, and thoughtfully layered greens shape everyday life. Walk among fragrant gardens, flowering trees, and landscapes designed to bring nature closer to your doorstep every morning.'
+        description: 'Tree-lined avenues, intimate pocket parks and thoughtfully layered greens shape everyday life. Walk among fragrant gardens, flowering trees and landscapes designed to bring nature closer. At Sanctuary, the outdoors isn’t somewhere you visit — it is where life unfolds.'
       },
       {
         tag: 'Plotted Living & Villas',
         headline: 'Your Land. Your Home. Your Legacy.',
-        description: 'Choose between generous residential plots and thoughtfully crafted villas within an exclusive 63-address community. A place to build around your family, your aspirations, and your idea of home — because some homes are created not just for today, but for generations.'
+        description: 'Choose between generous residential plots and thoughtfully crafted villas within an exclusive 63-address community. A place to build around your family, your aspirations and your idea of home. Because some homes are created not just for today, but for generations.'
       },
       {
         tag: 'Everyday Experience',
         headline: 'The Life You Imagined Is Already Here.',
-        description: 'Walk the cobbled avenues, cycle through greenery, pause in a pocket park, or spend an evening at the private clubhouse. Everyday experiences have been thoughtfully designed around wellness, leisure, and togetherness.'
+        description: 'Walk the cobbled avenues, cycle through greenery, pause in a pocket park or spend an evening at the clubhouse. Everyday experiences have been thoughtfully designed around wellness, leisure and togetherness. Sanctuary is no longer something to imagine — it is ready to be experienced.'
       }
     ],
 
     // SECTION 4 — LIFESTYLE FEATURES & AMENITIES
+    amenitiesHeader: {
+      eyebrow: 'Lifestyle Features & Amenities',
+      title: 'A Lifestyle Shaped by Greenery, Wellness and Community',
+      description: 'Sanctuary is planned to make outdoor living a natural part of everyday life. The community brings together green landscapes, movement tracks, leisure spaces, clubhouse facilities, and reliable infrastructure to support a healthier and more relaxed lifestyle.'
+    },
     amenityCategories: [
       {
-        title: 'Green Living & Landscapes',
-        badge: 'Outdoor Ecology',
+        title: 'Green Living & Landscape',
+        badge: 'Ecological Living',
         items: [
           'Pocket Parks',
           'Tree-Lined Avenues',
-          'Dense Native Planting',
+          'Dense Planting',
           'Flowering Trees',
           'Butterfly Garden',
           'Rain Garden',
@@ -90,74 +105,121 @@ export const projectsData = {
       },
       {
         title: 'Movement & Outdoor Wellness',
-        badge: 'Health & Activity',
+        badge: 'Active Wellbeing',
         items: [
           'Dedicated Walking Track',
           'Dedicated Cycling Track',
           'Nature Trail',
-          'Pebbled Reflexology Pathways',
+          'Pebbled Pathways',
           'Open Green Spaces',
           'Cobbled Internal Roads',
           'Dedicated Vehicular Movement'
         ]
       },
       {
-        title: 'Family & Social Spaces',
-        badge: 'Community',
+        title: 'Family & Community Spaces',
+        badge: 'Togetherness',
         items: [
           'Children’s Play Area',
           'Gathering Courts',
-          'Intimate Seating Pockets',
+          'Seating Areas',
           'Party Lawn',
-          'Community Decks'
+          'Community Decks',
+          'Spaces for Family Time & Social Gatherings'
         ]
       },
       {
         title: 'Clubhouse Facilities',
-        badge: 'Exclusive Amenities',
+        badge: 'Club Experience',
         items: [
           'Swimming Pool',
-          'Gymnasium',
-          'Yoga Deck',
-          'Indoor Sports & Games',
+          'Indoor Games Room',
+          'Private Guest Rooms',
+          'Fully Equipped Gym',
           'Party Hall',
           'Cards Room',
-          'Guest Rooms'
+          'Yoga Deck'
         ]
       },
       {
-        title: 'Infrastructure & Security',
-        badge: 'Engineering First',
+        title: 'Thoughtful Infrastructure & Security',
+        badge: 'Engineered Standards',
         items: [
-          '40 ft Main Boulevard',
+          '40 ft Main Road',
           '30 ft Internal Roads',
           'Underground Electrification',
-          'Underground Drainage & Water Lines',
+          'Underground Drainage & Water Supply',
           'Sewage Treatment Plant (STP)',
           'Water Treatment Plant (WTP)',
           'Hydro-Pneumatic Water Supply',
           'Compound Wall with Solar Fencing',
-          '24/7 CCTV Surveillance',
-          '100% Power Backup for Services'
+          'CCTV Surveillance',
+          '100% Power Backup'
         ]
       }
     ],
 
     // SECTION 5 — EXPLORE THE EXPERIENCE (TABS)
     experience: {
+      eyebrow: 'Explore the Experience',
       headline: 'Step Into Your Sanctuary',
-      subtitle: 'Explore Sanctuary through master plans, landscape visuals, clubhouse views, and immersive project experiences.',
+      shortLine: 'Explore Sanctuary through master plans, landscape visuals, clubhouse views, green corridors, pocket parks and immersive project experiences.',
       tabs: [
-        { id: 'photos', label: 'Photos', content: 'Curated photography of the landscape avenues, green corridors, and gated entrance.' },
-        { id: 'masterplan', label: 'Master Plan', content: 'Comprehensive layout plan across 14 Acres 11 Guntas showing all 63 addresses.' },
-        { id: 'villas', label: 'Villa Layouts', content: 'Architectural villa elevations and customized floor plans designed for generations.' },
-        { id: 'brochure', label: 'Brochure', content: 'Download the complete high-resolution project brochure with specifications and site details.' }
+        { id: 'photos', label: 'Photos', desc: 'Curated gallery of landscape avenues, green corridors, and park views.' },
+        { id: 'videos', label: 'Videos', desc: 'Watch cinematic video walkthroughs and immersive aerial footage of Sanctuary.' },
+        { id: '360', label: '360° View', desc: 'Experience 360-degree interactive panoramic perspectives of the site.' },
+        { id: 'masterplan', label: 'Master Plan', desc: 'Detailed 14-acre master layout showing all 63 plot and villa allocations.' },
+        { id: 'plotplan', label: 'Plot Plan', desc: 'Dimensional plot layout options ranging from 343 to 1,000 Sq. Yds.' },
+        { id: 'villaplan', label: 'Villa Plan', desc: 'Customizable villa floor plans and architectural elevations.' },
+        { id: 'brochure', label: 'Brochure', desc: 'Official high-resolution Northstar Sanctuary project brochure.' }
       ]
     },
 
-    // SECTION 6 — LOCATION & CONNECTIVITY
-    locationDetails: {
-      address: 'Mohabbatnagar, Near Tukkuguda, Srisailam Highway, Hyderabad, Telangana',
+    // SECTION 6 — BUILT WITH QUALITY (INTERACTIVE INFRASTRUCTURE HOTSPOTS)
+    qualityInfrastructure: {
+      eyebrow: 'Built with Quality',
+      title: 'Thoughtful Infrastructure for a Better Living Experience',
+      subtitle: 'Tap each point to explore the infrastructure, landscape and planning details that make Sanctuary a thoughtfully crafted community.',
+      points: [
+        { id: 'main-road', label: '40 ft Main Road', category: 'Roads', detail: 'Broad 40-foot arterial avenue built for smooth, stately two-way vehicular flow with dedicated tree canopies.' },
+        { id: 'internal-road', label: '30 ft Internal Road', category: 'Roads', detail: '30-foot residential lanes planned so pedestrian movement and neighborly life stay peaceful and uncrowded.' },
+        { id: 'cobbled-roads', label: 'Cobbled Stone Roads', category: 'Roads', detail: 'Classic cobbled pavers offering timeless aesthetics, natural rainwater percolation, and vehicle speed calming.' },
+        { id: 'walking-track', label: 'Walking Track', category: 'Wellness', detail: 'Continuous, shaded perimeter walking track woven through lush pocket parks and flowering gardens.' },
+        { id: 'cycling-track', label: 'Cycling Track', category: 'Wellness', detail: 'Dedicated, safe cycling avenue separated from primary car movement for children and fitness enthusiasts.' },
+        { id: 'vehicular-movement', label: 'Vehicular Movement', category: 'Roads', detail: 'Engineered one-way and calming vehicular loops designed to keep residential clusters quiet.' },
+        { id: 'stp', label: 'Sewage Treatment Plant (STP)', category: 'Utilities', detail: 'Advanced on-site STP providing recycled treated water for community landscaping and green belts.' },
+        { id: 'wtp', label: 'Water Treatment Plant (WTP)', category: 'Utilities', detail: 'Central filtration and purification plant delivering safe, pressurized potable water to all homes.' },
+        { id: 'underground-elec', label: 'Underground Electrification', category: 'Utilities', detail: 'Zero overhead wires. All high-tension and domestic electric lines routed through underground conduits.' },
+        { id: 'underground-drainage', label: 'Underground Drainage', category: 'Utilities', detail: 'Fully enclosed underground storm-water and sanitary drainage preventing surface water logging.' },
+        { id: 'underground-water', label: 'Underground Water Supply', category: 'Utilities', detail: 'Concealed ring main water supply lines laid before plot handovers to preserve road longevity.' },
+        { id: 'hydro-pneumatic', label: 'Hydro-Pneumatic Water Supply', category: 'Utilities', detail: 'Constant, balanced water pressure delivered to every plot and villa via pressurized hydro-pneumatic pumps.' },
+        { id: 'compound-wall', label: 'Compound Wall', category: 'Security', detail: 'Solid, high-perimeter masonry compound wall enclosing the entire 14-acre private enclave.' },
+        { id: 'solar-fencing', label: 'Solar Fencing', category: 'Security', detail: 'Energized solar perimeter security fencing running along the entire boundary with tamper detection.' },
+        { id: 'cctv', label: 'CCTV Surveillance', category: 'Security', detail: 'Comprehensive 24/7 high-definition CCTV camera coverage across entry gates, boulevards, and parks.' },
+        { id: 'power-backup', label: 'Power Backup', category: 'Utilities', detail: 'Dedicated diesel generator (DG) backup for streetlights, water pumps, clubhouse, and security systems.' }
+      ]
+    },
+
+    // SECTION 7 — CONSTRUCTION PROGRESS
+    constructionProgress: {
+      eyebrow: 'Construction Progress',
+      title: 'Watch Sanctuary Take Shape',
+      subtitle: 'Follow the latest progress of Northstar Sanctuary through drone views, site photographs and regular project updates.',
+      milestones: [
+        { label: 'Site Boundary & Compound Wall', status: '100% Completed', note: 'Entire perimeter compound wall and solar fencing installed.' },
+        { label: 'Underground Infrastructure (Drainage & Water)', status: 'Advanced Stage', note: 'Concealed underground utilities and storm drainage network laid.' },
+        { label: 'Road Works & Cobbled Avenues', status: 'In Progress', note: '40ft main boulevard base work and 30ft internal roads undergoing paving.' },
+        { label: 'Landscape & Pocket Parks', status: 'Active Planting', note: 'Tree transplantation, flowering gardens, and irrigation systems taking shape.' },
+        { label: 'Clubhouse Civil Work', status: 'Structure Underway', note: 'Clubhouse foundations and structural framing progressing on schedule.' }
+      ],
+      mediaTabs: ['Drone Photos', 'Drone Videos', 'Site Progress Gallery', 'Monthly Updates']
+    },
+
+    // SECTION 8 — AROUND THE NEIGHBOURHOOD
+    neighbourhood: {
+      eyebrow: 'Connectivity & Commute',
+      title: 'Around the Neighbourhood',
+      subtitle: 'Placed along the rapid growth corridor of South Hyderabad, keeping work, global travel, and education within effortless reach.',
       landmarks: [
         { name: 'RGIA (Hyderabad International Airport)', distance: '10 km', time: '20 min' },
         { name: 'ORR Exit No. 14 (Tukkuguda)', distance: '5 km', time: '10 min' },
@@ -171,13 +233,37 @@ export const projectsData = {
         { name: 'Bhashyam School', distance: '0.5 km', time: '1 min' },
         { name: 'Manchester Global School', distance: '4 km', time: '8 min' }
       ]
+    },
+
+    // SECTION 9 — PROJECT LOCATION
+    locationDetails: {
+      eyebrow: 'Project Location',
+      title: 'A Nature-Led Address on Srisailam Highway',
+      addressTitle: 'Northstar Sanctuary',
+      addressLines: [
+        'Survey No. 38/AA, 39/EE, 43/A, 45/RU, 46/UU and 47/U,',
+        'Mohabathnagar Village, Maheshwaram Revenue Mandal,',
+        'Ranga Reddy District, Telangana – 501359'
+      ],
+      googleMapLink: 'https://maps.google.com/maps?q=17.1587666,78.4787074',
+      embedMapUrl: 'https://maps.google.com/maps?q=17.1587666,78.4787074&hl=en&z=14&output=embed'
+    },
+
+    // SECTION 10 — START YOUR ENQUIRY
+    enquiry: {
+      eyebrow: 'Start Your Enquiry',
+      title: 'Find Your Own Sanctuary',
+      subtitle: 'Sanctuary is for those who dream of building a home around space, greenery, calm and long-term value. Share your details with us and our team will help you with plot availability, villa options, pricing, master plans, brochure and site visit assistance.',
+      options: ['Plotted Development (343 – 1,000 Sq. Yds.)', 'Crafted Luxury Villa', 'Both Plots & Villas'],
+      plotSizes: ['343 – 500 Sq. Yds. (Villa Plot)', '600 – 1,000 Sq. Yds. (Estate Plot)', 'Flexible / Customized']
     }
   },
 
   'district-1': {
     id: 'district-1',
-    name: 'District 1',
-    fullName: 'Northstar District 1',
+    name: 'Northstar District 1',
+    shortName: 'District 1',
+    eyebrow: 'Award-Winning Apartment Architecture',
     status: 'Completed',
     statusBadge: 'Delivered',
     type: 'Completed Residential Apartment Community',
@@ -214,6 +300,11 @@ export const projectsData = {
         description: 'Set within Hyderabad’s Financial District, District 1 keeps major workplaces, healthcare, and the Gachibowli business ecosystem close at hand.'
       }
     ],
+    amenitiesHeader: {
+      eyebrow: 'Lifestyle Features & Amenities',
+      title: 'More Ways to Make the Day Your Own',
+      description: 'District 1 brings wellness, sports, family recreation, and 24x7 convenience together in the heart of Gachibowli.'
+    },
     amenityCategories: [
       {
         title: 'Wellness & Recreation',
@@ -236,13 +327,45 @@ export const projectsData = {
         items: ['24×7 Security', 'CCTV Surveillance', 'Power Backup', 'Intercom', 'Car Parking', 'Lifts', 'Rainwater Harvesting']
       }
     ],
-    locationDetails: {
-      address: 'Beside Continental Hospitals, Puppalguda, Financial District, Hyderabad, Telangana – 500075',
+    experience: {
+      eyebrow: 'Explore the Experience',
+      headline: 'See District 1 Beyond the Façade',
+      shortLine: 'Explore the finished tower, lifestyle amenities, and floor plans.',
+      tabs: [
+        { id: 'photos', label: 'Photos', desc: 'Completed photography of District 1.' },
+        { id: 'videos', label: 'Videos', desc: 'Walkthrough video.' },
+        { id: 'masterplan', label: 'Master Plan', desc: 'Site and tower footprint.' },
+        { id: 'floorplan', label: 'Floor Plans', desc: '3 BHK unit configurations.' },
+        { id: 'brochure', label: 'Brochure', desc: 'Download project brochure.' }
+      ]
+    },
+    neighbourhood: {
+      eyebrow: 'Prime Location',
+      title: 'Around the Neighbourhood',
+      subtitle: 'Set beside Continental Hospitals in Puppalguda / Financial District.',
       landmarks: [
         { name: 'Continental Hospitals', distance: 'Adjacent', time: '1 min' },
         { name: 'Wipro Circle', distance: '1.5 km', time: '3 min' },
         { name: 'Gachibowli Junction', distance: '3 km', time: '7 min' }
       ]
+    },
+    locationDetails: {
+      eyebrow: 'Project Location',
+      title: 'In the Heart of Hyderabad’s Financial District',
+      addressTitle: 'Northstar District 1',
+      addressLines: [
+        'Beside Continental Hospitals, Puppalguda,',
+        'Financial District, Hyderabad, Telangana – 500075'
+      ],
+      googleMapLink: 'https://maps.google.com/?q=Northstar+District+1+Hyderabad',
+      embedMapUrl: 'https://maps.google.com/maps?q=Northstar+District+1+Hyderabad&hl=en&z=14&output=embed'
+    },
+    enquiry: {
+      eyebrow: 'Get in Touch',
+      title: 'Enquire About District 1',
+      subtitle: 'Connect with our team for resale availability, rental opportunities, or site walkthroughs.',
+      options: ['Apartment Purchase Enquiry', 'General Enquiry'],
+      plotSizes: ['3 BHK (1,266 to 2,453 Sft)']
     }
   }
 };
