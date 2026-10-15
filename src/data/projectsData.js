@@ -57,27 +57,55 @@ export const projectsData = {
       { label: 'Location', value: 'Tukkuguda, Srisailam Hwy' },
     ],
 
-    // SECTION 3 — EDITORIAL NARRATIVE & PILLARS
+    // SECTION 3 — EDITORIAL NARRATIVE & LIFESTYLE CHAPTERS (Lodha Style Alternating Stories)
     narrative: [
       {
-        tag: 'The Location Advantage',
-        headline: 'The Luxury of Living Between Nature and the City.',
-        description: 'Set near Tukkuguda, Sanctuary keeps you connected to the ORR, airport, schools and key destinations of South Hyderabad. Close enough to everything that matters, yet removed from the pace of the city. A rare balance of connectivity, calm and open living.'
+        tag: 'Connectivity & Calm',
+        headline: 'The Luxury of Living Between Nature and the City',
+        paragraphs: [
+          'Set near Tukkuguda, Sanctuary keeps you connected to the ORR, airport, schools and key destinations of South Hyderabad.',
+          'Close enough to everything that matters, yet removed from the pace of the city.',
+          'A rare balance of connectivity, calm and open living.'
+        ],
+        image: imgSanctuary,
+        imageCaption: 'Sanctuary Master Layout & Location · Near Tukkuguda, South Hyderabad',
+        placeholderNote: 'Aerial Masterplan & Nature Landscape Render'
       },
       {
         tag: 'Landscape & Greenery',
         headline: 'Where Nature Becomes a Way of Life.',
-        description: 'Tree-lined avenues, intimate pocket parks and thoughtfully layered greens shape everyday life. Walk among fragrant gardens, flowering trees and landscapes designed to bring nature closer. At Sanctuary, the outdoors isn’t somewhere you visit — it is where life unfolds.'
+        paragraphs: [
+          'Tree-lined avenues, intimate pocket parks and thoughtfully layered greens shape everyday life.',
+          'Walk among fragrant gardens, flowering trees and landscapes designed to bring nature closer.',
+          'At Sanctuary, the outdoors isn’t somewhere you visit — it is where life unfolds.'
+        ],
+        image: imgHillside,
+        imageCaption: 'Tree-Lined Avenues & Layered Greens · Pocket Parks',
+        placeholderNote: 'Botanical Gardens & Tree-Lined Avenues Render'
       },
       {
         tag: 'Plotted Living & Villas',
         headline: 'Your Land. Your Home. Your Legacy.',
-        description: 'Choose between generous residential plots and thoughtfully crafted villas within an exclusive 63-address community. A place to build around your family, your aspirations and your idea of home. Because some homes are created not just for today, but for generations.'
+        paragraphs: [
+          'Choose between generous residential plots and thoughtfully crafted villas within an exclusive 63-address community.',
+          'A place to build around your family, your aspirations and your idea of home.',
+          'Because some homes are created not just for today, but for generations.'
+        ],
+        image: imgAirportBoulevard,
+        imageCaption: 'Crafted Villa Architecture & Plotted Enclave · 63 Addresses',
+        placeholderNote: 'Villa Architecture & Plotted Layout Render'
       },
       {
         tag: 'Everyday Experience',
         headline: 'The Life You Imagined Is Already Here.',
-        description: 'Walk the cobbled avenues, cycle through greenery, pause in a pocket park or spend an evening at the clubhouse. Everyday experiences have been thoughtfully designed around wellness, leisure and togetherness. Sanctuary is no longer something to imagine — it is ready to be experienced.'
+        paragraphs: [
+          'Walk the cobbled avenues, cycle through greenery, pause in a pocket park or spend an evening at the clubhouse.',
+          'Everyday experiences have been thoughtfully designed around wellness, leisure and togetherness.',
+          'Sanctuary is no longer something to imagine — it is ready to be experienced.'
+        ],
+        image: imgEdenGardens,
+        imageCaption: 'Clubhouse Amenities, Swimming Pool & Gathering Decks',
+        placeholderNote: 'Clubhouse Facilities & Active Wellness Render'
       }
     ],
 
@@ -126,7 +154,7 @@ export const projectsData = {
           'Seating Areas',
           'Party Lawn',
           'Community Decks',
-          'Spaces for Family Time & Social Gatherings'
+          'Spaces for family time and social gatherings'
         ]
       },
       {
@@ -134,9 +162,9 @@ export const projectsData = {
         badge: 'Club Experience',
         items: [
           'Swimming Pool',
-          'Indoor Games Room',
-          'Private Guest Rooms',
-          'Fully Equipped Gym',
+          'Indoor Games',
+          'Guest Room',
+          'Gym',
           'Party Hall',
           'Cards Room',
           'Yoga Deck'
@@ -150,12 +178,12 @@ export const projectsData = {
           '30 ft Internal Roads',
           'Underground Electrification',
           'Underground Drainage & Water Supply',
-          'Sewage Treatment Plant (STP)',
-          'Water Treatment Plant (WTP)',
+          'STP',
+          'WTP',
           'Hydro-Pneumatic Water Supply',
           'Compound Wall with Solar Fencing',
-          'CCTV Surveillance',
-          '100% Power Backup'
+          'CCTV',
+          'Power Backup'
         ]
       }
     ],
@@ -288,17 +316,23 @@ export const projectsData = {
       {
         tag: 'Architectural Distinction',
         headline: 'Award-Winning Architecture in the Financial District.',
-        description: 'District 1 brought a distinctive architectural identity to apartment living in the Financial District. Its approach to design went on to earn Northstar recognised honours in 2016 and 2017.'
+        description: 'District 1 brought a distinctive architectural identity to apartment living in the Financial District. Its approach to design went on to earn Northstar recognised honours in 2016 and 2017.',
+        image: imgDistrict1,
+        imageCaption: 'District 1 Tower Façade · Financial District, Gachibowli'
       },
       {
         tag: 'Open Spaces',
         headline: 'Room to Breathe, Even in the Financial District.',
-        description: 'Around 70% of the two-acre development is kept open, giving the residential tower more space around it. A considered way of bringing openness into one of Hyderabad’s busiest urban districts.'
+        description: 'Around 70% of the two-acre development is kept open, giving the residential tower more space around it. A considered way of bringing openness into one of Hyderabad’s busiest urban districts.',
+        image: imgDistrict1,
+        imageCaption: '70% Open Landscaped Grounds & Podium'
       },
       {
         tag: 'Prime Connectivity',
         headline: 'Live Close to Where the City Works.',
-        description: 'Set within Hyderabad’s Financial District, District 1 keeps major workplaces, healthcare, and the Gachibowli business ecosystem close at hand.'
+        description: 'Set within Hyderabad’s Financial District, District 1 keeps major workplaces, healthcare, and the Gachibowli business ecosystem close at hand.',
+        image: imgDistrict1,
+        imageCaption: 'Gachibowli Tech Corridor & Healthcare Hub Proximity'
       }
     ],
     amenitiesHeader: {

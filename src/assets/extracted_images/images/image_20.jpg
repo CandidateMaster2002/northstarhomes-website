@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+
+    <!-- <3rd party libs> — use Url.Content so /botapp (PathBase) and IIS virtual dirs resolve correctly on .NET 8 -->
+    <script src="/botapp/ChatbotUI/external/jquery/js/jquery-3.3.1.min.js"></script>
+    <script src="/botapp/ChatbotUI/external/signalr-core/js/signalr.min.js"></script>
+    <script src="/botapp/ChatbotUI/external/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/botapp/ChatbotUI/external/marked/js/marked.min.js"></script>
+    <script src="/botapp/ChatbotUI/external/slick/js/slick.min.js"></script>
+    <script src="/botapp/ChatbotUI/external/IntlTelInput/intlTelInput.js"></script>
+    <script src="/botapp/ChatbotUI/external/jquery/datetimepicker.js"></script>
+    <link href="/botapp/ChatbotUI/external/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/botapp/ChatbotUI/external/slick/css/slick.css" rel="stylesheet" />
+    <link href="/botapp/ChatbotUI/external/slick/css/slick-theme.css" rel="stylesheet" />
+    <link href="/botapp/ChatbotUI/external/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/botapp/ChatbotUI/external/IntlTelInput/intlTelInput.css" rel="stylesheet" />
+    <link href="/botapp/ChatbotUI/external/jquery/datetimepicker.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64989543-27"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js" type="text/javascript"></script>
+    <!-- </3rd party libs> -->
+
+    <style>
+        /*USED BY A CUSTOMER, DONT REMOVE IT*/
+        @font-face {
+            font-family: "Raleway";
+            src: url("fonts/Raleway-Regular.ttf");
+        }
+
+        /* fallback */
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialicons/v114/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+        }
+
+        .material-icons-outlined {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 18px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <script>
+        const DEBUG = false; // can be set to true to load js from lib folder
+        function onChatwindowCssLoaded() {
+            let appJsNode = document.createElement("script");
+            appJsNode.setAttribute("type", "text/javascript");
+            if (DEBUG) {
+                appJsNode.setAttribute("src", "./lib/app.js?v=161");
+                appJsNode.setAttribute('onload', "loadPortalScript()")
+            } else {
+                appJsNode.setAttribute("src", "./dist/js/kenytapp.js?v=161");
+            }
+            document.head.appendChild(appJsNode);
+        }
+
+        function loadPortalScript() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const isPortalEnabled = urlParams.get("enablePortal");
+            console.log(isPortalEnabled, "isPortalEnabled")
+            if (isPortalEnabled !== "false") {
+                let utilsJsNode = document.createElement("script");
+                utilsJsNode.setAttribute("type", "text/javascript");
+                utilsJsNode.setAttribute("src", "./lib/utils.js?v=161");
+                utilsJsNode.setAttribute('onload', "loadUtilScript()")
+                document.head.appendChild(utilsJsNode);
+            }
+        }
+
+        function loadUtilScript() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const isPortalEnabled = urlParams.get("enablePortal");
+            let portalJsNode = document.createElement("script");
+                portalJsNode.setAttribute("type", "text/javascript");
+                portalJsNode.setAttribute("src", "./lib/portal.js?v=161");
+                document.head.appendChild(portalJsNode);
+        }
+    </script>
+    <link href="./dist/css/chatwindow.css?v=161" rel="stylesheet" onload="onChatwindowCssLoaded();" />
+    <link href="./dist/css/portalwindow.css?v=161" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="roughWork">
+        <div id="roughChatWindowBody" class="smooth-scroll thin-scroll">
+            <div class="row m-0" id="roughMessageContainer">
+            </div>
+        </div>
+    </div>
+    
+    <div id="cameraOverlay" class="d-none">
+        <!-- Camera view -->
+        <div id="cameraContainer">
+            <video id="videoElement" autoplay playsinline aria-label="Camera preview"></video>
+            <canvas id="canvasElement" aria-label="Image capture canvas"></canvas>
+            
+            <!-- Close Camera Icon -->
+            <span id="closeCameraBtn" class="fa fa-times-circle control-icon" title="Close Camera"></span>
+            
+            <!-- Switch Camera Icon -->
+            <span id="switchCameraBtn" class="fa fa-sync control-icon" title="Switch Camera"></span>
+            
+            <!-- Capture Button -->
+            <span id="captureBtn" class="fa fa-circle control-icon" title="Capture Image"></span>
+        </div>
+
+        <!-- Captured image view -->
+        <div id="capturedImageContainer">
+            <img id="capturedImage" src="" alt="Captured image preview">
+            
+            <!-- Action buttons -->
+            <div class="action-buttons">
+                <button id="sendBtn" class="action-btn" aria-label="Send captured image">
+                    <i class="fa fa-paper-plane"></i> Send
+                </button>
+                <button id="retakeBtn" class="action-btn" aria-label="Retake photo">
+                    <i class="fa fa-redo"></i> Retake
+                </button>
+            </div>
+        </div>
+
+        <!-- Status message -->
+        <div id="statusMessage" class="status-message">
+            Initializing camera...
+        </div>
+    </div>
+
+    <div id="chatLoader">
+        <div class="spinner chat-loader"></div>
+    </div>
+    <div id="chatWindow" tabindex="-1">
+        <div id="chatWindowHeader">
+            <div class="header-button" id="headerBackButton" style="margin-right:10px">
+                <span class="material-icons-outlined">arrow_back</span>
+            </div>
+            <div id="headerIconContainer">
+                <img src="" id="headerImage" alt="Chatbot avatar" />
+            </div>
+            <div id="header-content">
+                <div class="vertical-center">
+                    <div class="h5" id="headerTitle"></div>
+
+                    <div class="headerSubTitleWrapper">
+                        <div id="headerOnlineIcon"></div>
+                        <small id="headerSubTitle"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="header-button-container">
+                <div class="header-button d-none" title="Show additional options" id="additionalOptions">
+                    <div class="dropdown " id="menuContainer">
+                        <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                             aria-expanded="false">
+                            <span class="material-icons-outlined">
+                                more_vert
+                            </span>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-right py-2">
+                            <h6 class="dropdown-header py-2">Additional options</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-button d-none" id="headerMaximizeMinimizeButton" data-toggle="maximize">
+                    <span class="material-icons-outlined">fullscreen</span>
+                </div>
+                <div class="header-button" id="headerCloseButton">
+                    <span class="material-icons-outlined">close</span>
+                </div>
+            </div>
+
+        </div>
+        <div id="announcement">
+            <div id="announcementContainer">
+                <div id="announcementText"></div>
+                <div id="announcementCloseButton">
+                    <span class="material-icons-outlined">close</span>
+                </div>
+            </div>
+        </div>
+        <div id="chatWindowBody" class="smooth-scroll thin-scroll d-none">
+            <div class="row m-0" id="messageContainer">
+                <div id="errorbar" class="d-none">
+                </div>
+            </div>
+        </div>
+        <div id="voiceModePanel" class="voice-mode-panel d-none">
+            <button type="button" id="voicePanelTtsToggle" class="voice-panel-btn" aria-label="Toggle bot voice replies" title="Toggle bot voice replies">
+                <span class="material-icons-outlined voice-panel-icon">volume_up</span>
+            </button>
+            <span id="voicePanelModeLabel" class="voice-panel-mode-label"></span>
+            <button type="button" id="voicePanelModeSwitch" class="voice-panel-btn voice-panel-switch" aria-label="Switch voice mode">
+                <span id="voicePanelModeSwitchIcon" class="material-icons-outlined voice-panel-icon">mic</span>
+                <span id="voicePanelModeSwitchLabel">Switch to voice</span>
+            </button>
+            <button type="button" id="kioskVoiceStopChip" class="kiosk-voice-stop-chip d-none" aria-label="End conversation" title="End conversation">
+                <span class="kiosk-voice-stop-chip-square" aria-hidden="true"></span>
+                <span class="kiosk-voice-stop-chip-label">Stop</span>
+            </button>
+        </div>
+        <div id="chatWindowFooter">
+            <div id="footer-menu" class="pointer footer-minimized smooth-scroll footer-hidden">
+                <div id="footer-menu-closed" class="pointer" title="open menu">
+                    <div class="menu-line primary-background"></div>
+                    <span class="fa fa-angle-up primary-color"></span>
+                    <div id="footer-menu-content" class="d-none">
+
+                    </div>
+                </div>
+                <div id="footer-menu-header" title="close menu">
+                    <div id="footer-menu-title">
+                        Menu
+                    </div>
+                    <div class="close-btn">
+                        <span class="fa fa-angle-down primary-color">
+                        </span>
+                    </div>
+                </div>
+                <div id="footer-menu-options" class="thin-scroll">
+
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="btn-group dropup" id="languageSection">
+                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" id="languageButton" aria-label="Change language">
+                        EN
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" id="languageMenu" role="menu">
+                        <h6 class="dropdown-header">Change language</h6>
+                        <button class="dropdown-item" role="menuitem">English</button>
+                    </div>
+                </div>
+                <div class="d-flex chat-action-wrapper">
+                    <textarea rows="1" type="text" class="form-control" id="chatInput"
+                              autocomplete="off" aria-label="Type your message" placeholder="Type your message"></textarea>
+                    <div class="px-0 text-right" id="chatActions">
+
+                        <div class="send-btn" id="sendButton">
+                            <span class="fa fa-paper-plane fa-fw pointer"></span>
+                        </div>
+                        <div class="chat-input-buttons-container">
+                            <span class="fa fa-camera fa-fw pointer camera d-none" id="cameraButton"> </span>
+                            <span class="fa fa-microphone fa-fw pointer microphone d-none" id="speechButton"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-12 px-0 text-right text-muted" id="poweredByText">
+                    <span>
+                        <span class="lightning-icon">⚡by</span> <a href="https://www.kenyt.ai" id="brand-link"
+                            target="_blank" tabindex="-1">Kenyt.AI</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template id="TypingIndicator">
+        <div class="ti-container">
+            <div class="ti-block">
+                <div class="ti-dot"></div>
+                <div class="ti-dot"></div>
+                <div class="ti-dot"></div>
+            </div>
+        </div>
+    </template>
+    <template id="MessageSenderInfo">
+        <div class="message-sender px-3 w-100 mt-2">
+            <span class="persona bot-persona" data-persona></span>
+        </div>
+    </template>
+    <template id="OTPForm">
+        <div class="widget">
+            <p>OTP has been sent to <span class="font-weight-semibold" data-mobile-number></span></p>
+            <form class="form">
+                <div class="input-group compound-append-input mt-2 input-container">
+                    <input type="text" class="form-control" name="otp" placeholder="Enter OTP here"
+                           autocomplete="one-time-code" inputmode="numeric" title="Please enter valid OTP"
+                           data-input-field />
+                    <div class="input-group-append">
+                        <button type="submit" data-submit>
+                            <span class="fa fa-paper-plane text-accent"></span>
+                        </button>
+                    </div>
+                </div>
+                <span class="error-description" data-error-description></span>
+            </form>
+            <hr />
+            <span class="action-link" data-change-mobile-number>Change phone number</span>
+        </div>
+    </template>
+    <template id="PhoneNumberForm">
+        <div class="widget">
+            <p>Please enter your phone number</p>
+            <form class="form">
+                <div class="input-group compound-append-input mt-2 input-container">
+                    <input type="tel" class="form-control" name="mobile-number" placeholder="Phone"
+                           inputmode="numeric" data-input-field />
+                    <div class="input-group-append">
+                        <button type="submit" data-submit>
+                            <span class="fa fa-paper-plane text-accent"></span>
+                        </button>
+                    </div>
+                </div>
+                <span class="error-description" data-error-description></span>
+            </form>
+        </div>
+    </template>
+    <template id="AddressForm">
+        <div class="widget">
+            <p>Please enter your address</p>
+            <form>
+                <div class="input-group compound-append-input mt-2">
+                    <input type="tel" class="form-control" name="mobile-number" placeholder="Phone"
+                           inputmode="numeric" data-input-field />
+                    <div class="input-group-append">
+                        <button type="submit" data-submit>
+                            <span class="fa fa-paper-plane text-accent"></span>
+                        </button>
+                    </div>
+                </div>
+                <span class="error-description" data-error-description></span>
+            </form>
+        </div>
+    </template>
+    <template id="ShowMoreButton">
+        <div class="show-more-container">
+            <div class="show-more-content">
+                <div>Show More</div>
+                <div class="show-more-arrow">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="SmallButtonCardTypeContainer">
+        <div class="small-container">
+        </div>
+    </template>
+    <template id="SmallButtonCard">
+        <div class="option-pill pointer" data-card-tapbutton>
+            <div class="small-button-card" data-card-icon-container>
+                 <img class="" data-card-image> 
+                <span class="" data-card-title></span>
+            </div>
+        </div>
+    </template>
+    <template id="MediumButtonCard">
+        <div class="pointer medium-button-card primary-border" data-card-tapbutton data-max-cards="6">
+            <img data-card-image class="">
+            <div class="row">
+                <div class="col">
+                    <div class="text-truncate data-title" data-card-title></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="text-truncate" data-card-subtitle></div>
+                    <span class="my-tooltiptext" data-card-description data-marked-content></span>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="VisitingCard">
+        <div class="pointer visiting-card" data-container="CarouselContainer"
+             data-container-class="visiting-card-container" data-card-tapbutton>
+            <div class="card-border">
+                <div class="image-section">
+                    <div class="image-container">
+                        <img data-card-image class="" />
+                    </div>
+                </div>
+                <div class="data-section">
+                    <div class="data-section-container">
+                        <div class="data-title text-left" style="font-weight:bold" data-card-title></div>
+                        <div class="data-subtitle text-left" style="font-weight:bold" data-card-subtitle></div>
+                        <div class="data-description text-left" data-card-description data-marked-content></div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-section text-center" data-card-add-btns onclick="event.stopPropagation()">
+                <div class="slide-number" data-card-slide-number></div>
+            </div>
+        </div>
+    </template>
+    <template id="CardButton">
+        <div data-card-btn class="option-pill pointer"></div>
+    </template>
+    <template id="VerticalCard">
+        <div class="pointer vertical-card" data-card-tapbutton>
+            <div class="btn-section text-center" data-card-add-btns onclick="event.stopPropagation()">
+            </div>
+            <div class="data-section">
+                <div class="data-title">
+                    <div class="text-left" data-card-title></div>
+                </div>
+                <div class="data-details">
+                    <div class="text-left" data-card-subtitle></div>
+                    <div class="text-left" data-card-description></div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="HeaderMenuItem">
+        <div>
+            <div class="additional-options-dropdown-item dropdown-item  px-2" message="" data-card-icon-container data-card-title></div>
+        </div>
+    </template>
+    <template id="FileCard">
+        <div class="filecard">
+            <div style="margin:15px 0px; ">
+                <div style="display: flex; flex-direction: row; justify-content: start; gap: 10px; align-items: center; flex-wrap: wrap; width: 100%; max-width: 100%;">
+                    <i data-card-file-icon class="fa fa-file" style="float:left;font-size:20px;padding:0 4px"></i>
+                    <div data-card-subtitle class="data-title"></div>
+                </div>
+
+                <div data-card-description></div>
+            </div>
+            <div class="option-pill-container option-pill-1">
+                <div class="option-pill pointer" data-card-fileurl>
+                    Open File
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="LocationCard">
+        <div class="location-card pointer" data-card-coordinates>
+            <div class="image-section">
+                <i class="fa fa-map-marker"></i>
+            </div>
+            <div data-card-title class="data-title"></div>
+            <div data-card-description class="data-description"></div>
+        </div>
+    </template>
+    <template id="FooterMenu">
+        <div class="pointer interactivelist-card" data-container="FooterMenu" data-card-tapbutton title="select">
+            <div class="image-section">
+                <div class="image-container">
+                    <img class="" data-card-image>
+                </div>
+            </div>
+            <div class="pointer data-section">
+                <div class="data-title">
+                    <div class="text-left" data-card-title></div>
+                </div>
+                <div class="data-details">
+                    <div class="text-left" data-card-subtitle></div>
+                    <div class="text-left" data-card-description></div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="InteractiveList">
+        <div class="pointer interactivelist-card" data-container="InteractiveMenu" data-card-tapbutton
+             title="select">
+            <div class="image-section">
+                <div class="image-container">
+                    <img class="" data-card-image>
+                </div>
+            </div>
+            <div class="pointer data-section">
+
+                <div class="data-title">
+                    <div class="text-left" data-card-title></div>
+                </div>
+                <div class="data-details">
+                    <div class="text-left" data-card-subtitle></div>
+                    <div class="text-left" data-card-description></div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="ShowInteractiveMenuButton">
+        <div class="show-interactive-menu">
+            <div class="show-interactive-content option-pill">
+                <span class="fa fa-bars"></span>
+                <div class="data-title">Menu</div>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>

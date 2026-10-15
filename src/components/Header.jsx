@@ -2,10 +2,41 @@ import React, { useState, useEffect } from 'react'
 import logoImg from '../assets/Northstar-logo_webp_file-removebg-preview.webp'
 import { siteConfig } from '../siteConfig'
 
+// Hierarchy data for Projects Dropdown
+const hydProjects = {
+  ongoing: [
+    { name: 'Allura', href: '#project/allura' },
+    { name: 'SP Palacio', href: '#project/sp-palacio' },
+    { name: 'Sanctuary', href: '#project/sanctuary' }
+  ],
+  completed: [
+    { name: 'District 1', href: '#project/district-1' },
+    { name: 'Airport Boulevard', href: '#project/airport-boulevard' },
+    { name: 'Hillside', href: '#project/hillside' },
+    { name: 'Veda', href: '#project/veda' },
+    { name: 'Leela', href: '#project/leela' },
+    { name: 'AMG Plaza', href: '#project/amg-plaza' },
+    { name: 'Garden Suites', href: '#project/garden-suites' }
+  ]
+};
+
+const vizagProjects = {
+  ongoing: [
+    { name: 'Park Avenue', href: '#project/park-avenue' },
+    { name: 'Golden Valley', href: '#project/golden-valley' }
+  ],
+  completed: [
+    { name: 'Eden Gardens', href: '#project/eden-gardens' }
+  ]
+};
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSuperNav, setShowSuperNav] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeCity, setActiveCity] = useState(null); // 'hyd' | 'vizag' | null
+  const [showCompletedHyd, setShowCompletedHyd] = useState(false);
+  const [showCompletedVizag, setShowCompletedVizag] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +57,20 @@ export default function Header() {
     if (isMobileMenuOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
   }, [isMobileMenuOpen]);
+
+  const handleNavClick = (e, targetHash) => {
+    setIsMobileMenuOpen(false);
+    setActiveCity(null);
+    setShowCompletedHyd(false);
+    setShowCompletedVizag(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    if (targetHash && window.location.hash === targetHash) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
@@ -137,7 +182,7 @@ export default function Header() {
               href="#top"
               aria-label="Northstar Homes, home"
               className="flex items-center transition-transform hover:scale-[1.02] z-50"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, '#top')}
             >
               <img 
                 src={logoImg} 
@@ -160,94 +205,309 @@ export default function Header() {
               ${isScrolled || isMobileMenuOpen ? 'text-ink font-semibold' : 'text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]'}
             `}
           >
-            {/* Projects Dropdown */}
+            {/* 1. About Dropdown */}
             <div className="relative group">
-              <button className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3">
-                Projects
-                <svg className="w-3 h-3 transition-transform duration-300 group-hover:-scale-y-100 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[240px] max-[959px]:w-full bg-white min-[960px]:shadow-[0_16px_40px_rgba(7,41,74,0.12)] rounded-xl flex flex-col p-2 border min-[960px]:border-line border-transparent normal-case tracking-normal">
-                  <a 
-                    href="#ongoing-projects" 
-                    onClick={() => setIsMobileMenuOpen(false)} 
-                    className="px-4 py-2.5 text-[14px] font-medium text-ink hover:text-accent hover:bg-soft rounded-lg transition-all flex items-center justify-between"
-                  >
-                    Ongoing Projects
-                    <span className="text-[11px] text-accent font-semibold tracking-wider uppercase">Active</span>
-                  </a>
-                  <a 
-                    href="#completed-projects" 
-                    onClick={() => setIsMobileMenuOpen(false)} 
-                    className="px-4 py-2.5 text-[14px] font-medium text-ink hover:text-accent hover:bg-soft rounded-lg transition-all flex items-center justify-between"
-                  >
-                    Completed Projects
-                    <span className="text-[11px] text-muted tracking-wider uppercase">Delivered</span>
-                  </a>
-                  <a 
-                    href="#coming-soon" 
-                    onClick={() => setIsMobileMenuOpen(false)} 
-                    className="px-4 py-2.5 text-[14px] font-medium text-ink/70 hover:text-accent hover:bg-soft rounded-lg transition-all flex items-center justify-between"
-                  >
-                    All Masterplans
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* About Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3">
+              <button 
+                type="button"
+                className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3"
+              >
                 About
                 <svg className="w-3 h-3 transition-transform duration-300 group-hover:-scale-y-100 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[220px] max-[959px]:w-full bg-white min-[960px]:shadow-[0_16px_40px_rgba(7,41,74,0.12)] rounded-xl flex flex-col p-2 border min-[960px]:border-line border-transparent normal-case tracking-normal">
-                  <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 text-[14px] font-medium text-ink hover:text-accent hover:bg-soft rounded-lg transition-all">
-                    Company Overview
+                <div className="w-[200px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                  <a 
+                    href="#about-company" 
+                    onClick={(e) => handleNavClick(e, '#about-company')} 
+                    className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08]"
+                  >
+                    Company
                   </a>
-                  <a href="#coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 text-[14px] font-medium text-ink/80 hover:text-accent hover:bg-soft rounded-lg transition-all">
+                  <a 
+                    href="#leadership" 
+                    onClick={(e) => handleNavClick(e, '#leadership')} 
+                    className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08]"
+                  >
                     Leadership
                   </a>
-                  <a href="#coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 text-[14px] font-medium text-ink/80 hover:text-accent hover:bg-soft rounded-lg transition-all">
-                    Advisors
-                  </a>
-                  <a href="#legacy" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 text-[14px] font-medium text-ink/80 hover:text-accent hover:bg-soft rounded-lg transition-all">
-                    Awards & Honors
-                  </a>
-                  <a href="#coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 text-[14px] font-medium text-ink/80 hover:text-accent hover:bg-soft rounded-lg transition-all border-t border-line mt-1 pt-2">
-                    Careers at Northstar
+                  <a 
+                    href="#legacy" 
+                    onClick={(e) => handleNavClick(e, '#legacy')} 
+                    className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer"
+                  >
+                    Awards
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Our Legacy */}
-            <a 
-              href="#legacy" 
-              onClick={() => setIsMobileMenuOpen(false)} 
-              className="py-2 hover:text-accent transition-colors max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3 whitespace-nowrap"
+            {/* 2. Projects Dropdown */}
+            <div 
+              className="relative group"
+              onMouseLeave={() => {
+                setActiveCity(null);
+                setShowCompletedHyd(false);
+                setShowCompletedVizag(false);
+              }}
             >
-              Our Legacy
-            </a>
+              <button 
+                type="button"
+                className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3"
+              >
+                Projects
+                <svg className="w-3 h-3 transition-transform duration-300 group-hover:-scale-y-100 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
 
-            {/* Resources Dropdown */}
+              {/* Desktop & Mobile Dropdown Menu matching uploaded mockups */}
+              <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
+                <div className="w-[280px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+
+                  {/* ── HYDERABAD SECTION ── */}
+                  <div 
+                    onMouseEnter={() => setActiveCity('hyd')}
+                    className="flex flex-col"
+                  >
+                    {/* Hyderabad City Pill / Button */}
+                    <button
+                      type="button"
+                      onClick={() => setActiveCity(activeCity === 'hyd' ? null : 'hyd')}
+                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-heading font-bold text-[17px] transition-all duration-200 cursor-pointer ${
+                        activeCity === 'hyd'
+                          ? 'bg-[#8e786b] text-white shadow-sm'
+                          : 'text-white/95 hover:bg-white/[0.08]'
+                      }`}
+                    >
+                      <span>Hyderabad</span>
+                      <svg 
+                        className={`w-4 h-4 transition-transform duration-200 ${activeCity === 'hyd' ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Hyderabad Ongoing & Completed Projects */}
+                    {activeCity === 'hyd' && (
+                      <div className="pt-2 pb-1 flex flex-col">
+                        {/* Ongoing Projects list */}
+                        {hydProjects.ongoing.map((proj) => (
+                          <a
+                            key={proj.name}
+                            href={proj.href}
+                            onClick={(e) => handleNavClick(e, proj.href)}
+                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/95 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                          >
+                            {proj.name}
+                          </a>
+                        ))}
+
+                        {/* Completed Projects Button / Trigger (Opens ON CLICK) */}
+                        <div className="mt-1 flex flex-col">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowCompletedHyd(prev => !prev);
+                            }}
+                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[15px] font-heading font-bold text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+                          >
+                            <span>Completed Projects</span>
+                            <svg 
+                              className={`w-4 h-4 transition-transform duration-200 ${showCompletedHyd ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+
+                          {/* Completed Projects List */}
+                          {showCompletedHyd && (
+                            <div className="pl-7 pr-3 py-1 flex flex-col space-y-1">
+                              {hydProjects.completed.map((proj) => (
+                                <a
+                                  key={proj.name}
+                                  href={proj.href}
+                                  onClick={(e) => handleNavClick(e, proj.href)}
+                                  className="py-1.5 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                                >
+                                  {proj.name}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Subtle divider when neither is open */}
+                  {!activeCity && <div className="h-[1px] bg-white/10 my-1 mx-2" />}
+
+                  {/* ── VIZAG SECTION ── */}
+                  <div 
+                    onMouseEnter={() => setActiveCity('vizag')}
+                    className="flex flex-col mt-1"
+                  >
+                    {/* Vizag City Pill / Button */}
+                    <button
+                      type="button"
+                      onClick={() => setActiveCity(activeCity === 'vizag' ? null : 'vizag')}
+                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-heading font-bold text-[17px] transition-all duration-200 cursor-pointer ${
+                        activeCity === 'vizag'
+                          ? 'bg-[#8e786b] text-white shadow-sm'
+                          : activeCity === 'hyd'
+                            ? 'bg-[#8e786b]/70 hover:bg-[#8e786b] text-white'
+                            : 'text-white/95 hover:bg-white/[0.08]'
+                      }`}
+                    >
+                      <span>Vizag</span>
+                      <svg 
+                        className={`w-4 h-4 transition-transform duration-200 ${activeCity === 'vizag' ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Vizag Ongoing & Completed Projects */}
+                    {activeCity === 'vizag' && (
+                      <div className="pt-2 pb-1 flex flex-col">
+                        {/* Ongoing Projects list */}
+                        {vizagProjects.ongoing.map((proj) => (
+                          <a
+                            key={proj.name}
+                            href={proj.href}
+                            onClick={(e) => handleNavClick(e, proj.href)}
+                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/95 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                          >
+                            {proj.name}
+                          </a>
+                        ))}
+
+                        {/* Completed Projects Button / Trigger (Opens ON CLICK) */}
+                        <div className="mt-1 flex flex-col">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowCompletedVizag(prev => !prev);
+                            }}
+                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[15px] font-heading font-bold text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+                          >
+                            <span>Completed Projects</span>
+                            <svg 
+                              className={`w-4 h-4 transition-transform duration-200 ${showCompletedVizag ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+
+                          {/* Completed Projects List */}
+                          {showCompletedVizag && (
+                            <div className="pl-7 pr-3 py-1 flex flex-col space-y-1">
+                              {vizagProjects.completed.map((proj) => (
+                                <a
+                                  key={proj.name}
+                                  href={proj.href}
+                                  onClick={(e) => handleNavClick(e, proj.href)}
+                                  className="py-1.5 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                                >
+                                  {proj.name}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Resources Dropdown (exact items from screenshot) */}
             <div className="relative group">
-              <button className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3">
+              <button 
+                type="button"
+                className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3"
+              >
                 Resources
                 <svg className="w-3 h-3 transition-transform duration-300 group-hover:-scale-y-100 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[240px] max-[959px]:w-full bg-white min-[960px]:shadow-[0_16px_40px_rgba(7,41,74,0.12)] rounded-xl flex flex-col p-2 border min-[960px]:border-line border-transparent normal-case tracking-normal">
-                  {['Blogs & Insights', 'Photo Gallery', 'EMI Calculator', 'Home Loan Guide', 'NRI Investment Guide'].map(item => (
-                    <a key={item} href="#coming-soon" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 text-[14px] font-medium text-ink/80 hover:text-accent hover:bg-soft rounded-lg transition-all">
-                      {item}
+                <div className="w-[230px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                  {[
+                    { label: 'Blogs', href: '#blogs' },
+                    { label: 'Gallery', href: '#coming-soon' },
+                    { label: 'EMI Calculator', href: '#emi-calculator' },
+                    { label: 'Home Loan Guide', href: '#home-loan-guide' },
+                    { label: 'NRI Guide', href: '#nri-guide' }
+                  ].map((item) => (
+                    <a 
+                      key={item.label} 
+                      href={item.href} 
+                      onClick={(e) => handleNavClick(e, item.href)} 
+                      className="px-4 py-2.5 text-[15px] sm:text-[16px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08] last:border-b-0"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Career */}
+            <a 
+              href="#careers" 
+              onClick={(e) => handleNavClick(e, '#careers')} 
+              className="py-2 hover:text-accent transition-colors max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3 whitespace-nowrap"
+            >
+              Career
+            </a>
+
+            {/* 5. Contact Us Dropdown (Exact 4 options from screenshot) */}
+            <div className="relative group">
+              <a 
+                href="#contact" 
+                onClick={(e) => handleNavClick(e, '#contact')} 
+                className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3 whitespace-nowrap"
+              >
+                Contact Us
+                <svg className="w-3 h-3 transition-transform duration-300 group-hover:-scale-y-100 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <div className="min-[960px]:absolute min-[960px]:right-0 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
+                <div className="w-[280px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                  {[
+                    { label: 'General Enquiry', href: '#contact' },
+                    { label: 'Channel Partner', href: '#contact/channel-partner' },
+                    { label: 'Land Owner/Joint Development', href: '#contact/land-owner' },
+                    { label: 'Vendor / Contractor Enquiry', href: '#contact/vendor' }
+                  ].map((item) => (
+                    <a 
+                      key={item.label} 
+                      href={item.href} 
+                      onClick={(e) => handleNavClick(e, item.href)} 
+                      className="px-4 py-2.5 text-[15px] sm:text-[16px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08] last:border-b-0"
+                    >
+                      {item.label}
                     </a>
                   ))}
                 </div>

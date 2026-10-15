@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '../data/projectsData';
+import AmenitiesOptionA from './AmenitiesOptionA';
+import AmenitiesOptionB from './AmenitiesOptionB';
+import AmenitiesOptionC from './AmenitiesOptionC';
+import AmenitiesOptionD from './AmenitiesOptionD';
 
 export default function ProjectDetail({ projectId = 'sanctuary' }) {
   const project = projectsData[projectId] || projectsData['sanctuary'];
@@ -8,10 +12,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   // Interactive States
   const [activeExperienceTab, setActiveExperienceTab] = useState('photos');
   const [activeAmenityCategory, setActiveAmenityCategory] = useState(0);
+  const [amenitiesLayout, setAmenitiesLayout] = useState('D');
   const [isMuted, setIsMuted] = useState(true);
-  const [selectedQualityPoint, setSelectedQualityPoint] = useState(
-    project.qualityInfrastructure?.points ? project.qualityInfrastructure.points[0] : null
-  );
   const [activeProgressTab, setActiveProgressTab] = useState('Drone Photos');
 
   // Form State
@@ -187,20 +189,6 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   Download Brochure
                 </a>
               )}
-
-              {project.walkthroughVideoLink && (
-                <a 
-                  href={project.walkthroughVideoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 min-h-12 px-6 py-3 text-[12px] tracking-[0.18em] uppercase font-medium bg-white/10 border border-white/20 text-white rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
-                >
-                  <svg className="w-4 h-4 text-[#4FA3E3]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Watch Walkthrough
-                </a>
-              )}
             </motion.div>
 
           </div>
@@ -210,17 +198,20 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: PROJECT IDENTITY BAR (Full Specs Strip)
+          SECTION 2: PROJECT IDENTITY SPECS (Architectural Specs Grid)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-bg border-b border-line py-8 lg:py-10 shadow-sm relative z-20">
+      <section className="bg-bg border-b border-line py-12 lg:py-16 relative z-20">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 lg:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-8 sm:gap-y-10">
             {project.specs.map((spec, i) => (
-              <div key={i} className="flex flex-col border-l border-line pl-4 first:border-l-0 first:pl-0">
-                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-muted font-body mb-1">
+              <div 
+                key={i} 
+                className="flex flex-col border-t border-line/90 pt-5 group hover:border-accent transition-colors duration-300"
+              >
+                <span className="text-[11px] sm:text-[12px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
                   {spec.label}
                 </span>
-                <span className="text-[15px] sm:text-[16px] lg:text-[17px] font-heading font-medium text-ink leading-tight">
+                <span className="text-[20px] sm:text-[24px] lg:text-[26px] font-heading font-normal text-ink leading-snug group-hover:text-accent transition-colors duration-300">
                   {spec.value}
                 </span>
               </div>
@@ -231,52 +222,66 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: ARCHITECTURAL NARRATIVE (4 Editorial Pillars)
+          SECTION 3: ARCHITECTURAL & LIFESTYLE NARRATIVE (Lodha-Style Alternating Layout)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-soft border-b border-line">
+      <section className="py-20 lg:py-32 bg-bg border-b border-line overflow-hidden" id="narrative">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
           
-          <div className="text-center max-w-[720px] mx-auto mb-16 lg:mb-20">
-            <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-              Architectural Vision
-            </p>
-            <h2 className="text-[34px] sm:text-[42px] lg:text-[50px] font-heading font-normal text-ink leading-[1.14]">
-              Where Nature Becomes a Way of Life.
-            </h2>
-          </div>
+          <div className="space-y-24 sm:space-y-28 lg:space-y-36">
+            {project.narrative.map((item, idx) => {
+              const isEven = idx % 2 === 0;
+              const paragraphs = item.paragraphs || (item.description ? [item.description] : []);
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {project.narrative.map((item, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: idx * 0.12 }}
-                className="bg-bg p-8 lg:p-12 rounded-2xl border border-line shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-[11px] tracking-[0.22em] uppercase font-semibold text-accent font-body border-b border-accent/40 pb-1">
-                      {item.tag}
-                    </span>
-                    <span className="text-[20px] font-heading text-ink/20 group-hover:text-accent/60 transition-colors">
-                      0{idx + 1}
-                    </span>
-                  </div>
+              return (
+                <div 
+                  key={idx}
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center"
+                >
+                  {/* Text Column */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className={`order-2 lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'} flex flex-col justify-center`}
+                  >
+                    {/* Headline — Lodha Style Serif Heading */}
+                    <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-heading font-normal text-ink leading-[1.18] tracking-tight mb-5">
+                      {item.headline}
+                    </h2>
 
-                  <h3 className="text-[26px] sm:text-[30px] font-heading font-normal text-ink leading-snug mb-4 group-hover:text-accent transition-colors duration-300">
-                    {item.headline}
-                  </h3>
+                    {/* Content Paragraphs */}
+                    <div className="space-y-4 text-[15px] sm:text-[16px] text-muted font-body font-light leading-[1.85] max-w-[480px]">
+                      {paragraphs.map((p, pIdx) => (
+                        <p key={pIdx}>
+                          {p}
+                        </p>
+                      ))}
+                    </div>
+                  </motion.div>
 
-                  <p className="text-[15px] sm:text-[16px] text-muted font-body font-light leading-[1.85]">
-                    {item.description}
-                  </p>
+                  {/* Image Column — Pure Clean Lodha Style Visual Frame */}
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.98, y: 30 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                    className={`order-1 lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                  >
+                    <div className="relative rounded-sm sm:rounded-md overflow-hidden bg-[#F4F8FA] border border-line/50 shadow-[0_12px_40px_rgba(7,41,74,0.06)] group">
+                      <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
+                        <img 
+                          src={item.image || project.heroImage} 
+                          alt={item.headline}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
-
-                <div className="w-12 h-[2px] bg-accent/30 mt-8 group-hover:w-20 group-hover:bg-accent transition-all duration-500" />
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -286,64 +291,65 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 4: LIFESTYLE FEATURES & AMENITIES
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg border-b border-line" id="amenities">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          <div className="flex flex-wrap justify-between items-end gap-6 mb-12 lg:mb-16">
-            <div>
-              <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-                {project.amenitiesHeader?.eyebrow || 'Lifestyle Features & Amenities'}
-              </p>
-              <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight">
-                {project.amenitiesHeader?.title || 'A Lifestyle Shaped by Greenery, Wellness and Community'}
-              </h2>
-            </div>
-            <p className="text-muted font-light text-[14px] sm:text-[15px] max-w-[460px] leading-relaxed">
-              {project.amenitiesHeader?.description}
-            </p>
+      {/* Amenities Layout Switcher Bar */}
+      <div className="bg-[#F0F5FA] border-y border-line py-3 px-6 sticky top-20 z-30 backdrop-blur-md bg-opacity-95 shadow-sm">
+        <div className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="text-[11px] sm:text-[12px] font-heading font-semibold text-ink uppercase tracking-wider">
+              Layout Options:
+            </span>
           </div>
-
-          {/* Category Tabs */}
-          <div className="flex flex-wrap gap-2.5 mb-10 pb-4 border-b border-line">
-            {project.amenityCategories.map((cat, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveAmenityCategory(idx)}
-                className={`px-5 py-2.5 rounded-full text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
-                  activeAmenityCategory === idx
-                    ? 'bg-ink text-white font-medium shadow-md'
-                    : 'bg-soft text-muted hover:text-ink hover:bg-line/60 font-light'
-                }`}
-              >
-                {cat.title} ({cat.items.length})
-              </button>
-            ))}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setAmenitiesLayout('D')}
+              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
+                amenitiesLayout === 'D'
+                  ? 'bg-accent text-white font-semibold shadow-sm'
+                  : 'bg-white text-muted hover:text-ink border border-line'
+              }`}
+            >
+              Option D (Icon Grid — Active)
+            </button>
+            <button
+              onClick={() => setAmenitiesLayout('A')}
+              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
+                amenitiesLayout === 'A'
+                  ? 'bg-ink text-white font-semibold shadow-sm'
+                  : 'bg-white text-muted hover:text-ink border border-line'
+              }`}
+            >
+              View Option A (Editorial)
+            </button>
+            <button
+              onClick={() => setAmenitiesLayout('B')}
+              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
+                amenitiesLayout === 'B'
+                  ? 'bg-ink text-white font-semibold shadow-sm'
+                  : 'bg-white text-muted hover:text-ink border border-line'
+              }`}
+            >
+              View Option B (Accordion)
+            </button>
+            <button
+              onClick={() => setAmenitiesLayout('C')}
+              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
+                amenitiesLayout === 'C'
+                  ? 'bg-ink text-white font-semibold shadow-sm'
+                  : 'bg-white text-muted hover:text-ink border border-line'
+              }`}
+            >
+              View Option C (Cards)
+            </button>
           </div>
-
-          {/* Active Category Items Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            {project.amenityCategories[activeAmenityCategory].items.map((amenity, idx) => (
-              <motion.div
-                key={`${activeAmenityCategory}-${idx}`}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.04 }}
-                className="flex items-center gap-4 p-5 rounded-xl bg-soft border border-line hover:border-accent/50 hover:bg-white hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300 flex-shrink-0">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-[15px] sm:text-[16px] font-body text-ink font-normal group-hover:text-accent transition-colors">
-                  {amenity}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-
         </div>
-      </section>
+      </div>
+
+      {/* Conditionally rendered layout */}
+      {amenitiesLayout === 'D' && <AmenitiesOptionD project={project} />}
+      {amenitiesLayout === 'A' && <AmenitiesOptionA project={project} />}
+      {amenitiesLayout === 'B' && <AmenitiesOptionB project={project} />}
+      {amenitiesLayout === 'C' && <AmenitiesOptionC project={project} />}
 
 
       {/* ─────────────────────────────────────────────────────────────
@@ -551,108 +557,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
       </section>
 
 
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 6: BUILT WITH QUALITY (Interactive Infrastructure Explorer)
-      ───────────────────────────────────────────────────────────── */}
-      {project.qualityInfrastructure && (
-        <section className="py-20 lg:py-28 bg-bg border-b border-line" id="infrastructure">
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-            
-            <div className="text-center max-w-[760px] mx-auto mb-14 lg:mb-18">
-              <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-                {project.qualityInfrastructure.eyebrow}
-              </p>
-              <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight mb-4">
-                {project.qualityInfrastructure.title}
-              </h2>
-              <p className="text-muted font-light text-[15px] leading-relaxed">
-                {project.qualityInfrastructure.subtitle}
-              </p>
-            </div>
 
-            {/* Interactive Grid of 16 Infrastructure Points */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              
-              {/* Left Column: 16 Clickable Icon Pills */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {project.qualityInfrastructure.points.map((pt) => {
-                  const isSelected = selectedQualityPoint?.id === pt.id;
-                  return (
-                    <button
-                      key={pt.id}
-                      onClick={() => setSelectedQualityPoint(pt)}
-                      className={`text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between cursor-pointer group ${
-                        isSelected 
-                          ? 'bg-[#07294A] text-white border-[#07294A] shadow-md' 
-                          : 'bg-soft text-ink border-line hover:border-accent hover:bg-white'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-[12px] font-bold ${
-                          isSelected ? 'bg-accent text-white' : 'bg-white text-accent border border-line group-hover:bg-accent group-hover:text-white'
-                        }`}>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <p className={`text-[14px] font-medium leading-tight ${isSelected ? 'text-white' : 'text-ink'}`}>
-                            {pt.label}
-                          </p>
-                          <span className={`text-[10px] tracking-wider uppercase ${isSelected ? 'text-[#4FA3E3]' : 'text-muted'}`}>
-                            {pt.category}
-                          </span>
-                        </div>
-                      </div>
-
-                      <span className={`text-sm ${isSelected ? 'text-[#4FA3E3]' : 'text-muted/40 group-hover:text-accent'}`}>
-                        &rarr;
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Right Column: Detailed Master Inspection Card */}
-              <div className="lg:col-span-5 sticky top-28">
-                <div className="p-8 rounded-2xl bg-gradient-to-br from-[#07294A] to-[#0D3B66] text-white shadow-xl border border-white/10 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 -mr-6 -mt-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl pointer-events-none" />
-
-                  <span className="inline-block text-[10px] tracking-[0.24em] uppercase text-[#4FA3E3] font-semibold mb-2">
-                    Infrastructure Spotlight
-                  </span>
-                  
-                  <h3 className="text-[28px] font-heading font-normal text-white mb-2 leading-tight">
-                    {selectedQualityPoint?.label}
-                  </h3>
-
-                  <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-white/90 text-[11px] uppercase tracking-wider mb-6 font-medium">
-                    Category: {selectedQualityPoint?.category}
-                  </div>
-
-                  <p className="text-[15px] sm:text-[16px] text-white/80 font-body font-light leading-[1.8] mb-8">
-                    {selectedQualityPoint?.detail}
-                  </p>
-
-                  <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-[12px] text-white/60">
-                      Standard: Pre-handover certified
-                    </span>
-                    <a 
-                      href="#enquire" 
-                      className="text-[12px] tracking-wider uppercase font-semibold text-accent hover:text-white transition-colors flex items-center gap-1"
-                    >
-                      Enquire &rarr;
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </section>
-      )}
 
 
       {/* ─────────────────────────────────────────────────────────────

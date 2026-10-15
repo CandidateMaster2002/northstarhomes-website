@@ -14,27 +14,35 @@ const addressesData = [
 
 // Company directory data
 const companyData = [
-  { no: '01', name: 'About Northstar', href: '#about' },
+  { no: '01', name: 'Company', href: '#about-company' },
   { no: '02', name: 'Our Legacy', href: '#legacy' },
-  { no: '03', name: 'Leadership & Board', href: '#coming-soon' },
-  { no: '04', name: 'Awards & Honors', href: '#legacy' },
+  { no: '03', name: 'Leadership', href: '#leadership' },
+  { no: '04', name: 'Awards', href: '#legacy' },
   { no: '05', name: 'Quality Assurance', href: '#coming-soon' },
-  { no: '06', name: 'Advisors', href: '#coming-soon' },
-  { no: '07', name: 'Careers', href: '#coming-soon' },
+  { no: '06', name: 'Careers', href: '#careers' },
+  { no: '07', name: 'Contact Us', href: '#contact' },
 ];
 
 // Advisory links
 const advisoryData = [
+  { name: 'Blogs & Articles', href: '#blogs' },
   { name: 'Download Masterplans & Brochures', href: '#coming-soon' },
-  { name: 'Home Loan & EMI Calculator', href: '#coming-soon' },
-  { name: 'NRI Investment Advisory Desk', href: '#coming-soon' },
+  { name: 'EMI Calculator', href: '#emi-calculator' },
+  { name: 'Home Loan Guide', href: '#home-loan-guide' },
+  { name: 'NRI Guide', href: '#nri-guide' },
   { name: 'Customer Video Testimonials', href: '#testimonials' },
   { name: 'Frequently Asked Questions', href: '#coming-soon' },
 ];
 
 export default function Footer() {
+  const handleFooterLinkClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   return (
-    <footer id="careers" className="bg-[#07294A] text-[#E9F2FA] border-t border-white/10 pt-20 lg:pt-28 pb-12 overflow-hidden">
+    <footer className="bg-[#07294A] text-[#E9F2FA] border-t border-white/10 pt-20 lg:pt-28 pb-12 overflow-hidden">
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10">
 
         {/* Rich 4-Column Architectural Grid */}
@@ -43,7 +51,7 @@ export default function Footer() {
           {/* Column 1: Brand Anchor & Direct Concierge (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-6">
             <div>
-              <a href="#top" className="inline-block mb-6 transition-transform hover:scale-[1.02]">
+              <a href="#top" onClick={handleFooterLinkClick} className="inline-block mb-6 transition-transform hover:scale-[1.02]">
                 <img 
                   src={logoImg} 
                   alt="Northstar Homes Logo" 
@@ -161,6 +169,7 @@ export default function Footer() {
                 <a 
                   key={proj.name}
                   href={proj.href} 
+                  onClick={handleFooterLinkClick}
                   className="group block p-2 -mx-2 rounded-lg transition-all duration-300 hover:bg-white/[0.05]"
                 >
                   <div className="flex items-center justify-between">
@@ -189,6 +198,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <a 
                     href={item.href} 
+                    onClick={handleFooterLinkClick}
                     className="group flex items-center gap-2.5 text-[14px] font-body font-light transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
                   >
                     <span className="text-[11px] font-mono transition-colors text-[#3898E2]">
@@ -216,6 +226,7 @@ export default function Footer() {
                   <li key={item.name}>
                     <a 
                       href={item.href} 
+                      onClick={handleFooterLinkClick}
                       className="text-[13px] font-body font-light block py-0.5 hover:translate-x-1 transition-all duration-300 text-[#9CB5CB] hover:text-white"
                     >
                       {item.name}
