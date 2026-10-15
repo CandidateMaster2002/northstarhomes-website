@@ -1,16 +1,16 @@
-import imgAllura from './assets/Projects Images Webp/Allura Copy of Copy of DSC07879 copy.webp';
-import imgSpPalacio from './assets/Projects Images Webp/sp palacio.webp';
-import imgSanctuary from './assets/Projects Images Webp/Sanctury Copy of Copy of DSC03014.webp';
-import imgParkAvenue from './assets/Projects Images Webp/park avenue WhatsApp Image 2026-06-15 at 5.02.19 PM.webp';
-import imgGoldenValley from './assets/Projects Images Webp/golden valley.webp';
-import imgDistrict1 from './assets/Projects Images Webp/district1 143L3314.webp';
-import imgAirportBoulevard from './assets/Projects Images Webp/airport West Villa Front view.webp';
-import imgHillside from './assets/Projects Images Webp/Hill 143L5444.webp';
-import imgVeda from './assets/Projects Images Webp/veda.webp';
-import imgEdenGardens from './assets/Projects Images Webp/eden garden Copy of EG Building View_2.jpg.webp';
-import imgLeela from './assets/Projects Images Webp/leela ext-corner-front-view.webp';
-import imgAmgPlaza from './assets/Projects Images Webp/AMG.webp';
-import imgGardenSuites from './assets/Projects Images Webp/garden suites GS_G_978x418-3.webp';
+import imgAllura from './assets/projects/allura.webp';
+import imgSpPalacio from './assets/projects/sp-palacio.webp';
+import imgSanctuary from './assets/projects/sanctuary.webp';
+import imgParkAvenue from './assets/projects/park-avenue.webp';
+import imgGoldenValley from './assets/projects/golden-valley.webp';
+import imgDistrict1 from './assets/projects/district1.webp';
+import imgAirportBoulevard from './assets/projects/airport-boulevard.webp';
+import imgHillside from './assets/projects/hillside.webp';
+import imgVeda from './assets/projects/veda.webp';
+import imgEdenGardens from './assets/projects/eden-gardens.webp';
+import imgLeela from './assets/projects/leela.webp';
+import imgAmgPlaza from './assets/projects/amg-plaza.webp';
+import imgGardenSuites from './assets/projects/garden-suites.webp';
 
 export const siteConfig = {
   // Global stats for the website
