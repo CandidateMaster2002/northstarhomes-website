@@ -330,14 +330,11 @@ const getAmenityIcon = (name = '') => {
 };
 
 export default function AmenitiesOptionD({ project }) {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState(0);
 
-  if (!project?.amenityCategories) return null;
+  if (!project?.amenityCategories || project.amenityCategories.length === 0) return null;
 
-  const allAmenities = project.amenityCategories.flatMap(cat => cat.items);
-  const displayedAmenities = selectedCategory === 'all'
-    ? allAmenities
-    : (project.amenityCategories[selectedCategory]?.items || allAmenities);
+  const displayedAmenities = project.amenityCategories[selectedCategory]?.items || project.amenityCategories[0]?.items || [];
 
   return (
     <section className="py-20 lg:py-32 bg-bg border-b border-line" id="amenities-option-d">
@@ -355,16 +352,6 @@ export default function AmenitiesOptionD({ project }) {
 
         {/* Category Buttons — Tap to see category only */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-14 lg:mb-18">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
-              selectedCategory === 'all'
-                ? 'bg-ink text-white font-medium shadow-md'
-                : 'bg-soft text-muted hover:text-ink hover:bg-line/60 font-light'
-            }`}
-          >
-            All Amenities ({allAmenities.length})
-          </button>
           {project.amenityCategories.map((cat, idx) => (
             <button
               key={idx}
