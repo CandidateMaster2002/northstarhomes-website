@@ -17,7 +17,7 @@ const companyData = [
   { no: '01', name: 'Company', href: '#about-company' },
   { no: '02', name: 'Our Legacy', href: '#legacy' },
   { no: '03', name: 'Leadership', href: '#leadership' },
-  { no: '04', name: 'Awards', href: '#legacy' },
+  { no: '04', name: 'Awards', href: '#awards' },
   { no: '05', name: 'Quality Assurance', href: '#coming-soon' },
   { no: '06', name: 'Careers', href: '#careers' },
   { no: '07', name: 'Contact Us', href: '#contact' },

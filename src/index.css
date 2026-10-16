@@ -118,3 +118,22 @@ a:hover {
 .animate-arrow-reverse {
   animation: arrowPulseReverse 1.5s ease-in-out infinite;
 }
+
+/* Thin Scrollbar Utility */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #D8E6F2 transparent;
+}
+.thin-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #D8E6F2;
+  border-radius: 9999px;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #0B6FB5;
+}

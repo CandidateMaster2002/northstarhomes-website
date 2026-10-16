@@ -224,16 +224,16 @@ export default function Careers() {
               {/* CTA jump buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
-                  href="#openings"
+                  href="#apply-form"
                   className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold bg-[#0B6FB5] text-white rounded-lg shadow-lg hover:bg-[#0B6FB5]/90 transition-all duration-300"
                 >
-                  Explore Current Openings
+                  Direct Application
                 </a>
                 <a
-                  href="#apply-form"
+                  href="#openings"
                   className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-medium border border-white/30 text-white rounded-lg hover:bg-white hover:text-[#07294A] transition-all duration-300"
                 >
-                  Direct Application
+                  Explore Current Openings
                 </a>
               </div>
             </div>
@@ -244,147 +244,7 @@ export default function Careers() {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: CURRENT OPENINGS
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-[#EEF5FB] border-b border-line" id="openings">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-
-          {/* Section Header */}
-          <div className="flex flex-wrap justify-between items-end gap-6 mb-12 lg:mb-16">
-            <div>
-              <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
-                Opportunities to Grow
-              </span>
-              <h2 className="text-[34px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-ink leading-tight">
-                Our Openings
-              </h2>
-            </div>
-            <p className="text-muted font-light text-[15px] sm:text-[16px] max-w-[460px] leading-relaxed">
-              Explore current openings and take the next step in your career with Northstar.
-            </p>
-          </div>
-
-          {/* Department Filter Pills */}
-          <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-10 pb-4 border-b border-line/80">
-            <button
-              onClick={() => setActiveDeptFilter('All')}
-              className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
-                activeDeptFilter === 'All'
-                  ? 'bg-ink text-white font-medium shadow-md'
-                  : 'bg-white text-muted hover:text-ink hover:bg-line/40 font-light border border-line'
-              }`}
-            >
-              All Openings ({openingsData.length})
-            </button>
-            {departmentOptions.slice(0, 8).map((dept, idx) => {
-              const count = openingsData.filter(item => item.dept === dept).length;
-              if (count === 0) return null;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveDeptFilter(dept)}
-                  className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
-                    activeDeptFilter === dept
-                      ? 'bg-ink text-white font-medium shadow-md'
-                      : 'bg-white text-muted hover:text-ink hover:bg-line/40 font-light border border-line'
-                  }`}
-                >
-                  {dept} ({count})
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Openings List Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {filteredOpenings.map((job) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.4 }}
-                className="bg-white rounded-2xl border border-line p-7 sm:p-8 flex flex-col justify-between hover:shadow-lg hover:border-accent/50 transition-all duration-300 group"
-              >
-                <div>
-                  {/* Category & Badge */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <span className="text-[11px] tracking-[0.18em] uppercase font-semibold text-accent bg-accent/8 px-3 py-1 rounded-full">
-                      {job.dept}
-                    </span>
-                    <span className="text-[12px] font-body text-muted/80">
-                      {job.type}
-                    </span>
-                  </div>
-
-                  {/* Job Title */}
-                  <h3 className="text-[22px] sm:text-[24px] font-heading font-normal text-ink group-hover:text-accent transition-colors leading-snug mb-3">
-                    {job.title}
-                  </h3>
-
-                  {/* Job Meta Badges */}
-                  <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-[13px] text-muted font-body mb-5">
-                    <span className="flex items-center gap-1.5">
-                      <svg className="w-4 h-4 text-accent/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {job.location}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <svg className="w-4 h-4 text-accent/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      {job.experience}
-                    </span>
-                  </div>
-
-                  {/* Summary */}
-                  <p className="text-[14px] sm:text-[15px] font-body text-muted leading-relaxed mb-6 font-light">
-                    {job.description}
-                  </p>
-                </div>
-
-                {/* Apply Button */}
-                <div className="pt-4 border-t border-line/60 flex items-center justify-between">
-                  <span className="text-[12px] uppercase tracking-wider text-muted font-light">
-                    Role ID: {job.id.toUpperCase()}
-                  </span>
-                  <button
-                    onClick={() => handleApplyClick(job.title, job.dept)}
-                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-accent group-hover:text-ink transition-colors cursor-pointer"
-                  >
-                    Apply for this Role &rarr;
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Unlisted Position Callout */}
-          <div className="mt-12 p-8 rounded-2xl bg-white border border-line flex flex-wrap items-center justify-between gap-6 shadow-sm">
-            <div>
-              <h4 className="text-[20px] font-heading font-normal text-ink mb-1">
-                Don't see an exact match for your profile?
-              </h4>
-              <p className="text-muted text-[14px] font-light">
-                We are always excited to connect with exceptional professionals. Send a general application below.
-              </p>
-            </div>
-            <button
-              onClick={() => handleApplyClick('General Application — Unlisted Role', 'Other')}
-              className="px-6 py-3 rounded-lg bg-ink text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-accent transition-colors"
-            >
-              Submit General Application
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: APPLICATION FORM (Career Form for Interested Candidate)
+          SECTION 2: APPLICATION FORM (Direct Application / Career Form) (Career Form for Interested Candidate)
       ───────────────────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 bg-bg border-b border-line" id="apply-form" ref={formRef}>
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
@@ -741,6 +601,146 @@ export default function Careers() {
 
             </form>
           )}
+
+        </div>
+      </section>
+
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 3: CURRENT OPENINGS (Explore Current Openings)
+      ───────────────────────────────────────────────────────────── */}
+      <section className="py-20 lg:py-28 bg-[#EEF5FB] border-b border-line" id="openings">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+          {/* Section Header */}
+          <div className="flex flex-wrap justify-between items-end gap-6 mb-12 lg:mb-16">
+            <div>
+              <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
+                Opportunities to Grow
+              </span>
+              <h2 className="text-[34px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-ink leading-tight">
+                Our Openings
+              </h2>
+            </div>
+            <p className="text-muted font-light text-[15px] sm:text-[16px] max-w-[460px] leading-relaxed">
+              Explore current openings and take the next step in your career with Northstar.
+            </p>
+          </div>
+
+          {/* Department Filter Pills */}
+          <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-10 pb-4 border-b border-line/80">
+            <button
+              onClick={() => setActiveDeptFilter('All')}
+              className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
+                activeDeptFilter === 'All'
+                  ? 'bg-ink text-white font-medium shadow-md'
+                  : 'bg-white text-muted hover:text-ink hover:bg-line/40 font-light border border-line'
+              }`}
+            >
+              All Openings ({openingsData.length})
+            </button>
+            {departmentOptions.slice(0, 8).map((dept, idx) => {
+              const count = openingsData.filter(item => item.dept === dept).length;
+              if (count === 0) return null;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveDeptFilter(dept)}
+                  className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
+                    activeDeptFilter === dept
+                      ? 'bg-ink text-white font-medium shadow-md'
+                      : 'bg-white text-muted hover:text-ink hover:bg-line/40 font-light border border-line'
+                  }`}
+                >
+                  {dept} ({count})
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Openings List Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {filteredOpenings.map((job) => (
+              <motion.div
+                key={job.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white rounded-2xl border border-line p-7 sm:p-8 flex flex-col justify-between hover:shadow-lg hover:border-accent/50 transition-all duration-300 group"
+              >
+                <div>
+                  {/* Category & Badge */}
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <span className="text-[11px] tracking-[0.18em] uppercase font-semibold text-accent bg-accent/8 px-3 py-1 rounded-full">
+                      {job.dept}
+                    </span>
+                    <span className="text-[12px] font-body text-muted/80">
+                      {job.type}
+                    </span>
+                  </div>
+
+                  {/* Job Title */}
+                  <h3 className="text-[22px] sm:text-[24px] font-heading font-normal text-ink group-hover:text-accent transition-colors leading-snug mb-3">
+                    {job.title}
+                  </h3>
+
+                  {/* Job Meta Badges */}
+                  <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-[13px] text-muted font-body mb-5">
+                    <span className="flex items-center gap-1.5">
+                      <svg className="w-4 h-4 text-accent/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {job.location}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <svg className="w-4 h-4 text-accent/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {job.experience}
+                    </span>
+                  </div>
+
+                  {/* Summary */}
+                  <p className="text-[14px] sm:text-[15px] font-body text-muted leading-relaxed mb-6 font-light">
+                    {job.description}
+                  </p>
+                </div>
+
+                {/* Apply Button */}
+                <div className="pt-4 border-t border-line/60 flex items-center justify-between">
+                  <span className="text-[12px] uppercase tracking-wider text-muted font-light">
+                    Role ID: {job.id.toUpperCase()}
+                  </span>
+                  <button
+                    onClick={() => handleApplyClick(job.title, job.dept)}
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-accent group-hover:text-ink transition-colors cursor-pointer"
+                  >
+                    Apply for this Role &rarr;
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Unlisted Position Callout */}
+          <div className="mt-12 p-8 rounded-2xl bg-white border border-line flex flex-wrap items-center justify-between gap-6 shadow-sm">
+            <div>
+              <h4 className="text-[20px] font-heading font-normal text-ink mb-1">
+                Don't see an exact match for your profile?
+              </h4>
+              <p className="text-muted text-[14px] font-light">
+                We are always excited to connect with exceptional professionals. Send a direct application using our career form above.
+              </p>
+            </div>
+            <button
+              onClick={() => handleApplyClick('General Application — Unlisted Role', 'Other')}
+              className="px-6 py-3 rounded-lg bg-ink text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-accent transition-colors"
+            >
+              Submit General Application
+            </button>
+          </div>
 
         </div>
       </section>

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '../data/projectsData';
-import AmenitiesOptionA from './AmenitiesOptionA';
-import AmenitiesOptionB from './AmenitiesOptionB';
-import AmenitiesOptionC from './AmenitiesOptionC';
 import AmenitiesOptionD from './AmenitiesOptionD';
 
 export default function ProjectDetail({ projectId = 'sanctuary' }) {
@@ -11,10 +8,9 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   
   // Interactive States
   const [activeExperienceTab, setActiveExperienceTab] = useState('photos');
-  const [activeAmenityCategory, setActiveAmenityCategory] = useState(0);
-  const [amenitiesLayout, setAmenitiesLayout] = useState('D');
   const [isMuted, setIsMuted] = useState(true);
-  const [activeProgressTab, setActiveProgressTab] = useState('Drone Photos');
+  const [activeProgressTab, setActiveProgressTab] = useState('Photos');
+  const [currentProgressSlide, setCurrentProgressSlide] = useState(0);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -43,9 +39,9 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
     <div className="bg-bg text-ink font-body">
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: HERO & PROJECT DETAILS
+          SECTION 1: HERO CINEMATIC VIDEO (Pure Video)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-end bg-[#07294A] text-white overflow-hidden pt-28 pb-16 lg:pb-24">
+      <section className="relative w-full h-[65vh] sm:h-[75vh] lg:h-[85vh] bg-[#07294A] overflow-hidden">
         {/* Background Visual / Walkthrough Video */}
         <div className="absolute inset-0 z-0">
           {project.heroVideo ? (
@@ -62,23 +58,20 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             <img 
               src={project.heroImage} 
               alt={project.name} 
-              className="w-full h-full object-cover object-center brightness-75 scale-105 transition-transform duration-1000 ease-out"
+              className="w-full h-full object-cover object-center"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#07294A] to-[#041628]" />
+            <div className="w-full h-full bg-[#07294A]" />
           )}
-          {/* Subtle Scrims */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07294A] via-[#07294A]/50 to-black/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07294A]/90 via-[#07294A]/40 to-transparent pointer-events-none" />
         </div>
 
-        {/* Floating Sound Toggle (for Video Walkthrough) */}
+        {/* Floating Sound Toggle */}
         {project.heroVideo && (
           <button
             type="button"
             onClick={() => setIsMuted(!isMuted)}
-            aria-label={isMuted ? "Unmute walkthrough video" : "Mute walkthrough video"}
-            className="absolute right-6 sm:right-10 bottom-24 sm:bottom-28 z-20 flex items-center gap-2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white text-[11px] uppercase tracking-wider px-3.5 py-2 rounded-full border border-white/20 transition-all cursor-pointer shadow-lg"
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            className="absolute right-6 sm:right-10 bottom-6 sm:bottom-8 z-20 flex items-center gap-2 bg-black/50 hover:bg-black/75 backdrop-blur-md text-white text-[11px] uppercase tracking-wider px-4 py-2 rounded-full border border-white/20 transition-all cursor-pointer shadow-lg"
           >
             {isMuted ? (
               <>
@@ -98,115 +91,46 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             )}
           </button>
         )}
-
-        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-6 lg:px-10">
-          
-          {/* Breadcrumb Navigation */}
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-2.5 text-[11px] sm:text-[12px] tracking-[0.16em] uppercase text-white/70 mb-5 font-medium"
-          >
-            <a href="#top" className="hover:text-accent transition-colors">Home</a>
-            <span className="opacity-40">/</span>
-            <a href="#ongoing-projects" className="hover:text-accent transition-colors">Projects</a>
-            <span className="opacity-40">/</span>
-            <span className="text-white font-semibold">{project.shortName || project.name}</span>
-          </motion.div>
-
-          <div className="max-w-[900px]">
-            {/* Project Identity & Badges */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-wrap items-center gap-3 mb-4"
-            >
-              <span className="text-[12px] sm:text-[14px] tracking-[0.26em] uppercase text-[#4FA3E3] font-heading font-bold">
-                {project.name}
-              </span>
-              <span className="text-white/40 hidden sm:inline">•</span>
-              <span className="bg-accent text-white text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1 rounded-full shadow-sm">
-                {project.statusBadge || project.status}
-              </span>
-              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 text-[10px] sm:text-[11px] font-medium tracking-widest uppercase px-3.5 py-1 rounded-full">
-                {project.type}
-              </span>
-              <span className="text-white/80 text-[11px] sm:text-[12px] tracking-wider uppercase font-light">
-                {project.city}
-              </span>
-            </motion.div>
-
-            {/* Main Hero Headline — Client Specified: A Life Crafted Closer to Nature (Bigger) */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[44px] sm:text-[62px] lg:text-[78px] font-heading font-normal leading-[1.05] text-white mb-6 tracking-tight"
-            >
-              {project.headerTitle || project.name}
-            </motion.h1>
-
-            {/* Location Line */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="flex items-center gap-2 text-[13px] sm:text-[14px] text-white/80 font-light mb-8"
-            >
-              <svg className="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>{project.location}</span>
-            </motion.div>
-
-            {/* Quick Actions (Site Visit, Brochure, Walkthrough Video) */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-3.5"
-            >
-              <a 
-                href="#enquire" 
-                className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold bg-accent text-white rounded-lg shadow-lg hover:bg-accent/90 transition-all duration-300 transform hover:-translate-y-0.5"
-              >
-                Schedule Site Visit
-              </a>
-
-              {project.brochureUrl && (
-                <a 
-                  href={project.brochureUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 min-h-12 px-6 py-3 text-[12px] tracking-[0.18em] uppercase font-medium border border-white/50 text-white rounded-lg backdrop-blur-sm hover:bg-white hover:text-ink hover:border-white transition-all duration-300"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Download Brochure
-                </a>
-              )}
-            </motion.div>
-
-          </div>
-
-        </div>
       </section>
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: PROJECT IDENTITY SPECS (Architectural Specs Grid)
+          SECTION 2: PROJECT IDENTITY, TAGLINE & SPECS (Merged)
       ───────────────────────────────────────────────────────────── */}
       <section className="bg-bg border-b border-line py-12 lg:py-16 relative z-20">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-8 sm:gap-y-10">
+          
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center gap-2.5 text-[11px] sm:text-[12px] tracking-[0.16em] uppercase text-muted mb-6 font-medium">
+            <a href="#top" className="hover:text-accent transition-colors">Home</a>
+            <span className="opacity-40">/</span>
+            <a href="#ongoing-projects" className="hover:text-accent transition-colors">Projects</a>
+            <span className="opacity-40">/</span>
+            <span className="text-ink font-semibold">{project.shortName || project.name}</span>
+          </div>
+
+          {/* Project Identity & Badges */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="text-[12px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+              {project.name}
+            </span>
+            <span className="text-muted/40 hidden sm:inline">•</span>
+            <span className="bg-accent text-white text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1 rounded-full shadow-sm">
+              {project.statusBadge || project.status}
+            </span>
+          </div>
+
+          {/* Tagline / Main Title */}
+          <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-heading font-normal leading-[1.15] text-ink mb-10 max-w-4xl tracking-tight">
+            {project.headerTitle || project.tagline || project.name}
+          </h1>
+
+          {/* Architectural Specs Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-8 sm:gap-y-10 border-t border-line/90 pt-8 sm:pt-10">
             {project.specs.map((spec, i) => (
               <div 
                 key={i} 
-                className="flex flex-col border-t border-line/90 pt-5 group hover:border-accent transition-colors duration-300"
+                className="flex flex-col group hover:border-accent transition-colors duration-300"
               >
                 <span className="text-[11px] sm:text-[12px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
                   {spec.label}
@@ -217,6 +141,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -291,65 +216,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 4: LIFESTYLE FEATURES & AMENITIES
       ───────────────────────────────────────────────────────────── */}
-      {/* Amenities Layout Switcher Bar */}
-      <div className="bg-[#F0F5FA] border-y border-line py-3 px-6 sticky top-20 z-30 backdrop-blur-md bg-opacity-95 shadow-sm">
-        <div className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-[11px] sm:text-[12px] font-heading font-semibold text-ink uppercase tracking-wider">
-              Layout Options:
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              onClick={() => setAmenitiesLayout('D')}
-              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
-                amenitiesLayout === 'D'
-                  ? 'bg-accent text-white font-semibold shadow-sm'
-                  : 'bg-white text-muted hover:text-ink border border-line'
-              }`}
-            >
-              Option D (Icon Grid — Active)
-            </button>
-            <button
-              onClick={() => setAmenitiesLayout('A')}
-              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
-                amenitiesLayout === 'A'
-                  ? 'bg-ink text-white font-semibold shadow-sm'
-                  : 'bg-white text-muted hover:text-ink border border-line'
-              }`}
-            >
-              View Option A (Editorial)
-            </button>
-            <button
-              onClick={() => setAmenitiesLayout('B')}
-              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
-                amenitiesLayout === 'B'
-                  ? 'bg-ink text-white font-semibold shadow-sm'
-                  : 'bg-white text-muted hover:text-ink border border-line'
-              }`}
-            >
-              View Option B (Accordion)
-            </button>
-            <button
-              onClick={() => setAmenitiesLayout('C')}
-              className={`px-4 py-1.5 rounded-full text-[11px] sm:text-[12px] tracking-wider uppercase font-body transition-all duration-300 cursor-pointer ${
-                amenitiesLayout === 'C'
-                  ? 'bg-ink text-white font-semibold shadow-sm'
-                  : 'bg-white text-muted hover:text-ink border border-line'
-              }`}
-            >
-              View Option C (Cards)
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Conditionally rendered layout */}
-      {amenitiesLayout === 'D' && <AmenitiesOptionD project={project} />}
-      {amenitiesLayout === 'A' && <AmenitiesOptionA project={project} />}
-      {amenitiesLayout === 'B' && <AmenitiesOptionB project={project} />}
-      {amenitiesLayout === 'C' && <AmenitiesOptionC project={project} />}
+      {/* Amenities Section: Finalized Option D */}
+      <AmenitiesOptionD project={project} />
 
 
       {/* ─────────────────────────────────────────────────────────────
@@ -439,26 +307,6 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               </div>
             )}
 
-            {activeExperienceTab === '360' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">360° Panoramic View</h4>
-                <p className="text-muted text-[15px] font-light max-w-[500px] mb-8">
-                  Take an interactive 360-degree aerial and ground-level tour of the Sanctuary development layout.
-                </p>
-                <a 
-                  href="#enquire"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors"
-                >
-                  Request 360° Virtual Tour
-                </a>
-              </div>
-            )}
-
             {activeExperienceTab === 'masterplan' && (
               <div className="w-full py-10 flex flex-col items-center">
                 <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
@@ -480,49 +328,49 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     View High-Resolution Master Plan
                   </a>
                 ) : (
-                  <a href="#enquire" className="px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent">
+                  <a href="#enquire" className="px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors shadow-md">
                     Request Master Plan PDF
                   </a>
                 )}
               </div>
             )}
 
-            {activeExperienceTab === 'plotplan' && (
+            {activeExperienceTab === 'floorplan' && (
+              <div className="w-full py-10 flex flex-col items-center">
+                <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
+                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Architectural Floor Plans</h4>
+                <p className="text-muted text-[15px] font-light max-w-[520px] mb-8">
+                  Carefully proportioned layouts featuring double-height living spaces, private terraces, garden sit-outs, and flexible configurations tailored to your family.
+                </p>
+                <a 
+                  href="#enquire"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors shadow-md"
+                >
+                  Request Architectural Floor Plans
+                </a>
+              </div>
+            )}
+
+            {activeExperienceTab === 'unitplan' && (
               <div className="w-full py-10 flex flex-col items-center">
                 <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
                   <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                   </svg>
                 </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Plot Dimension Options</h4>
-                <p className="text-muted text-[15px] font-light max-w-[500px] mb-8">
-                  Plot options from 343 to 500 Sq. Yds. for villas, and 600 to 1,000 Sq. Yds. for custom luxury estates.
+                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Unit Plan & Plot Dimensions</h4>
+                <p className="text-muted text-[15px] font-light max-w-[520px] mb-8">
+                  Dimensional plot options and demarcations from 343 to 500 Sq. Yds. for villa plots, and 600 to 1,000 Sq. Yds. for custom luxury estate plots.
                 </p>
                 <a 
                   href="#enquire"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors shadow-md"
                 >
                   Inquire About Plot Availability
-                </a>
-              </div>
-            )}
-
-            {activeExperienceTab === 'villaplan' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Crafted Villa Floor Plans</h4>
-                <p className="text-muted text-[15px] font-light max-w-[500px] mb-8">
-                  Double-height living spaces, private terraces, garden sit-outs, and flexible configurations tailored to your family.
-                </p>
-                <a 
-                  href="#enquire"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors"
-                >
-                  Request Villa Layout Book
                 </a>
               </div>
             )}
@@ -581,64 +429,182 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               </p>
             </div>
 
-            {/* Media Selector Tabs */}
-            <div className="flex flex-wrap gap-2 sm:gap-3 mb-10">
-              {project.constructionProgress.mediaTabs.map((tab, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveProgressTab(tab)}
-                  className={`px-5 py-2.5 rounded-lg text-[12px] tracking-[0.16em] uppercase font-body transition-all duration-300 cursor-pointer ${
-                    activeProgressTab === tab
-                      ? 'bg-ink text-white font-semibold shadow-md'
-                      : 'bg-white text-muted hover:text-ink border border-line'
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-
-            {/* Milestone Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {project.constructionProgress.milestones.map((ms, idx) => (
-                <div key={idx} className="p-6 rounded-2xl bg-bg border border-line shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[11px] font-semibold tracking-wider uppercase text-accent bg-accent/10 px-3 py-1 rounded-full">
-                      {ms.status}
-                    </span>
-                    <span className="text-[12px] font-heading text-muted/40">0{idx + 1}</span>
-                  </div>
-                  <h4 className="text-[18px] font-heading font-medium text-ink mb-2">
-                    {ms.label}
-                  </h4>
-                  <p className="text-[14px] text-muted font-body font-light leading-relaxed">
-                    {ms.note}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Drone Progress Visual Anchor */}
-            <div className="p-8 rounded-2xl bg-white border border-line flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div>
-                <h4 className="text-[20px] font-heading font-medium text-ink mb-1">
-                  Access Raw Drone & Site Photography
-                </h4>
-                <p className="text-[14px] text-muted font-light">
-                  Follow regular progress updates from our on-ground project management team.
-                </p>
+            {/* Media Selector Tabs: Photos & Videos */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <div className="flex items-center gap-2 bg-white p-1.5 rounded-xl border border-line shadow-sm">
+                {(project.constructionProgress.mediaTabs || ['Photos', 'Videos']).map((tab, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setActiveProgressTab(tab);
+                      setCurrentProgressSlide(0);
+                    }}
+                    className={`px-6 py-2 rounded-lg text-[12px] tracking-[0.16em] uppercase font-body font-medium transition-all duration-300 cursor-pointer ${
+                      activeProgressTab === tab
+                        ? 'bg-accent text-white font-semibold shadow-sm'
+                        : 'text-muted hover:text-ink'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
               </div>
-              {project.projectLink && (
-                <a 
-                  href={project.projectLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white text-[12px] tracking-widest uppercase font-semibold hover:bg-accent/90 transition-colors flex-shrink-0"
-                >
-                  View Site Progress Files &rarr;
-                </a>
-              )}
+
+              {/* Slide Counter and Navigation for Desktop */}
+              {(() => {
+                const items = activeProgressTab === 'Videos'
+                  ? (project.constructionProgress.videos || [])
+                  : (project.constructionProgress.photos || []);
+                if (!items.length) return null;
+                return (
+                  <div className="flex items-center gap-3">
+                    <span className="text-[13px] font-mono tracking-wider text-muted font-medium">
+                      {String(currentProgressSlide + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setCurrentProgressSlide((prev) => (prev === 0 ? items.length - 1 : prev - 1))}
+                        aria-label="Previous slide"
+                        className="w-10 h-10 rounded-full border border-line bg-white hover:bg-soft text-ink flex items-center justify-center transition-colors cursor-pointer shadow-sm hover:border-accent"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => setCurrentProgressSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1))}
+                        aria-label="Next slide"
+                        className="w-10 h-10 rounded-full border border-line bg-white hover:bg-soft text-ink flex items-center justify-center transition-colors cursor-pointer shadow-sm hover:border-accent"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
+
+            {/* Split Media Viewer with Right-side Scroller */}
+            {(() => {
+              const items = activeProgressTab === 'Videos'
+                ? (project.constructionProgress.videos || [])
+                : (project.constructionProgress.photos || []);
+              if (!items.length) return null;
+              const activeItem = items[currentProgressSlide] || items[0];
+
+              return (
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                  
+                  {/* Left Section: Featured Large Active Viewer */}
+                  <div className="lg:col-span-7 xl:col-span-8 flex flex-col">
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg border border-line bg-[#041628]">
+                      {activeProgressTab === 'Photos' ? (
+                        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full">
+                          <img
+                            src={activeItem.image}
+                            alt=""
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                          />
+
+                          {/* Subtle arrow navigation overlay on image */}
+                          <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                            <button
+                              onClick={() => setCurrentProgressSlide((prev) => (prev === 0 ? items.length - 1 : prev - 1))}
+                              aria-label="Previous photo"
+                              className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                            >
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                              </svg>
+                            </button>
+                            <span className="text-[12px] font-mono tracking-wider text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-white/20">
+                              {String(currentProgressSlide + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+                            </span>
+                            <button
+                              onClick={() => setCurrentProgressSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1))}
+                              aria-label="Next photo"
+                              className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                            >
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="p-3 sm:p-4 bg-[#041628]">
+                          <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-2xl bg-black">
+                            <video
+                              key={activeItem.video + activeItem.id}
+                              src={activeItem.video}
+                              poster={activeItem.poster}
+                              controls
+                              playsInline
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right Section: Scrollable Thumbnails */}
+                  <div className="lg:col-span-5 xl:col-span-4 flex flex-col rounded-2xl bg-white border border-line shadow-sm p-4 sm:p-5">
+                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-line">
+                      <span className="text-[12px] tracking-[0.16em] uppercase font-semibold text-ink font-heading">
+                        {activeProgressTab === 'Photos' ? 'All Photos' : 'All Videos'}
+                      </span>
+                      <span className="text-[12px] font-mono text-muted">
+                        {items.length} {activeProgressTab === 'Photos' ? 'Photos' : 'Videos'}
+                      </span>
+                    </div>
+
+                    {/* Smooth Scroller for Thumbnails */}
+                    <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 overflow-y-auto max-h-[460px] sm:max-h-[500px] pr-1.5 thin-scrollbar">
+                      {items.map((item, idx) => {
+                        const isSelected = currentProgressSlide === idx;
+                        const thumb = item.image || item.poster;
+
+                        return (
+                          <button
+                            key={item.id || idx}
+                            onClick={() => setCurrentProgressSlide(idx)}
+                            className={`relative aspect-[16/10] w-full rounded-xl overflow-hidden border-2 transition-all cursor-pointer group ${
+                              isSelected
+                                ? 'border-accent ring-2 ring-accent/30 shadow-md scale-[0.99]'
+                                : 'border-line hover:border-accent/60 opacity-80 hover:opacity-100'
+                            }`}
+                          >
+                            {thumb && (
+                              <img
+                                src={thumb}
+                                alt=""
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                            )}
+                            {activeProgressTab === 'Videos' && (
+                              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <div className="w-9 h-9 rounded-full bg-white/90 text-accent flex items-center justify-center shadow-lg">
+                                  <svg className="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                  </svg>
+                                </div>
+                              </div>
+                            )}
+                            <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white text-[11px] font-mono">
+                              {String(idx + 1).padStart(2, '0')}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                </div>
+              );
+            })()}
 
           </div>
         </section>
@@ -646,120 +612,124 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 8: AROUND THE NEIGHBOURHOOD
+          SECTION 8: LOCATION & NEIGHBOURHOOD (Merged Layout)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg border-b border-line" id="neighbourhood">
+      <section className="py-20 lg:py-28 bg-soft border-b border-line relative" id="location">
+        {/* Anchor for neighbourhood link */}
+        <div id="neighbourhood" className="absolute -top-24" />
+
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
           
-          <div className="text-center max-w-[700px] mx-auto mb-14">
+          {/* Section Header */}
+          <div className="text-center max-w-[760px] mx-auto mb-12 sm:mb-14">
             <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-              {project.neighbourhood?.eyebrow || 'Connectivity'}
+              {project.neighbourhood?.eyebrow || 'Connectivity & Location'}
             </p>
             <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight mb-4">
               {project.neighbourhood?.title || 'Around the Neighbourhood'}
             </h2>
-            <p className="text-muted font-light text-[15px] leading-relaxed">
-              {project.neighbourhood?.subtitle}
-            </p>
+            {project.neighbourhood?.subtitle && (
+              <p className="text-muted font-light text-[15px] sm:text-[16px] leading-relaxed">
+                {project.neighbourhood.subtitle}
+              </p>
+            )}
           </div>
 
-          {/* Commute Distances Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 max-w-[1000px] mx-auto">
-            {project.neighbourhood?.landmarks.map((landmark, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center justify-between p-4 sm:p-5 rounded-xl bg-soft border border-line hover:border-accent/40 hover:bg-white hover:shadow-sm transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-accent" />
-                  <span className="text-[15px] sm:text-[16px] font-body text-ink font-normal">
-                    {landmark.name}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3 flex-shrink-0">
-                  <span className="text-[13px] font-body text-muted font-light">
-                    {landmark.distance}
-                  </span>
-                  <span className="text-[13px] font-semibold font-body text-accent bg-accent/10 px-2.5 py-1 rounded-md">
-                    {landmark.time}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 9: PROJECT LOCATION (Split Layout: Map + Address)
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-soft border-b border-line" id="location">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          <div className="text-center max-w-[700px] mx-auto mb-14">
-            <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-              {project.locationDetails?.eyebrow || 'Project Location'}
-            </p>
-            <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight">
-              {project.locationDetails?.title || 'A Nature-Led Address on Srisailam Highway'}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl overflow-hidden border border-line bg-white shadow-sm">
             
-            {/* Left Side: Embedded Google Map / Visual Map */}
-            <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-line shadow-md min-h-[420px] bg-bg relative">
-              <iframe 
-                title="Sanctuary Location Map"
-                src={project.locationDetails?.embedMapUrl || "https://maps.google.com/maps?q=17.1587666,78.4787074&hl=en&z=14&output=embed"}
-                className="w-full h-full min-h-[420px] border-0"
-                loading="lazy"
-                allowFullScreen
-              />
-            </div>
-
-            {/* Right Side: Exact Survey Numbers & Postal Address */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-bg border border-line shadow-md">
+            {/* Left Column: Address + Key Transport */}
+            <div className="lg:col-span-6 xl:col-span-7 p-8 sm:p-10 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line bg-white">
               <div>
-                <span className="text-[11px] tracking-widest uppercase text-accent font-semibold mb-2 block font-body">
-                  Official Site Address
-                </span>
-                <h3 className="text-[26px] font-heading font-normal text-ink mb-4">
-                  {project.locationDetails?.addressTitle || project.fullName}
-                </h3>
-
-                <div className="space-y-1.5 text-[15px] sm:text-[16px] text-muted font-body font-light leading-relaxed mb-8">
-                  {project.locationDetails?.addressLines?.map((line, idx) => (
-                    <p key={idx}>{line}</p>
-                  ))}
+                {/* Address Section */}
+                <div className="mb-8">
+                  <h3 className="text-[26px] sm:text-[30px] font-heading font-medium text-ink mb-3">
+                    Address
+                  </h3>
+                  <p className="text-muted text-[15px] sm:text-[16px] font-body font-light leading-relaxed max-w-lg">
+                    {project.id === 'sanctuary'
+                      ? 'Mohabbatnagar, Near Tukkuguda, Srisailam Highway, Hyderabad'
+                      : (project.locationDetails?.addressLines?.join(', ') || project.location)}
+                  </p>
+                  {project.locationDetails?.addressLines && project.id === 'sanctuary' && (
+                    <p className="text-muted/70 text-[13px] font-body font-light mt-2 leading-relaxed">
+                      {project.locationDetails.addressLines.join(' ')}
+                    </p>
+                  )}
                 </div>
 
-                <div className="p-4 rounded-xl bg-soft border border-line mb-8">
-                  <div className="flex items-center gap-3 text-ink text-[14px]">
-                    <svg className="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>Strategic growth corridor near RGIA & ORR Exit 14</span>
+                {/* Subtle Divider */}
+                <div className="border-t border-line/80 my-8 sm:my-10" />
+
+                {/* Key Transport / Connectivity */}
+                <div>
+                  <h3 className="text-[24px] sm:text-[28px] font-heading font-medium text-ink mb-6 sm:mb-8">
+                    Key transport
+                  </h3>
+
+                  {/* 2-Column Landmarks Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10 gap-y-5">
+                    {project.neighbourhood?.landmarks?.map((landmark, idx) => {
+                      const displayName = landmark.name.includes('(')
+                        ? landmark.name.split(' (')[0]
+                        : landmark.name;
+
+                      return (
+                        <div key={idx} className="flex items-baseline justify-between gap-3">
+                          <span className="text-[14px] sm:text-[15px] font-body text-ink font-normal">
+                            {displayName}
+                          </span>
+                          <span className="text-[13px] sm:text-[14px] font-body text-muted font-light whitespace-nowrap">
+                            {landmark.distance} / {landmark.time}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
 
-              {/* Get Directions CTA */}
-              <a 
-                href={project.locationDetails?.googleMapLink || "https://maps.google.com/maps?q=17.1587666,78.4787074"}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-accent text-white font-semibold text-[13px] tracking-widest uppercase hover:bg-accent/90 transition-all shadow-md transform hover:-translate-y-0.5"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                Get Directions
-              </a>
+              {/* Get Directions Link */}
+              {project.locationDetails?.googleMapLink && (
+                <div className="mt-10 pt-6 border-t border-line/60">
+                  <a
+                    href={project.locationDetails.googleMapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-accent hover:text-ink transition-colors"
+                  >
+                    <span>Get Directions on Google Maps</span>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Right Column: Embedded Google Map with "Open in Maps" Overlay */}
+            <div className="lg:col-span-6 xl:col-span-5 relative min-h-[440px] sm:min-h-[500px] lg:min-h-full bg-soft">
+              {/* Floating "Open in Maps" Overlay Button */}
+              {project.locationDetails?.googleMapLink && (
+                <a
+                  href={project.locationDetails.googleMapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/95 hover:bg-white text-ink text-[12px] font-semibold tracking-wide shadow-md border border-line backdrop-blur-sm transition-all hover:shadow-lg"
+                >
+                  <span className="text-accent">Open in Maps</span>
+                  <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )}
+
+              <iframe
+                title={`${project.name} Location Map`}
+                src={project.locationDetails?.embedMapUrl || "https://maps.google.com/maps?q=17.1587666,78.4787074&hl=en&z=14&output=embed"}
+                className="w-full h-full min-h-[440px] sm:min-h-[500px] lg:min-h-full border-0"
+                loading="lazy"
+                allowFullScreen
+              />
             </div>
 
           </div>

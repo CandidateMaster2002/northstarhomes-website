@@ -196,10 +196,9 @@ export const projectsData = {
       tabs: [
         { id: 'photos', label: 'Photos', desc: 'Curated gallery of landscape avenues, green corridors, and park views.' },
         { id: 'videos', label: 'Videos', desc: 'Watch cinematic video walkthroughs and immersive aerial footage of Sanctuary.' },
-        { id: '360', label: '360° View', desc: 'Experience 360-degree interactive panoramic perspectives of the site.' },
         { id: 'masterplan', label: 'Master Plan', desc: 'Detailed 14-acre master layout showing all 63 plot and villa allocations.' },
-        { id: 'plotplan', label: 'Plot Plan', desc: 'Dimensional plot layout options ranging from 343 to 1,000 Sq. Yds.' },
-        { id: 'villaplan', label: 'Villa Plan', desc: 'Customizable villa floor plans and architectural elevations.' },
+        { id: 'floorplan', label: 'Floor Plan', desc: 'Architectural floor plans and layout configurations.' },
+        { id: 'unitplan', label: 'Unit Plan', desc: 'Dimensional unit plans and plot configurations ranging from 343 to 1,000 Sq. Yds.' },
         { id: 'brochure', label: 'Brochure', desc: 'Official high-resolution Northstar Sanctuary project brochure.' }
       ]
     },
@@ -234,14 +233,69 @@ export const projectsData = {
       eyebrow: 'Construction Progress',
       title: 'Watch Sanctuary Take Shape',
       subtitle: 'Follow the latest progress of Northstar Sanctuary through drone views, site photographs and regular project updates.',
+      mediaTabs: ['Photos', 'Videos'],
+      photos: [
+        {
+          id: 1,
+          title: 'Perimeter Boundary & Solar Fencing',
+          stage: '100% Completed',
+          desc: 'High-perimeter masonry compound wall and energized solar security fencing fully installed across the 14-acre perimeter.',
+          image: imgSanctuary
+        },
+        {
+          id: 2,
+          title: 'Underground Infrastructure (Drainage & Water)',
+          stage: 'Advanced Stage',
+          desc: 'Concealed underground storm drainage, pressurized ring main water supply conduits, and electrical networks laid.',
+          image: imgHillside
+        },
+        {
+          id: 3,
+          title: '40ft Arterial Boulevard & Cobbled Avenues',
+          stage: 'In Progress',
+          desc: '40-foot main entrance boulevard base layer prepared with 30-foot residential internal cobbled streets undergoing paving.',
+          image: imgAirportBoulevard
+        },
+        {
+          id: 4,
+          title: 'Landscape Development & Pocket Parks',
+          stage: 'Active Planting',
+          desc: 'Avenue tree plantations, native greenery, flowering gardens, and automated drip irrigation networks taking root.',
+          image: imgAllura
+        },
+        {
+          id: 5,
+          title: 'Central Clubhouse Civil Works',
+          stage: 'Structure Underway',
+          desc: 'Foundational civil works, footings, and structural framing for the luxury clubhouse progressing on schedule.',
+          image: imgEdenGardens
+        }
+      ],
+      videos: [
+        {
+          id: 1,
+          title: 'Aerial Drone Site Survey & Walkthrough',
+          stage: 'Latest Drone Flight',
+          desc: 'Full bird’s-eye perspective of the 14-acre master layout, 40ft avenues, boundary development, and natural topography.',
+          video: heroVideoPlaceholder,
+          poster: imgSanctuary
+        },
+        {
+          id: 2,
+          title: 'Infrastructure & Avenue Progress Walkthrough',
+          stage: 'Ground Walkthrough',
+          desc: 'On-ground cinematic documentation showing underground utility lines, avenue tree planting, and clubhouse structural progress.',
+          video: heroVideoPlaceholder,
+          poster: imgHillside
+        }
+      ],
       milestones: [
         { label: 'Site Boundary & Compound Wall', status: '100% Completed', note: 'Entire perimeter compound wall and solar fencing installed.' },
         { label: 'Underground Infrastructure (Drainage & Water)', status: 'Advanced Stage', note: 'Concealed underground utilities and storm drainage network laid.' },
         { label: 'Road Works & Cobbled Avenues', status: 'In Progress', note: '40ft main boulevard base work and 30ft internal roads undergoing paving.' },
         { label: 'Landscape & Pocket Parks', status: 'Active Planting', note: 'Tree transplantation, flowering gardens, and irrigation systems taking shape.' },
         { label: 'Clubhouse Civil Work', status: 'Structure Underway', note: 'Clubhouse foundations and structural framing progressing on schedule.' }
-      ],
-      mediaTabs: ['Drone Photos', 'Drone Videos', 'Site Progress Gallery', 'Monthly Updates']
+      ]
     },
 
     // SECTION 8 — AROUND THE NEIGHBOURHOOD
@@ -370,7 +424,8 @@ export const projectsData = {
         { id: 'photos', label: 'Photos', desc: 'Completed photography of District 1.' },
         { id: 'videos', label: 'Videos', desc: 'Walkthrough video.' },
         { id: 'masterplan', label: 'Master Plan', desc: 'Site and tower footprint.' },
-        { id: 'floorplan', label: 'Floor Plans', desc: '3 BHK unit configurations.' },
+        { id: 'floorplan', label: 'Floor Plan', desc: '3 BHK unit configurations.' },
+        { id: 'unitplan', label: 'Unit Plan', desc: 'Individual unit layouts and dimensions.' },
         { id: 'brochure', label: 'Brochure', desc: 'Download project brochure.' }
       ]
     },

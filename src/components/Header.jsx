@@ -233,8 +233,8 @@ export default function Header() {
                     Leadership
                   </a>
                   <a 
-                    href="#legacy" 
-                    onClick={(e) => handleNavClick(e, '#legacy')} 
+                    href="#awards" 
+                    onClick={(e) => handleNavClick(e, '#awards')} 
                     className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer"
                   >
                     Awards

@@ -23,6 +23,7 @@ import NriGuide from './components/NriGuide'
 import EmiCalculator from './components/EmiCalculator'
 import BlogListing from './components/BlogListing'
 import BlogPost from './components/BlogPost'
+import Awards from './components/Awards'
 
 export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
@@ -72,6 +73,23 @@ export default function App() {
       <div className="bg-bg text-ink font-body text-base leading-relaxed flex flex-col min-h-screen">
         <Header />
         <Leadership />
+        <Footer />
+        <FloatingContact />
+      </div>
+    );
+  }
+
+  if (
+    currentHash === '#legacy' || 
+    currentHash === '#awards' || 
+    currentHash === '#about/awards' || 
+    currentHash === '#about-awards' || 
+    currentHash === '#recognition'
+  ) {
+    return (
+      <div className="bg-bg text-ink font-body text-base leading-relaxed flex flex-col min-h-screen">
+        <Header />
+        <Awards />
         <Footer />
         <FloatingContact />
       </div>
