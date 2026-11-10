@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '../data/projectsData';
 import AmenitiesOptionD from './AmenitiesOptionD';
+import ExploreExperience from './ExploreExperience';
 
 export default function ProjectDetail({ projectId = 'sanctuary' }) {
   const project = projectsData[projectId] || projectsData['sanctuary'];
@@ -11,6 +12,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   const [isMuted, setIsMuted] = useState(true);
   const [activeProgressTab, setActiveProgressTab] = useState('Photos');
   const [currentProgressSlide, setCurrentProgressSlide] = useState(0);
+  const [activeSection, setActiveSection] = useState('overview');
 
   // Form State
   const [formData, setFormData] = useState({
@@ -29,6 +31,24 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [projectId]);
 
+  // Scroll spy to highlight active section in secondary sub-navigation
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionIds = ['overview', 'narrative', 'amenities', 'experience', 'location'];
+      const scrollPosition = window.pageYOffset + 240;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(id);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -39,9 +59,9 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
     <div className="bg-bg text-ink font-body">
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: HERO CINEMATIC VIDEO (Pure Video)
+          SECTION 1: HERO SPOTLIGHT BANNER (Lodha Malabar Style)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative w-full h-[65vh] sm:h-[75vh] lg:h-[85vh] bg-[#07294A] overflow-hidden">
+      <section className="spotlightBanner relative w-full h-[76vh] sm:h-[84vh] lg:h-[90vh] bg-[#07294A] overflow-hidden" id="spotlight">
         {/* Background Visual / Walkthrough Video */}
         <div className="absolute inset-0 z-0">
           {project.heroVideo ? (
@@ -63,6 +83,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
           ) : (
             <div className="w-full h-full bg-[#07294A]" />
           )}
+          {/* Subtle bottom vignette gradient matching Lodha */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
         </div>
 
         {/* Floating Sound Toggle */}
@@ -71,7 +93,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             type="button"
             onClick={() => setIsMuted(!isMuted)}
             aria-label={isMuted ? "Unmute video" : "Mute video"}
-            className="absolute right-6 sm:right-10 bottom-6 sm:bottom-8 z-20 flex items-center gap-2 bg-black/50 hover:bg-black/75 backdrop-blur-md text-white text-[11px] uppercase tracking-wider px-4 py-2 rounded-full border border-white/20 transition-all cursor-pointer shadow-lg"
+            className="absolute right-6 sm:right-10 bottom-6 sm:bottom-8 z-20 flex items-center gap-2 bg-black/60 hover:bg-black/85 backdrop-blur-md text-white text-[11px] uppercase tracking-wider px-4 py-2 rounded-full border border-white/20 transition-all cursor-pointer shadow-lg"
           >
             {isMuted ? (
               <>
@@ -91,69 +113,186 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             )}
           </button>
         )}
+
+        {/* Hero Bottom Floating Meta Badges */}
+        <div className="absolute left-6 sm:left-10 lg:left-16 bottom-6 sm:bottom-8 z-20 flex flex-wrap items-center gap-3">
+          <span className="bg-black/60 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-medium tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full border border-white/20">
+            {project.city || 'Hyderabad'}
+          </span>
+          <span className="bg-accent text-white text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-md">
+            {project.statusBadge || project.status}
+          </span>
+        </div>
+
       </section>
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: PROJECT IDENTITY, TAGLINE & SPECS (Merged)
+          SECTION 2: SECONDARY STICKY SUB-NAVIGATION BAR (Lodha Malabar secodaryNav)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-bg border-b border-line py-12 lg:py-16 relative z-20">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2.5 text-[11px] sm:text-[12px] tracking-[0.16em] uppercase text-muted mb-6 font-medium">
-            <a href="#top" className="hover:text-accent transition-colors">Home</a>
-            <span className="opacity-40">/</span>
-            <a href="#ongoing-projects" className="hover:text-accent transition-colors">Projects</a>
-            <span className="opacity-40">/</span>
-            <span className="text-ink font-semibold">{project.shortName || project.name}</span>
-          </div>
+      <section className="secodaryNav sticky top-[72px] lg:top-[80px] z-30 bg-white/95 backdrop-blur-md border-b border-line shadow-[0_4px_20px_rgba(7,41,74,0.04)]">
+        <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="flex items-center justify-between h-14 sm:h-16 gap-4">
+            
+            {/* Left: Project Wordmark / Crest */}
+            <a 
+              href="#spotlight" 
+              className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase font-heading font-bold text-ink hover:text-accent transition-colors shrink-0"
+            >
+              {project.shortName || project.name}
+            </a>
 
-          {/* Project Identity & Badges */}
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="text-[12px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
-              {project.name}
-            </span>
-            <span className="text-muted/40 hidden sm:inline">•</span>
-            <span className="bg-accent text-white text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1 rounded-full shadow-sm">
-              {project.statusBadge || project.status}
-            </span>
-          </div>
+            {/* Center: In-Page Sub Navigation Links with Scroll Spy */}
+            <nav className="hidden md:flex items-center gap-7 lg:gap-10 overflow-x-auto py-2">
+              {[
+                { id: 'overview', label: 'Overview' },
+                { id: 'narrative', label: 'Residences' },
+                { id: 'amenities', label: 'Amenities' },
+                { id: 'experience', label: 'Experience' },
+                { id: 'location', label: 'Location' }
+              ].map((item) => {
+                const isActive = activeSection === item.id;
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(item.id);
+                      if (el) {
+                        const top = el.getBoundingClientRect().top + window.pageYOffset - 140;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                        setActiveSection(item.id);
+                      }
+                    }}
+                    className={`text-[11px] sm:text-[12px] tracking-[0.18em] uppercase transition-all duration-200 relative py-2 font-medium cursor-pointer ${
+                      isActive 
+                        ? 'text-accent font-semibold' 
+                        : 'text-muted hover:text-ink'
+                    }`}
+                  >
+                    {item.label}
+                    
+                  </a>
+                );
+              })}
+            </nav>
 
-          {/* Tagline / Main Title */}
-          <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-heading font-normal leading-[1.15] text-ink mb-10 max-w-4xl tracking-tight">
-            {project.headerTitle || project.tagline || project.name}
-          </h1>
-
-          {/* Architectural Specs Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-8 sm:gap-y-10 border-t border-line/90 pt-8 sm:pt-10">
-            {project.specs.map((spec, i) => (
-              <div 
-                key={i} 
-                className="flex flex-col group hover:border-accent transition-colors duration-300"
+            {/* Right: Quick Action CTAs */}
+            <div className="flex items-center gap-3 shrink-0">
+              {project.brochureUrl && (
+                <a
+                  href={project.brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-line text-[11px] tracking-[0.16em] uppercase font-medium text-ink hover:text-accent hover:border-accent transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span>Brochure</span>
+                </a>
+              )}
+              <a
+                href="#enquire"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('enquire');
+                  if (el) {
+                    const top = el.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                  }
+                }}
+                className="px-5 py-2 rounded-full bg-[#07294A] hover:bg-[#0B6FB5] text-white text-[11px] tracking-[0.16em] uppercase font-medium shadow-sm transition-all duration-300"
               >
-                <span className="text-[11px] sm:text-[12px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
-                  {spec.label}
-                </span>
-                <span className="text-[20px] sm:text-[24px] lg:text-[26px] font-heading font-normal text-ink leading-snug group-hover:text-accent transition-colors duration-300">
-                  {spec.value}
-                </span>
-              </div>
-            ))}
-          </div>
+                Enquire Now
+              </a>
+            </div>
 
+          </div>
         </div>
       </section>
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: ARCHITECTURAL & LIFESTYLE NARRATIVE (Lodha-Style Alternating Layout)
+          SECTION 3: LODHA OUR STORY & ALTERNATING CHAPTER GRID (ourStorySec)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 bg-bg border-b border-line overflow-hidden" id="narrative">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+      <section className="ourStorySec py-16 sm:py-20 lg:py-28 bg-bg border-b border-line" id="overview">
+        <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12">
           
-          <div className="space-y-24 sm:space-y-28 lg:space-y-36">
-            {project.narrative.map((item, idx) => {
+          {/* Part A: Lead Editorial Crest & Statement (Lodha ourStorySec Header) */}
+          <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-16">
+            
+            
+
+            {/* Stylized Project Crest / Brand Monogram */}
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-soft border border-line text-accent mb-6 shadow-sm">
+              <span className="font-heading font-medium text-[20px] tracking-widest">
+                {(project.shortName || project.name).charAt(0)}
+              </span>
+            </div>
+
+            {/* Statement Heading in Playfair Display Medium */}
+            <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-heading font-medium text-ink leading-[1.16] tracking-tight mb-6">
+              {project.headerTitle || project.tagline || project.name}
+            </h1>
+
+            
+          </div>
+
+          {/* Part B: Lodha-Style Minimalist Architectural Specs Strip */}
+          <div className="bg-[#EEF5FB] rounded-xl border border-line/80 p-6 sm:p-8 lg:p-10 mb-20 lg:mb-28 shadow-[0_6px_24px_rgba(7,41,74,0.03)]">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 divide-y md:divide-y-0 md:divide-x divide-line/70">
+              <div className="flex flex-col pt-4 md:pt-0 md:px-4 first:pl-0">
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
+                  Project Typology
+                </span>
+                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                  {project.type || 'Luxury Residences'}
+                </span>
+              </div>
+
+              <div className="flex flex-col pt-4 md:pt-0 md:px-4">
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
+                  Configurations
+                </span>
+                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                  {project.specs?.find(s => s.label.toLowerCase().includes('config') || s.label.toLowerCase().includes('size') || s.label.toLowerCase().includes('plot'))?.value || 'Spacious 3 & 4 BHK'}
+                </span>
+              </div>
+
+              <div className="flex flex-col pt-4 md:pt-0 md:px-4">
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
+                  Status / Possession
+                </span>
+                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                  {project.statusBadge || project.status || 'Ready for Living'}
+                </span>
+              </div>
+
+              <div className="flex flex-col pt-4 md:pt-0 md:px-4">
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
+                  Location
+                </span>
+                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                  {project.location?.split(',')[0] || project.city}
+                </span>
+              </div>
+
+              <div className="flex flex-col pt-4 md:pt-0 md:px-4 col-span-2 md:col-span-4 lg:col-span-1">
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
+                  RERA Registration
+                </span>
+                <span className="text-[16px] sm:text-[18px] font-mono font-medium text-ink leading-snug">
+                  {project.rera || 'TS RERA Registered'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Part C: Lodha Alternating Story Grid (textImgGrid evenRow) */}
+          <div className="space-y-24 sm:space-y-32 lg:space-y-40" id="narrative">
+            {project.narrative?.map((item, idx) => {
               const isEven = idx % 2 === 0;
               const paragraphs = item.paragraphs || (item.description ? [item.description] : []);
 
@@ -162,39 +301,16 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   key={idx}
                   className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center"
                 >
-                  {/* Text Column */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className={`order-2 lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'} flex flex-col justify-center`}
-                  >
-                    {/* Headline — Lodha Style Serif Heading */}
-                    <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-heading font-normal text-ink leading-[1.18] tracking-tight mb-5">
-                      {item.headline}
-                    </h2>
-
-                    {/* Content Paragraphs */}
-                    <div className="space-y-4 text-[15px] sm:text-[16px] text-muted font-body font-light leading-[1.85] max-w-[480px]">
-                      {paragraphs.map((p, pIdx) => (
-                        <p key={pIdx}>
-                          {p}
-                        </p>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Image Column — Pure Clean Lodha Style Visual Frame */}
+                  {/* Image Column — Lodha rectangular clean visual frame */}
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.98, y: 30 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                    className={`order-1 lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className={`order-1 lg:col-span-7 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
                   >
-                    <div className="relative rounded-sm sm:rounded-md overflow-hidden bg-[#F4F8FA] border border-line/50 shadow-[0_12px_40px_rgba(7,41,74,0.06)] group">
-                      <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
+                    <div className="relative rounded-md overflow-hidden bg-[#EEF5FB] border border-line/60 shadow-[0_12px_40px_rgba(7,41,74,0.06)] group">
+                      <div className="relative aspect-[16/10] sm:aspect-[16/10] overflow-hidden">
                         <img 
                           src={item.image || project.heroImage} 
                           alt={item.headline}
@@ -202,6 +318,36 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                           loading="lazy"
                         />
                       </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Text Column — Lodha Editorial Story Copy */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                    className={`order-2 lg:col-span-5 ${isEven ? 'lg:order-2' : 'lg:order-1'} flex flex-col justify-center`}
+                  >
+                    {/* Eyebrow Tag */}
+                    {item.tag && (
+                      <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-3">
+                        {item.tag}
+                      </span>
+                    )}
+
+                    {/* Headline in Playfair Display Medium */}
+                    <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-heading font-medium text-ink leading-[1.2] tracking-tight mb-5">
+                      {item.headline}
+                    </h2>
+
+                    {/* Description Paragraphs in Montserrat Regular */}
+                    <div className="space-y-4 text-[15px] sm:text-[16px] text-[#555] font-body font-light leading-[1.85] max-w-[500px]">
+                      {paragraphs.map((p, pIdx) => (
+                        <p key={pIdx}>
+                          {p}
+                        </p>
+                      ))}
                     </div>
                   </motion.div>
                 </div>
@@ -216,204 +362,19 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 4: LIFESTYLE FEATURES & AMENITIES
       ───────────────────────────────────────────────────────────── */}
-      {/* Amenities Section: Finalized Option D */}
       <AmenitiesOptionD project={project} />
 
-
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 5: EXPLORE THE EXPERIENCE (Visual-First Tabs)
+          SECTION 5: EXPLORE THE EXPERIENCE (Visual-First Slider)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-soft border-b border-line" id="experience">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          <div className="text-center max-w-[700px] mx-auto mb-12">
-            <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-              {project.experience.eyebrow}
-            </p>
-            <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight mb-4">
-              {project.experience.headline}
-            </h2>
-            <p className="text-muted font-light text-[15px] leading-relaxed">
-              {project.experience.shortLine}
-            </p>
-          </div>
-
-          {/* Visual-First Tabs Navigation */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {project.experience.tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveExperienceTab(tab.id)}
-                className={`px-5 py-2.5 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase font-body rounded-lg transition-all duration-300 cursor-pointer ${
-                  activeExperienceTab === tab.id
-                    ? 'bg-accent text-white font-semibold shadow-md'
-                    : 'bg-white text-muted hover:text-ink border border-line'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Tab Content Display Frame */}
-          <div className="bg-bg rounded-2xl border border-line p-6 lg:p-10 shadow-lg min-h-[460px] flex flex-col justify-center items-center text-center relative overflow-hidden">
-            
-            {activeExperienceTab === 'photos' && (
-              <div className="w-full">
-                <div className="aspect-[16/9] max-h-[520px] w-full rounded-xl overflow-hidden mb-6 relative group">
-                  <img 
-                    src={project.heroImage} 
-                    alt="Sanctuary Landscape" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute bottom-4 left-4 bg-ink/80 backdrop-blur-md text-white text-[11px] uppercase tracking-wider px-3.5 py-1.5 rounded-md">
-                    Landscape Avenues & Living Greens
-                  </div>
-                </div>
-                {project.projectLink && (
-                  <a 
-                    href={project.projectLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[12px] tracking-widest uppercase font-semibold text-accent hover:text-ink transition-colors border-b border-accent pb-0.5"
-                  >
-                    View Complete Photography Drive Folder &rarr;
-                  </a>
-                )}
-              </div>
-            )}
-
-            {activeExperienceTab === 'videos' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Cinematic Walkthrough</h4>
-                <p className="text-muted text-[15px] font-light max-w-[500px] mb-8">
-                  Experience the open spaces, tree-lined avenues, and community scale through drone videography and walkthrough films.
-                </p>
-                {project.walkthroughVideoLink && (
-                  <a 
-                    href={project.walkthroughVideoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent text-white text-[12px] tracking-widest uppercase font-semibold hover:bg-accent/90 transition-colors shadow-lg"
-                  >
-                    Open Walkthrough Video Folder
-                  </a>
-                )}
-              </div>
-            )}
-
-            {activeExperienceTab === 'masterplan' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">14-Acre Master Layout</h4>
-                <p className="text-muted text-[15px] font-light max-w-[520px] mb-8">
-                  Full 14 Acres 11 Guntas layout encompassing 63 plot addresses, 40ft avenues, central clubhouse, and pocket parks.
-                </p>
-                {project.masterPlanLink ? (
-                  <a 
-                    href={project.masterPlanLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent text-white text-[12px] tracking-widest uppercase font-semibold hover:bg-accent/90 transition-colors shadow-lg"
-                  >
-                    View High-Resolution Master Plan
-                  </a>
-                ) : (
-                  <a href="#enquire" className="px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors shadow-md">
-                    Request Master Plan PDF
-                  </a>
-                )}
-              </div>
-            )}
-
-            {activeExperienceTab === 'floorplan' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Architectural Floor Plans</h4>
-                <p className="text-muted text-[15px] font-light max-w-[520px] mb-8">
-                  Carefully proportioned layouts featuring double-height living spaces, private terraces, garden sit-outs, and flexible configurations tailored to your family.
-                </p>
-                <a 
-                  href="#enquire"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors shadow-md"
-                >
-                  Request Architectural Floor Plans
-                </a>
-              </div>
-            )}
-
-            {activeExperienceTab === 'unitplan' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-soft border border-line flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Unit Plan & Plot Dimensions</h4>
-                <p className="text-muted text-[15px] font-light max-w-[520px] mb-8">
-                  Dimensional plot options and demarcations from 343 to 500 Sq. Yds. for villa plots, and 600 to 1,000 Sq. Yds. for custom luxury estate plots.
-                </p>
-                <a 
-                  href="#enquire"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-ink text-white text-[12px] tracking-widest uppercase font-medium hover:bg-accent transition-colors shadow-md"
-                >
-                  Inquire About Plot Availability
-                </a>
-              </div>
-            )}
-
-            {activeExperienceTab === 'brochure' && (
-              <div className="w-full py-10 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-6">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h4 className="text-[26px] font-heading font-normal text-ink mb-3">Comprehensive Project Brochure</h4>
-                <p className="text-muted text-[15px] font-light max-w-[500px] mb-8">
-                  Download the complete high-resolution documentation with master plans, specifications, infrastructure details, and connectivity guide.
-                </p>
-                {project.brochureUrl && (
-                  <a 
-                    href={project.brochureUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent text-white text-[12px] tracking-widest uppercase font-semibold hover:bg-accent/90 transition-colors shadow-lg"
-                  >
-                    Open Official Sanctuary Brochure
-                  </a>
-                )}
-              </div>
-            )}
-
-          </div>
-
-        </div>
-      </section>
-
-
-
-
+      <ExploreExperience project={project} />
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 7: CONSTRUCTION PROGRESS
       ───────────────────────────────────────────────────────────── */}
       {project.constructionProgress && (
-        <section className="py-20 lg:py-28 bg-soft border-b border-line" id="construction">
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <section className="py-20 lg:py-28 bg-[#EEF5FB] border-b border-line" id="construction">
+          <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12">
             
             <div className="flex flex-wrap justify-between items-end gap-6 mb-14">
               <div>
@@ -465,7 +426,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                       <button
                         onClick={() => setCurrentProgressSlide((prev) => (prev === 0 ? items.length - 1 : prev - 1))}
                         aria-label="Previous slide"
-                        className="w-10 h-10 rounded-full border border-line bg-white hover:bg-soft text-ink flex items-center justify-center transition-colors cursor-pointer shadow-sm hover:border-accent"
+                        className="w-10 h-10 rounded-full border border-line bg-white hover:bg-[#EEF5FB] text-ink flex items-center justify-center transition-colors cursor-pointer shadow-sm hover:border-accent"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -474,7 +435,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                       <button
                         onClick={() => setCurrentProgressSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1))}
                         aria-label="Next slide"
-                        className="w-10 h-10 rounded-full border border-line bg-white hover:bg-soft text-ink flex items-center justify-center transition-colors cursor-pointer shadow-sm hover:border-accent"
+                        className="w-10 h-10 rounded-full border border-line bg-white hover:bg-[#EEF5FB] text-ink flex items-center justify-center transition-colors cursor-pointer shadow-sm hover:border-accent"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -610,76 +571,70 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
         </section>
       )}
 
-
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 8: LOCATION & NEIGHBOURHOOD (Merged Layout)
+          SECTION 8: LOCATION & CONNECTIVITY (Clean Unified White Card Layout)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-soft border-b border-line relative" id="location">
+      <section className="py-20 lg:py-28 bg-[#EEF5FB] border-b border-line relative" id="location">
         {/* Anchor for neighbourhood link */}
         <div id="neighbourhood" className="absolute -top-24" />
 
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12">
           
-          {/* Section Header */}
-          <div className="text-center max-w-[760px] mx-auto mb-12 sm:mb-14">
-            <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
-              {project.neighbourhood?.eyebrow || 'Connectivity & Location'}
-            </p>
-            <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight mb-4">
-              {project.neighbourhood?.title || 'Around the Neighbourhood'}
+          {/* Section Header: Clean, Left-Aligned Location Heading */}
+          <div className="mb-8 lg:mb-10">
+            <h2 className="text-[36px] sm:text-[44px] lg:text-[48px] font-heading font-medium text-[#07294A] leading-tight">
+              Location
             </h2>
-            {project.neighbourhood?.subtitle && (
-              <p className="text-muted font-light text-[15px] sm:text-[16px] leading-relaxed">
-                {project.neighbourhood.subtitle}
-              </p>
-            )}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl overflow-hidden border border-line bg-white shadow-sm">
+          {/* Unified Crisp White Card Container */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden border border-line bg-white shadow-sm">
             
             {/* Left Column: Address + Key Transport */}
-            <div className="lg:col-span-6 xl:col-span-7 p-8 sm:p-10 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line bg-white">
+            <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line bg-white">
               <div>
                 {/* Address Section */}
                 <div className="mb-8">
-                  <h3 className="text-[26px] sm:text-[30px] font-heading font-medium text-ink mb-3">
+                  <h3 className="text-[24px] sm:text-[28px] font-heading font-medium text-[#07294A] mb-3">
                     Address
                   </h3>
-                  <p className="text-muted text-[15px] sm:text-[16px] font-body font-light leading-relaxed max-w-lg">
-                    {project.id === 'sanctuary'
-                      ? 'Mohabbatnagar, Near Tukkuguda, Srisailam Highway, Hyderabad'
-                      : (project.locationDetails?.addressLines?.join(', ') || project.location)}
+                  <p className="text-[#07294A] font-medium text-[16px] mb-1">
+                    {project.locationDetails?.addressTitle || project.name}
                   </p>
-                  {project.locationDetails?.addressLines && project.id === 'sanctuary' && (
-                    <p className="text-muted/70 text-[13px] font-body font-light mt-2 leading-relaxed">
-                      {project.locationDetails.addressLines.join(' ')}
-                    </p>
-                  )}
+                  <div className="text-[#4F6378] text-[15px] sm:text-[16px] font-body font-light leading-relaxed">
+                    {project.locationDetails?.addressLines ? (
+                      project.locationDetails.addressLines.map((line, idx) => (
+                        <p key={idx}>{line}</p>
+                      ))
+                    ) : (
+                      <p>{project.location}</p>
+                    )}
+                  </div>
                 </div>
 
                 {/* Subtle Divider */}
-                <div className="border-t border-line/80 my-8 sm:my-10" />
+                <div className="border-t border-line my-7 sm:my-8" />
 
                 {/* Key Transport / Connectivity */}
                 <div>
-                  <h3 className="text-[24px] sm:text-[28px] font-heading font-medium text-ink mb-6 sm:mb-8">
+                  <h3 className="text-[24px] sm:text-[28px] font-heading font-medium text-[#07294A] mb-5 sm:mb-6">
                     Key transport
                   </h3>
 
                   {/* 2-Column Landmarks Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10 gap-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10 gap-y-4">
                     {project.neighbourhood?.landmarks?.map((landmark, idx) => {
                       const displayName = landmark.name.includes('(')
                         ? landmark.name.split(' (')[0]
                         : landmark.name;
 
                       return (
-                        <div key={idx} className="flex items-baseline justify-between gap-3">
-                          <span className="text-[14px] sm:text-[15px] font-body text-ink font-normal">
+                        <div key={idx} className="flex items-baseline justify-between gap-3 text-[14px] sm:text-[15px]">
+                          <span className="font-body text-[#1A202C] font-normal">
                             {displayName}
                           </span>
-                          <span className="text-[13px] sm:text-[14px] font-body text-muted font-light whitespace-nowrap">
-                            {landmark.distance} / {landmark.time}
+                          <span className="font-body text-[#4F6378] font-light whitespace-nowrap">
+                            {landmark.distance ? landmark.distance : ''}{landmark.time ? ' / ' + landmark.time : ''}
                           </span>
                         </div>
                       );
@@ -690,12 +645,12 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
 
               {/* Get Directions Link */}
               {project.locationDetails?.googleMapLink && (
-                <div className="mt-10 pt-6 border-t border-line/60">
+                <div className="mt-8 pt-6 border-t border-line">
                   <a
                     href={project.locationDetails.googleMapLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-accent hover:text-ink transition-colors"
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-[#0B6FB5] hover:text-[#07294A] transition-colors"
                   >
                     <span>Get Directions on Google Maps</span>
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -706,8 +661,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               )}
             </div>
 
-            {/* Right Column: Embedded Google Map with "Open in Maps" Overlay */}
-            <div className="lg:col-span-6 xl:col-span-5 relative min-h-[440px] sm:min-h-[500px] lg:min-h-full bg-soft">
+            {/* Right Column: Embedded Google Map (Takes ~60% width of card so NOT thin!) */}
+            <div className="lg:col-span-7 relative min-h-[480px] sm:min-h-[520px] lg:min-h-[580px] bg-white">
               {/* Floating "Open in Maps" Overlay Button */}
               {project.locationDetails?.googleMapLink && (
                 <a
@@ -716,8 +671,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   rel="noopener noreferrer"
                   className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/95 hover:bg-white text-ink text-[12px] font-semibold tracking-wide shadow-md border border-line backdrop-blur-sm transition-all hover:shadow-lg"
                 >
-                  <span className="text-accent">Open in Maps</span>
-                  <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="text-[#0B6FB5]">Open in Maps</span>
+                  <svg className="w-3.5 h-3.5 text-[#0B6FB5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
@@ -726,7 +681,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               <iframe
                 title={`${project.name} Location Map`}
                 src={project.locationDetails?.embedMapUrl || "https://maps.google.com/maps?q=17.1587666,78.4787074&hl=en&z=14&output=embed"}
-                className="w-full h-full min-h-[440px] sm:min-h-[500px] lg:min-h-full border-0"
+                className="w-full h-full min-h-[480px] sm:min-h-[520px] lg:min-h-[580px] border-0"
                 loading="lazy"
                 allowFullScreen
               />
@@ -737,12 +692,11 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
         </div>
       </section>
 
-
       {/* ─────────────────────────────────────────────────────────────
           SECTION 10: START YOUR ENQUIRY
       ───────────────────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 bg-[#07294A] text-white relative overflow-hidden" id="enquire">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 relative z-10">
+        <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             

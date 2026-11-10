@@ -17,10 +17,11 @@ export const siteConfig = {
   // You can change these numbers and they will update everywhere they are used.
   stats: [
     { id: 'years', value: '14+', label: 'Years' },
-    { id: 'customers', value: '600', label: 'Customers' },
+    { id: 'customers', value: '600+', label: 'Customers' },
+    { id: 'awards', value: '8', label: 'Awards' },
     { id: 'completed', value: '10', label: 'Completed Projects' },
     { id: 'area', value: '1.3 mn', label: 'Sq Ft Delivered' },
-    { id: 'ongoing', value: '6', label: 'Ongoing' },
+    { id: 'ongoing', value: '6', label: 'Ongoing Projects' },
   ],
 
   // All Projects Data

@@ -454,7 +454,7 @@ export default function Header() {
                 <div className="w-[230px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
                   {[
                     { label: 'Blogs', href: '#blogs' },
-                    { label: 'Gallery', href: '#coming-soon' },
+                    { label: 'Gallery', href: '#gallery' },
                     { label: 'EMI Calculator', href: '#emi-calculator' },
                     { label: 'Home Loan Guide', href: '#home-loan-guide' },
                     { label: 'NRI Guide', href: '#nri-guide' }

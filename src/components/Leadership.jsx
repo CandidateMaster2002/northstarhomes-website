@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Verified images from src/assets/leadership
+// Verified portrait images from src/assets/leadership
 import chairmanImg from '../assets/leadership/chairman.jpeg';
 import viceChairmanImg from '../assets/leadership/vice-chairman.jpeg';
 import mdImg from '../assets/leadership/md.jpeg';
@@ -13,27 +13,45 @@ import kiranImg from '../assets/leadership/kiran.jpeg';
 import swathiImg from '../assets/leadership/swathi-reddy.jpeg';
 import subhashImg from '../assets/leadership/subhash.jpeg';
 
-// 1. Leadership (Board)
-const leadershipMembers = [
+// 1. Leadership (Board of 3 with verbatim bio paragraphs for popup)
+const guidingMembers = [
   {
     name: 'Mr. K. Laxma Reddy',
     role: 'Chairman',
     image: chairmanImg,
+    bio: [
+      'A visionary leader who guides Northstar with strong values and clear direction.',
+      'He believes in building with trust, responsibility, and long-term purpose.',
+      'His leadership gives Northstar a strong foundation of integrity and confidence.',
+      'He continues to inspire the company to create developments that stand the test of time.'
+    ]
   },
   {
     name: 'Mr. Narayan Rao Gali',
     role: 'Vice-Chairman',
     image: viceChairmanImg,
+    bio: [
+      'A steady leader who brings balance, experience, and business wisdom to Northstar.',
+      'He plays an important role in shaping the company’s growth and planning.',
+      'His focus on discipline and quality strengthens every stage of development.',
+      'He supports Northstar’s commitment to delivering reliable and meaningful spaces.'
+    ]
   },
   {
     name: 'Mr. Uttam Reddy',
     role: 'Managing Director',
     image: mdImg,
+    bio: [
+      'A dynamic leader who drives Northstar with energy, innovation, and execution.',
+      'He focuses on creating modern spaces that match the needs of today’s customers.',
+      'His approach brings together design, quality, transparency, and timely delivery.',
+      'Under his leadership, Northstar continues to grow as a trusted real estate brand.'
+    ]
   },
 ];
 
-// 2. Project Partner (Between Leadership and Team)
-const projectPartners = [
+// 2. Business Partner / Project Partner
+const businessPartnerMembers = [
   {
     name: 'Mr. Karumuru Anil Kumar Reddy',
     role: 'Project Partner',
@@ -41,7 +59,7 @@ const projectPartners = [
   },
 ];
 
-// 3. Team (Saurabh Tyagi + Core Department Heads)
+// 3. Team (6 Department Heads)
 const teamMembers = [
   {
     name: 'Mr. Saurabh Tyagi',
@@ -75,218 +93,194 @@ const teamMembers = [
   },
 ];
 
+function MemberCard({ member, idx, onClick, isClickable }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: idx * 0.05 }}
+      onClick={isClickable ? () => onClick(member) : undefined}
+      className={`group flex flex-col ${isClickable ? 'cursor-pointer' : ''}`}
+    >
+      {/* Square aspect ratio, grayscale portrait (with subtle hover color reveal & hover zoom) */}
+      <div className="relative aspect-square w-full bg-[#EAEAEA] overflow-hidden mb-4 rounded-sm">
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+        />
+        {/* Subtle indicator icon on hover for leaders */}
+        {isClickable && (
+          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-[#1A1A1A] shadow-sm">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </div>
+        )}
+      </div>
+
+      {/* Name: Playfair Display Medium */}
+      <h3 className={`text-[17px] sm:text-[18px] lg:text-[19px] font-heading font-medium text-[#1A1A1A] leading-snug tracking-tight ${isClickable ? 'group-hover:text-[#0B6FB5] transition-colors' : ''}`}>
+        {member.name}
+      </h3>
+
+      {/* Role / Designation */}
+      <p className="text-[12px] sm:text-[13px] text-[#8C827A] font-body font-normal mt-1 leading-normal">
+        {member.role}
+      </p>
+    </motion.div>
+  );
+}
+
 export default function Leadership() {
+  const [activeLeader, setActiveLeader] = useState(null);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
 
   return (
-    <main className="min-h-screen bg-bg text-ink pt-28 lg:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#1A1A1A] pt-28 sm:pt-36 pb-28">
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12">
 
-      {/* ─────────────────────────────────────────────────────────────
-          HERO BANNER
-      ───────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[320px] lg:min-h-[380px] bg-[#07294A] text-white flex items-center overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07294A] via-[#07294A]/90 to-[#07294A]/60 z-10" />
-
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16 relative z-20 w-full">
-          {/* Breadcrumb Navigation */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase font-body font-semibold mb-6 text-[#8FA7BD]">
-            <span className="text-[#4FA3E3]">About Us</span>
-            <span>/</span>
-            <a href="#about-company" className="hover:text-white transition-colors">Company</a>
-            <span>/</span>
-            <span className="text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">Leadership</span>
-            <span>/</span>
-            <a href="#awards" className="hover:text-white transition-colors">Awards</a>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-[840px]"
-          >
-            <h1 className="text-[40px] sm:text-[54px] lg:text-[64px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-4">
-              Leadership
-            </h1>
-            <p className="text-[16px] sm:text-[18px] text-[#A6C5DE] font-light max-w-[600px] leading-relaxed">
-              The vision, governance, and experienced team guiding Northstar Homes toward enduring quality and sustainable communities.
-            </p>
-          </motion.div>
+        {/* Page Title */}
+        <div className="text-center mb-16 sm:mb-20">
+          <h1 className="text-[34px] sm:text-[44px] lg:text-[50px] font-heading font-normal text-[#1A1A1A] tracking-tight">
+            Leadership
+          </h1>
         </div>
-      </section>
 
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: LEADERSHIP (BOARD)
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg border-b border-line">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div>
-              <span className="text-[12px] tracking-[0.25em] uppercase font-semibold text-accent block mb-2 font-body">
-                Leadership
-              </span>
-              <h2 className="text-[32px] sm:text-[42px] font-heading font-normal text-ink leading-tight">
-                Guiding Vision & Governance
-              </h2>
-            </div>
-            <div className="h-0.5 w-16 bg-accent hidden md:block mb-3" />
+        {/* ── Category 1: Guiding Leadership (Interactive popup on click) ── */}
+        <section className="mb-20 sm:mb-24">
+          <div className="mb-8 pb-3 border-b border-[#D8E6F2]">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
+              BOARD & GOVERNANCE
+            </span>
+            <h2 className="text-[24px] sm:text-[28px] font-heading font-normal text-[#1A1A1A]">
+              Guiding Leadership
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {leadershipMembers.map((member, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="group bg-white border border-line flex flex-col hover:border-accent hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Photo container */}
-                <div className="relative aspect-[4/5] bg-[#07294A]/5 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Details: Only Role and Name */}
-                <div className="p-6 flex flex-col justify-between flex-grow bg-white">
-                  <div>
-                    <span className="text-[11px] sm:text-[12px] tracking-[0.18em] uppercase font-semibold text-accent font-body block mb-1.5">
-                      {member.role}
-                    </span>
-                    <h3 className="text-[20px] sm:text-[22px] font-heading font-normal text-ink leading-snug">
-                      {member.name}
-                    </h3>
-                  </div>
-                </div>
-              </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-12">
+            {guidingMembers.map((member, idx) => (
+              <MemberCard 
+                key={member.name} 
+                member={member} 
+                idx={idx} 
+                isClickable={true}
+                onClick={(m) => setActiveLeader(m)}
+              />
             ))}
           </div>
+        </section>
 
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: PROJECT PARTNER (BETWEEN LEADERSHIP AND TEAM)
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-soft border-b border-line">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div>
-              <span className="text-[12px] tracking-[0.25em] uppercase font-semibold text-accent block mb-2 font-body">
-                Partnership
-              </span>
-              <h2 className="text-[32px] sm:text-[42px] font-heading font-normal text-ink leading-tight">
-                Project Partner
-              </h2>
-            </div>
-            <div className="h-0.5 w-16 bg-accent hidden md:block mb-3" />
+        {/* ── Category 2: Business Partner / Project Partner ── */}
+        <section className="mb-20 sm:mb-24">
+          <div className="mb-8 pb-3 border-b border-[#D8E6F2]">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
+              PARTNERSHIP
+            </span>
+            <h2 className="text-[24px] sm:text-[28px] font-heading font-normal text-[#1A1A1A]">
+              Business Partner
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {projectPartners.map((member, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-                className="group bg-white border border-line flex flex-col hover:border-accent hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Photo container */}
-                <div className="relative aspect-[4/5] bg-[#07294A]/5 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Details: Only Role and Name */}
-                <div className="p-6 flex flex-col justify-between flex-grow bg-white">
-                  <div>
-                    <span className="text-[11px] sm:text-[12px] tracking-[0.18em] uppercase font-semibold text-accent font-body block mb-1.5">
-                      {member.role}
-                    </span>
-                    <h3 className="text-[20px] sm:text-[22px] font-heading font-normal text-ink leading-snug">
-                      {member.name}
-                    </h3>
-                  </div>
-                </div>
-              </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-12">
+            {businessPartnerMembers.map((member, idx) => (
+              <MemberCard key={member.name} member={member} idx={idx} isClickable={false} />
             ))}
           </div>
+        </section>
 
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: TEAM
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div>
-              <span className="text-[12px] tracking-[0.25em] uppercase font-semibold text-accent font-body block mb-2">
-                Core Execution
-              </span>
-              <h2 className="text-[32px] sm:text-[42px] font-heading font-normal text-ink leading-tight">
-                Team
-              </h2>
-            </div>
-            <div className="h-0.5 w-16 bg-accent hidden md:block mb-3" />
+        {/* ── Category 3: Team ── */}
+        <section>
+          <div className="mb-8 pb-3 border-b border-[#D8E6F2]">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
+              CORE LEADERSHIP
+            </span>
+            <h2 className="text-[24px] sm:text-[28px] font-heading font-normal text-[#1A1A1A]">
+              Team
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-12">
             {teamMembers.map((member, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="group bg-white border border-line flex flex-col hover:border-accent hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Photo container */}
-                <div className="relative aspect-[4/5] bg-[#07294A]/5 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Details: Only Role and Name */}
-                <div className="p-6 flex flex-col justify-between flex-grow bg-white">
-                  <div>
-                    <span className="text-[11px] sm:text-[12px] tracking-[0.18em] uppercase font-semibold text-accent font-body block mb-1.5">
-                      {member.role}
-                    </span>
-                    <h3 className="text-[20px] sm:text-[22px] font-heading font-normal text-ink leading-snug">
-                      {member.name}
-                    </h3>
-                  </div>
-                </div>
-              </motion.div>
+              <MemberCard key={member.name} member={member} idx={idx} isClickable={false} />
             ))}
           </div>
+        </section>
 
-        </div>
-      </section>
+      </div>
+
+      {/* ── Lodha-Style Leader Modal Popup ── */}
+      <AnimatePresence>
+        {activeLeader && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setActiveLeader(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-[920px] w-full bg-white rounded-lg shadow-2xl p-8 sm:p-12 lg:p-16 border border-[#E5E0D8]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Circular Close Button (Top-Right, exactly like screenshot) */}
+              <button
+                type="button"
+                onClick={() => setActiveLeader(null)}
+                className="absolute top-6 right-6 w-9 h-9 rounded-full border border-[#D5CFC7] hover:border-[#1A1A1A] flex items-center justify-center text-[#8C827A] hover:text-[#1A1A1A] transition-all cursor-pointer"
+                aria-label="Close popup"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Modal Body: Left Photo + Right Content */}
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-8 sm:gap-12 items-start">
+                
+                {/* Left Portrait Photo */}
+                <div className="md:col-span-2 w-full aspect-square bg-[#EAEAEA] overflow-hidden rounded-sm">
+                  <img
+                    src={activeLeader.image}
+                    alt={activeLeader.name}
+                    className="w-full h-full object-cover object-top grayscale"
+                  />
+                </div>
+
+                {/* Right Details */}
+                <div className="md:col-span-3 space-y-4 pt-1 sm:pt-2">
+                  <div>
+                    <h2 className="text-[24px] sm:text-[30px] font-heading font-medium text-[#1A1A1A] tracking-tight leading-tight">
+                      {activeLeader.name}
+                    </h2>
+                    <p className="text-[13px] sm:text-[14px] text-[#8C827A] font-body font-medium mt-1">
+                      {activeLeader.role}
+                    </p>
+                  </div>
+
+                  {/* Verbatim Paragraphs */}
+                  <div className="space-y-3 pt-2 text-[14px] sm:text-[15px] font-body font-normal text-[#4A4A4A] leading-[1.75]">
+                    {activeLeader.bio?.map((paragraph, pIdx) => (
+                      <p key={pIdx}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </main>
   );

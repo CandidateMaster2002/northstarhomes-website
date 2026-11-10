@@ -24,6 +24,7 @@ import EmiCalculator from './components/EmiCalculator'
 import BlogListing from './components/BlogListing'
 import BlogPost from './components/BlogPost'
 import Awards from './components/Awards'
+import Gallery from './components/Gallery'
 
 export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
@@ -239,6 +240,21 @@ export default function App() {
       <div className="bg-bg text-ink font-body text-base leading-relaxed flex flex-col min-h-screen">
         <Header />
         <BlogListing />
+        <Footer />
+        <FloatingContact />
+      </div>
+    );
+  }
+
+  if (
+    currentHash === '#gallery' || 
+    currentHash === '#project-gallery' || 
+    currentHash === '#visual-gallery'
+  ) {
+    return (
+      <div className="bg-[#141414] text-white font-body text-base leading-relaxed flex flex-col min-h-screen">
+        <Header />
+        <Gallery />
         <Footer />
         <FloatingContact />
       </div>

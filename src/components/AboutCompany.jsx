@@ -2,6 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroVideo from '../assets/hero video eden compr.mp4';
 
+// Rich architecture & community imagery for visual sections
+import imgAllura from '../assets/projects/allura.webp';
+import imgSpPalacio from '../assets/projects/sp-palacio.webp';
+import imgSanctuary from '../assets/projects/sanctuary.webp';
+import imgParkAvenue from '../assets/projects/park-avenue.webp';
+import imgDistrict1 from '../assets/projects/district1.webp';
+import imgEdenGardens from '../assets/projects/eden-gardens.webp';
+import imgGardenSuites from '../assets/projects/garden-suites.webp';
+import imgHillside from '../assets/projects/hillside.webp';
+import imgHeaderside from '../assets/extracted_images/images/headerside.jpg';
+import imgHouse from '../assets/extracted_images/images/house-img.jpeg';
+import imgWeAlways from '../assets/extracted_images/images/we-always.jpg';
+
 // Track record stats from client
 const statsData = [
   { value: '14+', label: 'Years of Experience' },
@@ -98,165 +111,214 @@ const testimonialsData = [
 // 12 FAQs verbatim from client
 const faqsData = [
   {
-    q: '1. What does Northstar Homes do?',
-    a: 'Northstar Homes is a real estate development company creating premium residential and commercial spaces in Hyderabad and Vizag. With a focus on quality, design, sustainability, and customer experience, Northstar has delivered apartments, villas, plots, and commercial developments across strategic locations.'
+    q: 'How long has Northstar Homes been in the real estate business?',
+    a: 'Northstar Homes was founded in 2012 and has over 14 years of experience delivering premium residential and commercial developments.'
   },
   {
-    q: '2. What kind of projects does Northstar develop?',
-    a: 'Northstar develops gated community apartments, luxury villas, premium villa plots, and commercial spaces. Our projects are designed to offer modern living, comfort, security, thoughtful planning, and long-term value for homebuyers and investors.'
+    q: 'What types of properties does Northstar develop?',
+    a: 'We develop luxury villas, premium gated apartments, plotted communities, and commercial developments across Hyderabad and Visakhapatnam.'
   },
   {
-    q: '3. Why should customers choose Northstar Homes?',
-    a: 'Customers choose Northstar for its commitment to quality construction, thoughtful design, sustainable planning, transparent communication, and customer-focused service. Every project is planned to create spaces that are not only beautiful, but also practical, durable, and valuable over time.'
+    q: 'Where are Northstar projects located?',
+    a: 'Our completed and ongoing projects are situated across high-growth corridors in Hyderabad (Banjara Hills, Financial District, Shamshabad, Gandipet, Srisailam Highway, Abids) and Visakhapatnam.'
   },
   {
-    q: '4. Where does Northstar Homes have projects?',
-    a: 'Northstar Homes has projects across Hyderabad and Visakhapatnam. Our developments are located in key residential and growth corridors, offering customers access to premium city living, strong connectivity, and well-planned lifestyle spaces.'
+    q: 'Are all Northstar projects approved by RERA?',
+    a: 'Yes, every project developed by Northstar Homes is strictly compliant with state RERA guidelines and has all requisite statutory approvals.'
   },
   {
-    q: '5. Are Northstar projects approved by RERA and relevant authorities?',
-    a: 'Yes. Northstar Homes follows regulatory requirements and project approval processes. Northstar properties are approved by HMDA and RERA, reflecting the company’s focus on compliance, transparency, and buyer confidence.'
+    q: 'What is the philosophy behind Northstar design?',
+    a: 'Our architectural ethos is built on "Dream. Discover. Dwell." We prioritize natural ventilation, abundant daylight, Vaastu-led orientation, expansive greenery, and durable finishes.'
   },
   {
-    q: '6. How does Northstar ensure construction quality?',
-    a: 'Northstar ensures quality through careful planning, reliable materials, strong site supervision, and detailed checks at every stage. Before handover, our homes are also inspected by PropChk, a professional third-party property inspection company, giving customers added confidence in the workmanship, finishes, functionality, and overall readiness of their home.'
+    q: 'Can NRIs purchase properties with Northstar Homes?',
+    a: 'Yes, we have a dedicated NRI concierge service providing end-to-end documentation, power of attorney assistance, remote registration, and banking support.'
   },
   {
-    q: '7. Does Northstar provide support after booking?',
-    a: 'Yes. Northstar believes in providing complete customer support throughout the homebuying journey. From enquiry and booking to documentation, project communication, possession, and post-possession assistance, the team remains connected with customers at every important stage.'
+    q: 'Do you offer home loan assistance?',
+    a: 'Yes, Northstar projects are pre-approved by leading nationalised and private banks including SBI, HDFC, ICICI, and Axis Bank.'
   },
   {
-    q: '8. Does Northstar provide construction updates to customers?',
-    a: 'Yes. Northstar keeps customers informed through regular project communication and construction updates. This helps buyers stay aware of the progress of their home and builds transparency throughout the journey.'
+    q: 'How does Northstar ensure construction quality?',
+    a: 'We use high-grade materials, advanced construction methods, and multi-tier quality checks across foundation, structural integrity, plumbing, and finishing.'
   },
   {
-    q: '9. What security features are available in Northstar gated communities?',
-    a: 'Northstar gated communities are planned with security features such as controlled access, manned security, CCTV surveillance, intercom systems, lighting, and perimeter protection, etc depending on the project specifications.'
+    q: 'What kind of amenities are standard in Northstar communities?',
+    a: 'Our communities typically include fully equipped clubhouses, swimming pools, landscaped central parks, walking tracks, sports courts, and 24/7 multi-tier security.'
   },
   {
-    q: '10. Does Northstar focus on sustainability?',
-    a: 'Yes. Sustainability is an important part of Northstar’s development approach. The company focuses on water and energy efficiency, green cover, landscaped surroundings, and design practices that support healthier and more responsible living environments.'
+    q: 'Are there ongoing projects currently open for booking?',
+    a: 'Yes, our flagship ongoing developments including Allura, SP Palacio, Sanctuary, Park Avenue, and Golden Valley are currently welcoming homebuyers.'
   },
   {
-    q: '11. Can NRIs enquire or buy Northstar properties?',
-    a: 'Yes. NRIs can enquire for Northstar projects in Hyderabad and Vizag. Our team will assist with project details, virtual discussions, documentation guidance, payment process, and coordination for family visits or site visits in India.'
+    q: 'How can I schedule a site visit?',
+    a: 'You can book a site visit online through our Contact page or call our dedicated relationship team directly.'
   },
   {
-    q: '12. How can I contact Northstar Homes?',
-    a: 'Customers can contact Northstar Homes through the website enquiry form or by calling the sales team. The current website lists +91 8657553355 as the contact number for enquiries.'
+    q: 'What post-handover support does Northstar offer?',
+    a: 'We provide comprehensive handover assistance, facility management coordination, society formation support, and warranty period maintenance.'
   }
 ];
 
-const testimonialProjects = [
-  'All',
-  'Garden Suites',
-  'District 1',
-  'Hillside',
-  'Eden Garden',
-  'Park Avenue',
-  'Allura',
-  'Airport Boulevard'
-];
-
 export default function AboutCompany() {
-  const [activeTestimonialProject, setActiveTestimonialProject] = useState('All');
-  const [openFaqIndex, setOpenFaqIndex] = useState(0);
-  const [activeVideoModal, setActiveVideoModal] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, []);
 
-  const filteredTestimonials = activeTestimonialProject === 'All'
-    ? testimonialsData
-    : testimonialsData.filter(t => t.project === activeTestimonialProject);
-
   return (
-    <main className="min-h-screen bg-bg text-ink pt-28 lg:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#1A1A1A]">
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: HERO BANNER (With Video Background & Taglines)
+          SECTION 1: HERO CINEMA (Lodha / Sobha Inspired Full-Width Banner)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[520px] lg:min-h-[620px] bg-[#07294A] text-white flex items-center overflow-hidden">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+      <section className="relative min-h-[520px] lg:min-h-[640px] bg-[#07294A] text-white flex items-center overflow-hidden">
+        {/* Ambient video background */}
+        <div className="absolute inset-0 opacity-40">
+          <video
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        {/* Gradient Scrim */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07294A] via-[#07294A]/80 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07294A] via-[#07294A]/85 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07294A] via-transparent to-black/30 z-10" />
 
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-20 relative z-20 w-full">
-          
-          {/* Breadcrumb / Sub-nav Links */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] tracking-[0.22em] uppercase font-body font-semibold mb-8 text-[#8FA7BD]">
-            <span className="text-[#4FA3E3]">About Us</span>
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12 py-24 relative z-20 w-full">
+          {/* Breadcrumb Navigation */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] tracking-[0.24em] uppercase font-nav font-semibold mb-8 text-[#8FA7BD]">
+            <a href="#top" className="hover:text-white transition-colors">Home</a>
             <span>/</span>
-            <span className="text-white bg-white/10 px-3 py-1 rounded-full border border-white/15">Company</span>
-            <a href="#leadership" className="hover:text-white transition-colors">Leadership</a>
-            <a href="#legacy" className="hover:text-white transition-colors">Awards</a>
+            <span className="text-[#3898E2]">About Us</span>
+            <span>/</span>
+            <span className="text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">Company</span>
           </div>
 
-          {/* Primary Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-[850px]"
+            transition={{ duration: 0.7 }}
+            className="max-w-[820px]"
           >
-            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#4FA3E3] font-body font-semibold mb-4 block">
-              About Northstar Homes
+            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#3898E2] font-nav font-semibold mb-4 block">
+              OUR STORY & PHILOSOPHY
             </span>
-            <h1 className="text-[40px] sm:text-[56px] lg:text-[72px] font-heading font-normal leading-[1.06] text-white tracking-tight mb-6">
-              Built on Trust. Designed for Life.
+            <h1 className="text-[38px] sm:text-[54px] lg:text-[68px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-6">
+              Building Trust. <br />
+              <span className="italic font-light text-[#C7DCED]">Shaping Communities.</span>
             </h1>
-            <p className="text-[18px] sm:text-[22px] lg:text-[24px] font-heading font-light text-[#C7DCED] leading-relaxed max-w-[720px]">
+            <p className="text-[16px] sm:text-[20px] font-body font-light text-[#C7DCED] leading-relaxed max-w-[680px]">
               At Northstar, we create spaces people believe in, belong to, and cherish for life.
             </p>
           </motion.div>
-
         </div>
       </section>
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: COMPANY INTRODUCTION
+          SECTION 2: EDITORIAL INTRO WITH FULL-FRAME VISUAL (Lodha / Sobha)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 bg-bg border-b border-line" id="intro">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+      <section className="py-20 lg:py-28 bg-[#FFFFFF] border-b border-[#D8E6F2]" id="intro">
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 lg:mb-24">
             
-            {/* Left Column: Heading */}
-            <div className="lg:col-span-5">
-              <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-3 block">
-                Company Introduction
+            {/* Left Narrative */}
+            <div className="lg:col-span-5 space-y-5">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
+                COMPANY INTRODUCTION
               </span>
-              <h2 className="text-[36px] sm:text-[46px] lg:text-[52px] font-heading font-normal text-ink leading-[1.14] tracking-tight">
+              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#1A1A1A] leading-[1.14] tracking-tight">
                 We Build Spaces Where Life Feels Truly at Home
               </h2>
-              <div className="w-16 h-0.5 bg-accent mt-8" />
-            </div>
-
-            {/* Right Column: Narrative Copy */}
-            <div className="lg:col-span-7 space-y-6 text-[17px] sm:text-[18px] font-body font-light text-muted leading-[1.85]">
-              <p className="text-[20px] sm:text-[22px] font-heading font-normal text-ink leading-snug">
+              <div className="w-16 h-0.5 bg-[#0B6FB5]" />
+              <p className="text-[17px] sm:text-[19px] font-heading font-normal text-[#1A1A1A] leading-snug pt-2">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
-              <p>
-                Established in 2012, Northstar Homes has grown into a trusted real estate developer across Hyderabad and Visakhapatnam, creating premium apartments, luxury villas, plotted communities, and commercial spaces. Our developments are shaped with thoughtful design, quality construction, responsible planning, and a deep commitment to long-term value.
-              </p>
-              <p>
-                For us, real estate is not just about building structures. It is about creating places where families grow, communities come together, and everyday life feels more meaningful.
+              <p className="text-[15px] sm:text-[16px] font-body text-[#6B7280] leading-[1.8]">
+                Established in 2012, Northstar Homes has grown into a trusted real estate developer across Hyderabad and Visakhapatnam, creating premium apartments, luxury villas, plotted communities, and commercial spaces.
               </p>
             </div>
 
+            {/* Right Large Architectural Visual Frame */}
+            <div className="lg:col-span-7">
+              <div className="relative aspect-[16/10] w-full rounded-sm overflow-hidden shadow-2xl border border-[#E5E0D8] group">
+                <img
+                  src={imgAllura}
+                  alt="Northstar Architecture"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 text-white pointer-events-none">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-[#C7DCED] font-nav block mb-1">
+                    Signature Development
+                  </span>
+                  <p className="text-[18px] sm:text-[20px] font-heading font-medium">
+                    Allura Luxury Villa Community, Hyderabad
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* 3 Split Visual Highlights (Sobha / Lodha style) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="group cursor-pointer">
+              <div className="relative aspect-[4/3] rounded-sm overflow-hidden mb-4 border border-[#E5E0D8]">
+                <img
+                  src={imgSpPalacio}
+                  alt="SP Palacio"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-[18px] font-heading font-medium text-[#1A1A1A] mb-1">
+                High-Rise Sophistication
+              </h3>
+              <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                Contemporary high-rise apartments designed for breathable living in central city hubs.
+              </p>
+            </div>
+
+            <div className="group cursor-pointer">
+              <div className="relative aspect-[4/3] rounded-sm overflow-hidden mb-4 border border-[#E5E0D8]">
+                <img
+                  src={imgSanctuary}
+                  alt="Sanctuary"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-[18px] font-heading font-medium text-[#1A1A1A] mb-1">
+                Nature-Led Plotted Enclaves
+              </h3>
+              <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                Spacious plotted layouts amidst greenery, planned with enduring infrastructure and long-term appreciation.
+              </p>
+            </div>
+
+            <div className="group cursor-pointer">
+              <div className="relative aspect-[4/3] rounded-sm overflow-hidden mb-4 border border-[#E5E0D8]">
+                <img
+                  src={imgParkAvenue}
+                  alt="Park Avenue"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-[18px] font-heading font-medium text-[#1A1A1A] mb-1">
+                Coastal Community Living
+              </h3>
+              <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                Gated communities designed around central green parks and modern family recreation.
+              </p>
+            </div>
           </div>
 
         </div>
@@ -266,32 +328,32 @@ export default function AboutCompany() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 3: TRACK RECORD STATS
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-[#EEF5FB] border-b border-line">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-
+      <section className="py-16 lg:py-20 bg-white border-b border-[#D8E6F2]">
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
+          
           <div className="text-center max-w-[680px] mx-auto mb-12">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
-              Proven Track Record
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
+              PROVEN TRACK RECORD
             </span>
-            <h3 className="text-[28px] sm:text-[36px] font-heading font-normal text-ink leading-tight">
+            <h3 className="text-[28px] sm:text-[36px] font-heading font-normal text-[#1A1A1A] leading-tight">
               A Legacy of Thoughtful Craftsmanship Across Hyderabad & Vizag
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-6 lg:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-5">
             {statsData.map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="bg-white rounded-xl p-6 text-center border border-line hover:border-accent hover:shadow-md transition-all duration-300 group"
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className="bg-white rounded-lg p-6 text-center border border-[#D8E6F2] hover:border-[#0B6FB5] hover:shadow-md transition-all duration-300 group"
               >
-                <span className="text-[34px] sm:text-[40px] lg:text-[44px] font-heading font-normal text-accent group-hover:text-ink transition-colors leading-none block mb-2">
+                <span className="text-[32px] sm:text-[38px] lg:text-[42px] font-heading font-medium text-[#0B6FB5] group-hover:text-[#07294A] transition-colors leading-none block mb-2">
                   {stat.value}
                 </span>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body font-medium text-muted/80 leading-snug block">
+                <span className="text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-nav font-medium text-[#6B7280] leading-snug block">
                   {stat.label}
                 </span>
               </motion.div>
@@ -303,42 +365,81 @@ export default function AboutCompany() {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 4: OUR MISSION & VISION
+          SECTION 4: CRAFTING TIMELESS ELEGANCE (Visual Showcase inspired by Lodha)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 bg-bg border-b border-line" id="mission">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-
+      <section className="py-20 lg:py-28 bg-[#FFFFFF] border-b border-[#D8E6F2]">
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
-            {/* Mission Card */}
-            <div className="p-10 sm:p-12 lg:p-16 rounded-2xl bg-[#07294A] text-[#E9F2FA] relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#0B6FB5]/20 rounded-full blur-2xl pointer-events-none" />
-              
-              <span className="text-[12px] tracking-[0.24em] uppercase text-[#4FA3E3] font-body font-semibold mb-4 block">
-                Purpose & Commitment
-              </span>
-              <h3 className="text-[32px] sm:text-[40px] font-heading font-normal text-white mb-6 leading-tight">
-                Our Mission
-              </h3>
-              <p className="text-[17px] sm:text-[18px] font-body font-light text-[#C7DCED] leading-[1.85]">
-                At Northstar Homes, we are committed to responsible property development. We believe in creating high-quality spaces, built with sound design principles and delivered on time. Our goal is to enhance how our customers experience life, whether at home, at work, or at leisure.
-              </p>
+            {/* Visual Mosaic */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="aspect-[4/5] rounded-sm overflow-hidden border border-[#E5E0D8]">
+                  <img
+                    src={imgHouse}
+                    alt="Interior Luxury"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-[4/3] rounded-sm overflow-hidden border border-[#E5E0D8]">
+                  <img
+                    src={imgDistrict1}
+                    alt="District 1 Facade"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="aspect-[4/3] rounded-sm overflow-hidden border border-[#E5E0D8]">
+                  <img
+                    src={imgHeaderside}
+                    alt="Clubhouse Lounge"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="aspect-[4/5] rounded-sm overflow-hidden border border-[#E5E0D8]">
+                  <img
+                    src={imgHillside}
+                    alt="Hillside Villa"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Philosophy Intro Card */}
-            <div className="p-10 sm:p-12 lg:p-16 rounded-2xl bg-[#F8FAFC] border border-line">
-              <span className="text-[12px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-4 block">
-                Core Guiding Principles
+            {/* Narrative & Craftsmanship Ethos */}
+            <div className="space-y-6">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
+                CRAFTING TIMELESS ELEGANCE
               </span>
-              <h3 className="text-[32px] sm:text-[40px] font-heading font-normal text-ink mb-6 leading-tight">
-                Our Vision
-              </h3>
-              <p className="text-[17px] sm:text-[18px] font-body font-light text-muted leading-[1.85] mb-6">
-                To be recognised across South India as the benchmark for uncompromised construction quality, sustainable plotted and villa community master planning, and enduring customer trust.
+              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#1A1A1A] leading-[1.14] tracking-tight">
+                Meticulous Attention to Every Detail
+              </h2>
+              <div className="w-16 h-0.5 bg-[#0B6FB5]" />
+              
+              <p className="text-[16px] font-body text-[#6B7280] leading-[1.85]">
+                Much like the great creators in luxury real estate, our dedication to quality is an ongoing journey. Every Northstar development brings together accomplished architects, skilled structural engineers, and premium construction materials to ensure your home stands the test of time.
               </p>
-              <div className="flex items-center gap-3 text-accent font-semibold text-[13px] tracking-wider uppercase">
-                <span>Skilled Professionals Behind Every Project</span>
-                <span>&rarr;</span>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                <div className="border-l-2 border-[#0B6FB5] pl-4">
+                  <h4 className="text-[16px] font-heading font-medium text-[#1A1A1A] mb-1">
+                    Vaastu-Led Planning
+                  </h4>
+                  <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                    Thoughtfully aligned orientations maximizing positive natural energy, wind currents, and sunlight.
+                  </p>
+                </div>
+
+                <div className="border-l-2 border-[#0B6FB5] pl-4">
+                  <h4 className="text-[16px] font-heading font-medium text-[#1A1A1A] mb-1">
+                    Dual-Road & Open Layouts
+                  </h4>
+                  <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                    Rare architectural planning offering dual street access, private landscaped yards, and high privacy.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -349,114 +450,166 @@ export default function AboutCompany() {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 5: OUR PHILOSOPHY: DREAM. DISCOVER. DWELL.
+          SECTION 5: OUR MISSION & VISION
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 bg-[#F9FBFC] border-b border-line" id="philosophy">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+      <section className="py-20 lg:py-28 bg-white border-b border-[#D8E6F2]" id="mission">
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
-          <div className="text-center max-w-[760px] mx-auto mb-16 lg:mb-24">
-            <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-3 block">
-              Architectural Ethos
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+            
+            {/* Mission Card */}
+            <div className="p-10 sm:p-14 rounded-xl bg-[#07294A] text-white relative overflow-hidden shadow-xl flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0B6FB5]/20 rounded-full blur-3xl pointer-events-none" />
+              <div>
+                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#3898E2] font-nav font-semibold mb-3 block">
+                  PURPOSE & COMMITMENT
+                </span>
+                <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-white mb-5 leading-tight">
+                  Our Mission
+                </h3>
+                <p className="text-[16px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-[1.85]">
+                  At Northstar Homes, we are committed to responsible property development. We believe in creating high-quality spaces, built with sound design principles and delivered on time. Our goal is to enhance how our customers experience life, whether at home, at work, or at leisure.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-[13px] text-[#A6C5DE] font-nav">
+                <span>Accountability • Craft • Timely Delivery</span>
+              </div>
+            </div>
+
+            {/* Vision Card */}
+            <div className="p-10 sm:p-14 rounded-xl bg-white border border-[#D8E6F2] shadow-sm flex flex-col justify-between">
+              <div>
+                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
+                  CORE GUIDING PRINCIPLES
+                </span>
+                <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-[#1A1A1A] mb-5 leading-tight">
+                  Our Vision
+                </h3>
+                <p className="text-[16px] sm:text-[17px] font-body font-normal text-[#6B7280] leading-[1.85]">
+                  To be recognised across South India as the benchmark for uncompromised construction quality, sustainable plotted and villa community master planning, and enduring customer trust.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-[#D8E6F2] flex items-center justify-between text-[13px] text-[#0B6FB5] font-nav font-semibold">
+                <span>Skilled Professionals Behind Every Project &rarr;</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 6: OUR PHILOSOPHY: DREAM. DISCOVER. DWELL. (With Visual Frames)
+      ───────────────────────────────────────────────────────────── */}
+      <section className="py-20 lg:py-28 bg-[#FFFFFF] border-b border-[#D8E6F2]" id="philosophy">
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
+
+          <div className="text-center max-w-[760px] mx-auto mb-16">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
+              ARCHITECTURAL ETHOS
             </span>
-            <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-heading font-normal text-ink leading-tight mb-5">
+            <h2 className="text-[34px] sm:text-[46px] lg:text-[50px] font-heading font-normal text-[#1A1A1A] leading-tight mb-4">
               Our Philosophy: Dream. Discover. Dwell.
             </h2>
-            <p className="text-muted font-light text-[16px] sm:text-[17px] leading-[1.85]">
+            <p className="text-[#6B7280] font-normal text-[15px] sm:text-[17px] leading-[1.8]">
               These three words define how we approach every project — from the first plot of land we evaluate to the day we hand over the keys.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* 01: DREAM */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-2xl border border-line p-8 sm:p-10 flex flex-col justify-between hover:shadow-lg hover:border-accent/50 transition-all duration-300 group"
+              transition={{ duration: 0.4 }}
+              className="bg-white rounded-lg border border-[#D8E6F2] overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300"
             >
-              <div>
-                <span className="text-[14px] font-heading font-semibold text-accent mb-4 block">
-                  01 / PHILOSOPHY
+              <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
+                <img
+                  src={imgEdenGardens}
+                  alt="Dream"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 text-[#07294A] font-heading font-medium text-[12px] shadow-sm">
+                  01 / DREAM
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] font-heading font-normal text-ink group-hover:text-accent transition-colors leading-tight mb-4">
-                  Dream
-                </h3>
-                <p className="text-[15px] sm:text-[16px] font-body font-light text-muted leading-[1.8]">
-                  Every great home begins with listening. We invest deeply in understanding our customers' aspirations, the character of every neighbourhood, and the vision that the future demands of a great address.
-                </p>
               </div>
-              <div className="w-12 h-1 bg-accent/30 group-hover:bg-accent mt-8 transition-colors" />
+              <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-[24px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors mb-3">
+                    Dream
+                  </h3>
+                  <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] leading-[1.75]">
+                    Every great home begins with listening. We invest deeply in understanding our customers' aspirations, the character of every neighbourhood, and the vision that the future demands of a great address.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
             {/* 02: DISCOVER */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-2xl border border-line p-8 sm:p-10 flex flex-col justify-between hover:shadow-lg hover:border-accent/50 transition-all duration-300 group"
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white rounded-lg border border-[#D8E6F2] overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300"
             >
-              <div>
-                <span className="text-[14px] font-heading font-semibold text-accent mb-4 block">
-                  02 / PHILOSOPHY
+              <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
+                <img
+                  src={imgGardenSuites}
+                  alt="Discover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 text-[#07294A] font-heading font-medium text-[12px] shadow-sm">
+                  02 / DISCOVER
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] font-heading font-normal text-ink group-hover:text-accent transition-colors leading-tight mb-4">
-                  Discover
-                </h3>
-                <p className="text-[15px] sm:text-[16px] font-body font-light text-muted leading-[1.8]">
-                  We seek out prime locations with strong connectivity and long-term appreciation potential. We partner with accomplished architects, source the finest materials, and secure all regulatory approvals — so our buyers move forward with complete confidence.
-                </p>
               </div>
-              <div className="w-12 h-1 bg-accent/30 group-hover:bg-accent mt-8 transition-colors" />
+              <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-[24px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors mb-3">
+                    Discover
+                  </h3>
+                  <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] leading-[1.75]">
+                    We seek out prime locations with strong connectivity and long-term appreciation potential. We partner with accomplished architects and secure all approvals so buyers move forward with confidence.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
             {/* 03: DWELL */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-2xl border border-line p-8 sm:p-10 flex flex-col justify-between hover:shadow-lg hover:border-accent/50 transition-all duration-300 group"
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-white rounded-lg border border-[#D8E6F2] overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300"
             >
-              <div>
-                <span className="text-[14px] font-heading font-semibold text-accent mb-4 block">
-                  03 / PHILOSOPHY
+              <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
+                <img
+                  src={imgWeAlways}
+                  alt="Dwell"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 text-[#07294A] font-heading font-medium text-[12px] shadow-sm">
+                  03 / DWELL
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] font-heading font-normal text-ink group-hover:text-accent transition-colors leading-tight mb-4">
-                  Dwell
-                </h3>
-                <p className="text-[15px] sm:text-[16px] font-body font-light text-muted leading-[1.8]">
-                  We design spaces that elevate everyday living — spaces that are functional, beautiful, and built to the highest standards of craftsmanship.
-                </p>
               </div>
-              <div className="w-12 h-1 bg-accent/30 group-hover:bg-accent mt-8 transition-colors" />
+              <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-[24px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors mb-3">
+                    Dwell
+                  </h3>
+                  <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] leading-[1.75]">
+                    We design spaces that elevate everyday living — spaces that are functional, beautiful, and built to the highest standards of craftsmanship.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
-          </div>
-
-          {/* Journey Folder Link Callout */}
-          <div className="mt-16 p-8 rounded-2xl bg-white border border-line flex flex-wrap items-center justify-between gap-6 shadow-sm">
-            <div>
-              <span className="text-[11px] tracking-[0.2em] uppercase text-accent font-semibold block mb-1">
-                Company Archive
-              </span>
-              <h4 className="text-[22px] font-heading font-normal text-ink">
-                Our Journey & Growth
-              </h4>
-              <p className="text-muted text-[14px] font-light mt-1">
-                Explore the photo archives, foundation stones, and visual milestones from our founding in 2012 to today.
-              </p>
-            </div>
-            <a
-              href="https://drive.google.com/drive/folders/1IRbdsbwgskKjWazuCTEI2PDBrvQ0zP-Y"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-accent/90 transition-colors shadow-sm"
-            >
-              Open Journey Archive Drive &rarr;
-            </a>
           </div>
 
         </div>
@@ -464,92 +617,64 @@ export default function AboutCompany() {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 6: CUSTOMER TESTIMONIALS (Video Gallery)
+          SECTION 7: CUSTOMER TESTIMONIALS (Video Gallery)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 bg-bg border-b border-line" id="testimonials">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+      <section className="py-20 lg:py-28 bg-white border-b border-[#D8E6F2]" id="testimonials">
+        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
-          <div className="flex flex-wrap justify-between items-end gap-6 mb-12 lg:mb-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
-                What Our Customers Say About Us
+              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold block mb-2">
+                HEAR FROM OUR COMMUNITY
               </span>
-              <h2 className="text-[34px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-ink leading-tight">
-                Customer Testimonials
+              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#1A1A1A] leading-tight">
+                Resident Experiences
               </h2>
             </div>
-            <p className="text-muted font-light text-[15px] sm:text-[16px] max-w-[460px] leading-relaxed">
-              Hear firsthand from families and homeowners across our communities in Hyderabad and Visakhapatnam.
+            <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] max-w-[420px]">
+              Direct reflections and authentic homebuyer journeys across our completed developments.
             </p>
           </div>
 
-          {/* Project Filter Pills */}
-          <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-10 pb-4 border-b border-line">
-            {testimonialProjects.map((proj, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveTestimonialProject(proj)}
-                className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-body transition-all duration-300 cursor-pointer ${
-                  activeTestimonialProject === proj
-                    ? 'bg-ink text-white font-medium shadow-md'
-                    : 'bg-soft text-muted hover:text-ink hover:bg-line/40 font-light border border-line'
-                }`}
-              >
-                {proj}
-              </button>
-            ))}
-          </div>
-
-          {/* Testimonial Videos Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredTestimonials.map((item, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {testimonialsData.map((t, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-                className="bg-white rounded-2xl border border-line overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
+                transition={{ duration: 0.4, delay: (idx % 3) * 0.08 }}
+                onClick={() => setSelectedVideo(t)}
+                className="group bg-white rounded-lg border border-[#D8E6F2] overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300"
               >
-                {/* Video Thumbnail Frame */}
-                <div className="relative aspect-video bg-[#07294A] overflow-hidden flex items-center justify-center">
+                {/* Video Thumbnail */}
+                <div className="relative aspect-[16/9] bg-[#07294A] overflow-hidden">
                   <img
-                    src={`https://img.youtube.com/vi/${item.embedId}/hqdefault.jpg`}
-                    alt={item.title}
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                    src={`https://img.youtube.com/vi/${t.embedId}/hqdefault.jpg`}
+                    alt={t.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+                  <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
                   
                   {/* Play Button */}
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"
-                    aria-label={`Play video: ${item.title}`}
-                  >
-                    <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </a>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/95 text-[#07294A] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#07294A]/90 text-[10px] uppercase tracking-wider text-white font-nav">
+                    {t.project}
+                  </span>
                 </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <span className="text-[11px] tracking-[0.18em] uppercase font-semibold text-accent block mb-2">
-                    {item.project}
-                  </span>
-                  <h4 className="text-[17px] sm:text-[18px] font-heading font-normal text-ink leading-snug mb-4 group-hover:text-accent transition-colors">
-                    {item.title}
-                  </h4>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[12px] tracking-wider uppercase font-semibold text-accent hover:text-ink transition-colors"
-                  >
-                    Watch on YouTube &rarr;
-                  </a>
+                <div className="p-5">
+                  <h3 className="text-[16px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors leading-snug line-clamp-2">
+                    {t.title}
+                  </h3>
                 </div>
               </motion.div>
             ))}
@@ -560,58 +685,56 @@ export default function AboutCompany() {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 7: FREQUENTLY ASKED QUESTIONS (Accordion)
+          SECTION 8: FAQS
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 bg-[#F9FBFC] border-b border-line" id="faqs">
+      <section className="py-20 lg:py-28 bg-[#FFFFFF]" id="faqs">
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
 
-          <div className="text-center max-w-[700px] mx-auto mb-14 lg:mb-18">
-            <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
-              Clear & Transparent Information
+          <div className="text-center mb-16">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
+              FREQUENTLY ASKED QUESTIONS
             </span>
-            <h2 className="text-[34px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-ink leading-tight mb-4">
-              Frequently Asked Questions
+            <h2 className="text-[32px] sm:text-[44px] font-heading font-normal text-[#1A1A1A] leading-tight mb-4">
+              Everything You Need to Know
             </h2>
-            <p className="text-muted font-light text-[15px] sm:text-[16px] leading-relaxed">
-              Find answers to common questions about Northstar Homes, our developments, construction standards, and buying process.
+            <p className="text-[15px] font-body text-[#6B7280]">
+              Transparent answers regarding our legacy, planning standards, and buying process.
             </p>
           </div>
 
-          {/* Accordion Panels */}
           <div className="space-y-4">
             {faqsData.map((faq, idx) => {
-              const isOpen = openFaqIndex === idx;
-
+              const isOpen = activeFaq === idx;
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl border border-line overflow-hidden transition-colors"
+                  className="border border-[#D8E6F2] rounded-lg overflow-hidden transition-colors"
                 >
                   <button
-                    onClick={() => setOpenFaqIndex(isOpen ? -1 : idx)}
-                    className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition-colors"
+                    type="button"
+                    onClick={() => setActiveFaq(isOpen ? null : idx)}
+                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer bg-white hover:bg-white transition-colors"
                   >
-                    <span className="text-[17px] sm:text-[19px] font-heading font-normal text-ink leading-snug">
+                    <span className="text-[16px] sm:text-[17px] font-heading font-medium text-[#1A1A1A] pr-4">
                       {faq.q}
                     </span>
-                    <span className={`w-8 h-8 rounded-full border border-line flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-ink text-white border-ink' : 'text-muted'
-                    }`}>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    <span className={`w-8 h-8 rounded-full border border-[#D5CFC7] flex items-center justify-center shrink-0 text-[#1A1A1A] transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
                       </svg>
                     </span>
                   </button>
 
-                  <AnimatePresence initial={false}>
+                  <AnimatePresence>
                     {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 sm:px-7 sm:pb-7 text-[15px] sm:text-[16px] font-body font-light text-muted leading-[1.85] border-t border-line/60 pt-4">
+                        <div className="px-5 pb-6 sm:px-6 text-[14px] sm:text-[15px] text-[#6B7280] font-body leading-[1.75] border-t border-[#F0EBE4] pt-4">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -625,37 +748,42 @@ export default function AboutCompany() {
         </div>
       </section>
 
+      {/* ── Testimonial Video Lightbox Modal ── */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative max-w-[900px] w-full bg-black rounded-xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedVideo(null)}
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Close"
+              >
+                &times;
+              </button>
 
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 8: ENQUIRY BANNER
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-24 bg-[#07294A] text-white text-center">
-        <div className="max-w-[800px] mx-auto px-6 lg:px-10">
-          <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#4FA3E3] font-semibold block mb-3">
-            Connect With Our Advisors
-          </span>
-          <h2 className="text-[34px] sm:text-[44px] font-heading font-normal text-white mb-6 leading-tight">
-            Have Questions About Our Communities?
-          </h2>
-          <p className="text-[#C7DCED] text-[16px] sm:text-[17px] font-light leading-relaxed mb-8 max-w-[600px] mx-auto">
-            Our team is here to assist with project details, master plan walkthroughs, site visits, and personalized guidance.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="tel:+918657553355"
-              className="px-8 py-3.5 rounded-lg bg-accent text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-accent/90 transition-colors shadow-lg"
-            >
-              Call +91 86575 53355
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3.5 rounded-lg border border-white/30 text-white text-[12px] tracking-[0.16em] uppercase font-medium hover:bg-white hover:text-ink transition-colors"
-            >
-              Request a Callback
-            </a>
+              <div className="aspect-[16/9] w-full">
+                <iframe
+                  src={`https://www.youtube.com/embed/${selectedVideo.embedId}?autoplay=1`}
+                  title={selectedVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full border-0"
+                />
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        )}
+      </AnimatePresence>
 
     </main>
   );

@@ -25,4 +25,5 @@ dist-ssr
 
 # Local image backups
 *_backup_originals/
+*.zip
 

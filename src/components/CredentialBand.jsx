@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion'
 import { siteConfig } from '../siteConfig'
 
-// 5 SVG icons from src/assets/credentials
+// SVG icons from src/assets/credentials
 import iconHourglass from '../assets/credentials/hourglass.svg'
 import iconCustomers from '../assets/credentials/customers.svg'
+import iconAwards from '../assets/credentials/award.svg'
 import iconBuilding from '../assets/credentials/building.svg'
 import iconArea from '../assets/credentials/area.svg'
 import iconBuilding2 from '../assets/credentials/building2.svg'
@@ -12,6 +13,7 @@ import iconBuilding2 from '../assets/credentials/building2.svg'
 const iconMap = {
   years: iconHourglass,
   customers: iconCustomers,
+  awards: iconAwards,
   completed: iconBuilding,
   area: iconArea,
   ongoing: iconBuilding2,
@@ -62,67 +64,58 @@ function AnimatedCounter({ value }) {
 }
 
 export default function CredentialBand() {
-  const topRowStats = siteConfig.stats.slice(0, 3);
-  const bottomRowStats = siteConfig.stats.slice(3, 5);
+  const stats = siteConfig.stats;
 
   return (
-    <section className="bg-bg py-20 lg:py-28 border-y border-line" id="credentials">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <section className="bg-bg py-8 lg:py-10 border-y border-line" id="credentials">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
         
-        {/* Eyebrow Header directly styled after DAMAC */}
-        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
-          <div className="inline-flex flex-col items-center">
-            <span className="text-[12px] sm:text-[13px] tracking-[0.26em] uppercase font-body font-medium text-ink pb-2 border-b-2 border-accent">
-              NORTHSTAR CREDENTIALS
-            </span>
+        {/* Single Row layout across all standard screens (scrollable on tiny mobile screens) */}
+        <div className="overflow-x-auto no-scrollbar">
+          <div className="flex items-center min-w-[960px] lg:min-w-0 w-full divide-x divide-line/70">
+            
+            {/* 1. Left Label: NORTHSTAR CREDENTIALS */}
+            <div className="shrink-0 pr-6 sm:pr-8 lg:pr-10 flex flex-col justify-center">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase font-semibold text-ink font-nav whitespace-nowrap">
+                NORTHSTAR CREDENTIALS
+              </span>
+              <div className="w-12 h-[2.5px] bg-accent mt-2 rounded-full" />
+            </div>
+
+            {/* 2. All 6 Stats in a single line side-by-side */}
+            <div className="flex-1 grid grid-cols-6 divide-x divide-line/70">
+              {stats.map((stat) => (
+                <div 
+                  key={stat.id} 
+                  className="flex flex-col items-center text-center px-3 sm:px-4 py-2 group"
+                >
+                  {/* Icon */}
+                  <div className="h-9 sm:h-10 flex items-center justify-center mb-2">
+                    <img 
+                      src={iconMap[stat.id]} 
+                      alt="" 
+                      className="h-7 w-7 sm:h-8 sm:w-8 object-contain transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Animated Number */}
+                  <h3 className="text-[22px] sm:text-[26px] lg:text-[28px] font-heading font-medium text-ink leading-tight tracking-tight mb-1">
+                    <AnimatedCounter value={stat.value} />
+                  </h3>
+
+                  {/* Metric Label */}
+                  <p className="text-[10px] sm:text-[11px] text-muted font-body font-normal tracking-wide leading-snug line-clamp-2 max-w-[120px]">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
           </div>
-        </div>
-
-        {/* Top Row: Exactly 3 items */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 lg:gap-16 max-w-[1100px] mx-auto text-center">
-          {topRowStats.map((stat) => (
-            <div key={stat.id} className="flex flex-col items-center group">
-              <div className="h-16 flex items-center justify-center mb-5 lg:mb-6">
-                <img 
-                  src={iconMap[stat.id]} 
-                  alt="" 
-                  className="h-12 w-12 lg:h-14 lg:w-14 object-contain transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="text-[34px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-ink leading-tight tracking-tight mb-2 sm:mb-2.5">
-                <AnimatedCounter value={stat.value} />
-              </h3>
-              <p className="text-[13px] sm:text-[14px] text-muted font-body font-light leading-relaxed max-w-[240px] mx-auto">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Row: Exactly 2 items, horizontally centered beneath Row 1 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-20 max-w-[760px] mx-auto mt-14 sm:mt-16 lg:mt-20 text-center">
-          {bottomRowStats.map((stat) => (
-            <div key={stat.id} className="flex flex-col items-center group">
-              <div className="h-16 flex items-center justify-center mb-5 lg:mb-6">
-                <img 
-                  src={iconMap[stat.id]} 
-                  alt="" 
-                  className="h-12 w-12 lg:h-14 lg:w-14 object-contain transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="text-[34px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-ink leading-tight tracking-tight mb-2 sm:mb-2.5">
-                <AnimatedCounter value={stat.value} />
-              </h3>
-              <p className="text-[13px] sm:text-[14px] text-muted font-body font-light leading-relaxed max-w-[240px] mx-auto">
-                {stat.label}
-              </p>
-            </div>
-          ))}
         </div>
 
       </div>
     </section>
-  )
+  );
 }

@@ -457,5 +457,270 @@ export const projectsData = {
       options: ['Apartment Purchase Enquiry', 'General Enquiry'],
       plotSizes: ['3 BHK (1,266 to 2,453 Sft)']
     }
+  },
+
+  'sp-palacio': {
+    id: 'sp-palacio',
+    name: 'Northstar SP Palacio',
+    shortName: 'SP Palacio',
+    headerTitle: 'An Art Deco Masterpiece at the Heart of Abids',
+    tagline: 'Ultra-Luxury 3 & 4 BHK Residences in Central Hyderabad',
+    status: 'Ready to Move',
+    statusBadge: 'Ready to Move In',
+    type: 'Ultra-Luxury 3 & 4 BHK Residences',
+    city: 'Hyderabad',
+    location: 'JN Road, Abids, Hyderabad',
+    heroImage: imgSpPalacio,
+    heroVideo: heroVideoPlaceholder,
+    logo: null,
+    rera: 'P02400001088',
+    reraAuthority: 'TS RERA',
+    reraLink: 'https://rera.telangana.gov.in/',
+    brochureUrl: '#',
+    projectLink: '#',
+    walkthroughVideoLink: '#',
+    masterPlanLink: '#',
+    googleMapLink: 'https://maps.google.com/?q=Northstar+SP+Palacio+Abids+Hyderabad',
+    googleMapEmbed: 'https://maps.google.com/maps?q=Northstar+SP+Palacio+Abids+Hyderabad&hl=en&z=15&output=embed',
+    specs: [
+      { label: 'Project Type', value: 'Ultra-Luxury Residences' },
+      { label: 'Configurations', value: '3 & 4 BHK Expansive Homes' },
+      { label: 'Unit Sizes', value: '2,600 – 4,200 Sq. Ft.' },
+      { label: 'Possession', value: 'Ready to Move In' },
+      { label: 'Structure', value: 'Standalone Iconic Tower' },
+      { label: 'Architecture', value: 'Contemporary Art Deco' },
+      { label: 'RERA Registration', value: 'P02400001088' },
+      { label: 'Location', value: 'JN Road, Abids, Hyderabad' }
+    ],
+    narrative: [
+      {
+        tag: 'Heritage & Grandeur',
+        headline: 'The Most Exclusive Development the City Has Ever Seen',
+        paragraphs: [
+          'Situated on JN Road in Abids, Northstar SP Palacio stands at one of Hyderabad’s most distinguished and storied addresses.',
+          'Here, a contemporary Art Deco landmark rises on the city skyline, rare in its time and place, commanding sweeping urban vistas and serene living spaces.',
+          'An address that balances the vibrant pulse of central commerce with undisturbed residential privacy and generational prestige.'
+        ],
+        image: imgSpPalacio,
+        imageCaption: 'Northstar SP Palacio Tower Façade · JN Road, Abids'
+      },
+      {
+        tag: 'Architectural Craftsmanship',
+        headline: 'A Contemporary Tribute to Art Deco',
+        paragraphs: [
+          'SP Palacio is envisioned as a contemporary tribute to Art Deco, shaped by intricate detailing, clean geometric lines, and enduring craftsmanship.',
+          'From grand double-height entrance lobbies to soaring ceilings and expansive floor-to-ceiling glass, every volume is sculpted for natural light and uninterrupted city views.',
+          'A design language that once defined the world’s most celebrated residences now finds new expression at the core of Hyderabad.'
+        ],
+        image: imgAllura,
+        imageCaption: 'Grand Proportions, Floor-to-Ceiling Glass & Art Deco Symmetry'
+      },
+      {
+        tag: 'The Club Experience',
+        headline: 'A Seamless Life Orchestrated for You',
+        paragraphs: [
+          'A private members’ club experience curated for a select few, thoughtfully bringing together wellness, leisure, and quiet retreats.',
+          'Features a rooftop infinity pool, temperature-controlled indoor amenities, private mini-theatre, indoor games lounge, and landscaped terrace gardens.',
+          'Every space is curated with discreet precision, designed for quiet ease, effortless privacy, and family celebrations.'
+        ],
+        image: imgEdenGardens,
+        imageCaption: 'Rooftop Swimming Pool, Wellness Suites & Terrace Decks'
+      },
+      {
+        tag: 'Personalised Living',
+        headline: 'Personalised Service & Security at Every Turn',
+        paragraphs: [
+          'Here, service and security are anticipatory and deeply personal. Delivered by Northstar’s dedicated management team, it brings the attentiveness of a five-star hotel into the privacy of your own home.',
+          'With multi-tier 24x7 security, biometric access, dedicated concierge assistance, and private elevator lobbies, peace of mind is built into the everyday routine.',
+          'Live where Hyderabad has always thrived — central, distinguished, and effortless.'
+        ],
+        image: imgGardenSuites,
+        imageCaption: 'Double-Height Grand Lobby & Concierge Reception'
+      }
+    ],
+    amenitiesHeader: {
+      eyebrow: 'Curated Amenities',
+      title: 'A Lifestyle Crafted for Ease, Privacy & Celebration',
+      description: 'SP Palacio brings together wellness, recreation, and luxury hospitality in a discreetly managed private environment.'
+    },
+    amenityCategories: [
+      {
+        title: 'Wellness & Fitness',
+        badge: 'Health',
+        items: ['Rooftop Swimming Pool', 'Modern Fitness Centre', 'Yoga & Meditation Deck', 'Steam & Sauna Suite']
+      },
+      {
+        title: 'Leisure & Entertainment',
+        badge: 'Recreation',
+        items: ['Double-Height Entrance Lobby', 'Private Screening Theatre', 'Indoor Games Lounge', 'Banqueting & Party Hall']
+      },
+      {
+        title: 'Open Greens & Terraces',
+        badge: 'Landscaping',
+        items: ['Landscaped Rooftop Deck', 'Open Air Sit-Outs', 'Children’s Play Pavilion', 'Walking Corridors']
+      },
+      {
+        title: 'Safety & Modern Utilities',
+        badge: 'Infrastructure',
+        items: ['24x7 Multi-Tier Security', 'CCTV Surveillance', 'High-Speed Lifts', '100% DG Power Backup', 'EV Charging Provision', 'Rainwater Harvesting']
+      }
+    ],
+    experience: {
+      eyebrow: 'Explore the Experience',
+      headline: 'Experience Northstar SP Palacio',
+      shortLine: 'Explore the architectural elevations, expansive living spaces, clubhouse features, and master floor plans.',
+      tabs: [
+        { id: 'photos', label: 'Photos', desc: 'Curated photography of SP Palacio architectural elevations and interiors.' },
+        { id: 'videos', label: 'Videos', desc: 'Watch architectural video walkthroughs.' },
+        { id: 'masterplan', label: 'Master Plan', desc: 'Site layout and tower orientation plan.' },
+        { id: 'floorplan', label: 'Floor Plan', desc: '3 & 4 BHK floor plans and unit layouts.' },
+        { id: 'unitplan', label: 'Unit Plan', desc: 'Detailed room dimensions and carpet area demarcations.' },
+        { id: 'brochure', label: 'Brochure', desc: 'Download comprehensive project brochure.' }
+      ]
+    },
+    neighbourhood: {
+      eyebrow: 'Central Hyderabad',
+      title: 'Around the Neighbourhood',
+      subtitle: 'Placed in the vibrant heart of Abids, connecting heritage charm with swift city-wide transit.',
+      landmarks: [
+        { name: 'Gandhi Bhavan Metro Station', distance: '~0.5 km', time: '2 min' },
+        { name: 'Abids Shopping District', distance: '~0.8 km', time: '3 min' },
+        { name: 'Nampally Railway Station', distance: '~1.5 km', time: '5 min' },
+        { name: 'Begum Bazaar', distance: '~1.5 km', time: '5 min' },
+        { name: 'Moazzam Jahi Market', distance: '~1.2 km', time: '4 min' },
+        { name: 'Little Flower High School', distance: '~1.0 km', time: '3 min' },
+        { name: 'Koti Commercial Hub', distance: '~2.0 km', time: '7 min' },
+        { name: 'Banjara Hills', distance: '~6.0 km', time: '15 min' }
+      ]
+    },
+    locationDetails: {
+      eyebrow: 'Project Location',
+      title: 'A Prestigious Address on JN Road, Abids',
+      addressTitle: 'Northstar SP Palacio',
+      addressLines: [
+        'JN Road, Muralidhar Bagh, Old Kattal Mandi,',
+        'Abids, Hyderabad, Telangana – 500001'
+      ],
+      googleMapLink: 'https://maps.google.com/?q=Northstar+SP+Palacio+Abids+Hyderabad',
+      embedMapUrl: 'https://maps.google.com/maps?q=Northstar+SP+Palacio+Abids+Hyderabad&hl=en&z=15&output=embed'
+    },
+    enquiry: {
+      eyebrow: 'Schedule a Visit',
+      title: 'Experience SP Palacio in Person',
+      subtitle: 'Connect with our luxury sales advisory team for unit availability, bespoke floor layouts, pricing, and private site walkthroughs.',
+      options: ['3 BHK Luxury Apartment', '4 BHK Luxury Penthouse / Residence', 'Site Visit Appointment'],
+      plotSizes: ['3 BHK (2,600 – 3,100 Sft)', '4 BHK (3,600 – 4,200 Sft)']
+    }
+  },
+
+  'allura': {
+    id: 'allura',
+    name: 'Northstar Allura',
+    shortName: 'Allura',
+    headerTitle: 'A Benchmark in Modern Luxury Living',
+    tagline: 'Exquisite Residential Community Designed for Distinguished Families',
+    status: 'Ongoing',
+    statusBadge: 'Under Construction',
+    type: 'Luxury Residential Apartments',
+    city: 'Hyderabad',
+    location: 'Kokapet / Gandipet, Hyderabad',
+    heroImage: imgAllura,
+    heroVideo: heroVideoPlaceholder,
+    logo: null,
+    rera: 'P02400003490',
+    reraAuthority: 'TS RERA',
+    reraLink: 'https://rera.telangana.gov.in/',
+    brochureUrl: '#',
+    projectLink: '#',
+    walkthroughVideoLink: '#',
+    masterPlanLink: '#',
+    googleMapLink: 'https://maps.google.com/?q=Northstar+Allura+Hyderabad',
+    googleMapEmbed: 'https://maps.google.com/maps?q=Northstar+Allura+Hyderabad&hl=en&z=15&output=embed',
+    specs: [
+      { label: 'Project Type', value: 'Luxury Residential Apartments' },
+      { label: 'Configurations', value: '3 & 4 BHK High-End Homes' },
+      { label: 'Site Area', value: 'Expansive Gated Enclave' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'Location', value: 'Kokapet / Gandipet, Hyderabad' },
+      { label: 'RERA Registration', value: 'P02400003490' }
+    ],
+    narrative: [
+      {
+        tag: 'Architectural Distinction',
+        headline: 'The Most Exclusive Development in Hyderabad’s Growth Corridor',
+        paragraphs: [
+          'Set in the coveted western growth corridor of Hyderabad, Northstar Allura represents the pinnacle of contemporary urban architecture.',
+          'Every residence is oriented to optimize panoramic views, natural ventilation, and absolute acoustic privacy.',
+          'An address that embodies modern elegance and enduring family heritage.'
+        ],
+        image: imgAllura,
+        imageCaption: 'Northstar Allura Tower Perspective'
+      },
+      {
+        tag: 'Curated Indulgence',
+        headline: 'A Private Members’ Club for Everyday Leisure',
+        paragraphs: [
+          'Allura offers an expansive clubhouse complete with wellness facilities, an indoor pool, squash and badminton courts, and serene outdoor decks.',
+          'Designed to support a balanced lifestyle where work, play, and relaxation coexist effortlessly.'
+        ],
+        image: imgHillside,
+        imageCaption: 'Clubhouse & Wellness Amenities'
+      }
+    ],
+    amenitiesHeader: {
+      eyebrow: 'Lifestyle Amenities',
+      title: 'Curated Wellness & Social Leisure',
+      description: 'Everything you need for a healthy, vibrant lifestyle inside a secure gated enclave.'
+    },
+    amenityCategories: [
+      {
+        title: 'Club & Sports',
+        badge: 'Activity',
+        items: ['Swimming Pool', 'Gymnasium', 'Badminton Court', 'Squash Court', 'Jogging Track']
+      },
+      {
+        title: 'Community & Leisure',
+        badge: 'Social',
+        items: ['Multi-Purpose Hall', 'Landscaped Gardens', 'Children’s Play Arena', 'Amphitheatre']
+      }
+    ],
+    experience: {
+      eyebrow: 'Explore Allura',
+      headline: 'Experience Allura Architecture',
+      shortLine: 'Explore master layouts, unit configurations, and progress updates.',
+      tabs: [
+        { id: 'photos', label: 'Photos', desc: 'Visual renderings and photography.' },
+        { id: 'masterplan', label: 'Master Plan', desc: 'Site layout.' },
+        { id: 'floorplan', label: 'Floor Plan', desc: 'Unit floor plans.' }
+      ]
+    },
+    neighbourhood: {
+      eyebrow: 'Strategic Location',
+      title: 'Around the Neighbourhood',
+      subtitle: 'Close to the Financial District, Neopolis, and the Outer Ring Road.',
+      landmarks: [
+        { name: 'Outer Ring Road (ORR)', distance: '3 km', time: '5 min' },
+        { name: 'Financial District', distance: '6 km', time: '10 min' },
+        { name: 'Neopolis Kokapet', distance: '4 km', time: '8 min' }
+      ]
+    },
+    locationDetails: {
+      eyebrow: 'Project Location',
+      title: 'Prime Western Corridor, Hyderabad',
+      addressTitle: 'Northstar Allura',
+      addressLines: [
+        'Kokapet / Gandipet Corridor,',
+        'Hyderabad, Telangana – 500075'
+      ],
+      googleMapLink: 'https://maps.google.com/?q=Northstar+Allura+Hyderabad',
+      embedMapUrl: 'https://maps.google.com/maps?q=Northstar+Allura+Hyderabad&hl=en&z=15&output=embed'
+    },
+    enquiry: {
+      eyebrow: 'Start Your Enquiry',
+      title: 'Enquire About Northstar Allura',
+      subtitle: 'Contact our sales team for floor plans, price sheets, and construction milestones.',
+      options: ['3 BHK Apartment', '4 BHK Apartment'],
+      plotSizes: ['Standard 3 BHK', 'Large 4 BHK']
+    }
   }
 };
