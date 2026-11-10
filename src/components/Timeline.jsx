@@ -95,7 +95,7 @@ export default function Timeline() {
         <p className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-accent font-semibold font-nav mb-2">
           MILESTONES & HERITAGE
         </p>
-        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-heading font-normal text-ink tracking-tight">
+        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-heading font-medium text-ink tracking-tight">
           A Decade of Building Trust.
         </h2>
       </div>
@@ -166,10 +166,10 @@ export default function Timeline() {
                       className="max-w-[580px] origin-left"
                     >
                       {/* Year — Italic Title */}
-                      <h3 className="text-[32px] sm:text-[44px] lg:text-[54px] font-heading font-normal leading-[1.1] mb-3 text-white tracking-tight">
+                      <h3 className="text-[32px] sm:text-[44px] lg:text-[54px] font-heading font-medium leading-[1.1] mb-3 text-white tracking-tight">
                         <span>{milestone.year}</span>
                         <span className="font-light mx-2 sm:mx-3 text-white/70">—</span>
-                        <span className="italic font-light text-white/95">{milestone.italicTitle}</span>
+                        <span className="font-normal text-white/95">{milestone.italicTitle}</span>
                       </h3>
 
                       {/* Description Paragraph */}

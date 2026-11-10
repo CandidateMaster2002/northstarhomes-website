@@ -213,7 +213,7 @@ export default function AboutCompany() {
             </span>
             <h1 className="text-[38px] sm:text-[54px] lg:text-[68px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-6">
               Building Trust. <br />
-              <span className="italic font-light text-[#C7DCED]">Shaping Communities.</span>
+              <span className="font-normal text-[#C7DCED]">Shaping Communities.</span>
             </h1>
             <p className="text-[16px] sm:text-[20px] font-body font-light text-[#C7DCED] leading-relaxed max-w-[680px]">
               At Northstar, we create spaces people believe in, belong to, and cherish for life.

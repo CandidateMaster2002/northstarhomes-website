@@ -74,10 +74,10 @@ export default function CredentialBand() {
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex items-center min-w-[960px] lg:min-w-0 w-full divide-x divide-line/70">
             
-            {/* 1. Left Label: NORTHSTAR CREDENTIALS */}
+            {/* 1. Left Label: A Legacy of Trust */}
             <div className="shrink-0 pr-6 sm:pr-8 lg:pr-10 flex flex-col justify-center">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase font-semibold text-ink font-nav whitespace-nowrap">
-                NORTHSTAR CREDENTIALS
+              <span className="text-[15px] sm:text-[17px] font-heading font-medium text-ink whitespace-nowrap tracking-tight">
+                A Legacy of Trust
               </span>
               <div className="w-12 h-[2.5px] bg-accent mt-2 rounded-full" />
             </div>

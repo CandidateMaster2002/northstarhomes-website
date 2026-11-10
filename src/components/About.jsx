@@ -28,19 +28,19 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             <ScrollReveal delay={0.1}>
-              <p className="mb-3 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+              <p className="mb-3 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
                 About Northstar
               </p>
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <h2 className="text-[38px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink mb-6">
+              <h2 className="text-[38px] lg:text-[54px] leading-[1.12] font-heading font-medium text-ink mb-6">
                 We Build Spaces Where Life Feels Truly at Home.
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.3}>
-              <p className="text-[20px] lg:text-[24px] leading-[1.45] text-ink font-heading italic font-normal mb-8 lg:mb-10 border-l-2 border-accent pl-5">
+              <p className="text-[20px] lg:text-[24px] leading-[1.45] text-ink font-heading font-medium mb-8 lg:mb-10 border-l-2 border-accent pl-5">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
             </ScrollReveal>
@@ -48,7 +48,7 @@ export default function About() {
             {/* Magazine-style text split */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-10">
               <ScrollReveal delay={0.4}>
-                <p className="text-[15px] lg:text-[16px] leading-[1.85] font-body font-light text-muted">
+                <p className="text-[15px] lg:text-[16px] leading-[1.85] font-body font-normal text-muted">
                   Established in 2012, Northstar Homes has grown into a trusted real estate developer across Hyderabad and Visakhapatnam, creating premium apartments, luxury villas, plotted communities, and commercial spaces. Our developments are shaped with thoughtful design and responsible planning.
                 </p>
               </ScrollReveal>
@@ -57,7 +57,7 @@ export default function About() {
                 <ScrollReveal delay={0.5}>
                   {/* On mobile, this paragraph is hidden unless expanded. On desktop (md), always visible */}
                   <div className={`${isExpanded ? 'block' : 'hidden md:block'}`}>
-                    <p className="text-[15px] lg:text-[16px] leading-[1.85] font-body font-light text-muted mb-6">
+                    <p className="text-[15px] lg:text-[16px] leading-[1.85] font-body font-normal text-muted mb-6">
                       For us, real estate is not just about building structures. It is about creating places where families grow, communities come together, and everyday life feels more meaningful.
                     </p>
                   </div>

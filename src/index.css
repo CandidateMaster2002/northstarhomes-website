@@ -158,3 +158,20 @@ a:hover {
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #0B6FB5;
 }
+
+
+/* ── Mandated Client Typography Utilities ── */
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 500; /* Playfair Display Medium */
+}
+
+.font-body {
+  font-family: var(--font-body);
+  font-weight: 400; /* Montserrat Regular */
+}
+
+.font-nav {
+  font-family: var(--font-nav);
+  font-weight: 500; /* Montserrat Medium */
+}

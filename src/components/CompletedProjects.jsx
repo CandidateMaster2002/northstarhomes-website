@@ -13,10 +13,10 @@ export default function CompletedProjects() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10 mb-8">
         <div className="flex flex-wrap justify-between items-end gap-6">
           <div>
-            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
               Delivered Communities
             </p>
-            <h2 className="text-[clamp(32px,3.4vw,48px)] leading-[1.12] font-heading font-normal text-ink">
+            <h2 className="text-[clamp(32px,3.4vw,48px)] leading-[1.12] font-heading font-medium text-ink">
               Completed Projects
             </h2>
           </div>
@@ -71,7 +71,7 @@ export default function CompletedProjects() {
                   <span className="inline-block px-3 py-1 mb-2.5 border border-white/30 rounded-full text-[10px] tracking-[0.2em] uppercase text-white font-body font-medium bg-black/20 backdrop-blur-sm">
                     Delivered
                   </span>
-                  <h3 className="text-[23px] lg:text-[26px] font-heading font-normal text-white leading-tight mb-1.5 drop-shadow-sm">
+                  <h3 className="text-[23px] lg:text-[26px] font-heading font-medium text-white leading-tight mb-1.5 drop-shadow-sm">
                     Northstar {project.name}
                   </h3>
                   <p className="text-[12px] tracking-[0.06em] text-white/80 font-body font-light flex items-center gap-1.5">

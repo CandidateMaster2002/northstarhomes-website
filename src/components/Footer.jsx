@@ -58,7 +58,7 @@ export default function Footer() {
                   className="h-12 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)]" 
                 />
               </a>
-              <p className="text-[14px] leading-[1.85] font-body font-light mb-8 max-w-[340px] text-[#8FA7BD]">
+              <p className="text-[14px] leading-[1.85] font-body font-normal mb-8 max-w-[340px] text-[#8FA7BD]">
                 Crafting sustainable luxury villas, plotted developments, and gated communities shaped with uncompromised engineering across South Hyderabad and Visakhapatnam.
               </p>
 
@@ -178,7 +178,7 @@ export default function Footer() {
                     </span>
                     <span className="text-[11px] text-[#4FA3E3] opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                   </div>
-                  <span className="text-[11px] font-body font-light block mt-0.5 text-[#8FA7BD]">
+                  <span className="text-[11px] font-body font-normal block mt-0.5 text-[#8FA7BD]">
                     {proj.location}
                   </span>
                 </a>
@@ -199,7 +199,7 @@ export default function Footer() {
                   <a 
                     href={item.href} 
                     onClick={handleFooterLinkClick}
-                    className="group flex items-center gap-2.5 text-[14px] font-body font-light transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
+                    className="group flex items-center gap-2.5 text-[14px] font-body font-normal transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
                   >
                     <span className="text-[11px] font-mono transition-colors text-[#3898E2]">
                       {item.no}
@@ -227,7 +227,7 @@ export default function Footer() {
                     <a 
                       href={item.href} 
                       onClick={handleFooterLinkClick}
-                      className="text-[13px] font-body font-light block py-0.5 hover:translate-x-1 transition-all duration-300 text-[#9CB5CB] hover:text-white"
+                      className="text-[13px] font-body font-normal block py-0.5 hover:translate-x-1 transition-all duration-300 text-[#9CB5CB] hover:text-white"
                     >
                       {item.name}
                     </a>
@@ -258,7 +258,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal & Statutory Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-light text-[#8FA7BD]">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-normal text-[#8FA7BD]">
           <p>© 2026 Northstar Homes. All rights reserved.</p>
           
           <p className="text-center md:text-left">

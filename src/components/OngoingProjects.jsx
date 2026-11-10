@@ -19,10 +19,10 @@ export default function OngoingProjects() {
           className="mb-10 flex flex-wrap justify-between items-end gap-6"
         >
           <div>
-            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
               Our Presence
             </p>
-            <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-normal text-ink">
+            <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-medium text-ink">
               Iconic Developments
             </h2>
           </div>
@@ -104,7 +104,7 @@ export default function OngoingProjects() {
                     }}
                     className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
                   >
-                    <h3 className="text-white font-heading font-normal text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-sm">
+                    <h3 className="text-white font-heading font-medium text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-sm">
                       {project.name}
                     </h3>
                     <p className="text-white/80 font-body font-light text-[13px] tracking-wide">

@@ -28,17 +28,17 @@ export default function WhyNorthstar() {
           {/* Left - Content */}
           <div className="flex-1 min-w-0 basis-[460px]">
             <ScrollReveal>
-              <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold">
+              <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
                 Quality Assurance
               </p>
-              <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-normal text-ink mb-6">
+              <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-medium text-ink mb-6">
                 Not just built. <br/>
-                <span className="italic font-heading font-normal text-accent">Inspected.</span>
+                <span className="font-heading font-medium text-accent">Inspected.</span>
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <p className="text-[16px] lg:text-[17px] leading-[1.85] font-body font-light text-muted mb-10">
+              <p className="text-[16px] lg:text-[17px] leading-[1.85] font-body font-normal text-muted mb-10">
                 Before handover, our projects undergo comprehensive <strong className="text-ink font-normal">PropChk</strong> quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
               </p>
             </ScrollReveal>
@@ -104,10 +104,10 @@ export default function WhyNorthstar() {
                         }}
                         className="flex-1"
                       >
-                        <p className="text-[22px] font-heading font-normal text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
+                        <p className="text-[22px] font-heading font-medium text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
                           {item.text}
                         </p>
-                        <p className="text-[15px] font-body font-light text-muted leading-relaxed">
+                        <p className="text-[15px] font-body font-normal text-muted leading-relaxed">
                           {item.subtext}
                         </p>
                       </motion.div>
