@@ -455,7 +455,7 @@ export default function HomeLoanGuide() {
                 onClick={() => setActiveDocTab(tab.id)}
                 className={`px-5 py-2.5 rounded-full text-[12px] sm:text-[13px] tracking-[0.14em] uppercase font-semibold font-body transition-all cursor-pointer ${
                   activeDocTab === tab.id
-                    ? 'bg-[#785D4A] text-white shadow'
+                    ? 'bg-accent text-white shadow'
                     : 'bg-soft text-muted hover:text-ink'
                 }`}
               >
@@ -872,7 +872,7 @@ export default function HomeLoanGuide() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
-              className="px-8 py-3.5 rounded-full bg-accent text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-[#634C3C] transition-all shadow-sm cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-accent text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-[#084E82] transition-all shadow-sm cursor-pointer"
             >
               Talk to Our Sales Team
             </a>

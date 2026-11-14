@@ -208,7 +208,7 @@ export default function AboutCompany() {
             transition={{ duration: 0.7 }}
             className="max-w-[820px]"
           >
-            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#D5BFA8] font-nav font-semibold mb-4 block">
+            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#3898E2] font-nav font-semibold mb-4 block">
               OUR STORY & PHILOSOPHY
             </span>
             <h1 className="text-[38px] sm:text-[54px] lg:text-[68px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-6">
@@ -233,13 +233,13 @@ export default function AboutCompany() {
             
             {/* Left Narrative */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#785D4A] font-nav font-semibold block">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
                 COMPANY INTRODUCTION
               </span>
               <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
                 We Build Spaces Where Life Feels Truly at Home
               </h2>
-              <div className="w-16 h-0.5 bg-[#785D4A]" />
+              <div className="w-16 h-0.5 bg-[#0B6FB5]" />
               <p className="text-[17px] sm:text-[19px] font-heading font-normal text-[#07294A] leading-snug pt-2">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
@@ -332,7 +332,7 @@ export default function AboutCompany() {
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-[680px] mx-auto mb-12">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-2 block">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
               PROVEN TRACK RECORD
             </span>
             <h3 className="text-[28px] sm:text-[36px] font-heading font-normal text-[#07294A] leading-tight">
@@ -348,9 +348,9 @@ export default function AboutCompany() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="bg-white rounded-lg p-6 text-center border border-[#D8E6F2] hover:border-[#785D4A] hover:shadow-md transition-all duration-300 group"
+                className="bg-white rounded-lg p-6 text-center border border-[#D8E6F2] hover:border-[#0B6FB5] hover:shadow-md transition-all duration-300 group"
               >
-                <span className="text-[32px] sm:text-[38px] lg:text-[42px] font-heading font-medium text-[#785D4A] group-hover:text-[#07294A] transition-colors leading-none block mb-2">
+                <span className="text-[32px] sm:text-[38px] lg:text-[42px] font-heading font-medium text-[#0B6FB5] group-hover:text-[#07294A] transition-colors leading-none block mb-2">
                   {stat.value}
                 </span>
                 <span className="text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-nav font-medium text-[#556475] leading-snug block">
@@ -410,20 +410,20 @@ export default function AboutCompany() {
 
             {/* Narrative & Craftsmanship Ethos */}
             <div className="space-y-6">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#785D4A] font-nav font-semibold block">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
                 CRAFTING TIMELESS ELEGANCE
               </span>
               <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
                 Meticulous Attention to Every Detail
               </h2>
-              <div className="w-16 h-0.5 bg-[#785D4A]" />
+              <div className="w-16 h-0.5 bg-[#0B6FB5]" />
               
               <p className="text-[16px] font-body text-[#556475] leading-[1.85]">
                 Much like the great creators in luxury real estate, our dedication to quality is an ongoing journey. Every Northstar development brings together accomplished architects, skilled structural engineers, and premium construction materials to ensure your home stands the test of time.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="border-l-2 border-[#785D4A] pl-4">
+                <div className="border-l-2 border-[#0B6FB5] pl-4">
                   <h4 className="text-[16px] font-heading font-medium text-[#07294A] mb-1">
                     Vaastu-Led Planning
                   </h4>
@@ -432,7 +432,7 @@ export default function AboutCompany() {
                   </p>
                 </div>
 
-                <div className="border-l-2 border-[#785D4A] pl-4">
+                <div className="border-l-2 border-[#0B6FB5] pl-4">
                   <h4 className="text-[16px] font-heading font-medium text-[#07294A] mb-1">
                     Dual-Road & Open Layouts
                   </h4>
@@ -478,7 +478,7 @@ export default function AboutCompany() {
             {/* Vision Card */}
             <div className="p-10 sm:p-14 rounded-xl bg-white border border-[#D8E6F2] shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-3 block">
+                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
                   CORE GUIDING PRINCIPLES
                 </span>
                 <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-[#07294A] mb-5 leading-tight">
@@ -488,7 +488,7 @@ export default function AboutCompany() {
                   To be recognised across South India as the benchmark for uncompromised construction quality, sustainable plotted and villa community master planning, and enduring customer trust.
                 </p>
               </div>
-              <div className="mt-8 pt-6 border-t border-[#D8E6F2] flex items-center justify-between text-[13px] text-[#785D4A] font-nav font-semibold">
+              <div className="mt-8 pt-6 border-t border-[#D8E6F2] flex items-center justify-between text-[13px] text-[#0B6FB5] font-nav font-semibold">
                 <span>Skilled Professionals Behind Every Project &rarr;</span>
               </div>
             </div>
@@ -506,7 +506,7 @@ export default function AboutCompany() {
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
           <div className="text-center max-w-[760px] mx-auto mb-16">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-3 block">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
               ARCHITECTURAL ETHOS
             </span>
             <h2 className="text-[34px] sm:text-[46px] lg:text-[50px] font-heading font-normal text-[#07294A] leading-tight mb-4">
@@ -539,7 +539,7 @@ export default function AboutCompany() {
               </div>
               <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors mb-3">
+                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#0B6FB5] transition-colors mb-3">
                     Dream
                   </h3>
                   <p className="text-[14px] sm:text-[15px] font-body text-[#556475] leading-[1.75]">
@@ -569,7 +569,7 @@ export default function AboutCompany() {
               </div>
               <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors mb-3">
+                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#0B6FB5] transition-colors mb-3">
                     Discover
                   </h3>
                   <p className="text-[14px] sm:text-[15px] font-body text-[#556475] leading-[1.75]">
@@ -599,7 +599,7 @@ export default function AboutCompany() {
               </div>
               <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors mb-3">
+                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#0B6FB5] transition-colors mb-3">
                     Dwell
                   </h3>
                   <p className="text-[14px] sm:text-[15px] font-body text-[#556475] leading-[1.75]">
@@ -623,7 +623,7 @@ export default function AboutCompany() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold block mb-2">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold block mb-2">
                 HEAR FROM OUR COMMUNITY
               </span>
               <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-tight">
@@ -671,7 +671,7 @@ export default function AboutCompany() {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-[16px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors leading-snug line-clamp-2">
+                  <h3 className="text-[16px] font-heading font-medium text-[#07294A] group-hover:text-[#0B6FB5] transition-colors leading-snug line-clamp-2">
                     {t.title}
                   </h3>
                 </div>
@@ -690,7 +690,7 @@ export default function AboutCompany() {
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
 
           <div className="text-center mb-16">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-2 block">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-[32px] sm:text-[44px] font-heading font-normal text-[#07294A] leading-tight mb-4">

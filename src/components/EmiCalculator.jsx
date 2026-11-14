@@ -300,12 +300,12 @@ export default function EmiCalculator() {
                         strokeWidth="18"
                         fill="transparent"
                       />
-                      {/* Principal Stroke (Muted Mocha) */}
+                      {/* Principal Stroke (Royal Accent) */}
                       <circle
                         cx="80"
                         cy="80"
                         r={radius}
-                        stroke="#785D4A"
+                        stroke="#0B6FB5"
                         strokeWidth="18"
                         fill="transparent"
                         strokeDasharray={circumference}
@@ -342,7 +342,7 @@ export default function EmiCalculator() {
                   {/* Chart Legend */}
                   <div className="flex items-center justify-center gap-6 mt-4 text-[13px] font-body">
                     <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-[#785D4A]" />
+                      <span className="w-3 h-3 rounded-full bg-[#0B6FB5]" />
                       <span className="text-muted">Principal ({calculations.principalPercent}%)</span>
                     </div>
                     <div className="flex items-center gap-2">

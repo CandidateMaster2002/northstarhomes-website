@@ -203,7 +203,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     window.scrollTo({ top, behavior: 'smooth' });
                   }
                 }}
-                className="px-5 py-2 rounded-full bg-[#785D4A] hover:bg-[#634C3C] text-white text-[11px] tracking-[0.16em] uppercase font-medium shadow-sm transition-all duration-300"
+                className="px-5 py-2 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[11px] tracking-[0.16em] uppercase font-medium shadow-sm transition-all duration-300"
               >
                 Enquire Now
               </a>
@@ -650,7 +650,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     href={project.locationDetails.googleMapLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-[#785D4A] hover:text-[#07294A] transition-colors"
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-[#0B6FB5] hover:text-[#07294A] transition-colors"
                   >
                     <span>Get Directions on Google Maps</span>
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -671,8 +671,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   rel="noopener noreferrer"
                   className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/95 hover:bg-white text-ink text-[12px] font-semibold tracking-wide shadow-md border border-line backdrop-blur-sm transition-all hover:shadow-lg"
                 >
-                  <span className="text-[#785D4A]">Open in Maps</span>
-                  <svg className="w-3.5 h-3.5 text-[#785D4A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="text-[#0B6FB5]">Open in Maps</span>
+                  <svg className="w-3.5 h-3.5 text-[#0B6FB5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>

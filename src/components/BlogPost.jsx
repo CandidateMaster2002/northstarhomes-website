@@ -49,7 +49,7 @@ export default function BlogPost({ slug }) {
         <p className="text-muted mb-8">The requested blog article could not be found.</p>
         <a
           href="#blogs"
-          className="inline-block px-8 py-3 bg-[#785D4A] text-white text-sm uppercase tracking-wider font-semibold rounded-full hover:bg-[#634C3C] transition-colors"
+          className="inline-block px-8 py-3 bg-accent text-white text-sm uppercase tracking-wider font-semibold rounded-full hover:bg-[#084E82] transition-colors"
         >
           View All Blogs
         </a>

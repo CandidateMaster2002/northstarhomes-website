@@ -829,7 +829,7 @@ export default function NriGuide() {
           <div className="flex flex-wrap items-center justify-center gap-3.5">
             <a
               href="#contact"
-              className="px-7 py-3.5 rounded-full bg-accent text-white text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-[#634C3C] transition-all shadow-sm cursor-pointer"
+              className="px-7 py-3.5 rounded-full bg-accent text-white text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-[#084E82] transition-all shadow-sm cursor-pointer"
             >
               Virtual Consultation
             </a>

@@ -1,36 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Recommended Color Hierarchy ── */
-  /* Background → Pure White */
+  /* ── Monochromatic Brand Blue Palette ── */
   --color-bg: #FFFFFF;
-  --color-soft: #FFFFFF;
-
-  /* Main Heading → Deep Navy */
+  --color-soft: #EEF5FB;
   --color-ink: #07294A;
+  --color-muted: #4F6378;
+  --color-accent: #0B6FB5;
+  --color-accent2: #0B6FB5;
+  --color-accent2d: #3898E2;
+  --color-line: #D8E6F2;
   --color-deep: #07294A;
   --color-deep-ink: #E9F2FA;
-
-  /* Sub Heading / Highlight → Muted Mocha */
-  --color-accent: #785D4A;
-  --color-accent2: #785D4A;
-  --color-accent2d: #8E705C;
-
-  /* Body Content → Soft Grey */
-  --color-muted: #556475;
-
-  /* CTA Buttons → Muted Mocha with White Text */
-  --color-btn-bg: #785D4A;
+  --color-btn-bg: #0B6FB5;
   --color-btn-ink: #FFFFFF;
-  --color-btn-hover: #634C3C;
-
-  /* Footer → Muted Mocha */
-  --color-footer: #785D4A;
-
-  /* Structural Borders & Placeholders */
-  --color-line: #E8E5E1;
-  --color-ph1: #F4EFEA;
-  --color-ph2: #E8E2DB;
+  --color-btn-hover: #084E82;
+  --color-footer: #07294A;
+  --color-ph1: #E4EEF7;
+  --color-ph2: #D2E1EF;
 
   /* ── Typography (Client Specifications) ── */
   /* Main Headings & Subheadings: Playfair Display Medium */
