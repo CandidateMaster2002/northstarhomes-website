@@ -1,21 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Monochromatic Brand Blue Palette ── */
+  /* ── Recommended Color Hierarchy ── */
+  /* Background → Pure White */
   --color-bg: #FFFFFF;
-  --color-soft: #EEF5FB;
+  --color-soft: #FFFFFF;
+
+  /* Main Heading → Deep Navy */
   --color-ink: #07294A;
-  --color-muted: #4F6378;
-  --color-accent: #0B6FB5;
-  --color-accent2: #0B6FB5;
-  --color-accent2d: #3898E2;
-  --color-line: #D8E6F2;
   --color-deep: #07294A;
   --color-deep-ink: #E9F2FA;
-  --color-btn-bg: #0B6FB5;
+
+  /* Sub Heading / Highlight → Muted Mocha */
+  --color-accent: #785D4A;
+  --color-accent2: #785D4A;
+  --color-accent2d: #8E705C;
+
+  /* Body Content → Soft Grey */
+  --color-muted: #556475;
+
+  /* CTA Buttons → Muted Mocha with White Text */
+  --color-btn-bg: #785D4A;
   --color-btn-ink: #FFFFFF;
-  --color-ph1: #E4EEF7;
-  --color-ph2: #D2E1EF;
+  --color-btn-hover: #634C3C;
+
+  /* Footer → Muted Mocha */
+  --color-footer: #785D4A;
+
+  /* Structural Borders & Placeholders */
+  --color-line: #E8E5E1;
+  --color-ph1: #F4EFEA;
+  --color-ph2: #E8E2DB;
 
   /* ── Typography (Client Specifications) ── */
   /* Main Headings & Subheadings: Playfair Display Medium */
@@ -35,17 +50,20 @@ html {
   /* scroll-behavior: smooth; removed for Lenis */
 }
 
-/* Body Content: Montserrat Regular */
+/* Body Content: Montserrat Regular · Soft Grey */
 body {
   font-family: var(--font-body);
   font-weight: 400; /* Regular */
+  color: var(--color-muted); /* Soft Grey (#556475) */
+  background-color: var(--color-bg); /* Pure White (#FFFFFF) */
   -webkit-font-smoothing: antialiased;
 }
 
-/* Main Headings & Subheadings: Playfair Display Medium */
+/* Main Headings: Playfair Display Medium · Deep Navy */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 500; /* Medium */
+  color: var(--color-ink); /* Deep Navy (#07294A) */
   letter-spacing: -0.01em;
 }
 
@@ -60,6 +78,21 @@ input[type="submit"],
 input[type="button"] {
   font-family: var(--font-nav);
   font-weight: 500; /* Medium */
+}
+
+/* Primary CTA Button Utility: Muted Mocha with White Text */
+.btn-primary,
+.btn-cta {
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-ink);
+  font-family: var(--font-nav);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover,
+.btn-cta:hover {
+  background-color: var(--color-btn-hover);
+  color: #FFFFFF;
 }
 
 a {
@@ -174,4 +207,16 @@ a:hover {
 .font-nav {
   font-family: var(--font-nav);
   font-weight: 500; /* Montserrat Medium */
+}
+
+/* ── Project Detail Pages: Section Headings in Montserrat Regular ── */
+.project-detail-page h1,
+.project-detail-page h2,
+.project-detail-page h3,
+.project-detail-page h4,
+.project-detail-page h5,
+.project-detail-page h6,
+.project-detail-page .font-heading {
+  font-family: var(--font-body) !important;
+  font-weight: 400 !important;
 }

@@ -13,6 +13,11 @@ import imgAmgPlaza from '../assets/projects/amg-plaza.webp';
 import imgGardenSuites from '../assets/projects/garden-suites.webp';
 
 import logoSanctuary from '../assets/project-logos/sanctuary.webp';
+import logoAllura from '../assets/project-logos/allura.webp';
+import logoSpPalacio from '../assets/project-logos/sp-palacio.webp';
+import logoParkAvenue from '../assets/project-logos/park-avenue.webp';
+import logoGoldenValley from '../assets/project-logos/golden-valley.webp';
+import logoAirportBoulevard from '../assets/project-logos/airport-boulevard.webp';
 import logoDistrict1 from '../assets/project-logos/district1.webp';
 import logoHillside from '../assets/project-logos/hillside.webp';
 import logoVeda from '../assets/project-logos/veda.webp';
@@ -38,7 +43,7 @@ export const projectsData = {
     city: 'Hyderabad',
     location: 'Mohabbatnagar, Near Tukkuguda, Srisailam Highway',
     heroImage: imgSanctuary,
-    heroVideo: heroVideoPlaceholder,
+    heroVideo: null,
     logo: logoSanctuary,
 
     brochureUrl: 'https://drive.google.com/drive/folders/1-Jc3g8LpWF0eT0AKUDioSJrygyQtaJfa',
@@ -80,7 +85,7 @@ export const projectsData = {
           'Walk among fragrant gardens, flowering trees and landscapes designed to bring nature closer.',
           'At Sanctuary, the outdoors isn\'t somewhere you visit — it is where life unfolds.'
         ],
-        image: imgHillside,
+        image: imgSanctuary,
         imageCaption: 'Tree-Lined Avenues & Layered Greens · Pocket Parks',
         placeholderNote: 'Botanical Gardens & Tree-Lined Avenues Render'
       },
@@ -92,7 +97,7 @@ export const projectsData = {
           'A place to build around your family, your aspirations and your idea of home.',
           'Because some homes are created not just for today, but for generations.'
         ],
-        image: imgAirportBoulevard,
+        image: imgSanctuary,
         imageCaption: 'Crafted Villa Architecture & Plotted Enclave · 63 Addresses',
         placeholderNote: 'Villa Architecture & Plotted Layout Render'
       },
@@ -104,7 +109,7 @@ export const projectsData = {
           'Everyday experiences have been thoughtfully designed around wellness, leisure and togetherness.',
           'Sanctuary is no longer something to imagine — it is ready to be experienced.'
         ],
-        image: imgEdenGardens,
+        image: imgSanctuary,
         imageCaption: 'Clubhouse Amenities, Swimming Pool & Gathering Decks',
         placeholderNote: 'Clubhouse Facilities & Active Wellness Render'
       }
@@ -184,10 +189,10 @@ export const projectsData = {
       mediaTabs: ['Photos', 'Videos'],
       photos: [
         { id: 1, title: 'Perimeter Boundary & Solar Fencing', stage: '100% Completed', desc: 'High-perimeter masonry compound wall and energized solar security fencing fully installed across the 14-acre perimeter.', image: imgSanctuary },
-        { id: 2, title: 'Underground Infrastructure', stage: 'Advanced Stage', desc: 'Concealed underground storm drainage, pressurized ring main water supply conduits, and electrical networks laid.', image: imgHillside },
-        { id: 3, title: '40ft Arterial Boulevard & Cobbled Avenues', stage: 'In Progress', desc: '40-foot main entrance boulevard base layer prepared with 30-foot residential internal cobbled streets undergoing paving.', image: imgAirportBoulevard },
-        { id: 4, title: 'Landscape Development & Pocket Parks', stage: 'Active Planting', desc: 'Avenue tree plantations, native greenery, flowering gardens, and automated drip irrigation networks taking root.', image: imgAllura },
-        { id: 5, title: 'Central Clubhouse Civil Works', stage: 'Structure Underway', desc: 'Foundational civil works, footings, and structural framing for the luxury clubhouse progressing on schedule.', image: imgEdenGardens }
+        { id: 2, title: 'Underground Infrastructure', stage: 'Advanced Stage', desc: 'Concealed underground storm drainage, pressurized ring main water supply conduits, and electrical networks laid.', image: imgSanctuary },
+        { id: 3, title: '40ft Arterial Boulevard & Cobbled Avenues', stage: 'In Progress', desc: '40-foot main entrance boulevard base layer prepared with 30-foot residential internal cobbled streets undergoing paving.', image: imgSanctuary },
+        { id: 4, title: 'Landscape Development & Pocket Parks', stage: 'Active Planting', desc: 'Avenue tree plantations, native greenery, flowering gardens, and automated drip irrigation networks taking root.', image: imgSanctuary },
+        { id: 5, title: 'Central Clubhouse Civil Works', stage: 'Structure Underway', desc: 'Foundational civil works, footings, and structural framing for the luxury clubhouse progressing on schedule.', image: imgSanctuary }
       ],
       videos: [
         { id: 1, title: 'Aerial Drone Site Survey & Walkthrough', stage: 'Latest Drone Flight', desc: 'Full bird\'s-eye perspective of the 14-acre master layout, 40ft avenues, boundary development, and natural topography.', video: heroVideoPlaceholder, poster: imgSanctuary },
@@ -257,8 +262,8 @@ export const projectsData = {
     city: 'Hyderabad',
     location: 'Kokapet, Hyderabad',
     heroImage: imgAllura,
-    heroVideo: heroVideoPlaceholder,
-    logo: null,
+    heroVideo: null,
+    logo: logoAllura,
     rera: 'P02400001214',
     reraAuthority: 'TS RERA',
     reraLink: 'https://rera.telangana.gov.in/',
@@ -300,7 +305,7 @@ export const projectsData = {
           'Wide internal roads, a Zen garden, an aroma garden and a reflexology path create a neighbourhood that invites you to slow down.',
           'This is a place that feels distinctly your own — from the moment you arrive.'
         ],
-        image: imgHillside,
+        image: imgAllura,
         imageCaption: 'Community Greens & Private Villa Enclave · Allura'
       },
       {
@@ -311,7 +316,7 @@ export const projectsData = {
           'Herbal gardens, an aroma garden and a walking track make the outdoors as engaging as indoors.',
           'Allura is designed so that every day has something worth stepping outside for.'
         ],
-        image: imgEdenGardens,
+        image: imgAllura,
         imageCaption: '14,000 Sq. Ft. Clubhouse & Lifestyle Amenities · Allura'
       },
       {
@@ -420,8 +425,8 @@ export const projectsData = {
     city: 'Hyderabad',
     location: 'JN Road, Abids, Hyderabad',
     heroImage: imgSpPalacio,
-    heroVideo: heroVideoPlaceholder,
-    logo: null,
+    heroVideo: null,
+    logo: logoSpPalacio,
     rera: 'P02500005496',
     reraAuthority: 'TS RERA',
     reraLink: 'https://rera.telangana.gov.in/',
@@ -463,7 +468,7 @@ export const projectsData = {
           'SP Palacio sits in that legacy, with the Gandhi Bhavan Metro just 0.5 km away and the entire city accessible with ease.',
           'Living here means being at the centre of things, without being far from anywhere.'
         ],
-        image: imgAllura,
+        image: imgSpPalacio,
         imageCaption: 'Abids Commercial District & Metro Connectivity'
       },
       {
@@ -474,7 +479,7 @@ export const projectsData = {
           'A thoughtful inclusion that reflects the values of those who have long called this neighbourhood home.',
           'Because a home is not just where you live — it is where your life is rooted.'
         ],
-        image: imgGardenSuites,
+        image: imgSpPalacio,
         imageCaption: 'Jain Temple & Prayer Hall · SP Palacio'
       },
       {
@@ -582,8 +587,8 @@ export const projectsData = {
     city: 'Visakhapatnam',
     location: 'Madhurawada, Visakhapatnam',
     heroImage: imgParkAvenue,
-    heroVideo: heroVideoPlaceholder,
-    logo: null,
+    heroVideo: null,
+    logo: logoParkAvenue,
     rera: 'TS RERA Registered',
     reraAuthority: 'AP RERA',
     reraLink: 'https://rera.ap.gov.in/',
@@ -625,7 +630,7 @@ export const projectsData = {
           'Homes planned to bring in natural light, ventilation and a sense of ease that makes everyday life feel more considered.',
           'A building sized to feel like a community — not a crowd.'
         ],
-        image: imgGoldenValley,
+        image: imgParkAvenue,
         imageCaption: '243 Apartments · 2 BHK, 2.5 BHK & 3 BHK'
       },
       {
@@ -647,7 +652,7 @@ export const projectsData = {
           'A 10,500 Sft clubhouse adds shared space that extends the feeling of home beyond your front door.',
           'Space that grows with your family, in a neighbourhood already built for the future.'
         ],
-        image: imgAllura,
+        image: imgParkAvenue,
         imageCaption: '10,500 Sft Clubhouse & Community Facilities'
       }
     ],
@@ -740,8 +745,8 @@ export const projectsData = {
     city: 'Visakhapatnam',
     location: 'Madhurawada, Visakhapatnam',
     heroImage: imgGoldenValley,
-    heroVideo: heroVideoPlaceholder,
-    logo: null,
+    heroVideo: null,
+    logo: logoGoldenValley,
     rera: 'AP RERA Registered',
     reraAuthority: 'AP RERA',
     reraLink: 'https://rera.ap.gov.in/',
@@ -783,7 +788,7 @@ export const projectsData = {
           'IBM, Cyient, Navayuga and other major employers are roughly 3 km away.',
           'Golden Valley\'s location keeps work close, the coast closer, and everyday life straightforward.'
         ],
-        image: imgParkAvenue,
+        image: imgGoldenValley,
         imageCaption: 'IT Corridor, NH-16 & Coastal Proximity · Madhurawada'
       },
       {
@@ -891,7 +896,8 @@ export const projectsData = {
     rera: 'P02400000557',
     reraAuthority: 'TS RERA',
     reraLink: 'https://rera.telangana.gov.in/',
-    brochureUrl: '#',
+    brochureUrl: 'https://drive.google.com/drive/folders/1qUaYObfmertxSbwOtVmMJoVSHIUERpi9',
+    masterPlanLink: 'https://drive.google.com/drive/folders/1u85e_BDYrPcQeZr5-pHQCK-R-cWM8V7f',
     projectLink: '#',
     walkthroughVideoLink: '#',
     googleMapLink: 'https://maps.google.com/?q=Northstar+District+1+Financial+District+Hyderabad',
@@ -1030,11 +1036,12 @@ export const projectsData = {
     city: 'Hyderabad',
     location: 'Thukkuguda, Near Hyderabad International Airport',
     heroImage: imgAirportBoulevard,
-    logo: null,
+    logo: logoAirportBoulevard,
     rera: 'TS RERA Registered',
     reraAuthority: 'TS RERA',
     reraLink: 'https://rera.telangana.gov.in/',
     brochureUrl: 'https://drive.google.com/drive/folders/1cDNCRFxzwyMRUBOMwkEPxeSN22euwt-1',
+    unitPlanLink: 'https://drive.google.com/drive/folders/1kjAqIiVOO49lay0bf_IlbjmNFAi1mupQ',
     projectLink: '#',
     walkthroughVideoLink: '#',
     googleMapLink: 'https://maps.google.com/?q=Thukkuguda+Hyderabad',
@@ -1069,7 +1076,7 @@ export const projectsData = {
           'Wide roads, landscaped greens and a thoughtfully laid-out community plan make everyday life more relaxed.',
           'A delivered community for those who value space, privacy and ease of access.'
         ],
-        image: imgSanctuary,
+        image: imgAirportBoulevard,
         imageCaption: 'Smart Villa Community · 9.5 Acres'
       },
       {
@@ -1174,7 +1181,8 @@ export const projectsData = {
     reraLink: 'https://rera.telangana.gov.in/',
     brochureUrl: 'https://drive.google.com/drive/folders/1HXAhycCl8tKNXetfnUHFhl0a9Ox2kXUe',
     projectLink: '#',
-    walkthroughVideoLink: '#',
+    walkthroughVideoLink: 'https://drive.google.com/drive/folders/1W6v6oUcOb-9py1vLDwZq-BNg-wRUiSCg',
+    floorPlanLink: 'https://drive.google.com/drive/folders/1GaCowbqSn3OslAPFD0kZBqTeeU5GCUh4',
     googleMapLink: 'https://maps.google.com/?q=Northstar+Hillside+Gandipet+Hyderabad',
     googleMapEmbed: 'https://maps.google.com/maps?q=Northstar+Hillside+Gandipet+Hyderabad&hl=en&z=15&output=embed',
 
@@ -1221,7 +1229,7 @@ export const projectsData = {
           'The natural landscape of Gandipet forms the backdrop, while the city remains within easy reach.',
           'A villa address that balances open living with urban access.'
         ],
-        image: imgAllura,
+        image: imgHillside,
         imageCaption: 'Gandipet · Financial District Corridor · Western Hyderabad'
       }
     ],
@@ -1318,7 +1326,7 @@ export const projectsData = {
     rera: 'TS RERA Registered',
     reraAuthority: 'TS RERA',
     reraLink: 'https://rera.telangana.gov.in/',
-    brochureUrl: '#',
+    brochureUrl: 'https://drive.google.com/drive/folders/1BknCylJM1Q9Y4n1BLMWjmp7fAWQY8jOG',
     projectLink: '#',
     walkthroughVideoLink: '#',
     googleMapLink: 'https://maps.google.com/?q=Northstar+Veda+Himayatnagar+Hyderabad',
@@ -1364,7 +1372,7 @@ export const projectsData = {
           'Healthcare, schools, restaurants, shopping and metro connectivity are all within easy reach.',
           'Veda places you at the centre of a neighbourhood that has been part of Hyderabad\'s fabric for decades.'
         ],
-        image: imgAllura,
+        image: imgVeda,
         imageCaption: 'Himayatnagar · Central Hyderabad Connectivity'
       }
     ],
@@ -1457,11 +1465,13 @@ export const projectsData = {
     city: 'Visakhapatnam',
     location: 'Venkojipalem / near MVP Colony, Visakhapatnam',
     heroImage: imgEdenGardens,
+    heroVideo: heroVideoPlaceholder,
     logo: logoEdenGardens,
     rera: 'P03280080465',
     reraAuthority: 'AP RERA',
     reraLink: 'https://rera.ap.gov.in/',
-    brochureUrl: '#',
+    brochureUrl: 'https://drive.google.com/drive/folders/1O7Xj1VkINCA-brJrDZDcSwwkkDYKm5P1',
+    floorPlanLink: 'https://drive.google.com/drive/folders/10K46s-_0A8eM-PQIw9rzFAwwxYOCeKKI',
     projectLink: '#',
     walkthroughVideoLink: 'https://drive.google.com/drive/folders/1W6v6oUcOb-9py1vLDwZq-BNg-wRUiSCg',
     googleMapLink: 'https://maps.google.com/?q=Northstar+Eden+Garden+Visakhapatnam',
@@ -1510,7 +1520,7 @@ export const projectsData = {
           'A residential address that lets the city\'s best qualities become part of daily life.',
           'The hills, the sea and the city — all from one address.'
         ],
-        image: imgAllura,
+        image: imgEdenGardens,
         imageCaption: 'Near Kailasagiri & Vizag Coast · MVP Colony Proximity'
       }
     ],
@@ -1657,7 +1667,7 @@ export const projectsData = {
           'Rail, metro, healthcare, shopping and everyday conveniences are all within comfortable reach.',
           'At Leela, the city is already around you — without you having to go looking for it.'
         ],
-        image: imgAllura,
+        image: imgLeela,
         imageCaption: 'Padmarao Nagar · Rail, Metro & Everyday Connectivity'
       }
     ],
@@ -1797,7 +1807,7 @@ export const projectsData = {
           'AMG Plaza is placed to serve the daily needs of the area while drawing from a wider catchment.',
           'A commercial address built for where the neighbourhood already was — and where it is heading.'
         ],
-        image: imgAllura,
+        image: imgAmgPlaza,
         imageCaption: 'West Marredpally · Established Commercial Neighbourhood · Secunderabad'
       }
     ],
@@ -1936,7 +1946,7 @@ export const projectsData = {
           'Garden Suites takes that address and distils it into just four homes — a quieter, more private interpretation of Banjara Hills living.',
           'All that Banjara Hills offers, without the compromise of density.'
         ],
-        image: imgAllura,
+        image: imgGardenSuites,
         imageCaption: 'Road No. 12, Banjara Hills · Hyderabad\'s Premier Address'
       }
     ],

@@ -56,7 +56,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   };
 
   return (
-    <div className="bg-bg text-ink font-body">
+    <div className="bg-bg text-ink font-body project-detail-page">
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 1: HERO SPOTLIGHT BANNER (Lodha Malabar Style)
@@ -203,7 +203,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     window.scrollTo({ top, behavior: 'smooth' });
                   }
                 }}
-                className="px-5 py-2 rounded-full bg-[#07294A] hover:bg-[#0B6FB5] text-white text-[11px] tracking-[0.16em] uppercase font-medium shadow-sm transition-all duration-300"
+                className="px-5 py-2 rounded-full bg-[#785D4A] hover:bg-[#634C3C] text-white text-[11px] tracking-[0.16em] uppercase font-medium shadow-sm transition-all duration-300"
               >
                 Enquire Now
               </a>
@@ -232,8 +232,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               </span>
             </div>
 
-            {/* Statement Heading in Playfair Display Medium */}
-            <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-heading font-medium text-ink leading-[1.16] tracking-tight mb-6">
+            {/* Statement Heading in Montserrat Regular */}
+            <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-body font-normal text-ink leading-[1.16] tracking-tight mb-6">
               {project.headerTitle || project.tagline || project.name}
             </h1>
 
@@ -247,7 +247,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                 <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
                   Project Typology
                 </span>
-                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                <span className="text-[17px] sm:text-[20px] font-body font-normal text-ink leading-snug">
                   {project.type || 'Luxury Residences'}
                 </span>
               </div>
@@ -256,7 +256,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                 <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
                   Configurations
                 </span>
-                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                <span className="text-[17px] sm:text-[20px] font-body font-normal text-ink leading-snug">
                   {project.specs?.find(s => s.label.toLowerCase().includes('config') || s.label.toLowerCase().includes('size') || s.label.toLowerCase().includes('plot'))?.value || 'Spacious 3 & 4 BHK'}
                 </span>
               </div>
@@ -265,7 +265,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                 <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
                   Status / Possession
                 </span>
-                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                <span className="text-[17px] sm:text-[20px] font-body font-normal text-ink leading-snug">
                   {project.statusBadge || project.status || 'Ready for Living'}
                 </span>
               </div>
@@ -274,7 +274,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                 <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-accent font-body font-semibold mb-2">
                   Location
                 </span>
-                <span className="text-[17px] sm:text-[20px] font-heading font-medium text-ink leading-snug">
+                <span className="text-[17px] sm:text-[20px] font-body font-normal text-ink leading-snug">
                   {project.location?.split(',')[0] || project.city}
                 </span>
               </div>
@@ -336,8 +336,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                       </span>
                     )}
 
-                    {/* Headline in Playfair Display Medium */}
-                    <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-heading font-medium text-ink leading-[1.2] tracking-tight mb-5">
+                    {/* Headline in Montserrat Regular */}
+                    <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-body font-normal text-ink leading-[1.2] tracking-tight mb-5">
                       {item.headline}
                     </h2>
 
@@ -378,10 +378,10 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             
             <div className="flex flex-wrap justify-between items-end gap-6 mb-14">
               <div>
-                <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
+                <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2">
                   {project.constructionProgress.eyebrow}
                 </p>
-                <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-heading font-normal text-ink leading-tight">
+                <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-body font-normal text-ink leading-tight">
                   {project.constructionProgress.title}
                 </h2>
               </div>
@@ -582,7 +582,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
           
           {/* Section Header: Clean, Left-Aligned Location Heading */}
           <div className="mb-8 lg:mb-10">
-            <h2 className="text-[36px] sm:text-[44px] lg:text-[48px] font-heading font-medium text-[#07294A] leading-tight">
+            <h2 className="text-[36px] sm:text-[44px] lg:text-[48px] font-body font-normal text-[#07294A] leading-tight">
               Location
             </h2>
           </div>
@@ -595,7 +595,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               <div>
                 {/* Address Section */}
                 <div className="mb-8">
-                  <h3 className="text-[24px] sm:text-[28px] font-heading font-medium text-[#07294A] mb-3">
+                  <h3 className="text-[24px] sm:text-[28px] font-body font-normal text-[#07294A] mb-3">
                     Address
                   </h3>
                   <p className="text-[#07294A] font-medium text-[16px] mb-1">
@@ -617,7 +617,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
 
                 {/* Key Transport / Connectivity */}
                 <div>
-                  <h3 className="text-[24px] sm:text-[28px] font-heading font-medium text-[#07294A] mb-5 sm:mb-6">
+                  <h3 className="text-[24px] sm:text-[28px] font-body font-normal text-[#07294A] mb-5 sm:mb-6">
                     Key transport
                   </h3>
 
@@ -650,7 +650,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     href={project.locationDetails.googleMapLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-[#0B6FB5] hover:text-[#07294A] transition-colors"
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase font-semibold text-[#785D4A] hover:text-[#07294A] transition-colors"
                   >
                     <span>Get Directions on Google Maps</span>
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -671,8 +671,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   rel="noopener noreferrer"
                   className="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/95 hover:bg-white text-ink text-[12px] font-semibold tracking-wide shadow-md border border-line backdrop-blur-sm transition-all hover:shadow-lg"
                 >
-                  <span className="text-[#0B6FB5]">Open in Maps</span>
-                  <svg className="w-3.5 h-3.5 text-[#0B6FB5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="text-[#785D4A]">Open in Maps</span>
+                  <svg className="w-3.5 h-3.5 text-[#785D4A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
@@ -702,10 +702,10 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             
             {/* Left: Client Narrative & Quick CTAs */}
             <div className="lg:col-span-5">
-              <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-[#4FA3E3] font-heading font-bold mb-3">
+              <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-[#4FA3E3] font-body font-semibold mb-3">
                 {project.enquiry?.eyebrow || 'Start Your Enquiry'}
               </p>
-              <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-heading font-normal leading-[1.12] mb-6">
+              <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-body font-normal leading-[1.12] mb-6">
                 {project.enquiry?.title || 'Find Your Own Sanctuary'}
               </h2>
               <p className="text-[16px] text-white/80 font-body font-light leading-[1.8] mb-10 max-w-[460px]">
@@ -770,7 +770,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             {/* Right: Detailed Client-Specified Form */}
             <div className="lg:col-span-7">
               <div className="bg-white text-ink p-8 sm:p-10 rounded-2xl shadow-2xl border border-line">
-                <h3 className="text-[26px] font-heading font-normal text-ink mb-2">
+                <h3 className="text-[26px] font-body font-normal text-ink mb-2">
                   Find Your Plot or Villa
                 </h3>
                 <p className="text-[14px] text-muted font-body font-light mb-8">
@@ -782,7 +782,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     <svg className="w-12 h-12 text-accent mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <h4 className="text-[22px] font-heading text-ink mb-1">Enquiry Received</h4>
+                    <h4 className="text-[22px] font-body font-normal text-ink mb-1">Enquiry Received</h4>
                     <p className="text-[14px] text-muted font-body">
                       Thank you for your interest in <strong>{project.name}</strong>. Our senior advisors will contact you shortly with the master layout and pricing details.
                     </p>

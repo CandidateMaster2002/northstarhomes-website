@@ -42,7 +42,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#07294A] text-[#E9F2FA] border-t border-white/10 pt-20 lg:pt-28 pb-12 overflow-hidden">
+    <footer className="bg-[#785D4A] text-white border-t border-[#644D3D] pt-20 lg:pt-28 pb-12 overflow-hidden">
       <div className="max-w-[1360px] mx-auto px-6 sm:px-10">
 
         {/* Rich 4-Column Architectural Grid */}
@@ -55,10 +55,10 @@ export default function Footer() {
                 <img 
                   src={logoImg} 
                   alt="Northstar Homes Logo" 
-                  className="h-12 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)]" 
+                  className="h-12 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]" 
                 />
               </a>
-              <p className="text-[14px] leading-[1.85] font-body font-normal mb-8 max-w-[340px] text-[#8FA7BD]">
+              <p className="text-[14px] leading-[1.85] font-body font-normal mb-8 max-w-[340px] text-white/80">
                 Crafting sustainable luxury villas, plotted developments, and gated communities shaped with uncompromised engineering across South Hyderabad and Visakhapatnam.
               </p>
 
@@ -66,31 +66,31 @@ export default function Footer() {
               <div className="space-y-3 mb-8">
                 <a 
                   href="tel:+918657553355" 
-                  className="flex items-center gap-3.5 p-3 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/20 transition-all group"
+                  className="flex items-center gap-3.5 p-3 rounded-xl border border-white/20 bg-white/[0.08] hover:bg-white/[0.14] hover:border-white/30 transition-all group"
                 >
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white/10 text-[#4FA3E3] group-hover:bg-[#0B6FB5] group-hover:text-white">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white/15 text-white group-hover:bg-white group-hover:text-[#785D4A]">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Direct Line</span>
-                    <span className="block text-[14px] font-medium transition-colors font-body text-white group-hover:text-[#4FA3E3]">+91 86575 53355</span>
+                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-white/70">Direct Line</span>
+                    <span className="block text-[14px] font-medium transition-colors font-body text-white">+91 86575 53355</span>
                   </div>
                 </a>
 
                 <a 
                   href="mailto:support@northstarhomes.in" 
-                  className="flex items-center gap-3.5 p-3 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/20 transition-all group"
+                  className="flex items-center gap-3.5 p-3 rounded-xl border border-white/20 bg-white/[0.08] hover:bg-white/[0.14] hover:border-white/30 transition-all group"
                 >
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white/10 text-[#4FA3E3] group-hover:bg-[#0B6FB5] group-hover:text-white">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white/15 text-white group-hover:bg-white group-hover:text-[#785D4A]">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Email Concierge</span>
-                    <span className="block text-[14px] font-medium transition-colors font-body text-white group-hover:text-[#4FA3E3]">support@northstarhomes.in</span>
+                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-white/70">Email Concierge</span>
+                    <span className="block text-[14px] font-medium transition-colors font-body text-white">support@northstarhomes.in</span>
                   </div>
                 </a>
               </div>
@@ -98,7 +98,7 @@ export default function Footer() {
 
             {/* Monochromatic Social Buttons */}
             <div>
-              <p className="text-[10px] tracking-[0.22em] uppercase font-body font-semibold mb-3 text-[#8FA7BD]">
+              <p className="text-[10px] tracking-[0.22em] uppercase font-body font-semibold mb-3 text-white/75">
                 Official Channels
               </p>
               <div className="flex gap-2.5 items-center">
@@ -107,7 +107,7 @@ export default function Footer() {
                   href={siteConfig.socials.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
+                  className="w-10 h-10 rounded-full border border-white/20 bg-white/[0.08] text-white hover:bg-white hover:text-[#785D4A] hover:border-white flex items-center justify-center transition-all duration-300" 
                   aria-label="Facebook"
                 >
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -120,7 +120,7 @@ export default function Footer() {
                   href={siteConfig.socials.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
+                  className="w-10 h-10 rounded-full border border-white/20 bg-white/[0.08] text-white hover:bg-white hover:text-[#785D4A] hover:border-white flex items-center justify-center transition-all duration-300" 
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -133,7 +133,7 @@ export default function Footer() {
                   href={siteConfig.socials.x} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
+                  className="w-10 h-10 rounded-full border border-white/20 bg-white/[0.08] text-white hover:bg-white hover:text-[#785D4A] hover:border-white flex items-center justify-center transition-all duration-300" 
                   aria-label="X (Twitter)"
                 >
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -146,7 +146,7 @@ export default function Footer() {
                   href={siteConfig.socials.youtube} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full border border-white/15 bg-white/[0.06] text-[#9CB5CB] hover:bg-[#0B6FB5] hover:text-white hover:border-[#0B6FB5] flex items-center justify-center transition-all duration-300" 
+                  className="w-10 h-10 rounded-full border border-white/20 bg-white/[0.08] text-white hover:bg-white hover:text-[#785D4A] hover:border-white flex items-center justify-center transition-all duration-300" 
                   aria-label="YouTube"
                 >
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -162,7 +162,7 @@ export default function Footer() {
             <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
               Our Addresses
             </h4>
-            <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
+            <div className="w-8 h-[2px] bg-white/40 mb-6" />
 
             <div className="space-y-3.5">
               {addressesData.map((proj) => (
@@ -170,15 +170,15 @@ export default function Footer() {
                   key={proj.name}
                   href={proj.href} 
                   onClick={handleFooterLinkClick}
-                  className="group block p-2 -mx-2 rounded-lg transition-all duration-300 hover:bg-white/[0.05]"
+                  className="group block p-2 -mx-2 rounded-lg transition-all duration-300 hover:bg-white/[0.08]"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[14px] font-medium font-body transition-all duration-300 text-white group-hover:text-[#4FA3E3] group-hover:translate-x-1">
+                    <span className="text-[14px] font-medium font-body transition-all duration-300 text-white group-hover:translate-x-1">
                       Northstar {proj.name}
                     </span>
-                    <span className="text-[11px] text-[#4FA3E3] opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+                    <span className="text-[11px] text-white opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                   </div>
-                  <span className="text-[11px] font-body font-normal block mt-0.5 text-[#8FA7BD]">
+                  <span className="text-[11px] font-body font-normal block mt-0.5 text-white/70">
                     {proj.location}
                   </span>
                 </a>
@@ -191,7 +191,7 @@ export default function Footer() {
             <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
               The Company
             </h4>
-            <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
+            <div className="w-8 h-[2px] bg-white/40 mb-6" />
 
             <ul className="list-none p-0 m-0 space-y-3">
               {companyData.map((item) => (
@@ -199,9 +199,9 @@ export default function Footer() {
                   <a 
                     href={item.href} 
                     onClick={handleFooterLinkClick}
-                    className="group flex items-center gap-2.5 text-[14px] font-body font-normal transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
+                    className="group flex items-center gap-2.5 text-[14px] font-body font-normal transition-colors py-0.5 text-white/80 hover:text-white"
                   >
-                    <span className="text-[11px] font-mono transition-colors text-[#3898E2]">
+                    <span className="text-[11px] font-mono transition-colors text-white/60 group-hover:text-white">
                       {item.no}
                     </span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -219,7 +219,7 @@ export default function Footer() {
               <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
                 Client Advisory
               </h4>
-              <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
+              <div className="w-8 h-[2px] bg-white/40 mb-6" />
 
               <ul className="list-none p-0 m-0 space-y-3">
                 {advisoryData.map((item) => (
@@ -227,7 +227,7 @@ export default function Footer() {
                     <a 
                       href={item.href} 
                       onClick={handleFooterLinkClick}
-                      className="text-[13px] font-body font-normal block py-0.5 hover:translate-x-1 transition-all duration-300 text-[#9CB5CB] hover:text-white"
+                      className="text-[13px] font-body font-normal block py-0.5 hover:translate-x-1 transition-all duration-300 text-white/80 hover:text-white"
                     >
                       {item.name}
                     </a>
@@ -237,18 +237,18 @@ export default function Footer() {
             </div>
 
             {/* Private Tour Concierge Card */}
-            <div className="mt-8 p-4 rounded-2xl border border-white/15 bg-white/[0.05] transition-all">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] mb-1 font-body text-[#4FA3E3]">
+            <div className="mt-8 p-4 rounded-2xl border border-white/20 bg-white/[0.08] transition-all">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] mb-1 font-body text-white">
                 Experience in Person
               </p>
-              <p className="text-[12px] font-light leading-relaxed mb-3.5 font-body text-[#8FA7BD]">
+              <p className="text-[12px] font-normal leading-relaxed mb-3.5 font-body text-white/80">
                 Arrange a walkthrough of our plots, villas, and masterplans.
               </p>
               <a 
                 href="https://wa.me/918657553355?text=Hello%20Northstar%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl text-[11px] font-semibold tracking-[0.14em] uppercase transition-all shadow-sm bg-[#0B6FB5] text-white hover:bg-white hover:text-[#07294A]"
+                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl text-[11px] font-semibold tracking-[0.14em] uppercase transition-all shadow-md bg-white text-[#785D4A] hover:bg-[#634C3C] hover:text-white"
               >
                 Schedule Site Visit &rarr;
               </a>
@@ -258,7 +258,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal & Statutory Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-normal text-[#8FA7BD]">
+        <div className="pt-8 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-normal text-white/70">
           <p>© 2026 Northstar Homes. All rights reserved.</p>
           
           <p className="text-center md:text-left">
@@ -266,9 +266,9 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-6 items-center pr-14 md:pr-0">
-            <a href="#coming-soon" className="hover:text-[#4FA3E3] transition-colors">Privacy Policy</a>
-            <a href="#coming-soon" className="hover:text-[#4FA3E3] transition-colors">Terms of Use</a>
-            <a href="#coming-soon" className="hover:text-[#4FA3E3] transition-colors">Disclaimer</a>
+            <a href="#coming-soon" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#coming-soon" className="hover:text-white transition-colors">Terms of Use</a>
+            <a href="#coming-soon" className="hover:text-white transition-colors">Disclaimer</a>
           </div>
         </div>
 

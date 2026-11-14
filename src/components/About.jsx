@@ -78,7 +78,7 @@ export default function About() {
                   <div className="mt-8 md:mt-0">
                     <a
                       href="#coming-soon"
-                      className="inline-flex items-center justify-center px-8 py-3 text-[12px] tracking-[0.2em] uppercase font-body font-medium text-ink border border-ink/30 hover:border-accent hover:text-accent transition-all duration-300"
+                      className="inline-flex items-center justify-center px-8 py-3 text-[12px] tracking-[0.2em] uppercase font-nav font-medium bg-[#785D4A] hover:bg-[#634C3C] text-white rounded-full shadow-sm transition-all duration-300"
                     >
                       Know More
                     </a>

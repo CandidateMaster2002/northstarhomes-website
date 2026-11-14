@@ -336,10 +336,10 @@ export default function AmenitiesOptionD({ project }) {
 
         {/* ── Section Header ── */}
         <div className="text-left max-w-4xl mb-14 sm:mb-18">
-          <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-heading font-bold mb-2">
+          <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2">
             {project.amenitiesHeader?.eyebrow || 'Curated Amenities'}
           </p>
-          <h2 className="text-[34px] sm:text-[46px] lg:text-[54px] font-heading font-medium text-[#07294A] leading-[1.14] tracking-tight mb-4">
+          <h2 className="text-[34px] sm:text-[46px] lg:text-[54px] font-body font-normal text-[#07294A] leading-[1.14] tracking-tight mb-4">
             {project.amenitiesHeader?.title || 'A Lifestyle Shaped by Greenery, Wellness and Community'}
           </h2>
           <p className="text-muted text-[15px] sm:text-[16px] font-body font-light leading-relaxed max-w-3xl">
@@ -357,7 +357,7 @@ export default function AmenitiesOptionD({ project }) {
               
               {/* Category Title & Subtitle matching the reference */}
               <div className="mb-10 sm:mb-12 text-left">
-                <h3 className="text-[24px] sm:text-[30px] font-heading font-medium text-[#07294A] tracking-tight mb-1.5">
+                <h3 className="text-[24px] sm:text-[30px] font-body font-normal text-[#07294A] tracking-tight mb-1.5">
                   {cat.title}
                 </h3>
                 <p className="text-muted text-[14px] sm:text-[15px] font-body font-light">

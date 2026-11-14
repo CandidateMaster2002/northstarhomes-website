@@ -543,7 +543,7 @@ export default function Header() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={() => setIsMobileMenuOpen(false)} 
-                className="w-full text-center bg-btn-bg text-btn-ink py-3.5 rounded-xl font-semibold text-[13px] tracking-[0.14em] uppercase shadow-md active:scale-[0.99] transition-transform"
+                className="w-full text-center bg-[#785D4A] hover:bg-[#634C3C] text-white py-3.5 rounded-xl font-semibold text-[13px] tracking-[0.14em] uppercase shadow-md active:scale-[0.99] transition-transform"
               >
                 Schedule a Visit
               </a>
@@ -556,11 +556,7 @@ export default function Header() {
               href="https://wa.me/918657553355?text=Hello%20Northstar%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className={`inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[12px] tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-sm cursor-pointer whitespace-nowrap ${
-                isScrolled
-                  ? 'bg-btn-bg text-btn-ink hover:bg-ink hover:shadow-md'
-                  : 'bg-white text-ink hover:bg-white/90 hover:shadow-[0_4px_16px_rgba(255,255,255,0.4)]'
-              }`}
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[12px] tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-sm cursor-pointer whitespace-nowrap bg-[#785D4A] hover:bg-[#634C3C] text-white hover:shadow-md"
             >
               Schedule Visit
             </a>

@@ -460,7 +460,7 @@ export default function HomeLoanGuide() {
                 onClick={() => setActiveDocTab(tab.id)}
                 className={`px-5 py-2.5 rounded-full text-[12px] sm:text-[13px] tracking-[0.14em] uppercase font-semibold font-body transition-all cursor-pointer ${
                   activeDocTab === tab.id
-                    ? 'bg-[#07294A] text-white shadow'
+                    ? 'bg-[#785D4A] text-white shadow'
                     : 'bg-soft text-muted hover:text-ink'
                 }`}
               >

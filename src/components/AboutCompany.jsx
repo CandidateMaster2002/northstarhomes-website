@@ -171,7 +171,7 @@ export default function AboutCompany() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-[#1A1A1A]">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#07294A]">
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 1: HERO CINEMA (Lodha / Sobha Inspired Full-Width Banner)
@@ -233,17 +233,17 @@ export default function AboutCompany() {
             
             {/* Left Narrative */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#785D4A] font-nav font-semibold block">
                 COMPANY INTRODUCTION
               </span>
-              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#1A1A1A] leading-[1.14] tracking-tight">
+              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
                 We Build Spaces Where Life Feels Truly at Home
               </h2>
-              <div className="w-16 h-0.5 bg-[#0B6FB5]" />
-              <p className="text-[17px] sm:text-[19px] font-heading font-normal text-[#1A1A1A] leading-snug pt-2">
+              <div className="w-16 h-0.5 bg-[#785D4A]" />
+              <p className="text-[17px] sm:text-[19px] font-heading font-normal text-[#07294A] leading-snug pt-2">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
-              <p className="text-[15px] sm:text-[16px] font-body text-[#6B7280] leading-[1.8]">
+              <p className="text-[15px] sm:text-[16px] font-body text-[#556475] leading-[1.8]">
                 Established in 2012, Northstar Homes has grown into a trusted real estate developer across Hyderabad and Visakhapatnam, creating premium apartments, luxury villas, plotted communities, and commercial spaces.
               </p>
             </div>
@@ -280,10 +280,10 @@ export default function AboutCompany() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-[18px] font-heading font-medium text-[#1A1A1A] mb-1">
+              <h3 className="text-[18px] font-heading font-medium text-[#07294A] mb-1">
                 High-Rise Sophistication
               </h3>
-              <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+              <p className="text-[13px] text-[#556475] font-body leading-relaxed">
                 Contemporary high-rise apartments designed for breathable living in central city hubs.
               </p>
             </div>
@@ -296,10 +296,10 @@ export default function AboutCompany() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-[18px] font-heading font-medium text-[#1A1A1A] mb-1">
+              <h3 className="text-[18px] font-heading font-medium text-[#07294A] mb-1">
                 Nature-Led Plotted Enclaves
               </h3>
-              <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+              <p className="text-[13px] text-[#556475] font-body leading-relaxed">
                 Spacious plotted layouts amidst greenery, planned with enduring infrastructure and long-term appreciation.
               </p>
             </div>
@@ -312,10 +312,10 @@ export default function AboutCompany() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-[18px] font-heading font-medium text-[#1A1A1A] mb-1">
+              <h3 className="text-[18px] font-heading font-medium text-[#07294A] mb-1">
                 Coastal Community Living
               </h3>
-              <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+              <p className="text-[13px] text-[#556475] font-body leading-relaxed">
                 Gated communities designed around central green parks and modern family recreation.
               </p>
             </div>
@@ -332,10 +332,10 @@ export default function AboutCompany() {
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-[680px] mx-auto mb-12">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-2 block">
               PROVEN TRACK RECORD
             </span>
-            <h3 className="text-[28px] sm:text-[36px] font-heading font-normal text-[#1A1A1A] leading-tight">
+            <h3 className="text-[28px] sm:text-[36px] font-heading font-normal text-[#07294A] leading-tight">
               A Legacy of Thoughtful Craftsmanship Across Hyderabad & Vizag
             </h3>
           </div>
@@ -348,12 +348,12 @@ export default function AboutCompany() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="bg-white rounded-lg p-6 text-center border border-[#D8E6F2] hover:border-[#0B6FB5] hover:shadow-md transition-all duration-300 group"
+                className="bg-white rounded-lg p-6 text-center border border-[#D8E6F2] hover:border-[#785D4A] hover:shadow-md transition-all duration-300 group"
               >
-                <span className="text-[32px] sm:text-[38px] lg:text-[42px] font-heading font-medium text-[#0B6FB5] group-hover:text-[#07294A] transition-colors leading-none block mb-2">
+                <span className="text-[32px] sm:text-[38px] lg:text-[42px] font-heading font-medium text-[#785D4A] group-hover:text-[#07294A] transition-colors leading-none block mb-2">
                   {stat.value}
                 </span>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-nav font-medium text-[#6B7280] leading-snug block">
+                <span className="text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-nav font-medium text-[#556475] leading-snug block">
                   {stat.label}
                 </span>
               </motion.div>
@@ -410,33 +410,33 @@ export default function AboutCompany() {
 
             {/* Narrative & Craftsmanship Ethos */}
             <div className="space-y-6">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#785D4A] font-nav font-semibold block">
                 CRAFTING TIMELESS ELEGANCE
               </span>
-              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#1A1A1A] leading-[1.14] tracking-tight">
+              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
                 Meticulous Attention to Every Detail
               </h2>
-              <div className="w-16 h-0.5 bg-[#0B6FB5]" />
+              <div className="w-16 h-0.5 bg-[#785D4A]" />
               
-              <p className="text-[16px] font-body text-[#6B7280] leading-[1.85]">
+              <p className="text-[16px] font-body text-[#556475] leading-[1.85]">
                 Much like the great creators in luxury real estate, our dedication to quality is an ongoing journey. Every Northstar development brings together accomplished architects, skilled structural engineers, and premium construction materials to ensure your home stands the test of time.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="border-l-2 border-[#0B6FB5] pl-4">
-                  <h4 className="text-[16px] font-heading font-medium text-[#1A1A1A] mb-1">
+                <div className="border-l-2 border-[#785D4A] pl-4">
+                  <h4 className="text-[16px] font-heading font-medium text-[#07294A] mb-1">
                     Vaastu-Led Planning
                   </h4>
-                  <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                  <p className="text-[13px] text-[#556475] font-body leading-relaxed">
                     Thoughtfully aligned orientations maximizing positive natural energy, wind currents, and sunlight.
                   </p>
                 </div>
 
-                <div className="border-l-2 border-[#0B6FB5] pl-4">
-                  <h4 className="text-[16px] font-heading font-medium text-[#1A1A1A] mb-1">
+                <div className="border-l-2 border-[#785D4A] pl-4">
+                  <h4 className="text-[16px] font-heading font-medium text-[#07294A] mb-1">
                     Dual-Road & Open Layouts
                   </h4>
-                  <p className="text-[13px] text-[#6B7280] font-body leading-relaxed">
+                  <p className="text-[13px] text-[#556475] font-body leading-relaxed">
                     Rare architectural planning offering dual street access, private landscaped yards, and high privacy.
                   </p>
                 </div>
@@ -459,7 +459,7 @@ export default function AboutCompany() {
             
             {/* Mission Card */}
             <div className="p-10 sm:p-14 rounded-xl bg-[#07294A] text-white relative overflow-hidden shadow-xl flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0B6FB5]/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#785D4A]/20 rounded-full blur-3xl pointer-events-none" />
               <div>
                 <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#3898E2] font-nav font-semibold mb-3 block">
                   PURPOSE & COMMITMENT
@@ -479,17 +479,17 @@ export default function AboutCompany() {
             {/* Vision Card */}
             <div className="p-10 sm:p-14 rounded-xl bg-white border border-[#D8E6F2] shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
+                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-3 block">
                   CORE GUIDING PRINCIPLES
                 </span>
-                <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-[#1A1A1A] mb-5 leading-tight">
+                <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-[#07294A] mb-5 leading-tight">
                   Our Vision
                 </h3>
-                <p className="text-[16px] sm:text-[17px] font-body font-normal text-[#6B7280] leading-[1.85]">
+                <p className="text-[16px] sm:text-[17px] font-body font-normal text-[#556475] leading-[1.85]">
                   To be recognised across South India as the benchmark for uncompromised construction quality, sustainable plotted and villa community master planning, and enduring customer trust.
                 </p>
               </div>
-              <div className="mt-8 pt-6 border-t border-[#D8E6F2] flex items-center justify-between text-[13px] text-[#0B6FB5] font-nav font-semibold">
+              <div className="mt-8 pt-6 border-t border-[#D8E6F2] flex items-center justify-between text-[13px] text-[#785D4A] font-nav font-semibold">
                 <span>Skilled Professionals Behind Every Project &rarr;</span>
               </div>
             </div>
@@ -507,13 +507,13 @@ export default function AboutCompany() {
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
           <div className="text-center max-w-[760px] mx-auto mb-16">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-3 block">
               ARCHITECTURAL ETHOS
             </span>
-            <h2 className="text-[34px] sm:text-[46px] lg:text-[50px] font-heading font-normal text-[#1A1A1A] leading-tight mb-4">
+            <h2 className="text-[34px] sm:text-[46px] lg:text-[50px] font-heading font-normal text-[#07294A] leading-tight mb-4">
               Our Philosophy: Dream. Discover. Dwell.
             </h2>
-            <p className="text-[#6B7280] font-normal text-[15px] sm:text-[17px] leading-[1.8]">
+            <p className="text-[#556475] font-normal text-[15px] sm:text-[17px] leading-[1.8]">
               These three words define how we approach every project — from the first plot of land we evaluate to the day we hand over the keys.
             </p>
           </div>
@@ -540,10 +540,10 @@ export default function AboutCompany() {
               </div>
               <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[24px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors mb-3">
+                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors mb-3">
                     Dream
                   </h3>
-                  <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] leading-[1.75]">
+                  <p className="text-[14px] sm:text-[15px] font-body text-[#556475] leading-[1.75]">
                     Every great home begins with listening. We invest deeply in understanding our customers' aspirations, the character of every neighbourhood, and the vision that the future demands of a great address.
                   </p>
                 </div>
@@ -570,10 +570,10 @@ export default function AboutCompany() {
               </div>
               <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[24px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors mb-3">
+                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors mb-3">
                     Discover
                   </h3>
-                  <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] leading-[1.75]">
+                  <p className="text-[14px] sm:text-[15px] font-body text-[#556475] leading-[1.75]">
                     We seek out prime locations with strong connectivity and long-term appreciation potential. We partner with accomplished architects and secure all approvals so buyers move forward with confidence.
                   </p>
                 </div>
@@ -600,10 +600,10 @@ export default function AboutCompany() {
               </div>
               <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[24px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors mb-3">
+                  <h3 className="text-[24px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors mb-3">
                     Dwell
                   </h3>
-                  <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] leading-[1.75]">
+                  <p className="text-[14px] sm:text-[15px] font-body text-[#556475] leading-[1.75]">
                     We design spaces that elevate everyday living — spaces that are functional, beautiful, and built to the highest standards of craftsmanship.
                   </p>
                 </div>
@@ -624,14 +624,14 @@ export default function AboutCompany() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold block mb-2">
+              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold block mb-2">
                 HEAR FROM OUR COMMUNITY
               </span>
-              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#1A1A1A] leading-tight">
+              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-tight">
                 Resident Experiences
               </h2>
             </div>
-            <p className="text-[14px] sm:text-[15px] font-body text-[#6B7280] max-w-[420px]">
+            <p className="text-[14px] sm:text-[15px] font-body text-[#556475] max-w-[420px]">
               Direct reflections and authentic homebuyer journeys across our completed developments.
             </p>
           </div>
@@ -672,7 +672,7 @@ export default function AboutCompany() {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-[16px] font-heading font-medium text-[#1A1A1A] group-hover:text-[#0B6FB5] transition-colors leading-snug line-clamp-2">
+                  <h3 className="text-[16px] font-heading font-medium text-[#07294A] group-hover:text-[#785D4A] transition-colors leading-snug line-clamp-2">
                     {t.title}
                   </h3>
                 </div>
@@ -691,13 +691,13 @@ export default function AboutCompany() {
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
 
           <div className="text-center mb-16">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
+            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#785D4A] font-nav font-semibold mb-2 block">
               FREQUENTLY ASKED QUESTIONS
             </span>
-            <h2 className="text-[32px] sm:text-[44px] font-heading font-normal text-[#1A1A1A] leading-tight mb-4">
+            <h2 className="text-[32px] sm:text-[44px] font-heading font-normal text-[#07294A] leading-tight mb-4">
               Everything You Need to Know
             </h2>
-            <p className="text-[15px] font-body text-[#6B7280]">
+            <p className="text-[15px] font-body text-[#556475]">
               Transparent answers regarding our legacy, planning standards, and buying process.
             </p>
           </div>
@@ -715,10 +715,10 @@ export default function AboutCompany() {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer bg-white hover:bg-white transition-colors"
                   >
-                    <span className="text-[16px] sm:text-[17px] font-heading font-medium text-[#1A1A1A] pr-4">
+                    <span className="text-[16px] sm:text-[17px] font-heading font-medium text-[#07294A] pr-4">
                       {faq.q}
                     </span>
-                    <span className={`w-8 h-8 rounded-full border border-[#D5CFC7] flex items-center justify-center shrink-0 text-[#1A1A1A] transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
+                    <span className={`w-8 h-8 rounded-full border border-[#D5CFC7] flex items-center justify-center shrink-0 text-[#07294A] transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
                       </svg>
@@ -734,7 +734,7 @@ export default function AboutCompany() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-5 pb-6 sm:px-6 text-[14px] sm:text-[15px] text-[#6B7280] font-body leading-[1.75] border-t border-[#F0EBE4] pt-4">
+                        <div className="px-5 pb-6 sm:px-6 text-[14px] sm:text-[15px] text-[#556475] font-body leading-[1.75] border-t border-[#F0EBE4] pt-4">
                           {faq.a}
                         </div>
                       </motion.div>

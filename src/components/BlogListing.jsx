@@ -201,7 +201,7 @@ export default function BlogListing() {
                   onClick={() => setCurrentPage(num)}
                   className={`w-9 h-9 rounded-lg text-xs font-semibold transition-all ${
                     currentPage === num
-                      ? 'bg-[#07294A] text-white shadow'
+                      ? 'bg-[#785D4A] text-white shadow'
                       : 'bg-white border border-line text-ink hover:bg-soft'
                   }`}
                 >

@@ -225,7 +225,7 @@ export default function Careers() {
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
                   href="#apply-form"
-                  className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold bg-[#0B6FB5] text-white rounded-lg shadow-lg hover:bg-[#0B6FB5]/90 transition-all duration-300"
+                  className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold bg-[#785D4A] hover:bg-[#634C3C] text-white rounded-lg shadow-lg transition-all duration-300"
                 >
                   Direct Application
                 </a>
@@ -592,7 +592,7 @@ export default function Careers() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center min-h-13 px-10 py-4 text-[13px] tracking-[0.2em] uppercase font-semibold bg-[#0B6FB5] text-white rounded-lg shadow-lg hover:bg-[#07294A] transition-colors duration-300 cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center min-h-13 px-10 py-4 text-[13px] tracking-[0.2em] uppercase font-semibold bg-[#785D4A] hover:bg-[#634C3C] text-white rounded-lg shadow-lg transition-colors duration-300 cursor-pointer"
                   >
                     Submit Application &rarr;
                   </button>

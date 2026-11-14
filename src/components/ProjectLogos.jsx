@@ -38,7 +38,7 @@ export default function ProjectLogos() {
   const infiniteLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
-    <section className="bg-soft py-[60px] border-t border-line overflow-hidden">
+    <section className="bg-bg py-[60px] border-t border-line overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6 mb-10 text-center flex flex-col items-center">
         <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
           Our Portfolio
