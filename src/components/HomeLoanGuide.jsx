@@ -223,32 +223,27 @@ export default function HomeLoanGuide() {
     <main className="min-h-screen bg-bg text-ink">
 
       {/* ─────────────────────────────────────────────────────────────
-          HERO BANNER
+          HERO BANNER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-[#07294A] text-white pt-24 pb-8 sm:pt-28 sm:pb-10 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-        
+      <section className="bg-white text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 relative z-10">
-          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-[#8FA7BD] mb-3">
-            <a href="#top" className="hover:text-white transition-colors">Home</a>
+          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-3">
+            <a href="#top" className="hover:text-ink transition-colors">Home</a>
             <span>/</span>
-            <span className="text-[#8FA7BD]">Resources</span>
+            <span className="text-muted">Resources</span>
             <span>/</span>
-            <span className="text-white font-medium">Home Loan Guide</span>
+            <span className="text-accent font-medium">Home Loan Guide</span>
           </div>
 
-          <div className="max-w-[880px]">
-            <span className="text-[12px] tracking-[0.26em] uppercase font-body font-semibold text-[#4FA3E3] block mb-2">
-              Home Loan Guide
+          <div className="max-w-[800px]">
+            <span className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold text-accent block mb-2">
+              Financial Planning Guide
             </span>
-            <h1 className="text-[30px] sm:text-[44px] lg:text-[52px] font-heading font-normal text-white leading-[1.12] mb-4">
+            <h1 className="text-[32px] sm:text-[44px] lg:text-[50px] font-body font-normal text-ink leading-[1.12] mb-4">
               Plan Your Home Purchase with Clarity and Confidence
             </h1>
-            <p className="text-[15px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-relaxed mb-4">
-              Buying a home is one of life’s most meaningful decisions. It is not only about choosing the right property, but also about planning your finances wisely, understanding your loan eligibility, preparing the right documents and selecting an EMI that supports your lifestyle comfortably.
-            </p>
-            <p className="text-[15px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-relaxed">
-              At Northstar, we believe the home-buying journey should feel clear, guided and stress-free. This Home Loan Guide is designed to help you understand the basics of home loans, EMI planning, documentation and the step-by-step process before you move closer to your dream home.
+            <p className="text-[16px] sm:text-[17px] font-body font-light text-muted leading-relaxed">
+              Understand eligibility criteria, documentation, lender approvals, and EMI structuring before you take the next step toward your Northstar residence.
             </p>
           </div>
         </div>
@@ -690,28 +685,28 @@ export default function HomeLoanGuide() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION: How Northstar Supports Your Home Loan Journey
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-14 lg:py-20 bg-[#07294A] text-white border-b border-white/10">
+      <section className="py-14 lg:py-20 bg-[#EEF5FB] text-ink border-b border-line">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-7">
-              <h2 className="text-[28px] sm:text-[40px] font-heading font-normal text-white mb-4 leading-tight">
+              <h2 className="text-[28px] sm:text-[38px] font-body font-normal text-ink mb-4 leading-tight">
                 How Northstar Supports Your Home Loan Journey
               </h2>
-              <p className="text-[15px] sm:text-[17px] text-[#C7DCED] font-light leading-relaxed mb-6">
-                At Northstar, we understand that buying a home is a major decision, and every buyer deserves proper guidance. Our team helps customers move through the home loan process with clarity and confidence.
+              <p className="text-[15px] sm:text-[16px] text-muted font-light leading-relaxed mb-6">
+                Our dedicated customer advisory team helps prospective buyers navigate the loan process from initial eligibility checks through to final disbursement.
               </p>
 
-              <h3 className="text-[14px] tracking-[0.16em] uppercase font-semibold text-white mb-4">
+              <h3 className="text-[13px] tracking-[0.16em] uppercase font-semibold text-accent mb-4 font-body">
                 Northstar Assistance Includes
               </h3>
 
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 list-none p-0 m-0">
                 {northstarAssistance.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.06] border border-white/10">
-                    <span className="text-[#4FA3E3] font-bold">✓</span>
-                    <span className="text-[13px] text-white/90 font-medium">{item}</span>
+                  <li key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-line shadow-sm">
+                    <span className="text-accent font-bold">✓</span>
+                    <span className="text-[13px] text-ink font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -865,30 +860,25 @@ export default function HomeLoanGuide() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION: Begin Your Home-Buying Journey with Confidence
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-[#07294A] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-
+      <section className="py-16 lg:py-20 bg-white text-ink border-t border-line relative overflow-hidden">
         <div className="max-w-[1040px] mx-auto px-6 sm:px-10 text-center relative z-10">
-          <h2 className="text-[30px] sm:text-[44px] font-heading font-normal text-white mb-4 leading-tight max-w-[820px] mx-auto">
+          <h2 className="text-[30px] sm:text-[40px] font-body font-normal text-ink mb-4 leading-tight max-w-[820px] mx-auto">
             Begin Your Home-Buying Journey with Confidence
           </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#C7DCED] font-light max-w-[680px] mx-auto mb-6 leading-relaxed">
-            A well-planned home loan helps you make a confident decision today and enjoy financial peace tomorrow. With the right property, the right guidance and the right repayment plan, your dream home becomes a more comfortable and achievable reality.
-          </p>
-          <p className="text-[14px] text-white/80 font-medium mb-10">
-            At Northstar, we are committed to helping you move forward with clarity, trust and confidence.
+          <p className="text-[15px] sm:text-[16px] text-muted font-light max-w-[680px] mx-auto mb-8 leading-relaxed">
+            With the right property, transparent guidance and an optimal repayment structure, your dream home becomes an achievable reality.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
-              className="px-8 py-3.5 rounded-full bg-btn-bg text-btn-ink text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-white hover:text-ink transition-all shadow-md cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-accent text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-[#634C3C] transition-all shadow-sm cursor-pointer"
             >
               Talk to Our Sales Team
             </a>
             <a
               href="#emi-calculator"
-              className="px-8 py-3.5 rounded-full bg-white text-ink text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-white/90 transition-all shadow-md cursor-pointer"
+              className="px-8 py-3.5 rounded-full border border-line text-ink text-[12px] tracking-[0.16em] uppercase font-semibold hover:border-accent hover:text-accent bg-soft/40 transition-all shadow-sm cursor-pointer"
             >
               Calculate EMI
             </a>

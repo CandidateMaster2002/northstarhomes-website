@@ -180,60 +180,50 @@ export default function Careers() {
     <main className="min-h-screen bg-bg text-ink pt-28 lg:pt-36">
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: HERO & CULTURE NARRATIVE
+          SECTION 1: HERO & CULTURE NARRATIVE (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative py-16 lg:py-24 bg-[#07294A] text-[#E9F2FA] overflow-hidden">
-        {/* Subtle decorative background elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0B6FB5]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#27702F]/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative py-16 lg:py-24 bg-white text-ink border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 relative z-10">
           
-          {/* Eyebrow & Headline */}
-          <div className="max-w-[800px] mb-12 lg:mb-16">
-            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#4FA3E3] font-body font-semibold mb-4 block">
+          {/* Eyebrow, Title & Core Message */}
+          <div className="max-w-[800px] mb-10 lg:mb-12">
+            <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-3 block">
               People & Culture · Northstar Homes
             </span>
-            <h1 className="text-[42px] sm:text-[56px] lg:text-[68px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-8">
+            <h1 className="text-[40px] sm:text-[52px] lg:text-[60px] font-body font-normal leading-[1.08] text-ink tracking-tight mb-5">
               Careers
             </h1>
-            <p className="text-[20px] sm:text-[24px] font-heading font-light text-[#C7DCED] leading-snug">
-              At Northstar, we believe that great spaces are built by great people.
+            <p className="text-[19px] sm:text-[22px] font-body font-normal text-ink leading-snug max-w-2xl">
+              At Northstar, we believe great spaces are built by exceptional people.
             </p>
           </div>
 
-          {/* Editorial Narrative Split */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pt-8 border-t border-white/15">
-            <div className="space-y-6 text-[16px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-[1.85]">
+          {/* Concise Editorial Split */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 pt-8 border-t border-line">
+            <div className="text-[15px] sm:text-[16px] font-body font-light text-muted leading-[1.8] space-y-4">
               <p>
-                Our work brings together planning, design, engineering, construction, sales, marketing, customer service, legal & liaisoning, accounts & finance, procurement, and many other teams who share one common goal — to create developments that people are proud to call home.
-              </p>
-              <p>
-                We look for people who are passionate, responsible, and ready to grow with us. Whether you are an experienced professional or a young talent starting your journey, Northstar offers an environment where your ideas, skills, and commitment can make a real difference.
+                Our teams bring together planning, architecture, engineering, construction, and customer experience with one shared commitment — creating homes and communities of enduring quality.
               </p>
             </div>
 
-            <div className="space-y-6 text-[16px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-[1.85]">
+            <div className="space-y-6 text-[15px] sm:text-[16px] font-body font-light text-muted leading-[1.8]">
               <p>
-                At Northstar, every contribution matters. From the first idea to the final handover, our people help create homes, communities, and experiences that stay close to people’s hearts.
-              </p>
-              <p className="font-normal text-white">
-                If you believe in quality, teamwork, and purposeful work, we would be happy to hear from you.
+                Whether you are an established professional or starting your career, Northstar offers an environment where craftsmanship, integrity, and purposeful work make a real difference.
               </p>
 
-              {/* CTA jump buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
                   href="#apply-form"
-                  className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold bg-[#785D4A] hover:bg-[#634C3C] text-white rounded-lg shadow-lg transition-all duration-300"
+                  className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.16em] uppercase font-semibold bg-accent hover:bg-[#634C3C] text-white rounded-lg shadow-sm transition-all duration-300"
                 >
                   Direct Application
                 </a>
                 <a
                   href="#openings"
-                  className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.18em] uppercase font-medium border border-white/30 text-white rounded-lg hover:bg-white hover:text-[#07294A] transition-all duration-300"
+                  className="inline-flex items-center justify-center min-h-12 px-7 py-3 text-[12px] tracking-[0.16em] uppercase font-medium border border-line text-ink rounded-lg hover:border-accent hover:text-accent bg-soft/40 transition-all duration-300"
                 >
-                  Explore Current Openings
+                  Current Openings
                 </a>
               </div>
             </div>

@@ -74,32 +74,24 @@ export default function EmiCalculator() {
     <main className="min-h-screen bg-[#F9FBFC] text-ink">
 
       {/* ─────────────────────────────────────────────────────────────
-          COMPACT SLIM HERO BANNER
+          CLEAN EDITORIAL HEADER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-[#07294A] text-white pt-24 pb-8 sm:pt-28 sm:pb-10 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-        
+      <section className="bg-white text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 relative z-10">
-          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-[#8FA7BD] mb-3">
-            <a href="#top" className="hover:text-white transition-colors">Home</a>
+          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-3">
+            <a href="#top" className="hover:text-ink transition-colors">Home</a>
             <span>/</span>
-            <span className="text-[#8FA7BD]">Resources</span>
+            <span className="text-muted">Resources</span>
             <span>/</span>
-            <span className="text-white font-medium">EMI Calculator</span>
+            <span className="text-accent font-medium">EMI Calculator</span>
           </div>
 
-          <div className="max-w-[880px]">
-            <h1 className="text-[30px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-white leading-[1.14] mb-4">
-              Plan Your Dream Home with Confidence
+          <div className="max-w-[780px]">
+            <h1 className="text-[32px] sm:text-[42px] lg:text-[48px] font-body font-normal text-ink leading-[1.14] mb-3">
+              Home Loan EMI Calculator
             </h1>
-            <p className="text-[15px] sm:text-[16px] font-body font-light text-[#C7DCED] leading-relaxed mb-3">
-              Owning a Northstar home begins with smart financial planning. Our easy-to-use Home Loan EMI Calculator helps you estimate your monthly installments and plan your investment with complete clarity.
-            </p>
-            <p className="text-[15px] sm:text-[16px] font-body font-light text-[#C7DCED] leading-relaxed mb-3">
-              Simply enter your loan amount, interest rate, and tenure to instantly calculate your EMI and understand your repayment journey. Whether you are exploring premium apartments, luxury villas, or future-ready living spaces, this tool helps you make informed decisions before taking the next step toward your dream home.
-            </p>
-            <p className="text-[15px] sm:text-[16px] font-body font-light text-[#C7DCED] leading-relaxed">
-              At Northstar Homes, we believe a home is more than an investment — it is a foundation for a better tomorrow. Start planning today and move closer to the home you have always envisioned.
+            <p className="text-[16px] sm:text-[17px] font-body font-light text-muted leading-relaxed">
+              Estimate your monthly installments and repayment schedule with complete clarity. Adjust loan parameters below to plan your Northstar home investment with confidence.
             </p>
           </div>
         </div>

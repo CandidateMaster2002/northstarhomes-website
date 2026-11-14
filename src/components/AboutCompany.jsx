@@ -194,10 +194,10 @@ export default function AboutCompany() {
 
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12 py-24 relative z-20 w-full">
           {/* Breadcrumb Navigation */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] tracking-[0.24em] uppercase font-nav font-semibold mb-8 text-[#8FA7BD]">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] tracking-[0.24em] uppercase font-nav font-semibold mb-8 text-[#C7DCED]">
             <a href="#top" className="hover:text-white transition-colors">Home</a>
             <span>/</span>
-            <span className="text-[#3898E2]">About Us</span>
+            <span className="text-white">About Us</span>
             <span>/</span>
             <span className="text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">Company</span>
           </div>
@@ -208,12 +208,12 @@ export default function AboutCompany() {
             transition={{ duration: 0.7 }}
             className="max-w-[820px]"
           >
-            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#3898E2] font-nav font-semibold mb-4 block">
+            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#D5BFA8] font-nav font-semibold mb-4 block">
               OUR STORY & PHILOSOPHY
             </span>
             <h1 className="text-[38px] sm:text-[54px] lg:text-[68px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-6">
               Building Trust. <br />
-              <span className="font-normal text-[#C7DCED]">Shaping Communities.</span>
+              <span className="font-normal text-[#E2EEF8]">Shaping Communities.</span>
             </h1>
             <p className="text-[16px] sm:text-[20px] font-body font-light text-[#C7DCED] leading-relaxed max-w-[680px]">
               At Northstar, we create spaces people believe in, belong to, and cherish for life.
@@ -458,20 +458,19 @@ export default function AboutCompany() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
             
             {/* Mission Card */}
-            <div className="p-10 sm:p-14 rounded-xl bg-[#07294A] text-white relative overflow-hidden shadow-xl flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#785D4A]/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="p-10 sm:p-14 rounded-xl bg-[#EEF5FB] text-ink border border-line shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#3898E2] font-nav font-semibold mb-3 block">
+                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-accent font-nav font-semibold mb-3 block">
                   PURPOSE & COMMITMENT
                 </span>
-                <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-white mb-5 leading-tight">
+                <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-ink mb-5 leading-tight">
                   Our Mission
                 </h3>
-                <p className="text-[16px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-[1.85]">
+                <p className="text-[16px] sm:text-[17px] font-body font-light text-muted leading-[1.85]">
                   At Northstar Homes, we are committed to responsible property development. We believe in creating high-quality spaces, built with sound design principles and delivered on time. Our goal is to enhance how our customers experience life, whether at home, at work, or at leisure.
                 </p>
               </div>
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-[13px] text-[#A6C5DE] font-nav">
+              <div className="mt-8 pt-6 border-t border-line flex items-center justify-between text-[13px] text-muted font-nav">
                 <span>Accountability • Craft • Timely Delivery</span>
               </div>
             </div>

@@ -194,35 +194,27 @@ export default function NriGuide() {
     <main className="min-h-screen bg-bg text-ink">
 
       {/* ─────────────────────────────────────────────────────────────
-          HERO BANNER
+          HERO BANNER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-[#07294A] text-white pt-24 pb-8 sm:pt-28 sm:pb-10 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-        
+      <section className="bg-white text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 relative z-10">
-          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-[#8FA7BD] mb-3">
-            <a href="#top" className="hover:text-white transition-colors">Home</a>
+          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-3">
+            <a href="#top" className="hover:text-ink transition-colors">Home</a>
             <span>/</span>
-            <span className="text-[#8FA7BD]">Resources</span>
+            <span className="text-muted">Resources</span>
             <span>/</span>
-            <span className="text-white font-medium">NRI Guide</span>
+            <span className="text-accent font-medium">NRI Guide</span>
           </div>
 
-          <div className="max-w-[900px]">
-            <span className="text-[12px] tracking-[0.26em] uppercase font-body font-semibold text-[#4FA3E3] block mb-2">
-              NRI Guide
+          <div className="max-w-[820px]">
+            <span className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold text-accent block mb-2">
+              NRI Advisory & Investment Guide
             </span>
-            <h1 className="text-[30px] sm:text-[44px] lg:text-[52px] font-heading font-normal text-white leading-[1.12] mb-4">
-              Buying a Home in India, Made Easier for Global Indians
+            <h1 className="text-[32px] sm:text-[44px] lg:text-[50px] font-body font-normal text-ink leading-[1.12] mb-4">
+              Buying Property in India, Made Seamless for Global Indians
             </h1>
-            <p className="text-[15px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-relaxed mb-4">
-              For many NRIs, buying a home in India is not just about investment. It is about staying connected to family, securing a future address, creating long-term value, and keeping a strong bond with home.
-            </p>
-            <p className="text-[15px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-relaxed mb-4">
-              At Northstar Homes, we understand that buying a property while living abroad can feel complicated. There are questions about documents, payments, home loans, taxes, registration, Power of Attorney, and repatriation of funds. This guide is created to help you understand the basics in a simple and clear way.
-            </p>
-            <p className="text-[15px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-relaxed">
-              Whether you are planning to invest in Hyderabad, buy a future home in Vizag, or explore premium residential projects in India, this NRI Guide will help you take the first step with confidence.
+            <p className="text-[16px] sm:text-[17px] font-body font-light text-muted leading-relaxed">
+              For NRIs and OCIs, investing in India combines generational belonging with long-term capital growth. Discover clear guidance on FEMA regulations, documentation, Power of Attorney, and fund repatriation.
             </p>
           </div>
         </div>
@@ -660,26 +652,26 @@ export default function NriGuide() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION: How Northstar Homes Supports NRI Buyers
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-14 lg:py-20 bg-[#07294A] text-white border-b border-white/10">
+      <section className="py-14 lg:py-20 bg-[#EEF5FB] text-ink border-b border-line">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10">
 
           <div className="max-w-[840px] mb-8">
-            <h2 className="text-[28px] sm:text-[40px] font-heading font-normal text-white mb-4 leading-tight">
-              How Northstar Homes Supports NRI Buyers
+            <h2 className="text-[28px] sm:text-[38px] font-body font-normal text-ink mb-4 leading-tight">
+              How Northstar Supports NRI Buyers
             </h2>
-            <p className="text-[15px] sm:text-[17px] text-[#C7DCED] font-light leading-relaxed mb-6">
-              Buying a home from another country requires trust, clarity, and regular communication. Our team helps NRI customers throughout the property journey.
+            <p className="text-[15px] sm:text-[16px] text-muted font-light leading-relaxed mb-6">
+              Acquiring property from abroad requires trust, transparent execution, and constant communication. Our dedicated NRI advisory desk assists across every phase.
             </p>
-            <h3 className="text-[16px] font-semibold text-white mb-4">
-              We assist with:
+            <h3 className="text-[13px] tracking-[0.16em] uppercase font-semibold text-accent mb-4 font-body">
+              Our Services Include
             </h3>
           </div>
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8 list-none p-0 m-0">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6 list-none p-0 m-0">
             {northstarAssistance.map((item, idx) => (
-              <li key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.06] border border-white/10">
-                <span className="text-[#4FA3E3] font-bold">✓</span>
-                <span className="text-[13px] text-white/90 font-medium">{item}</span>
+              <li key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-line shadow-sm">
+                <span className="text-accent font-bold">✓</span>
+                <span className="text-[13px] text-ink font-medium">{item}</span>
               </li>
             ))}
           </ul>
@@ -824,51 +816,28 @@ export default function NriGuide() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION: Start Your Property Journey with Northstar Homes
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-[#07294A] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-
+      <section className="py-16 lg:py-20 bg-white text-ink border-t border-line relative overflow-hidden">
         <div className="max-w-[1040px] mx-auto px-6 sm:px-10 text-center relative z-10">
-          <h2 className="text-[30px] sm:text-[44px] font-heading font-normal text-white mb-4 leading-tight max-w-[820px] mx-auto">
+          <h2 className="text-[30px] sm:text-[40px] font-body font-normal text-ink mb-4 leading-tight max-w-[820px] mx-auto">
             Start Your Property Journey with Northstar Homes
           </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#C7DCED] font-light max-w-[760px] mx-auto mb-6 leading-relaxed">
-            Whether you live in the USA, UK, UAE, Canada, Australia, Singapore, Europe, or anywhere else in the world, Northstar Homes is here to help you invest in India with confidence.
-          </p>
-          <p className="text-[14px] text-white/85 font-medium mb-10 max-w-[680px] mx-auto">
-            Explore our residential projects in Hyderabad and Vizag, connect with our team, schedule a virtual consultation, or plan a site visit for your family in India.
+          <p className="text-[15px] sm:text-[16px] text-muted font-light max-w-[720px] mx-auto mb-8 leading-relaxed">
+            Connect with our dedicated NRI advisory team to schedule a virtual walkthrough, request tailored project brochures, or arrange a site visit for your family in India.
           </p>
 
           {/* CTA Options */}
           <div className="flex flex-wrap items-center justify-center gap-3.5">
             <a
               href="#contact"
-              className="px-7 py-3.5 rounded-full bg-btn-bg text-btn-ink text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-white hover:text-ink transition-all shadow-md cursor-pointer"
+              className="px-7 py-3.5 rounded-full bg-accent text-white text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-[#634C3C] transition-all shadow-sm cursor-pointer"
             >
-              Schedule a Virtual Consultation
+              Virtual Consultation
             </a>
             <a
               href="#ongoing-projects"
-              className="px-7 py-3.5 rounded-full bg-white text-ink text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-white/90 transition-all shadow-md cursor-pointer"
+              className="px-7 py-3.5 rounded-full border border-line text-ink text-[12px] tracking-[0.14em] uppercase font-semibold hover:border-accent hover:text-accent bg-soft/40 transition-all shadow-sm cursor-pointer"
             >
-              Explore Projects in Hyderabad
-            </a>
-            <a
-              href="#ongoing-projects"
-              className="px-7 py-3.5 rounded-full bg-white text-ink text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-white/90 transition-all shadow-md cursor-pointer"
-            >
-              Explore Projects in Vizag
-            </a>
-            <a
-              href="#coming-soon"
-              className="px-7 py-3.5 rounded-full border border-white/30 text-white text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-white/10 transition-all cursor-pointer"
-            >
-              Download Project Brochure
-            </a>
-            <a
-              href="#contact"
-              className="px-7 py-3.5 rounded-full bg-[#3898E2] text-white text-[12px] tracking-[0.14em] uppercase font-semibold hover:bg-white hover:text-ink transition-all shadow-md cursor-pointer"
-            >
-              Enquire Now
+              Explore Projects
             </a>
           </div>
         </div>

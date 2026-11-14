@@ -65,13 +65,13 @@ export default function Gallery() {
     : galleryMedia.filter(item => item.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-[#07294A] text-white pt-[90px] sm:pt-[106px]">
+    <main className="min-h-screen bg-white text-ink pt-[90px] sm:pt-[106px]">
       
-      {/* ── Northstar Brand Filter Strip ── */}
-      <div className="w-full bg-[#041629] border-b border-[#0B6FB5]/20 flex flex-wrap items-center">
+      {/* ── Northstar Brand Filter Strip (Option 1: Crisp Clean Luxury) ── */}
+      <div className="w-full bg-white border-b border-line flex flex-wrap items-center">
         
-        {/* Brand Accent Filter Pill (Northstar Deep Blue & Royal Accent) */}
-        <div className="bg-[#0B6FB5] text-white px-6 sm:px-8 py-3.5 sm:py-4 flex items-center gap-2.5 text-[11px] sm:text-[12px] font-nav tracking-[0.22em] uppercase font-semibold shrink-0 shadow-md">
+        {/* Brand Accent Filter Pill */}
+        <div className="bg-accent text-white px-6 sm:px-8 py-3.5 sm:py-4 flex items-center gap-2.5 text-[11px] sm:text-[12px] font-body tracking-[0.2em] uppercase font-semibold shrink-0 shadow-sm">
           <span>GALLERY FILTER</span>
           <span className="text-[13px] leading-none">&rarr;</span>
         </div>
@@ -85,10 +85,10 @@ export default function Gallery() {
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`text-[11px] sm:text-[12px] font-nav tracking-[0.2em] uppercase transition-colors duration-200 shrink-0 cursor-pointer ${
+                className={`text-[11px] sm:text-[12px] font-body tracking-[0.18em] uppercase transition-colors duration-200 shrink-0 cursor-pointer ${
                   isActive
-                    ? 'text-[#3898E2] font-semibold border-b-2 border-[#3898E2] pb-1'
-                    : 'text-[#8FA7BD] hover:text-white font-medium pb-1'
+                    ? 'text-accent font-semibold border-b-2 border-accent pb-1'
+                    : 'text-muted hover:text-ink font-medium pb-1'
                 }`}
               >
                 {cat}
@@ -99,8 +99,8 @@ export default function Gallery() {
 
       </div>
 
-      {/* ── Seamless Full-Bleed Media Grid (Zero text printed on images) ── */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 p-1 bg-[#041629]">
+      {/* ── Clean Light Media Grid ── */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-3 sm:p-4 bg-white">
         {filteredItems.map((item, idx) => (
           <motion.div
             key={item.id}

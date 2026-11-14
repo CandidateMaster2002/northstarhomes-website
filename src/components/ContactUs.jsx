@@ -99,29 +99,27 @@ export default function ContactUs({ type = 'general' }) {
     <main className="min-h-screen bg-[#F9FBFC] text-ink">
 
       {/* ─────────────────────────────────────────────────────────────
-          COMPACT SLIM HEADER (Eliminates excessive thickness; form visible immediately)
+          COMPACT CLEAN HEADER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-[#07294A] text-white pt-24 pb-5 sm:pt-28 sm:pb-6 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-        
-        <div className="max-w-[1120px] mx-auto px-6 sm:px-8 relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-3 sm:gap-4">
+      <section className="bg-white text-ink pt-28 pb-6 sm:pt-32 sm:pb-8 border-b border-line relative overflow-hidden">
+        <div className="max-w-[1120px] mx-auto px-6 sm:px-8 relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-[#8FA7BD] mb-1.5">
-              <a href="#top" className="hover:text-white transition-colors">Home</a>
+            <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-2">
+              <a href="#top" className="hover:text-ink transition-colors">Home</a>
               <span>/</span>
-              <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+              <a href="#contact" className="hover:text-ink transition-colors">Contact</a>
               <span>/</span>
-              <span className="text-white font-medium">{config.label}</span>
+              <span className="text-accent font-medium">{config.label}</span>
             </div>
-            <h1 className="text-[26px] sm:text-[34px] lg:text-[40px] font-heading font-normal text-white leading-tight">
+            <h1 className="text-[28px] sm:text-[36px] lg:text-[42px] font-body font-normal text-ink leading-tight">
               {config.headline}
             </h1>
           </div>
 
-          <div className="text-[12px] sm:text-[13px] font-body text-[#C7DCED] flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span>Direct: <a href="tel:+918657553355" className="text-white font-medium hover:underline">+91 86575 53355</a></span>
-            <span className="hidden sm:inline text-white/30">·</span>
-            <span>Email: <a href="mailto:support@northstarhomes.in" className="text-white font-medium hover:underline">support@northstarhomes.in</a></span>
+          <div className="text-[13px] font-body text-muted flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span>Direct: <a href="tel:+918657553355" className="text-ink font-medium hover:text-accent transition-colors">+91 86575 53355</a></span>
+            <span className="hidden sm:inline text-line">·</span>
+            <span>Email: <a href="mailto:support@northstarhomes.in" className="text-ink font-medium hover:text-accent transition-colors">support@northstarhomes.in</a></span>
           </div>
         </div>
       </section>

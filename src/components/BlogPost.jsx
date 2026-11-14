@@ -62,23 +62,22 @@ export default function BlogPost({ slug }) {
 
       {/* ─────────────────────────────────────────────────────────────
           TOP NAVIGATION BAR (Breadcrumbs & Back button above hero image)
-          pt-24 sm:pt-28 lg:pt-32 ensures clear separation below the fixed Header (no overlap/coinciding).
       ───────────────────────────────────────────────────────────── */}
-      <nav aria-label="Breadcrumb" className="bg-[#07294A] border-b border-white/10 text-white pt-24 sm:pt-28 lg:pt-30 pb-4 sm:pb-5">
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-line text-ink pt-28 sm:pt-32 pb-4 sm:pb-5">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase font-body font-semibold text-[#8FA7BD]">
-            <a href="#top" className="hover:text-white transition-colors">Home</a>
+          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase font-body font-semibold text-muted">
+            <a href="#top" className="hover:text-ink transition-colors">Home</a>
             <span className="opacity-60">/</span>
-            <a href="#blogs" className="hover:text-white transition-colors">Blogs</a>
+            <a href="#blogs" className="hover:text-ink transition-colors">Blogs</a>
             <span className="opacity-60">/</span>
-            <span className="text-white truncate max-w-[200px] sm:max-w-[420px]">
+            <span className="text-accent truncate max-w-[200px] sm:max-w-[420px]">
               {post.title}
             </span>
           </div>
 
           <a
             href="#blogs"
-            className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.14em] font-semibold text-[#C7DCED] hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.14em] font-semibold text-muted hover:text-accent transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -90,10 +89,8 @@ export default function BlogPost({ slug }) {
 
       {/* ─────────────────────────────────────────────────────────────
           CINEMATIC HERO FEATURED IMAGE
-          - Clean, 100% uncovered from above
-          - object-top ensures logos/headers at top of image are never cropped
       ───────────────────────────────────────────────────────────── */}
-      <section className="w-full bg-[#07294A] border-b border-line overflow-hidden">
+      <section className="w-full bg-[#EEF5FB] border-b border-line overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto">
           <img
             src={post.featured_image}

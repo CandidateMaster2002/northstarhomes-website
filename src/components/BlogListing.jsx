@@ -38,27 +38,25 @@ export default function BlogListing() {
     <main className="min-h-screen bg-[#F9FBFC] text-ink">
       
       {/* ─────────────────────────────────────────────────────────────
-          HERO BANNER
+          HERO BANNER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-[#07294A] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-
+      <section className="bg-white text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 relative z-10">
           
-          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-[#8FA7BD] mb-3">
-            <a href="#top" className="hover:text-white transition-colors">Home</a>
+          <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-3">
+            <a href="#top" className="hover:text-ink transition-colors">Home</a>
             <span>/</span>
-            <span className="text-[#8FA7BD]">Resources</span>
+            <span className="text-muted">Resources</span>
             <span>/</span>
-            <span className="text-white font-medium">Blogs</span>
+            <span className="text-accent font-medium">Blogs</span>
           </div>
 
-          <div className="max-w-[820px]">
-            <h1 className="text-[32px] sm:text-[44px] lg:text-[50px] font-heading font-normal text-white leading-[1.14] mb-4">
-              Real Estate Insights & Architectural Perspectives
+          <div className="max-w-[800px]">
+            <h1 className="text-[32px] sm:text-[42px] lg:text-[48px] font-body font-normal text-ink leading-[1.14] mb-3">
+              Insights & Architectural Journal
             </h1>
-            <p className="text-[15px] sm:text-[17px] font-body font-light text-[#C7DCED] leading-relaxed mb-8">
-              Explore thoughtful perspectives on residential developments, investment trends, locality guides, and architectural designs across Hyderabad and Visakhapatnam.
+            <p className="text-[15px] sm:text-[16px] font-body font-light text-muted leading-relaxed mb-8">
+              Perspectives on residential developments, investment trends, locality guides, and contemporary architecture across Hyderabad and Visakhapatnam.
             </p>
 
             {/* Clean Search Input */}
@@ -68,7 +66,7 @@ export default function BlogListing() {
                 value={searchQuery}
                 onChange={handleSearchChange}
                 placeholder="Search across all 59 articles..."
-                className="w-full px-5 py-3.5 pl-12 rounded-full bg-white text-ink text-[14px] font-body shadow-md border-0 focus:outline-none focus:ring-2 focus:ring-[#4FA3E3]"
+                className="w-full px-5 py-3.5 pl-12 rounded-full bg-soft/70 text-ink text-[14px] font-body shadow-sm border border-line focus:outline-none focus:ring-2 focus:ring-accent"
               />
               <svg
                 className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-muted"
