@@ -201,7 +201,7 @@ export default function Footer() {
                     onClick={handleFooterLinkClick}
                     className="group flex items-center gap-2.5 text-[14px] font-body font-normal transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
                   >
-                    <span className="text-[11px] font-mono transition-colors text-[#3898E2]">
+                    <span className="text-[11px] font-mono transition-colors text-white font-medium">
                       {item.no}
                     </span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
