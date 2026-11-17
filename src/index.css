@@ -20,9 +20,9 @@
   --color-ph2: #D2E1EF;
 
   /* ── Typography (Client Specifications) ── */
-  /* Main Headings & Subheadings: Playfair Display Medium */
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  /* Main Headings & Subheadings: Montserrat Semibold / Medium */
+  --font-heading: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Body Content: Montserrat Regular */
   --font-body: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -42,12 +42,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Main Headings: Playfair Display Medium · Deep Navy */
+  /* Main Headings: Montserrat Semibold / Medium · Deep Navy */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 500; /* Medium */
+    font-weight: 600; /* Semibold for clean, modern architectural headlines */
     color: var(--color-ink); /* Deep Navy (#07294A) */
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   /* Navigation & Buttons: Montserrat Medium */
