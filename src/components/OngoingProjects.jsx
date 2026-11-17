@@ -104,7 +104,7 @@ export default function OngoingProjects() {
                     }}
                     className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
                   >
-                    <h3 className="text-white font-heading font-medium text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-sm">
+                    <h3 className="text-white !text-white font-heading font-medium text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                       {project.name}
                     </h3>
                     <p className="text-white/80 font-body font-light text-[13px] tracking-wide">

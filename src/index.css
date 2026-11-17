@@ -33,41 +33,47 @@
 }
 
 /* ── Base resets ── */
-html {
-  /* scroll-behavior: smooth; removed for Lenis */
+@layer base {
+  body {
+    font-family: var(--font-body);
+    font-weight: 400; /* Regular */
+    color: var(--color-muted); /* Soft Grey (#556475) */
+    background-color: var(--color-bg); /* Pure White (#FFFFFF) */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Main Headings: Playfair Display Medium · Deep Navy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500; /* Medium */
+    color: var(--color-ink); /* Deep Navy (#07294A) */
+    letter-spacing: -0.01em;
+  }
+
+  /* Navigation & Buttons: Montserrat Medium */
+  nav,
+  nav a,
+  nav button,
+  nav span,
+  button,
+  .btn,
+  input[type="submit"],
+  input[type="button"] {
+    font-family: var(--font-nav);
+    font-weight: 500; /* Medium */
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
 }
 
-/* Body Content: Montserrat Regular · Soft Grey */
-body {
-  font-family: var(--font-body);
-  font-weight: 400; /* Regular */
-  color: var(--color-muted); /* Soft Grey (#556475) */
-  background-color: var(--color-bg); /* Pure White (#FFFFFF) */
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Main Headings: Playfair Display Medium · Deep Navy */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 500; /* Medium */
-  color: var(--color-ink); /* Deep Navy (#07294A) */
-  letter-spacing: -0.01em;
-}
-
-/* Navigation & Buttons: Montserrat Medium */
-nav,
-nav a,
-nav button,
-nav span,
-button,
-.btn,
-input[type="submit"],
-input[type="button"] {
-  font-family: var(--font-nav);
-  font-weight: 500; /* Medium */
-}
-
-/* Primary CTA Button Utility: Muted Mocha with White Text */
+/* Primary CTA Button Utility */
 .btn-primary,
 .btn-cta {
   background-color: var(--color-btn-bg);
@@ -80,15 +86,6 @@ input[type="button"] {
 .btn-cta:hover {
   background-color: var(--color-btn-hover);
   color: #FFFFFF;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-a:hover {
-  opacity: 0.7;
 }
 
 /* ── Image placeholders ── */

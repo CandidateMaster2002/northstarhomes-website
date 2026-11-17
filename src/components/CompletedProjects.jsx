@@ -62,19 +62,19 @@ export default function CompletedProjects() {
                 )}
               </div>
               
-              {/* Gradient Scrim Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent opacity-80 group-hover/card:opacity-95 transition-opacity duration-500" />
+              {/* Gradient Scrim Overlay for high-contrast legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#041628]/95 via-[#041628]/55 via-45% to-transparent opacity-90 group-hover/card:opacity-100 transition-opacity duration-500" />
 
               {/* Bottom Card Details */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <div className="translate-y-2 group-hover/card:translate-y-0 transition-transform duration-500">
-                  <span className="inline-block px-3 py-1 mb-2.5 border border-white/30 rounded-full text-[10px] tracking-[0.2em] uppercase text-white font-body font-medium bg-black/20 backdrop-blur-sm">
+                  <span className="inline-block px-3 py-1 mb-2.5 border border-white/30 rounded-full text-[10px] tracking-[0.2em] uppercase text-white !text-white font-body font-medium bg-black/30 backdrop-blur-sm shadow-sm">
                     Delivered
                   </span>
-                  <h3 className="text-[23px] lg:text-[26px] font-heading font-medium text-white leading-tight mb-1.5 drop-shadow-sm">
+                  <h3 className="text-[22px] lg:text-[25px] font-body font-semibold text-white !text-white leading-tight mb-1.5 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                     Northstar {project.name}
                   </h3>
-                  <p className="text-[12px] tracking-[0.06em] text-white/80 font-body font-light flex items-center gap-1.5">
+                  <p className="text-[12.5px] tracking-[0.06em] text-white/90 !text-white/90 font-body font-normal flex items-center gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     <svg className="w-3.5 h-3.5 text-accent2d shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
