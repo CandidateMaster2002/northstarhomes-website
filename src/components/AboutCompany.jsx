@@ -236,11 +236,11 @@ export default function AboutCompany() {
               <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
                 COMPANY INTRODUCTION
               </span>
-              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-body font-semibold text-[#07294A] leading-[1.18] tracking-tight">
                 We Build Spaces Where Life Feels Truly at Home
               </h2>
               <div className="w-16 h-0.5 bg-[#0B6FB5]" />
-              <p className="text-[17px] sm:text-[19px] font-heading font-normal text-[#07294A] leading-snug pt-2">
+              <p className="text-[17px] sm:text-[19px] font-body font-medium text-[#07294A] leading-relaxed pt-2">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
               <p className="text-[15px] sm:text-[16px] font-body text-[#556475] leading-[1.8]">

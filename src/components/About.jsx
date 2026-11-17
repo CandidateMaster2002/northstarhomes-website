@@ -34,13 +34,13 @@ export default function About() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <h2 className="text-[38px] lg:text-[54px] leading-[1.12] font-heading font-medium text-ink mb-6">
+              <h2 className="text-[36px] lg:text-[50px] leading-[1.18] font-body font-semibold text-ink mb-6 tracking-tight">
                 We Build Spaces Where Life Feels Truly at Home.
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.3}>
-              <p className="text-[20px] lg:text-[24px] leading-[1.45] text-ink font-heading font-medium mb-8 lg:mb-10 border-l-2 border-accent pl-5">
+              <p className="text-[18px] lg:text-[22px] leading-[1.55] text-ink font-body font-medium mb-8 lg:mb-10 border-l-2 border-accent pl-5">
                 At Northstar, every project begins with people — their dreams, their comfort, their lifestyle, and their future.
               </p>
             </ScrollReveal>
