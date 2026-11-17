@@ -83,7 +83,7 @@ export default function Header() {
             : 'max-h-0 opacity-0 border-transparent py-0 pointer-events-none'
         }`}
       >
-        <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between text-[11px] font-body tracking-[0.06em]">
+        <div className="max-w-[1360px] mx-auto px-6 sm:px-10 flex items-center justify-between text-[12px] font-body tracking-[0.06em]">
           
           {/* Left: Direct Line & Concierge Email */}
           <div className="flex items-center gap-5 sm:gap-7">
@@ -110,7 +110,7 @@ export default function Header() {
 
           {/* Right: Official Social Media Channels */}
           <div className="flex items-center gap-3.5">
-            <span className="hidden md:inline-block text-[10px] uppercase tracking-[0.16em] text-white/50 mr-1 font-body">
+            <span className="hidden md:inline-block text-[11.5px] uppercase tracking-[0.16em] text-white/50 mr-1 font-body">
               Official:
             </span>
             {/* Facebook */}
@@ -201,7 +201,7 @@ export default function Header() {
               ${isMobileMenuOpen 
                 ? 'fixed inset-0 bg-white z-40 flex flex-col pt-[96px] pb-10 px-8 gap-6 overflow-y-auto h-[100dvh]' 
                 : 'hidden min-[960px]:flex items-center justify-center'} 
-              gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-[0.16em] uppercase font-nav transition-colors duration-500
+              gap-6 lg:gap-8 text-[13px] lg:text-[14px] tracking-[0.16em] uppercase font-nav transition-colors duration-500
               ${isScrolled || isMobileMenuOpen ? 'text-ink font-semibold' : 'text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]'}
             `}
           >
@@ -554,7 +554,7 @@ export default function Header() {
               href="https://wa.me/918657553355?text=Hello%20Northstar%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit." 
               target="_blank" 
               rel="noopener noreferrer" 
-              className={`inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[12px] tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-sm cursor-pointer whitespace-nowrap ${
+              className={`inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[13px] tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-sm cursor-pointer whitespace-nowrap ${
                 isScrolled
                   ? 'bg-btn-bg text-btn-ink hover:bg-ink hover:shadow-md'
                   : 'bg-white text-ink hover:bg-white/90 hover:shadow-[0_4px_16px_rgba(255,255,255,0.4)]'

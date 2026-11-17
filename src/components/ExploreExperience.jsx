@@ -99,7 +99,7 @@ export default function ExploreExperience({ project }) {
         
         {/* Title & Intro in Northstar Brand Palette */}
         <div className="mb-8 sm:mb-10 text-left">
-          <p className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2">
+          <p className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2">
             Explore the Experience
           </p>
           <h2 className="text-[34px] sm:text-[46px] lg:text-[54px] font-body font-normal text-[#07294A] leading-[1.12] tracking-tight">

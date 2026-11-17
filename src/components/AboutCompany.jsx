@@ -194,7 +194,7 @@ export default function AboutCompany() {
 
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12 py-24 relative z-20 w-full">
           {/* Breadcrumb Navigation */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] tracking-[0.24em] uppercase font-nav font-semibold mb-8 text-[#C7DCED]">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[12.5px] sm:text-[13.5px] tracking-[0.24em] uppercase font-nav font-semibold mb-8 text-[#C7DCED]">
             <a href="#top" className="hover:text-white transition-colors">Home</a>
             <span>/</span>
             <span className="text-white">About Us</span>
@@ -208,7 +208,7 @@ export default function AboutCompany() {
             transition={{ duration: 0.7 }}
             className="max-w-[820px]"
           >
-            <span className="text-[12px] sm:text-[13px] tracking-[0.28em] uppercase text-[#3898E2] font-nav font-semibold mb-4 block">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.28em] uppercase text-[#3898E2] font-nav font-semibold mb-4 block">
               OUR STORY & PHILOSOPHY
             </span>
             <h1 className="text-[38px] sm:text-[54px] lg:text-[68px] font-heading font-normal leading-[1.08] text-white tracking-tight mb-6">
@@ -233,7 +233,7 @@ export default function AboutCompany() {
             
             {/* Left Narrative */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
+              <span className="text-[13px] sm:text-[14px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
                 COMPANY INTRODUCTION
               </span>
               <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
@@ -332,7 +332,7 @@ export default function AboutCompany() {
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-[680px] mx-auto mb-12">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
               PROVEN TRACK RECORD
             </span>
             <h3 className="text-[28px] sm:text-[36px] font-heading font-normal text-[#07294A] leading-tight">
@@ -410,7 +410,7 @@ export default function AboutCompany() {
 
             {/* Narrative & Craftsmanship Ethos */}
             <div className="space-y-6">
-              <span className="text-[11px] sm:text-[12px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
+              <span className="text-[13px] sm:text-[14px] tracking-[0.26em] uppercase text-[#0B6FB5] font-nav font-semibold block">
                 CRAFTING TIMELESS ELEGANCE
               </span>
               <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-[1.14] tracking-tight">
@@ -460,7 +460,7 @@ export default function AboutCompany() {
             {/* Mission Card */}
             <div className="p-10 sm:p-14 rounded-xl bg-[#EEF5FB] text-ink border border-line shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-accent font-nav font-semibold mb-3 block">
+                <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold mb-3 block">
                   PURPOSE & COMMITMENT
                 </span>
                 <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-ink mb-5 leading-tight">
@@ -478,7 +478,7 @@ export default function AboutCompany() {
             {/* Vision Card */}
             <div className="p-10 sm:p-14 rounded-xl bg-white border border-[#D8E6F2] shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
+                <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
                   CORE GUIDING PRINCIPLES
                 </span>
                 <h3 className="text-[30px] sm:text-[38px] font-heading font-normal text-[#07294A] mb-5 leading-tight">
@@ -506,7 +506,7 @@ export default function AboutCompany() {
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
           <div className="text-center max-w-[760px] mx-auto mb-16">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-3 block">
               ARCHITECTURAL ETHOS
             </span>
             <h2 className="text-[34px] sm:text-[46px] lg:text-[50px] font-heading font-normal text-[#07294A] leading-tight mb-4">
@@ -690,7 +690,7 @@ export default function AboutCompany() {
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
 
           <div className="text-center mb-16">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold mb-2 block">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-[32px] sm:text-[44px] font-heading font-normal text-[#07294A] leading-tight mb-4">

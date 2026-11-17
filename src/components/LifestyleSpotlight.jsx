@@ -12,7 +12,7 @@ export default function LifestyleSpotlight() {
     <section className="bg-deep text-deep-ink py-16 max-[880px]:py-10">
       <div className="max-w-[1280px] mx-auto px-10 flex flex-wrap gap-[72px] items-center max-[880px]:px-6 max-[880px]:gap-10">
         <div className="flex-1 min-w-0 basis-[380px]">
-          <p className="text-accent2d text-[12px] tracking-[0.3em] uppercase mb-5">
+          <p className="text-accent2d text-[13px] sm:text-[14px] tracking-[0.3em] uppercase mb-5 font-semibold">
             Life at Northstar
           </p>
           <h2 className="text-[clamp(32px,3.6vw,48px)] leading-[1.14] mb-7 font-heading">

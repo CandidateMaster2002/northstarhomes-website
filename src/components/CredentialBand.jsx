@@ -76,7 +76,7 @@ export default function CredentialBand() {
             
             {/* 1. Left Label: A Legacy of Trust */}
             <div className="shrink-0 pr-6 sm:pr-8 lg:pr-10 flex flex-col justify-center">
-              <span className="text-[15px] sm:text-[17px] font-heading font-medium text-ink whitespace-nowrap tracking-tight">
+              <span className="text-[17px] sm:text-[19px] font-heading font-medium text-ink whitespace-nowrap tracking-tight">
                 A Legacy of Trust
               </span>
               <div className="w-12 h-[2.5px] bg-accent mt-2 rounded-full" />
@@ -100,12 +100,12 @@ export default function CredentialBand() {
                   </div>
 
                   {/* Animated Number */}
-                  <h3 className="text-[22px] sm:text-[26px] lg:text-[28px] font-heading font-medium text-ink leading-tight tracking-tight mb-1">
+                  <h3 className="text-[24px] sm:text-[28px] lg:text-[30px] font-heading font-medium text-ink leading-tight tracking-tight mb-1">
                     <AnimatedCounter value={stat.value} />
                   </h3>
 
                   {/* Metric Label */}
-                  <p className="text-[10px] sm:text-[11px] text-muted font-body font-normal tracking-wide leading-snug line-clamp-2 max-w-[120px]">
+                  <p className="text-[12px] sm:text-[13px] text-muted font-body font-medium tracking-wide leading-snug line-clamp-2 max-w-[130px]">
                     {stat.label}
                   </p>
                 </div>

@@ -28,7 +28,7 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             <ScrollReveal delay={0.1}>
-              <p className="mb-3 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
+              <p className="mb-3 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
                 About Northstar
               </p>
             </ScrollReveal>
@@ -78,7 +78,7 @@ export default function About() {
                   <div className="mt-8 md:mt-0">
                     <a
                       href="#coming-soon"
-                      className="inline-flex items-center justify-center px-8 py-3 text-[12px] tracking-[0.2em] uppercase font-nav font-medium text-ink border border-ink/30 hover:border-accent hover:text-accent rounded-full transition-all duration-300"
+                      className="inline-flex items-center justify-center px-8 py-3 text-[13px] tracking-[0.2em] uppercase font-nav font-medium text-ink border border-ink/30 hover:border-accent hover:text-accent rounded-full transition-all duration-300"
                     >
                       Know More
                     </a>

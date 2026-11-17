@@ -128,7 +128,7 @@ export default function Timeline() {
       
       {/* Eyebrow & Title */}
       <div className="text-center mb-6 sm:mb-10 px-4">
-        <p className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-accent font-semibold font-nav mb-2">
+        <p className="text-[13px] sm:text-[14px] tracking-[0.28em] uppercase text-accent font-semibold font-nav mb-2">
           MILESTONES & HERITAGE
         </p>
         <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-heading font-medium text-ink tracking-tight">
@@ -148,7 +148,7 @@ export default function Timeline() {
                 type="button"
                 onClick={() => handleSelect(idx)}
                 onMouseEnter={() => handleSelect(idx)}
-                className={`px-3 sm:px-3.5 py-1 rounded-full text-[11px] sm:text-[12px] font-mono tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                className={`px-3.5 sm:px-4 py-1.5 rounded-full text-[13px] sm:text-[13.5px] font-mono tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap ${
                   isActive
                     ? 'bg-ink text-white font-semibold shadow-sm'
                     : 'bg-soft text-muted hover:text-ink hover:bg-line/60'
@@ -263,7 +263,7 @@ export default function Timeline() {
                       </h3>
 
                       {/* Description Paragraph */}
-                      <p className="text-[13px] sm:text-[14px] lg:text-[15px] text-white/90 !text-white/90 font-body font-normal leading-[1.65] line-clamp-4 sm:line-clamp-5 drop-shadow-sm">
+                      <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-white/90 !text-white/90 font-body font-normal leading-[1.65] line-clamp-4 sm:line-clamp-5 drop-shadow-sm">
                         {milestone.description}
                       </p>
                     </motion.div>

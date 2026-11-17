@@ -241,7 +241,7 @@ export default function Careers() {
 
           {/* Form Header */}
           <div className="text-center max-w-[700px] mx-auto mb-14 lg:mb-18">
-            <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
               Career Form for Interested Candidate
             </span>
             <h2 className="text-[34px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-ink leading-tight mb-4">
@@ -605,7 +605,7 @@ export default function Careers() {
           {/* Section Header */}
           <div className="flex flex-wrap justify-between items-end gap-6 mb-12 lg:mb-16">
             <div>
-              <span className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
+              <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-2 block">
                 Opportunities to Grow
               </span>
               <h2 className="text-[34px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-ink leading-tight">

@@ -331,7 +331,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   >
                     {/* Eyebrow Tag */}
                     {item.tag && (
-                      <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-3">
+                      <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-body font-semibold mb-3">
                         {item.tag}
                       </span>
                     )}

@@ -19,14 +19,14 @@ export default function OngoingProjects() {
           className="mb-10 flex flex-wrap justify-between items-end gap-6"
         >
           <div>
-            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
+            <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
               Our Presence
             </p>
             <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-medium text-ink">
               Iconic Developments
             </h2>
           </div>
-          <a href="#coming-soon" className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body group">
+          <a href="#coming-soon" className="text-[13px] sm:text-[14px] font-semibold tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body group">
             View All <span className="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
           </a>
         </motion.div>
@@ -83,10 +83,10 @@ export default function OngoingProjects() {
                   }}
                   className="absolute top-5 left-5 flex gap-2 z-10"
                 >
-                  <span className="bg-white/95 backdrop-blur-sm text-ink text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
+                  <span className="bg-white/95 backdrop-blur-sm text-ink text-[11px] sm:text-[12px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     {project.city}
                   </span>
-                  <span className="bg-accent text-white text-[10px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
+                  <span className="bg-accent text-white text-[11px] sm:text-[12px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm font-body">
                     Ongoing
                   </span>
                 </motion.div>
@@ -107,7 +107,7 @@ export default function OngoingProjects() {
                     <h3 className="text-white !text-white font-heading font-medium text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                       {project.name}
                     </h3>
-                    <p className="text-white/80 font-body font-light text-[13px] tracking-wide">
+                    <p className="text-white/80 font-body font-normal text-[14px] tracking-wide">
                       Northstar {project.name} | {project.city}
                     </p>
                   </motion.div>

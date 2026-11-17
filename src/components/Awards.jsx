@@ -85,7 +85,7 @@ export default function Awards() {
 
         {/* ── Page Header (Editorial Luxury Style) ── */}
         <div className="text-center max-w-[820px] mx-auto mb-16 sm:mb-20">
-          <p className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-[#0B6FB5] font-semibold font-nav mb-3">
+          <p className="text-[13px] sm:text-[14px] tracking-[0.28em] uppercase text-[#0B6FB5] font-semibold font-nav mb-3">
             HONOURS & RECOGNITION
           </p>
           <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-heading font-normal text-[#1A1A1A] leading-[1.12] tracking-tight mb-4">
@@ -147,7 +147,7 @@ export default function Awards() {
                 </p>
 
                 {/* Organization / Award Body */}
-                <p className="text-[12px] tracking-[0.14em] uppercase font-nav text-[#8C827A] font-medium">
+                <p className="text-[13px] tracking-[0.14em] uppercase font-nav text-[#8C827A] font-medium">
                   {item.organization}
                 </p>
               </div>

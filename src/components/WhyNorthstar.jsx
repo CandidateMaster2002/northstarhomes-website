@@ -28,7 +28,7 @@ export default function WhyNorthstar() {
           {/* Left - Content */}
           <div className="flex-1 min-w-0 basis-[460px]">
             <ScrollReveal>
-              <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
+              <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
                 Quality Assurance
               </p>
               <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-medium text-ink mb-6">
@@ -61,7 +61,7 @@ export default function WhyNorthstar() {
                   href="https://propchk.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-accent/30 bg-soft text-ink hover:bg-accent hover:text-white hover:border-accent text-[12px] font-nav font-medium tracking-[0.14em] uppercase transition-all duration-300 shadow-sm group"
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-accent/30 bg-soft text-ink hover:bg-accent hover:text-white hover:border-accent text-[13px] font-nav font-medium tracking-[0.14em] uppercase transition-all duration-300 shadow-sm group"
                 >
                   <span>Visit PropChk Official Website</span>
                   <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,7 +163,7 @@ export default function WhyNorthstar() {
                 />
                 
                 {/* Floating PropChk badge */}
-                <div className="absolute bottom-4 right-4 z-10 px-4 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-line shadow-lg flex items-center gap-2 text-[12px] font-nav font-medium text-ink transition-all duration-300 group-hover:bg-[#07294A] group-hover:text-white group-hover:border-[#07294A]">
+                <div className="absolute bottom-4 right-4 z-10 px-4 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-line shadow-lg flex items-center gap-2 text-[13px] font-nav font-medium text-ink transition-all duration-300 group-hover:bg-[#07294A] group-hover:text-white group-hover:border-[#07294A]">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span>Visit PropChk.com</span>
                   <svg className="w-3.5 h-3.5 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">

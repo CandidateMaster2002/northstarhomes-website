@@ -74,7 +74,7 @@ export default function Footer() {
                     </svg>
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Direct Line</span>
+                    <span className="block text-[11.5px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Direct Line</span>
                     <span className="block text-[14px] font-medium transition-colors font-body text-white group-hover:text-[#4FA3E3]">+91 86575 53355</span>
                   </div>
                 </a>
@@ -89,7 +89,7 @@ export default function Footer() {
                     </svg>
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Email Concierge</span>
+                    <span className="block text-[11.5px] uppercase tracking-[0.16em] font-medium font-body text-[#8FA7BD]">Email Concierge</span>
                     <span className="block text-[14px] font-medium transition-colors font-body text-white group-hover:text-[#4FA3E3]">support@northstarhomes.in</span>
                   </div>
                 </a>
@@ -159,7 +159,7 @@ export default function Footer() {
 
           {/* Column 2: Developments Directory with Location Subtitles (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
+            <h4 className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
               Our Addresses
             </h4>
             <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
@@ -178,7 +178,7 @@ export default function Footer() {
                     </span>
                     <span className="text-[11px] text-[#4FA3E3] opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                   </div>
-                  <span className="text-[11px] font-body font-normal block mt-0.5 text-[#8FA7BD]">
+                  <span className="text-[12.5px] font-body font-normal block mt-0.5 text-[#8FA7BD]">
                     {proj.location}
                   </span>
                 </a>
@@ -188,7 +188,7 @@ export default function Footer() {
 
           {/* Column 3: The Company with Numbered Indexing (lg:col-span-2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
+            <h4 className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
               The Company
             </h4>
             <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
@@ -201,7 +201,7 @@ export default function Footer() {
                     onClick={handleFooterLinkClick}
                     className="group flex items-center gap-2.5 text-[14px] font-body font-normal transition-colors py-0.5 text-[#9CB5CB] hover:text-white"
                   >
-                    <span className="text-[11px] font-mono transition-colors text-white font-medium">
+                    <span className="text-[12.5px] font-mono transition-colors text-white font-medium">
                       {item.no}
                     </span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -216,7 +216,7 @@ export default function Footer() {
           {/* Column 4: Client Advisory Desk & Visit Booking Card (lg:col-span-3) */}
           <div className="lg:col-span-3 flex flex-col justify-between">
             <div>
-              <h4 className="text-[12px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
+              <h4 className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase font-body font-semibold mb-2 text-white">
                 Client Advisory
               </h4>
               <div className="w-6 h-[1.5px] bg-[#3898E2] mb-6" />
@@ -238,17 +238,17 @@ export default function Footer() {
 
             {/* Private Tour Concierge Card */}
             <div className="mt-8 p-4 rounded-2xl border border-white/15 bg-white/[0.05] transition-all">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] mb-1 font-body text-[#4FA3E3]">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-1 font-body text-[#4FA3E3]">
                 Experience in Person
               </p>
-              <p className="text-[12px] font-light leading-relaxed mb-3.5 font-body text-[#8FA7BD]">
+              <p className="text-[13px] font-light leading-relaxed mb-3.5 font-body text-[#8FA7BD]">
                 Arrange a walkthrough of our plots, villas, and masterplans.
               </p>
               <a 
                 href="https://wa.me/918657553355?text=Hello%20Northstar%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20site%20visit."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl text-[11px] font-semibold tracking-[0.14em] uppercase transition-all shadow-sm bg-[#0B6FB5] text-white hover:bg-white hover:text-[#07294A]"
+                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl text-[12px] font-semibold tracking-[0.14em] uppercase transition-all shadow-sm bg-[#0B6FB5] text-white hover:bg-white hover:text-[#07294A]"
               >
                 Schedule Site Visit &rarr;
               </a>
@@ -258,7 +258,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal & Statutory Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] font-body font-normal text-[#8FA7BD]">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] font-body font-normal text-[#8FA7BD]">
           <p>© 2026 Northstar Homes. All rights reserved.</p>
           
           <p className="text-center md:text-left">

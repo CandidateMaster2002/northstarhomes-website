@@ -13,7 +13,7 @@ export default function CompletedProjects() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10 mb-8">
         <div className="flex flex-wrap justify-between items-end gap-6">
           <div>
-            <p className="mb-2 text-[12px] sm:text-[13px] tracking-[0.24em] uppercase text-accent font-nav font-medium">
+            <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
               Delivered Communities
             </p>
             <h2 className="text-[clamp(32px,3.4vw,48px)] leading-[1.12] font-heading font-medium text-ink">
@@ -22,12 +22,12 @@ export default function CompletedProjects() {
           </div>
 
           <div className="flex items-center gap-6">
-            <span className="hidden sm:inline-block text-[11px] uppercase tracking-[0.18em] text-muted font-body">
+            <span className="hidden sm:inline-block text-[12px] uppercase tracking-[0.18em] text-muted font-body font-medium">
               Hover to pause
             </span>
             <a 
               href="#coming-soon" 
-              className="text-[12px] font-medium tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body"
+              className="text-[13px] sm:text-[14px] font-semibold tracking-[0.16em] uppercase text-accent hover:text-ink transition-colors flex items-center gap-2 font-body"
             >
               View All <span className="text-lg leading-none">&rarr;</span>
             </a>
@@ -68,13 +68,13 @@ export default function CompletedProjects() {
               {/* Bottom Card Details */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <div className="translate-y-2 group-hover/card:translate-y-0 transition-transform duration-500">
-                  <span className="inline-block px-3 py-1 mb-2.5 border border-white/30 rounded-full text-[10px] tracking-[0.2em] uppercase text-white !text-white font-body font-medium bg-black/30 backdrop-blur-sm shadow-sm">
+                  <span className="inline-block px-3 py-1 mb-2.5 border border-white/30 rounded-full text-[11.5px] sm:text-[12px] tracking-[0.2em] uppercase text-white !text-white font-body font-medium bg-black/30 backdrop-blur-sm shadow-sm">
                     Delivered
                   </span>
                   <h3 className="text-[22px] lg:text-[25px] font-body font-semibold text-white !text-white leading-tight mb-1.5 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                     Northstar {project.name}
                   </h3>
-                  <p className="text-[12.5px] tracking-[0.06em] text-white/90 !text-white/90 font-body font-normal flex items-center gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+                  <p className="text-[13.5px] sm:text-[14px] tracking-[0.06em] text-white/90 !text-white/90 font-body font-normal flex items-center gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     <svg className="w-3.5 h-3.5 text-accent2d shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>

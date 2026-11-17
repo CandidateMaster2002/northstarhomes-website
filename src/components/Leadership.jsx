@@ -126,7 +126,7 @@ function MemberCard({ member, idx, onClick, isClickable }) {
       </h3>
 
       {/* Role / Designation */}
-      <p className="text-[12px] sm:text-[13px] text-[#8C827A] font-body font-normal mt-1 leading-normal">
+      <p className="text-[13px] sm:text-[14px] text-[#8C827A] font-body font-normal mt-1 leading-normal">
         {member.role}
       </p>
     </motion.div>
@@ -154,7 +154,7 @@ export default function Leadership() {
         {/* ── Category 1: Guiding Leadership (Interactive popup on click) ── */}
         <section className="mb-20 sm:mb-24">
           <div className="mb-8 pb-3 border-b border-[#D8E6F2]">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
               BOARD & GOVERNANCE
             </span>
             <h2 className="text-[24px] sm:text-[28px] font-heading font-normal text-[#1A1A1A]">
@@ -178,7 +178,7 @@ export default function Leadership() {
         {/* ── Category 2: Business Partner / Project Partner ── */}
         <section className="mb-20 sm:mb-24">
           <div className="mb-8 pb-3 border-b border-[#D8E6F2]">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
               PARTNERSHIP
             </span>
             <h2 className="text-[24px] sm:text-[28px] font-heading font-normal text-[#1A1A1A]">
@@ -196,7 +196,7 @@ export default function Leadership() {
         {/* ── Category 3: Team ── */}
         <section>
           <div className="mb-8 pb-3 border-b border-[#D8E6F2]">
-            <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
+            <span className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-[#0B6FB5] font-semibold font-nav block mb-1">
               CORE LEADERSHIP
             </span>
             <h2 className="text-[24px] sm:text-[28px] font-heading font-normal text-[#1A1A1A]">

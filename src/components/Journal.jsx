@@ -10,7 +10,7 @@ export default function Journal() {
         
         <div className="flex flex-wrap gap-6 items-end justify-between mb-12">
           <div>
-            <span className="text-[11px] tracking-[0.24em] uppercase font-semibold text-accent block mb-2 font-body">
+            <span className="text-[13px] tracking-[0.24em] uppercase font-semibold text-accent block mb-2 font-body">
               Publications & Insights
             </span>
             <h2 className="font-heading text-[clamp(32px,3.4vw,46px)] leading-[1.15] text-ink font-normal">
@@ -19,7 +19,7 @@ export default function Journal() {
           </div>
           <a
             href="#blogs"
-            className="text-[13px] tracking-[0.14em] uppercase border-b border-accent pb-[5px] font-semibold text-ink hover:text-accent transition-colors"
+            className="text-[14px] tracking-[0.14em] uppercase border-b border-accent pb-[5px] font-semibold text-ink hover:text-accent transition-colors"
           >
             All 59 Articles →
           </a>
