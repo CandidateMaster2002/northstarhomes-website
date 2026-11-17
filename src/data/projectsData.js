@@ -27,6 +27,12 @@ import logoAmgPlaza from '../assets/project-logos/amg-plaza.webp';
 import logoGardenSuites from '../assets/project-logos/garden-suites.webp';
 import heroVideoPlaceholder from '../assets/hero video eden compr.mp4';
 
+// SP Palacio Render Images
+import imgSpPalacio1 from '../assets/SP Palacio Render Images/1.Copy of Arieal One Final.webp';
+import imgSpPalacio2 from '../assets/SP Palacio Render Images/2.Copy of SP elevation.webp';
+import imgSpPalacio3 from '../assets/SP Palacio Render Images/3.Copy of Podium Final.webp';
+import imgSpPalacio4 from '../assets/SP Palacio Render Images/4.Copy of MP Hall One Final.webp';
+
 export const projectsData = {
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -255,7 +261,7 @@ export const projectsData = {
     id: 'allura',
     name: 'Northstar Allura',
     shortName: 'Allura',
-    headerTitle: 'At the Centre of Hyderabad\'s Next Chapter',
+    headerTitle: 'Where Luxury Finds Its Own Address',
     status: 'Ongoing',
     statusBadge: 'Now Selling',
     type: 'Luxury Villa Community',
@@ -288,7 +294,7 @@ export const projectsData = {
     narrative: [
       {
         tag: 'Location & Opportunity',
-        headline: 'At the Centre of Hyderabad\'s Next Chapter.',
+        headline: 'Where Luxury Finds Its Own Address.',
         paragraphs: [
           'Kokapet is where Hyderabad\'s growth story is being written today.',
           'Allura places you at the heart of this corridor — close to the Financial District, Neopolis, and the city\'s most ambitious new addresses.',
@@ -451,13 +457,13 @@ export const projectsData = {
     narrative: [
       {
         tag: 'The Address',
-        headline: 'Welcome Home to Abids.',
+        headline: 'The Legacy of Abids. The Elegance of Palacio',
         paragraphs: [
           'Abids has always been where Hyderabad came together — for trade, for culture, for everyday life.',
           'SP Palacio finds its address at the heart of this neighbourhood, bringing a new standard of residential living to one of the city\'s most storied districts.',
           'An address that carries the weight of history and the energy of a city still moving forward.'
         ],
-        image: imgSpPalacio,
+        image: imgSpPalacio1,
         imageCaption: 'Northstar SP Palacio · JN Road, Abids, Hyderabad'
       },
       {
@@ -468,7 +474,7 @@ export const projectsData = {
           'SP Palacio sits in that legacy, with the Gandhi Bhavan Metro just 0.5 km away and the entire city accessible with ease.',
           'Living here means being at the centre of things, without being far from anywhere.'
         ],
-        image: imgSpPalacio,
+        image: imgSpPalacio2,
         imageCaption: 'Abids Commercial District & Metro Connectivity'
       },
       {
@@ -479,7 +485,7 @@ export const projectsData = {
           'A thoughtful inclusion that reflects the values of those who have long called this neighbourhood home.',
           'Because a home is not just where you live — it is where your life is rooted.'
         ],
-        image: imgSpPalacio,
+        image: imgSpPalacio3,
         imageCaption: 'Jain Temple & Prayer Hall · SP Palacio'
       },
       {
@@ -490,7 +496,7 @@ export const projectsData = {
           'Generous proportions that give every member of the family the space they need.',
           'A building that keeps the family close while giving each person room of their own.'
         ],
-        image: imgSpPalacio,
+        image: imgSpPalacio4,
         imageCaption: '172 Apartments · 3 & 4 BHK · 2,251 – 3,376 Sq. Ft.'
       }
     ],
@@ -580,7 +586,7 @@ export const projectsData = {
     id: 'park-avenue',
     name: 'Northstar Park Avenue',
     shortName: 'Park Avenue',
-    headerTitle: 'Madhurawada. Right Where Vizag Is Moving Forward.',
+    headerTitle: 'A Complete Lifestyle in Vizag’s Emerging Metropolis',
     status: 'Ongoing',
     statusBadge: 'Now Selling',
     type: 'Residential Apartment Community',
@@ -613,7 +619,7 @@ export const projectsData = {
     narrative: [
       {
         tag: 'Location',
-        headline: 'Madhurawada. Right Where Vizag Is Moving Forward.',
+        headline: 'A Complete Lifestyle in Vizag’s Emerging Metropolis.',
         paragraphs: [
           'Madhurawada has quietly become Visakhapatnam\'s most active address — where IT companies, schools and everyday conveniences have gathered over the last decade.',
           'Park Avenue places you here, with major tech employers, NH-16 and Highfields International School all within easy reach.',
@@ -738,7 +744,7 @@ export const projectsData = {
     id: 'golden-valley',
     name: 'Northstar Golden Valley',
     shortName: 'Golden Valley',
-    headerTitle: 'Vizag is Having a Moment.',
+    headerTitle: 'A Home Where Openness Becomes Everyday Luxury',
     status: 'Ongoing',
     statusBadge: 'Now Selling',
     type: 'Residential Apartment Community',
@@ -771,7 +777,7 @@ export const projectsData = {
     narrative: [
       {
         tag: 'City Momentum',
-        headline: 'Vizag is Having a Moment.',
+        headline: 'A Home Where Openness Becomes Everyday Luxury.',
         paragraphs: [
           'Visakhapatnam is at an inflection point — a city where IT investment, infrastructure growth and coastal living are coming together in a way that rarely happens.',
           'Golden Valley puts you here, in Madhurawada, where much of that momentum is concentrated.',

@@ -225,12 +225,22 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             
             
 
-            {/* Stylized Project Crest / Brand Monogram */}
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-soft border border-line text-accent mb-6 shadow-sm">
-              <span className="font-heading font-medium text-[20px] tracking-widest">
-                {(project.shortName || project.name).charAt(0)}
-              </span>
-            </div>
+            {/* Project Brand Logo / Monogram */}
+            {project.logo ? (
+              <div className="mb-6 flex justify-center">
+                <img 
+                  src={project.logo} 
+                  alt={project.name} 
+                  className="h-16 sm:h-20 max-w-[220px] object-contain"
+                />
+              </div>
+            ) : (
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-soft border border-line text-accent mb-6 shadow-sm">
+                <span className="font-heading font-medium text-[20px] tracking-widest">
+                  {(project.shortName || project.name).charAt(0)}
+                </span>
+              </div>
+            )}
 
             {/* Statement Heading in Montserrat Regular */}
             <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-body font-normal text-ink leading-[1.16] tracking-tight mb-6">
