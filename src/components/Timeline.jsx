@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 // High-res project photos from src/assets/projects/
@@ -86,12 +86,48 @@ const milestones = [
 
 export default function Timeline() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const containerRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  // Smoothly ensure card stays completely visible when hovered/clicked
+  const handleSelect = (idx) => {
+    setHoveredIndex(idx);
+    const card = cardRefs.current[idx];
+    const container = containerRef.current;
+    if (card && container) {
+      const cardRect = card.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      
+      // If card's right edge is clipped off the right
+      if (cardRect.right > containerRect.right - 24) {
+        container.scrollBy({
+          left: cardRect.right - containerRect.right + 48,
+          behavior: 'smooth'
+        });
+      } else if (cardRect.left < containerRect.left + 24) {
+        container.scrollBy({
+          left: cardRect.left - containerRect.left - 48,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    const nextIdx = hoveredIndex === null || hoveredIndex <= 0 ? milestones.length - 1 : hoveredIndex - 1;
+    handleSelect(nextIdx);
+  };
+
+  const handleNext = () => {
+    const nextIdx = hoveredIndex === null || hoveredIndex >= milestones.length - 1 ? 0 : hoveredIndex + 1;
+    handleSelect(nextIdx);
+  };
 
   return (
     <section id="legacy" className="bg-white py-14 sm:py-20 overflow-hidden border-t border-line/60">
       
       {/* Eyebrow & Title */}
-      <div className="text-center mb-8 sm:mb-12 px-4">
+      <div className="text-center mb-6 sm:mb-10 px-4">
         <p className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-accent font-semibold font-nav mb-2">
           MILESTONES & HERITAGE
         </p>
@@ -100,12 +136,66 @@ export default function Timeline() {
         </h2>
       </div>
 
-      {/* ── Sobha Full-Width Interactive Accordion Strip ── */}
+      {/* Quick Navigation Year Pills & Next/Prev Controls */}
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 mb-6 flex flex-wrap items-center justify-between gap-4">
+        {/* Year Pills Bar */}
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+          {milestones.map((m, idx) => {
+            const isActive = hoveredIndex === idx;
+            return (
+              <button
+                key={m.year}
+                type="button"
+                onClick={() => handleSelect(idx)}
+                onMouseEnter={() => handleSelect(idx)}
+                className={`px-3 sm:px-3.5 py-1 rounded-full text-[11px] sm:text-[12px] font-mono tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                  isActive
+                    ? 'bg-ink text-white font-semibold shadow-sm'
+                    : 'bg-soft text-muted hover:text-ink hover:bg-line/60'
+                }`}
+              >
+                {m.year}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Prev / Next Glide Arrows */}
+        <div className="hidden sm:flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="w-8 h-8 rounded-full border border-line bg-white hover:bg-soft text-ink flex items-center justify-center transition-all shadow-sm cursor-pointer"
+            aria-label="Previous milestone"
+            title="Previous year"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="w-8 h-8 rounded-full border border-line bg-white hover:bg-soft text-ink flex items-center justify-center transition-all shadow-sm cursor-pointer"
+            aria-label="Next milestone"
+            title="Next year"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* ── Interactive Accordion Strip ── */}
       <div 
         className="w-full px-2 sm:px-4 lg:px-6"
         onMouseLeave={() => setHoveredIndex(null)}
       >
-        <div className="w-full h-[520px] sm:h-[580px] lg:h-[620px] flex items-stretch gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
+        <div 
+          ref={containerRef}
+          className="w-full h-[520px] sm:h-[580px] lg:h-[620px] flex items-stretch gap-1 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth pr-6 sm:pr-10 lg:pr-2"
+        >
           {milestones.map((milestone, idx) => {
             const isHovered = hoveredIndex === idx;
             const hasAnyHover = hoveredIndex !== null;
@@ -113,21 +203,21 @@ export default function Timeline() {
             return (
               <div
                 key={milestone.year}
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onClick={() => setHoveredIndex(idx)}
+                ref={(el) => (cardRefs.current[idx] = el)}
+                onMouseEnter={() => handleSelect(idx)}
+                onClick={() => handleSelect(idx)}
                 style={{
                   flex: hasAnyHover 
-                    ? (isHovered ? '6 1 0%' : '1 1 0%') 
+                    ? (isHovered ? '5 1 0%' : '1 1 0%') 
                     : '1 1 0%',
-                  transformOrigin: 'left center', // Strict Left-to-Right expansion
-                  transition: 'flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), max-width 0.65s cubic-bezier(0.25, 1, 0.5, 1)',
+                  transition: 'flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), min-width 0.65s cubic-bezier(0.25, 1, 0.5, 1)',
                 }}
-                className={`relative h-full rounded-[14px] sm:rounded-[20px] overflow-hidden cursor-pointer select-none origin-left ${
+                className={`relative h-full rounded-[14px] sm:rounded-[20px] overflow-hidden cursor-pointer select-none ${
                   hasAnyHover
                     ? isHovered
-                      ? 'min-w-[320px] sm:min-w-[480px] lg:min-w-[620px] shadow-2xl z-20'
-                      : 'min-w-[55px] sm:min-w-[75px] lg:min-w-[95px] opacity-75 hover:opacity-90 z-10'
-                    : 'min-w-[65px] sm:min-w-[85px] lg:min-w-[105px] z-10'
+                      ? 'min-w-[300px] sm:min-w-[420px] lg:min-w-[480px] xl:min-w-[540px] shadow-2xl z-20'
+                      : 'min-w-[42px] sm:min-w-[54px] lg:min-w-[62px] xl:min-w-[70px] opacity-75 hover:opacity-90 z-10'
+                    : 'min-w-[48px] sm:min-w-[64px] lg:min-w-[76px] xl:min-w-[88px] z-10'
                 }`}
               >
                 {/* Background Image - smooth zoom and un-grayscale on hover */}
@@ -143,44 +233,44 @@ export default function Timeline() {
 
                 {/* Overlays */}
                 {isHovered ? (
-                  // Active Expanded Overlay: Left-anchored gradient for reading text (Sobha style)
+                  // Active Expanded Overlay: High-contrast vignette gradient for reading text
                   <>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/25" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
                   </>
                 ) : (
-                  // Inactive / Default Ghost Overlay: Translucent soft warm wash exactly like Sobha image 1
+                  // Inactive / Default Ghost Overlay: Translucent soft warm wash
                   <div className="absolute inset-0 bg-[#D5CFC7]/55 hover:bg-[#D5CFC7]/35 transition-colors duration-300" />
                 )}
 
                 {/* Content Container */}
-                <div className="relative z-10 w-full h-full flex flex-col justify-end p-5 sm:p-8 lg:p-12 text-white overflow-hidden">
+                <div className="relative z-10 w-full h-full flex flex-col justify-end p-5 sm:p-7 lg:p-10 text-white overflow-hidden">
                   
                   {isHovered ? (
-                    // ── EXPANDED STATE (Reveals from Left) ──
+                    // ── EXPANDED STATE ──
                     <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
-                      className="max-w-[580px] origin-left"
+                      transition={{ duration: 0.4, ease: "easeOut", delay: 0.08 }}
+                      className="max-w-[520px]"
                     >
                       {/* Year — Italic Title */}
-                      <h3 className="text-[32px] sm:text-[44px] lg:text-[54px] font-heading font-medium leading-[1.1] mb-3 text-white tracking-tight">
+                      <h3 className="text-[26px] sm:text-[34px] lg:text-[40px] font-heading font-medium leading-[1.18] mb-2.5 sm:mb-3 text-white !text-white tracking-tight break-words drop-shadow-md">
                         <span>{milestone.year}</span>
                         <span className="font-light mx-2 sm:mx-3 text-white/70">—</span>
                         <span className="font-normal text-white/95">{milestone.italicTitle}</span>
                       </h3>
 
                       {/* Description Paragraph */}
-                      <p className="text-[13px] sm:text-[15px] lg:text-[16px] text-white/90 font-body font-normal leading-[1.7] line-clamp-4 sm:line-clamp-5">
+                      <p className="text-[13px] sm:text-[14px] lg:text-[15px] text-white/90 !text-white/90 font-body font-normal leading-[1.65] line-clamp-4 sm:line-clamp-5 drop-shadow-sm">
                         {milestone.description}
                       </p>
                     </motion.div>
                   ) : (
                     // ── COLLAPSED / INITIAL GHOST STATE ──
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span className="text-[26px] sm:text-[36px] lg:text-[44px] font-heading font-medium text-black/80 tracking-tight transition-transform duration-300">
+                      <span className="text-[22px] sm:text-[30px] lg:text-[36px] font-heading font-medium text-black/80 tracking-tight transition-transform duration-300">
                         {milestone.year}
                       </span>
                     </div>
