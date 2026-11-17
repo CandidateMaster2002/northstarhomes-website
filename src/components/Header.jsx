@@ -201,7 +201,7 @@ export default function Header() {
               ${isMobileMenuOpen 
                 ? 'fixed inset-0 bg-white z-40 flex flex-col pt-[96px] pb-10 px-8 gap-6 overflow-y-auto h-[100dvh]' 
                 : 'hidden min-[960px]:flex items-center justify-center'} 
-              gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-[0.16em] uppercase transition-colors duration-500
+              gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-[0.16em] uppercase font-nav transition-colors duration-500
               ${isScrolled || isMobileMenuOpen ? 'text-ink font-semibold' : 'text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]'}
             `}
           >
@@ -217,25 +217,25 @@ export default function Header() {
                 </svg>
               </button>
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[200px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[200px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white font-nav">
                   <a 
                     href="#about-company" 
                     onClick={(e) => handleNavClick(e, '#about-company')} 
-                    className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08]"
+                    className="px-4 py-2.5 text-[14px] font-nav font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08]"
                   >
                     Company
                   </a>
                   <a 
                     href="#leadership" 
                     onClick={(e) => handleNavClick(e, '#leadership')} 
-                    className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08]"
+                    className="px-4 py-2.5 text-[14px] font-nav font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08]"
                   >
                     Leadership
                   </a>
                   <a 
                     href="#awards" 
                     onClick={(e) => handleNavClick(e, '#awards')} 
-                    className="px-4 py-2.5 text-[15px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer"
+                    className="px-4 py-2.5 text-[14px] font-nav font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer"
                   >
                     Awards
                   </a>
@@ -275,7 +275,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => setActiveCity(activeCity === 'hyd' ? null : 'hyd')}
-                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-heading font-bold text-[17px] transition-all duration-200 cursor-pointer ${
+                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-nav font-semibold text-[16px] transition-all duration-200 cursor-pointer ${
                         activeCity === 'hyd'
                           ? 'bg-[#0B6FB5] text-white shadow-md'
                           : 'text-white/95 hover:bg-white/[0.08]'
@@ -315,7 +315,7 @@ export default function Header() {
                               e.stopPropagation();
                               setShowCompletedHyd(prev => !prev);
                             }}
-                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[15px] font-heading font-bold text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[14px] font-nav font-medium text-white hover:bg-white/[0.08] transition-all cursor-pointer"
                           >
                             <span>Completed Projects</span>
                             <svg 
@@ -360,7 +360,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => setActiveCity(activeCity === 'vizag' ? null : 'vizag')}
-                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-heading font-bold text-[17px] transition-all duration-200 cursor-pointer ${
+                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-nav font-semibold text-[16px] transition-all duration-200 cursor-pointer ${
                         activeCity === 'vizag'
                           ? 'bg-[#0B6FB5] text-white shadow-md'
                           : 'text-white/95 hover:bg-white/[0.08]'
@@ -400,7 +400,7 @@ export default function Header() {
                               e.stopPropagation();
                               setShowCompletedVizag(prev => !prev);
                             }}
-                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[15px] font-heading font-bold text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[14px] font-nav font-medium text-white hover:bg-white/[0.08] transition-all cursor-pointer"
                           >
                             <span>Completed Projects</span>
                             <svg 
@@ -461,7 +461,7 @@ export default function Header() {
                       key={item.label} 
                       href={item.href} 
                       onClick={(e) => handleNavClick(e, item.href)} 
-                      className="px-4 py-2.5 text-[15px] sm:text-[16px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08] last:border-b-0"
+                      className="px-4 py-2.5 text-[14px] font-nav font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08] last:border-b-0"
                     >
                       {item.label}
                     </a>
@@ -503,7 +503,7 @@ export default function Header() {
                       key={item.label} 
                       href={item.href} 
                       onClick={(e) => handleNavClick(e, item.href)} 
-                      className="px-4 py-2.5 text-[15px] sm:text-[16px] font-heading font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08] last:border-b-0"
+                      className="px-4 py-2.5 text-[14px] font-nav font-medium text-white/90 hover:text-white hover:bg-white/[0.08] rounded-[10px] transition-all block cursor-pointer border-b border-white/[0.08] last:border-b-0"
                     >
                       {item.label}
                     </a>
