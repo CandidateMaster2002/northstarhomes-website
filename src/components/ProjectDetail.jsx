@@ -621,20 +621,26 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     Key transport
                   </h3>
 
-                  {/* 2-Column Landmarks Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10 gap-y-4">
+                  {/* Landmarks Connectivity List */}
+                  <div className="flex flex-col divide-y divide-line/60">
                     {project.neighbourhood?.landmarks?.map((landmark, idx) => {
                       const displayName = landmark.name.includes('(')
                         ? landmark.name.split(' (')[0]
                         : landmark.name;
 
                       return (
-                        <div key={idx} className="flex items-baseline justify-between gap-3 text-[14px] sm:text-[15px]">
-                          <span className="font-body text-[#1A202C] font-normal">
-                            {displayName}
-                          </span>
-                          <span className="font-body text-[#4F6378] font-light whitespace-nowrap">
-                            {landmark.distance ? landmark.distance : ''}{landmark.time ? ' / ' + landmark.time : ''}
+                        <div 
+                          key={idx} 
+                          className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0 text-[14px] sm:text-[15px]"
+                        >
+                          <div className="flex items-center gap-3 min-w-0 pr-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#0B6FB5] shrink-0" />
+                            <span className="font-body text-[#1A202C] font-normal leading-snug">
+                              {displayName}
+                            </span>
+                          </div>
+                          <span className="font-body text-[#4F6378] font-normal text-[13px] sm:text-[14px] whitespace-nowrap shrink-0 text-right">
+                            {landmark.distance ? landmark.distance : ''}{landmark.time ? ' · ' + landmark.time : ''}
                           </span>
                         </div>
                       );
