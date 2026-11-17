@@ -217,7 +217,7 @@ export default function Header() {
                 </svg>
               </button>
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[200px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[200px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
                   <a 
                     href="#about-company" 
                     onClick={(e) => handleNavClick(e, '#about-company')} 
@@ -264,7 +264,7 @@ export default function Header() {
 
               {/* Desktop & Mobile Dropdown Menu matching uploaded mockups */}
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[280px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[280px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
 
                   {/* ── HYDERABAD SECTION ── */}
                   <div 
@@ -277,7 +277,7 @@ export default function Header() {
                       onClick={() => setActiveCity(activeCity === 'hyd' ? null : 'hyd')}
                       className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-heading font-bold text-[17px] transition-all duration-200 cursor-pointer ${
                         activeCity === 'hyd'
-                          ? 'bg-[#8e786b] text-white shadow-sm'
+                          ? 'bg-[#0B6FB5] text-white shadow-md'
                           : 'text-white/95 hover:bg-white/[0.08]'
                       }`}
                     >
@@ -362,10 +362,8 @@ export default function Header() {
                       onClick={() => setActiveCity(activeCity === 'vizag' ? null : 'vizag')}
                       className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-heading font-bold text-[17px] transition-all duration-200 cursor-pointer ${
                         activeCity === 'vizag'
-                          ? 'bg-[#8e786b] text-white shadow-sm'
-                          : activeCity === 'hyd'
-                            ? 'bg-[#8e786b]/70 hover:bg-[#8e786b] text-white'
-                            : 'text-white/95 hover:bg-white/[0.08]'
+                          ? 'bg-[#0B6FB5] text-white shadow-md'
+                          : 'text-white/95 hover:bg-white/[0.08]'
                       }`}
                     >
                       <span>Vizag</span>
@@ -451,7 +449,7 @@ export default function Header() {
                 </svg>
               </button>
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[230px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[230px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
                   {[
                     { label: 'Blogs', href: '#blogs' },
                     { label: 'Gallery', href: '#gallery' },
@@ -494,7 +492,7 @@ export default function Header() {
                 </svg>
               </a>
               <div className="min-[960px]:absolute min-[960px]:right-0 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[280px] max-[959px]:w-full bg-[#1c1a18]/95 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[280px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[20px] p-2 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
                   {[
                     { label: 'General Enquiry', href: '#contact' },
                     { label: 'Channel Partner', href: '#contact/channel-partner' },
