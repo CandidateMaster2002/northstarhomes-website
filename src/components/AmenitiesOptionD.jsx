@@ -373,14 +373,14 @@ export default function AmenitiesOptionD({ project }) {
                     className="flex flex-col items-center text-center group cursor-default"
                   >
                     {/* Pure Minimalist Icon (No bubbly pod, directly on page) */}
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center mb-3 text-[#07294A] group-hover:text-[#0B6FB5] group-hover:-translate-y-1 transition-all duration-300">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 flex items-center justify-center mb-3.5 text-[#07294A] group-hover:text-[#0B6FB5] group-hover:-translate-y-1 transition-all duration-300">
+                      <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14">
                         {getAmenityIcon(item)}
                       </div>
                     </div>
 
                     {/* Amenity Title */}
-                    <span className="text-[13px] sm:text-[14px] font-body text-[#1A202C] group-hover:text-[#0B6FB5] leading-snug transition-colors duration-300 max-w-[170px]">
+                    <span className="text-[13.5px] sm:text-[14.5px] lg:text-[15px] font-body text-[#1A202C] group-hover:text-[#0B6FB5] leading-snug transition-colors duration-300 max-w-[180px]">
                       {item}
                     </span>
                   </div>
