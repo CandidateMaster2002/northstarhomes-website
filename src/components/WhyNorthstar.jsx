@@ -31,9 +31,9 @@ export default function WhyNorthstar() {
               <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
                 Quality Assurance
               </p>
-              <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-heading font-medium text-ink mb-6">
+              <h2 className="text-[36px] lg:text-[54px] leading-[1.12] font-body font-normal text-ink mb-6">
                 Not just built. <br/>
-                <span className="font-heading font-medium text-accent">Inspected.</span>
+                <span className="font-body font-normal text-accent">Inspected.</span>
               </h2>
             </ScrollReveal>
             
@@ -115,7 +115,7 @@ export default function WhyNorthstar() {
                           delay: stepDelay + 0.1, 
                           ease: [0.34, 1.56, 0.64, 1] 
                         }}
-                        className="text-[24px] font-heading font-medium text-accent pt-0.5 w-10 flex-shrink-0 transition-transform duration-300 lg:group-hover:scale-110"
+                        className="text-[24px] font-body font-medium text-accent pt-0.5 w-10 flex-shrink-0 transition-transform duration-300 lg:group-hover:scale-110"
                       >
                         0{idx + 1}
                       </motion.div>
@@ -132,7 +132,7 @@ export default function WhyNorthstar() {
                         }}
                         className="flex-1"
                       >
-                        <p className="text-[22px] font-heading font-medium text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
+                        <p className="text-[20px] lg:text-[22px] font-body font-medium text-ink leading-tight mb-1.5 lg:group-hover:text-accent transition-colors duration-300">
                           {item.text}
                         </p>
                         <p className="text-[15px] font-body font-normal text-muted leading-relaxed">

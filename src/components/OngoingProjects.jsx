@@ -22,7 +22,7 @@ export default function OngoingProjects() {
             <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
               Our Presence
             </p>
-            <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-medium text-ink">
+            <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-body font-normal text-ink">
               Iconic Developments
             </h2>
           </div>
@@ -104,7 +104,7 @@ export default function OngoingProjects() {
                     }}
                     className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
                   >
-                    <h3 className="text-white !text-white font-heading font-medium text-[28px] lg:text-[34px] leading-tight mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+                    <h3 className="text-white !text-white font-body font-semibold text-[26px] lg:text-[32px] leading-tight mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                       {project.name}
                     </h3>
                     <p className="text-white/80 font-body font-normal text-[14px] tracking-wide">

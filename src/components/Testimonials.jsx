@@ -27,7 +27,7 @@ export default function Testimonials() {
         <p className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold mb-2">
           Client Experiences
         </p>
-        <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-heading font-medium text-ink">
+        <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-body font-normal text-ink">
           Stories from Our Families
         </h2>
       </div>

@@ -137,7 +137,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             {/* Left: Project Wordmark / Crest */}
             <a 
               href="#spotlight" 
-              className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase font-heading font-bold text-ink hover:text-accent transition-colors shrink-0"
+              className="text-[12px] sm:text-[13px] tracking-[0.24em] uppercase font-nav font-bold text-ink hover:text-accent transition-colors shrink-0"
             >
               {project.shortName || project.name}
             </a>
@@ -236,7 +236,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
               </div>
             ) : (
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-soft border border-line text-accent mb-6 shadow-sm">
-                <span className="font-heading font-medium text-[20px] tracking-widest">
+                <span className="font-nav font-medium text-[20px] tracking-widest">
                   {(project.shortName || project.name).charAt(0)}
                 </span>
               </div>
@@ -524,7 +524,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   {/* Right Section: Scrollable Thumbnails */}
                   <div className="lg:col-span-5 xl:col-span-4 flex flex-col rounded-2xl bg-white border border-line shadow-sm p-4 sm:p-5">
                     <div className="flex items-center justify-between mb-4 pb-3 border-b border-line">
-                      <span className="text-[12px] tracking-[0.16em] uppercase font-semibold text-ink font-heading">
+                      <span className="text-[12px] tracking-[0.16em] uppercase font-semibold text-ink font-nav">
                         {activeProgressTab === 'Photos' ? 'All Photos' : 'All Videos'}
                       </span>
                       <span className="text-[12px] font-mono text-muted">

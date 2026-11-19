@@ -131,7 +131,7 @@ export default function Timeline() {
         <p className="text-[13px] sm:text-[14px] tracking-[0.28em] uppercase text-accent font-semibold font-nav mb-2">
           MILESTONES & HERITAGE
         </p>
-        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-heading font-medium text-ink tracking-tight">
+        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-body font-normal text-ink tracking-tight">
           A Decade of Building Trust.
         </h2>
       </div>
@@ -256,7 +256,7 @@ export default function Timeline() {
                       className="max-w-[520px]"
                     >
                       {/* Year — Italic Title */}
-                      <h3 className="text-[26px] sm:text-[34px] lg:text-[40px] font-heading font-medium leading-[1.18] mb-2.5 sm:mb-3 text-white !text-white tracking-tight break-words drop-shadow-md">
+                      <h3 className="text-[26px] sm:text-[34px] lg:text-[40px] font-body font-normal leading-[1.18] mb-2.5 sm:mb-3 text-white !text-white tracking-tight break-words drop-shadow-md">
                         <span>{milestone.year}</span>
                         <span className="font-light mx-2 sm:mx-3 text-white/70">—</span>
                         <span className="font-normal text-white/95">{milestone.italicTitle}</span>
@@ -270,7 +270,7 @@ export default function Timeline() {
                   ) : (
                     // ── COLLAPSED / INITIAL GHOST STATE ──
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span className="text-[22px] sm:text-[30px] lg:text-[36px] font-heading font-medium text-black/80 tracking-tight transition-transform duration-300">
+                      <span className="text-[22px] sm:text-[30px] lg:text-[36px] font-body font-medium text-black/80 tracking-tight transition-transform duration-300">
                         {milestone.year}
                       </span>
                     </div>

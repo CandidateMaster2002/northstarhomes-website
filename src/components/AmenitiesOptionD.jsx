@@ -86,9 +86,218 @@ const amenityIcons = {
   ),
   'Party Hall': (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-      <path d="M4 11l8-6 8 6v9H4v-9z" />
-      <path d="M12 5V2l3 1.5L12 5" />
-      <path d="M9 14h6" /><path d="M9 17h6" />
+      {/* Festive marquee party canopy with celebration flag matching reference */}
+      <path d="M12 3v4" />
+      <path d="M12 3l4 2-4 2" />
+      <path d="M4 11l8-4 8 4" />
+      <path d="M4 11v8h16v-8" />
+      <path d="M4 11l8 5 8-5" />
+    </svg>
+  ),
+  'Jain Temple & Prayer Hall': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* Sacred Temple with Shikhara Spire and Sanctum Doorway matching reference */}
+      <path d="M12 2v3" />
+      <path d="M12 5L4 12h16L12 5z" />
+      <path d="M6 12v9h12v-9" />
+      <path d="M9 21v-5a3 3 0 016 0v5" />
+      <line x1="3" y1="21" x2="21" y2="21" />
+    </svg>
+  ),
+  'Business Centre': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* Executive Briefcase matching reference */}
+      <rect x="4" y="8" width="16" height="12" rx="2" />
+      <path d="M8 8V5a1 1 0 011-1h6a1 1 0 011 1v2" />
+      <line x1="4" y1="13" x2="20" y2="13" />
+      <rect x="11" y="12" width="2" height="2" rx="0.5" fill="currentColor" />
+    </svg>
+  ),
+  'Pickleball Court': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* Pickleball paddle with ball matching reference */}
+      <circle cx="10" cy="9" r="5.5" />
+      <path d="M10 14.5v5.5" strokeWidth="1.8" />
+      <circle cx="18" cy="14" r="2.2" />
+      <circle cx="18" cy="14" r="0.5" fill="currentColor" />
+    </svg>
+  ),
+  'Cricket Nets': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* 3 Wickets with Bails and Practice Net Frame matching reference */}
+      <path d="M5 8l7-4 7 4" />
+      <line x1="6" y1="8" x2="18" y2="8" strokeWidth="1.8" />
+      <line x1="8" y1="8" x2="8" y2="20" />
+      <line x1="12" y1="8" x2="12" y2="20" />
+      <line x1="16" y1="8" x2="16" y2="20" />
+    </svg>
+  ),
+  '24×7 Security': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* Security Shield */}
+      <path d="M12 3l8 3.5v5.5c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V6.5L12 3z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  ),
+  'High-Speed Lifts': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* Elevator cabin with dual directional arrows */}
+      <rect x="4" y="3" width="16" height="18" rx="2" />
+      <line x1="12" y1="3" x2="12" y2="21" />
+      <path d="M7 13l1.5-2.5 1.5 2.5" />
+      <path d="M14 10.5l1.5 2.5 1.5-2.5" />
+    </svg>
+  ),
+  'Car Parking': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      {/* Dedicated Parking Sign */}
+      <rect x="4" y="3" width="16" height="18" rx="3" />
+      <path d="M9 16V8h4a2.5 2.5 0 010 5H9" strokeWidth="1.8" />
+    </svg>
+  ),
+  'Infinity Swimming Pool': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M3 16c2.5-1.5 4.5 0 7-1.5s4.5 0 7-1.5 3 0 4 1" />
+      <path d="M3 20c2.5-1.5 4.5 0 7-1.5s4.5 0 7-1.5 3 0 4 1" />
+      <circle cx="14" cy="6" r="1.8" />
+      <path d="M8 8l4 3 2 4" />
+    </svg>
+  ),
+  'Jogging Track': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <circle cx="14" cy="5" r="2" />
+      <path d="M11 9l3 3-2 4 4 4" />
+      <path d="M13 12l3-1 2 3" />
+      <path d="M8 13l3-1" />
+      <path d="M7 21l3-5" />
+    </svg>
+  ),
+  'Gymnasium': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M6 12h12" strokeWidth="2.2" />
+      <rect x="4" y="8" width="2" height="8" rx=".5" fill="currentColor" />
+      <rect x="18" y="8" width="2" height="8" rx=".5" fill="currentColor" />
+      <rect x="2" y="9.5" width="2" height="5" rx=".5" />
+      <rect x="20" y="9.5" width="2" height="5" rx=".5" />
+    </svg>
+  ),
+  'EV Charging Station': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <rect x="3" y="10" width="12" height="7" rx="2" />
+      <circle cx="6" cy="17" r="1.5" />
+      <circle cx="12" cy="17" r="1.5" />
+      <path d="M15 13h3a2 2 0 012 2v2a1 1 0 01-1 1" />
+      <path d="M19 10v2" />
+    </svg>
+  ),
+  'Car-Wash Area': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <rect x="4" y="12" width="16" height="6" rx="2" />
+      <path d="M6 12l2-4h8l2 4" />
+      <circle cx="8" cy="18" r="1.5" />
+      <circle cx="16" cy="18" r="1.5" />
+      <path d="M8 3v3M12 2v4M16 3v3" />
+    </svg>
+  ),
+  'Terrace Viewing Deck': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M3 10l9-6 9 6" />
+      <rect x="5" y="10" width="14" height="10" />
+      <rect x="9" y="12" width="6" height="5" />
+    </svg>
+  ),
+  'Kids\' Swimming Pool': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <ellipse cx="12" cy="11" rx="5" ry="3" />
+      <ellipse cx="12" cy="11" rx="2" ry="1.2" />
+      <path d="M4 17c3-1.5 5 0 8-1.5s5 0 8-1.5" />
+    </svg>
+  ),
+  'Visitors\' Lounge': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <rect x="4" y="5" width="16" height="12" rx="2" />
+      <path d="M12 17v4M8 21h8" />
+      <circle cx="8" cy="10" r="1.5" />
+      <path d="M6 14c0-1 1-2 2-2s2 1 2 2" />
+      <line x1="12" y1="9" x2="17" y2="9" />
+      <line x1="12" y1="12" x2="16" y2="12" />
+    </svg>
+  ),
+  'Senior Citizens\' Seating Area': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <circle cx="13" cy="7" r="2" />
+      <path d="M13 11v4l-3 3" />
+      <path d="M13 13h-3v5" />
+      <path d="M7 15v5" />
+    </svg>
+  ),
+  'E-Commerce Storage Hub': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+      <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" />
+    </svg>
+  ),
+  'Landscaped Seating Lounges': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <rect x="5" y="10" width="14" height="6" rx="1" />
+      <path d="M5 16v4M19 16v4" />
+      <path d="M3 13h18" strokeWidth="1.8" />
+    </svg>
+  ),
+  'Premium Clubhouse': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <rect x="5" y="4" width="14" height="17" rx="2" />
+      <path d="M9 21v-8a3 3 0 016 0v8" />
+    </svg>
+  ),
+  'Badminton Court': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <circle cx="10" cy="9" r="5" />
+      <line x1="10" y1="14" x2="10" y2="21" strokeWidth="1.8" />
+      <line x1="7" y1="9" x2="13" y2="9" strokeDasharray="1.5 1.5" />
+      <line x1="10" y1="6" x2="10" y2="12" strokeDasharray="1.5 1.5" />
+      <path d="M17 14l2-2m0 0l2 2m-2-2v4" />
+    </svg>
+  ),
+  'Tennis Court': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <circle cx="10" cy="9" r="5.5" />
+      <path d="M10 14.5v6.5" strokeWidth="1.8" />
+      <circle cx="18" cy="14" r="2.5" />
+    </svg>
+  ),
+  'Basketball Court': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <circle cx="12" cy="12" r="8" />
+      <line x1="12" y1="4" x2="12" y2="20" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <path d="M6.3 6.3a8 8 0 010 11.4M17.7 6.3a8 8 0 000 11.4" />
+    </svg>
+  ),
+  'Theatre / Screening Room': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <rect x="3" y="5" width="18" height="12" rx="2" />
+      <polygon points="10 8 16 11 10 14 10 8" fill="currentColor" />
+      <path d="M7 20h10M12 17v3" />
+    </svg>
+  ),
+  'Library': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+    </svg>
+  ),
+  'Home Automation': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+      <circle cx="12" cy="13" r="2.5" />
+    </svg>
+  ),
+  'Fire Fighting System': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+      <path d="M8 8h8v12H8z" rx="1" />
+      <path d="M12 4v4M9 5h6" />
+      <path d="M16 11l2-2" />
     </svg>
   ),
   'Cards Room': (
@@ -292,27 +501,54 @@ const fallbackIcon = (
 
 const getAmenityIcon = (name = '') => {
   if (amenityIcons[name]) return amenityIcons[name];
-  const n = name.toLowerCase();
-  if (n.includes('indoor games')) return amenityIcons['Indoor Games'];
-  if (n.includes('guest room')) return amenityIcons['Guest Room'];
-  if (n.includes('gym')) return amenityIcons['Gym'];
-  if (n.includes('swimming')) return amenityIcons['Swimming Pool'];
-  if (n.includes('party hall')) return amenityIcons['Party Hall'];
-  if (n.includes('cards')) return amenityIcons['Cards Room'];
-  if (n.includes('yoga')) return amenityIcons['Yoga Deck'];
-  if (n.includes('children') || n.includes('play')) return amenityIcons["Children's Play Area"];
-  if (n.includes('gathering')) return amenityIcons['Gathering Courts'];
-  if (n.includes('seating')) return amenityIcons['Seating Areas'];
+  const n = name.toLowerCase().replace(/['"\\’]/g, '');
+
+  // High-priority matches matching reference sheet
+  if (n.includes('pickleball')) return amenityIcons['Pickleball Court'];
+  if (n.includes('cricket')) return amenityIcons['Cricket Nets'];
+  if (n.includes('business')) return amenityIcons['Business Centre'];
+  if (n.includes('jain') || n.includes('temple') || n.includes('prayer')) return amenityIcons['Jain Temple & Prayer Hall'];
+  if (n.includes('party hall') || (n.includes('party') && n.includes('lawn'))) return amenityIcons['Party Hall'];
   if (n.includes('party lawn')) return amenityIcons['Party Lawn'];
-  if (n.includes('deck')) return amenityIcons['Community Decks'];
-  if (n.includes('walking')) return amenityIcons['Dedicated Walking Track'];
-  if (n.includes('cycling')) return amenityIcons['Dedicated Cycling Track'];
+  if (n.includes('infinity') || n.includes('swimming') || n.includes('pool')) return amenityIcons['Infinity Swimming Pool'];
+  if (n.includes('gym')) return amenityIcons['Gymnasium'];
+  if (n.includes('lift') || n.includes('v3f') || n.includes('elevator')) return amenityIcons['High-Speed Lifts'];
+  if (n.includes('parking') || n.includes('car park')) return amenityIcons['Car Parking'];
+  if (n.includes('security') || n.includes('24-hour') || n.includes('24x7') || n.includes('24×7')) return amenityIcons['24×7 Security'];
+  if (n.includes('cctv')) return amenityIcons['CCTV'];
+  if (n.includes('indoor games') || n.includes('games room')) return amenityIcons['Indoor Games'];
+  if (n.includes('cards')) return amenityIcons['Cards Room'];
+  if (n.includes('billiards') || n.includes('table tennis')) return amenityIcons['Indoor Games'];
+  if (n.includes('badminton')) return amenityIcons['Badminton Court'];
+  if (n.includes('tennis')) return amenityIcons['Tennis Court'];
+  if (n.includes('basketball')) return amenityIcons['Basketball Court'];
+  if (n.includes('squash')) return amenityIcons['Badminton Court'];
+  if (n.includes('skating')) return amenityIcons['Dedicated Cycling Track'];
+  if (n.includes('play area') || n.includes('tot-lot') || n.includes('kids')) return amenityIcons["Children's Play Area"];
+  if (n.includes('jogging') || n.includes('walking') || n.includes('runner') || n.includes('track')) return amenityIcons['Jogging Track'];
+  if (n.includes('yoga') || n.includes('meditation')) return amenityIcons['Yoga Deck'];
+  if (n.includes('clubhouse') || n.includes('club house')) return amenityIcons['Premium Clubhouse'];
+  if (n.includes('guest room') || n.includes('guest rooms')) return amenityIcons['Guest Room'];
+  if (n.includes('seating') || n.includes('sit-out') || n.includes('lounge')) return amenityIcons['Landscaped Seating Lounges'];
+  if (n.includes('gathering') || n.includes('community space') || n.includes('community deck')) return amenityIcons['Gathering Courts'];
+  if (n.includes('terrace') || n.includes('deck') || n.includes('gazebo')) return amenityIcons['Terrace Viewing Deck'];
+  if (n.includes('ev charging')) return amenityIcons['EV Charging Station'];
+  if (n.includes('car-wash') || n.includes('car wash')) return amenityIcons['Car-Wash Area'];
+  if (n.includes('storage') || n.includes('e-commerce') || n.includes('hub')) return amenityIcons['E-Commerce Storage Hub'];
+  if (n.includes('senior')) return amenityIcons['Senior Citizens\' Seating Area'];
+  if (n.includes('theatre') || n.includes('amphitheater') || n.includes('screening')) return amenityIcons['Theatre / Screening Room'];
+  if (n.includes('library') || n.includes('reading')) return amenityIcons['Library'];
+  if (n.includes('automation') || n.includes('intercom')) return amenityIcons['Home Automation'];
+  if (n.includes('fire')) return amenityIcons['Fire Fighting System'];
+  if (n.includes('cycling') || n.includes('cycle')) return amenityIcons['Dedicated Cycling Track'];
   if (n.includes('road')) return amenityIcons['40 ft Main Road'];
   if (n.includes('stp')) return amenityIcons['STP'];
-  if (n.includes('wtp')) return amenityIcons['WTP'];
-  if (n.includes('cctv')) return amenityIcons['CCTV'];
-  if (n.includes('power backup')) return amenityIcons['Power Backup'];
+  if (n.includes('wtp') || n.includes('water supply') || n.includes('hydro-pneumatic') || n.includes('drainage')) return amenityIcons['WTP'];
+  if (n.includes('power backup') || n.includes('electrification') || n.includes('power')) return amenityIcons['Power Backup'];
   if (n.includes('wall') || n.includes('fencing')) return amenityIcons['Compound Wall with Solar Fencing'];
+  if (n.includes('pocket park') || n.includes('central park') || n.includes('green space') || n.includes('garden')) return amenityIcons['Pocket Parks'];
+  if (n.includes('avenue') || n.includes('tree') || n.includes('planting')) return amenityIcons['Tree-Lined Avenues'];
+
   return fallbackIcon;
 };
 

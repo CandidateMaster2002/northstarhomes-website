@@ -16,7 +16,7 @@ export default function CompletedProjects() {
             <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
               Delivered Communities
             </p>
-            <h2 className="text-[clamp(32px,3.4vw,48px)] leading-[1.12] font-heading font-medium text-ink">
+            <h2 className="text-[clamp(32px,3.4vw,48px)] leading-[1.12] font-body font-normal text-ink">
               Completed Projects
             </h2>
           </div>

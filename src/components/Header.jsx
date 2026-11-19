@@ -10,13 +10,13 @@ const hydProjects = {
     { name: 'Sanctuary', href: '#project/sanctuary' }
   ],
   completed: [
-    { name: 'District 1', href: '#project/district-1' },
     { name: 'Airport Boulevard', href: '#project/airport-boulevard' },
-    { name: 'Hillside', href: '#project/hillside' },
-    { name: 'Veda', href: '#project/veda' },
-    { name: 'Leela', href: '#project/leela' },
     { name: 'AMG Plaza', href: '#project/amg-plaza' },
-    { name: 'Garden Suites', href: '#project/garden-suites' }
+    { name: 'District 1', href: '#project/district-1' },
+    { name: 'Garden Suites', href: '#project/garden-suites' },
+    { name: 'Hillside', href: '#project/hillside' },
+    { name: 'Leela', href: '#project/leela' },
+    { name: 'Veda', href: '#project/veda' }
   ]
 };
 
@@ -34,7 +34,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSuperNav, setShowSuperNav] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeCity, setActiveCity] = useState(null); // 'hyd' | 'vizag' | null
+  const [openHyd, setOpenHyd] = useState(false);
+  const [openVizag, setOpenVizag] = useState(false);
   const [showCompletedHyd, setShowCompletedHyd] = useState(false);
   const [showCompletedVizag, setShowCompletedVizag] = useState(false);
 
@@ -244,14 +245,7 @@ export default function Header() {
             </div>
 
             {/* 2. Projects Dropdown */}
-            <div 
-              className="relative group"
-              onMouseLeave={() => {
-                setActiveCity(null);
-                setShowCompletedHyd(false);
-                setShowCompletedVizag(false);
-              }}
-            >
+            <div className="relative group">
               <button 
                 type="button"
                 className="flex items-center gap-1.5 uppercase outline-none py-2 hover:text-accent transition-colors cursor-pointer max-[959px]:w-full max-[959px]:justify-between max-[959px]:border-b max-[959px]:border-line max-[959px]:pb-3"
@@ -264,26 +258,26 @@ export default function Header() {
 
               {/* Desktop & Mobile Dropdown Menu matching uploaded mockups */}
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[280px] max-[959px]:w-full bg-[#07294A]/98 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[280px] max-h-[82vh] overflow-y-auto no-scrollbar bg-[#07294A]/98 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
 
                   {/* ── HYDERABAD SECTION ── */}
-                  <div 
-                    onMouseEnter={() => setActiveCity('hyd')}
-                    className="flex flex-col"
-                  >
+                  <div className="flex flex-col">
                     {/* Hyderabad City Pill / Button */}
                     <button
                       type="button"
-                      onClick={() => setActiveCity(activeCity === 'hyd' ? null : 'hyd')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setOpenHyd(prev => !prev);
+                      }}
                       className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-nav font-semibold text-[16px] transition-all duration-200 cursor-pointer ${
-                        activeCity === 'hyd'
+                        openHyd
                           ? 'bg-[#0B6FB5] text-white shadow-md'
                           : 'text-white/95 hover:bg-white/[0.08]'
                       }`}
                     >
                       <span>Hyderabad</span>
                       <svg 
-                        className={`w-4 h-4 transition-transform duration-200 ${activeCity === 'hyd' ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                        className={`w-4 h-4 transition-transform duration-200 ${openHyd ? 'rotate-180 text-white' : 'text-white/80'}`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -293,7 +287,7 @@ export default function Header() {
                     </button>
 
                     {/* Hyderabad Ongoing & Completed Projects */}
-                    {activeCity === 'hyd' && (
+                    {openHyd && (
                       <div className="pt-2 pb-1 flex flex-col">
                         {/* Ongoing Projects list */}
                         {hydProjects.ongoing.map((proj) => (
@@ -301,7 +295,7 @@ export default function Header() {
                             key={proj.name}
                             href={proj.href}
                             onClick={(e) => handleNavClick(e, proj.href)}
-                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/95 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/90 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
                           >
                             {proj.name}
                           </a>
@@ -315,7 +309,11 @@ export default function Header() {
                               e.stopPropagation();
                               setShowCompletedHyd(prev => !prev);
                             }}
-                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[14px] font-nav font-medium text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+                            className={`w-full px-5 py-2.5 rounded-[18px] flex items-center justify-between text-[15px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
+                              showCompletedHyd
+                                ? 'bg-white/[0.14] text-white shadow-sm'
+                                : 'text-white/90 hover:bg-white/[0.08]'
+                            }`}
                           >
                             <span>Completed Projects</span>
                             <svg 
@@ -330,13 +328,13 @@ export default function Header() {
 
                           {/* Completed Projects List */}
                           {showCompletedHyd && (
-                            <div className="pl-7 pr-3 py-1 flex flex-col space-y-1">
+                            <div className="pl-6 pr-3 py-1 flex flex-col space-y-0.5">
                               {hydProjects.completed.map((proj) => (
                                 <a
                                   key={proj.name}
                                   href={proj.href}
                                   onClick={(e) => handleNavClick(e, proj.href)}
-                                  className="py-1.5 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                                  className="py-1.5 px-2 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.04]"
                                 >
                                   {proj.name}
                                 </a>
@@ -349,26 +347,26 @@ export default function Header() {
                   </div>
 
                   {/* Subtle divider when neither is open */}
-                  {!activeCity && <div className="h-[1px] bg-white/10 my-1 mx-2" />}
+                  {!openHyd && !openVizag && <div className="h-[1px] bg-white/10 my-1 mx-2" />}
 
                   {/* ── VIZAG SECTION ── */}
-                  <div 
-                    onMouseEnter={() => setActiveCity('vizag')}
-                    className="flex flex-col mt-1"
-                  >
+                  <div className="flex flex-col mt-1">
                     {/* Vizag City Pill / Button */}
                     <button
                       type="button"
-                      onClick={() => setActiveCity(activeCity === 'vizag' ? null : 'vizag')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setOpenVizag(prev => !prev);
+                      }}
                       className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-nav font-semibold text-[16px] transition-all duration-200 cursor-pointer ${
-                        activeCity === 'vizag'
+                        openVizag
                           ? 'bg-[#0B6FB5] text-white shadow-md'
                           : 'text-white/95 hover:bg-white/[0.08]'
                       }`}
                     >
                       <span>Vizag</span>
                       <svg 
-                        className={`w-4 h-4 transition-transform duration-200 ${activeCity === 'vizag' ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                        className={`w-4 h-4 transition-transform duration-200 ${openVizag ? 'rotate-180 text-white' : 'text-white/80'}`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -378,7 +376,7 @@ export default function Header() {
                     </button>
 
                     {/* Vizag Ongoing & Completed Projects */}
-                    {activeCity === 'vizag' && (
+                    {openVizag && (
                       <div className="pt-2 pb-1 flex flex-col">
                         {/* Ongoing Projects list */}
                         {vizagProjects.ongoing.map((proj) => (
@@ -386,7 +384,7 @@ export default function Header() {
                             key={proj.name}
                             href={proj.href}
                             onClick={(e) => handleNavClick(e, proj.href)}
-                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/95 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/90 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
                           >
                             {proj.name}
                           </a>
@@ -400,7 +398,11 @@ export default function Header() {
                               e.stopPropagation();
                               setShowCompletedVizag(prev => !prev);
                             }}
-                            className="w-full px-5 py-2.5 rounded-xl flex items-center justify-between text-[14px] font-nav font-medium text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+                            className={`w-full px-5 py-2.5 rounded-[18px] flex items-center justify-between text-[15px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
+                              showCompletedVizag
+                                ? 'bg-white/[0.14] text-white shadow-sm'
+                                : 'text-white/90 hover:bg-white/[0.08]'
+                            }`}
                           >
                             <span>Completed Projects</span>
                             <svg 
@@ -415,13 +417,13 @@ export default function Header() {
 
                           {/* Completed Projects List */}
                           {showCompletedVizag && (
-                            <div className="pl-7 pr-3 py-1 flex flex-col space-y-1">
+                            <div className="pl-6 pr-3 py-1 flex flex-col space-y-0.5">
                               {vizagProjects.completed.map((proj) => (
                                 <a
                                   key={proj.name}
                                   href={proj.href}
                                   onClick={(e) => handleNavClick(e, proj.href)}
-                                  className="py-1.5 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                                  className="py-1.5 px-2 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.04]"
                                 >
                                   {proj.name}
                                 </a>

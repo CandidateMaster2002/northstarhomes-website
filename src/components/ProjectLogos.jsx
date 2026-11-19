@@ -43,7 +43,7 @@ export default function ProjectLogos() {
         <p className="mb-2 text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold">
           Our Portfolio
         </p>
-        <h2 className="text-[clamp(28px,2.8vw,42px)] font-heading font-medium text-ink leading-tight">
+        <h2 className="text-[clamp(28px,2.8vw,42px)] font-body font-normal text-ink leading-tight">
           A Legacy of Landmark Projects
         </h2>
       </div>
