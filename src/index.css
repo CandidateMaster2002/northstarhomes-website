@@ -2,7 +2,7 @@
 
 @theme {
   /* ── Monochromatic Brand Blue Palette ── */
-  --color-bg: #FFFFFF;
+  --color-bg: #FAF9F6;
   --color-soft: #EEF5FB;
   --color-ink: #07294A;
   --color-muted: #4F6378;
@@ -38,7 +38,7 @@
     font-family: var(--font-body);
     font-weight: 400; /* Regular */
     color: var(--color-muted); /* Soft Grey (#556475) */
-    background-color: var(--color-bg); /* Pure White (#FFFFFF) */
+    background-color: var(--color-bg); /* Subtle creamy white (#FAF9F6) */
     -webkit-font-smoothing: antialiased;
   }
 

@@ -328,7 +328,7 @@ export default function AboutCompany() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 3: TRACK RECORD STATS
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-white border-b border-[#D8E6F2]">
+      <section className="py-16 lg:py-20 bg-bg border-b border-[#D8E6F2]">
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-[680px] mx-auto mb-12">
@@ -452,7 +452,7 @@ export default function AboutCompany() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 5: OUR MISSION & VISION
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-white border-b border-[#D8E6F2]" id="mission">
+      <section className="py-20 lg:py-28 bg-bg border-b border-[#D8E6F2]" id="mission">
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
@@ -618,7 +618,7 @@ export default function AboutCompany() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 7: CUSTOMER TESTIMONIALS (Video Gallery)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-white border-b border-[#D8E6F2]" id="testimonials">
+      <section className="py-20 lg:py-28 bg-bg border-b border-[#D8E6F2]" id="testimonials">
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">

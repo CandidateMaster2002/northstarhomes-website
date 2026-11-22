@@ -76,7 +76,7 @@ export default function EmiCalculator() {
       {/* ─────────────────────────────────────────────────────────────
           CLEAN EDITORIAL HEADER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-white text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
+      <section className="bg-bg text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 relative z-10">
           <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-3">
             <a href="#top" className="hover:text-ink transition-colors">Home</a>

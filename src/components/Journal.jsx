@@ -5,7 +5,7 @@ export default function Journal() {
   const latestArticles = blogPosts.slice(0, 3);
 
   return (
-    <section id="resources" className="py-20 max-[880px]:py-12 bg-white border-t border-line">
+    <section id="resources" className="py-20 max-[880px]:py-12 bg-bg border-t border-line">
       <div className="max-w-[1280px] mx-auto px-10 max-[880px]:px-6">
         
         <div className="flex flex-wrap gap-6 items-end justify-between mb-12">

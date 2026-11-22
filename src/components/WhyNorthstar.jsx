@@ -41,13 +41,13 @@ export default function WhyNorthstar() {
               <p className="text-[16px] lg:text-[17px] leading-[1.85] font-body font-normal text-muted mb-6">
                 Before handover, our projects undergo comprehensive{' '}
                 <a 
-                  href="https://propchk.com" 
+                  href="https://propcheck.in/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-ink font-semibold underline decoration-accent underline-offset-4 hover:text-accent transition-colors inline-flex items-center gap-1"
-                  title="Visit PropChk Official Website"
+                  title="Visit PropCheck Official Website"
                 >
-                  <span>PropChk</span>
+                  <span>PropCheck</span>
                   <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -55,15 +55,15 @@ export default function WhyNorthstar() {
                 quality inspections to ensure workmanship, finishes, and functionality meet the exact standards our customers deserve.
               </p>
 
-              {/* Direct Link to PropChk Website */}
+              {/* Direct Link to PropCheck Website */}
               <div className="mb-10">
                 <a 
-                  href="https://propchk.com" 
+                  href="https://propcheck.in/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-accent/30 bg-soft text-ink hover:bg-accent hover:text-white hover:border-accent text-[13px] font-nav font-medium tracking-[0.14em] uppercase transition-all duration-300 shadow-sm group"
                 >
-                  <span>Visit PropChk Official Website</span>
+                  <span>Visit PropCheck Official Website</span>
                   <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -150,22 +150,22 @@ export default function WhyNorthstar() {
           <div className="flex-1 min-w-0 basis-[460px] w-full mt-6 lg:mt-0">
             <ScrollReveal delay={0.4}>
               <a 
-                href="https://propchk.com"
+                href="https://propcheck.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Visit PropChk Official Website"
+                title="Visit PropCheck Official Website"
                 className="block aspect-[5/4] rounded-2xl overflow-hidden shadow-[0_24px_50px_rgba(7,41,74,0.12)] border border-line bg-bg group relative cursor-pointer"
               >
                 <img 
                   src={propchkImg} 
-                  alt="PropChk Quality Inspection" 
+                  alt="PropCheck Quality Inspection" 
                   className="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105" 
                 />
                 
-                {/* Floating PropChk badge */}
+                {/* Floating PropCheck badge */}
                 <div className="absolute bottom-4 right-4 z-10 px-4 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-line shadow-lg flex items-center gap-2 text-[13px] font-nav font-medium text-ink transition-all duration-300 group-hover:bg-[#07294A] group-hover:text-white group-hover:border-[#07294A]">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Visit PropChk.com</span>
+                  <span>Visit PropCheck.in</span>
                   <svg className="w-3.5 h-3.5 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>

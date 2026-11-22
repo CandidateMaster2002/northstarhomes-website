@@ -182,7 +182,7 @@ export default function Careers() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 1: HERO & CULTURE NARRATIVE (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative py-16 lg:py-24 bg-white text-ink border-b border-line overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-bg text-ink border-b border-line overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 relative z-10">
           
           {/* Eyebrow, Title & Core Message */}

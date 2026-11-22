@@ -65,10 +65,10 @@ export default function Gallery() {
     : galleryMedia.filter(item => item.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-white text-ink pt-[90px] sm:pt-[106px]">
+    <main className="min-h-screen bg-bg text-ink pt-[90px] sm:pt-[106px]">
       
       {/* ── Northstar Brand Filter Strip (Option 1: Crisp Clean Luxury) ── */}
-      <div className="w-full bg-white border-b border-line flex flex-wrap items-center">
+      <div className="w-full bg-bg border-b border-line flex flex-wrap items-center">
         
         {/* Brand Accent Filter Pill */}
         <div className="bg-accent text-white px-6 sm:px-8 py-3.5 sm:py-4 flex items-center gap-2.5 text-[11px] sm:text-[12px] font-body tracking-[0.2em] uppercase font-semibold shrink-0 shadow-sm">

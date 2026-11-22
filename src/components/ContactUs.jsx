@@ -101,7 +101,7 @@ export default function ContactUs({ type = 'general' }) {
       {/* ─────────────────────────────────────────────────────────────
           COMPACT CLEAN HEADER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-white text-ink pt-28 pb-6 sm:pt-32 sm:pb-8 border-b border-line relative overflow-hidden">
+      <section className="bg-bg text-ink pt-28 pb-6 sm:pt-32 sm:pb-8 border-b border-line relative overflow-hidden">
         <div className="max-w-[1120px] mx-auto px-6 sm:px-8 relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-2">

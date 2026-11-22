@@ -1,76 +1,192 @@
 import React, { useState } from 'react';
 
-const testimonialsData = [
-  { id: 'dbDrWb69YVw', title: 'EDEN GARDEN Vizag: Happy Customer, Mr.Hari Prasad' },
-  { id: '5_WoLtNDpz4', title: 'District 1 Happy Customer, Mr. Sasikanth & Family' },
-  { id: 'vKmZBlkrj_0', title: 'District 1 Happy Customer, Mr Anmol' },
-  { id: 'FKe_OYnkQdE', title: 'District 1 Happy Customer, Mr&Mrs. Dilip Nayak' },
-  { id: 'UISa8o4F6JI', title: 'District 1 Happy Customer, Mr.Sharath' },
-  { id: '9Q7ii8I5bC8', title: 'AMG Plaza Happy Customer, Mr. Mohan' },
-  { id: 'UZBNu3Rx2RQ', title: 'District1 Happy Customer, Mr. Ravi Kishore' },
-  { id: '1tioxCia_tg', title: 'Garden Suites Happy Customer, Dr. Mathur' },
-  { id: '6wL1_ZKTiUM', title: 'Mr Nishidhar Reddy Speaks about the Luxury villas' },
-  { id: 'fCj3TiTw2Zk', title: 'Mr T. L Easwar, Aurobindo Pharmaceutical President' },
-  { id: 'cjoz_eESxWU', title: 'Mr Avinash, Chairman - Avinash College' },
-  { id: 'ban-zBH68AY', title: 'Mr O V Dheeraj Reddy - Hillside Luxury Villas' }
+// Combined curated testimonials (videos & written reviews) matching the reference layout
+const testimonialsGrid = [
+  // ── ROW 1 ──
+  {
+    type: 'video',
+    id: 'dbDrWb69YVw',
+    homeowner: 'PARK AVENUE HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'The planning, the amenities and the overall experience have been truly exceptional.',
+    homeowner: 'PARK AVENUE HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: '5_WoLtNDpz4',
+    homeowner: 'EDEN GARDEN HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'A community that truly values its residents. It already feels like home.',
+    homeowner: 'EDEN GARDEN HOMEOWNER'
+  },
+
+  // ── ROW 2 ──
+  {
+    type: 'quote',
+    quote: 'The location, connectivity and everyday convenience make living here so easy.',
+    homeowner: 'ALLURA HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: 'vKmZBlkrj_0',
+    homeowner: 'ALLURA HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'Excellent build quality and thoughtful design. Every detail feels so well considered.',
+    homeowner: 'HILL SIDE HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: 'FKe_OYnkQdE',
+    homeowner: 'HILL SIDE HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+
+  // ── ROW 3 ──
+  {
+    type: 'video',
+    id: 'UISa8o4F6JI',
+    homeowner: 'NORTHSTAR HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'What we love most is the thoughtful mix of green spaces, recreation and a true sense of community.',
+    homeowner: 'NORTHSTAR HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: '9Q7ii8I5bC8',
+    homeowner: 'PARK AVENUE HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: "A lifestyle that's peaceful, well-connected and perfect for our family.",
+    homeowner: 'PARK AVENUE HOMEOWNER'
+  },
+
+  // ── ROW 4 ──
+  {
+    type: 'quote',
+    quote: 'From the first visit to handover, the entire journey was smooth, transparent and trustworthy.',
+    homeowner: 'ALLURA HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: 'UZBNu3Rx2RQ',
+    homeowner: 'EDEN GARDEN HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: "The amenities are a big plus — there's something for every member of the family.",
+    homeowner: 'EDEN GARDEN HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: '1tioxCia_tg',
+    homeowner: 'GARDEN SUITES HOMEOWNER',
+    caption: 'Watch Testimonial'
+  }
 ];
 
 export default function Testimonials() {
   const [activeVideo, setActiveVideo] = useState(null);
 
-  // We duplicate the array to allow for a seamless infinite scroll
-  const infiniteVideos = [...testimonialsData, ...testimonialsData];
-
   return (
-    <section id="testimonials" className="bg-bg py-16 lg:py-20 border-t border-line overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-10 mb-10 lg:mb-16 text-center">
-        <p className="text-[13px] sm:text-[14px] tracking-[0.24em] uppercase text-accent font-nav font-semibold mb-2">
-          Client Experiences
-        </p>
-        <h2 className="text-[clamp(34px,3.8vw,52px)] leading-[1.12] font-body font-normal text-ink">
-          Stories from Our Families
-        </h2>
-      </div>
-
-      {/* Infinite Marquee Container */}
-      <div className="relative w-full overflow-hidden flex flex-col gap-8">
+    <section id="testimonials" className="bg-bg py-20 lg:py-28 border-t border-line overflow-hidden">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-10">
         
-        {/* Row 1 - Moving Right (Reverse Marquee) */}
-        <div className="flex animate-marquee-reverse w-max items-center">
-          {infiniteVideos.map((video, idx) => (
-            <div 
-              key={idx}
-              className="flex-shrink-0 w-[75vw] sm:w-[320px] mx-4 group cursor-pointer"
-              onClick={() => setActiveVideo(video.id)}
-            >
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-soft shadow-md lg:group-hover:shadow-xl transition-all duration-300 lg:group-hover:-translate-y-1">
-                {/* YouTube Thumbnail */}
-                <img 
-                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
-                  alt={video.title}
-                  className="w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-105"
-                  loading="lazy"
-                />
-                
-                {/* Custom Play Button Overlay */}
-                <div className="absolute inset-0 bg-ink/20 lg:group-hover:bg-ink/10 transition-colors flex items-center justify-center">
-                  <div className="w-14 h-14 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent shadow-lg lg:group-hover:scale-110 transition-transform duration-300">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-1">
-                      <path d="M5 3l14 9-14 9V3z" />
-                    </svg>
+        {/* ── Section Header matching mockup ── */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3">
+            <span className="w-8 sm:w-12 h-[1px] bg-[#C49A6C]/60" />
+            <p className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-[#8C6D46] font-body font-semibold">
+              OUR HOMEOWNERS
+            </p>
+            <span className="w-8 sm:w-12 h-[1px] bg-[#C49A6C]/60" />
+          </div>
+          <h2 className="text-[32px] sm:text-[42px] lg:text-[48px] font-body font-normal text-ink tracking-tight mb-4">
+            Stories That Feel Like Home
+          </h2>
+          <div className="w-12 sm:w-16 h-[2px] bg-[#C49A6C] mx-auto" />
+        </div>
+
+        {/* ── 4-Column Grid: Alternating Video & Written Reviews ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {testimonialsGrid.map((item, idx) => {
+            if (item.type === 'video') {
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setActiveVideo(item.id)}
+                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-black/10 flex flex-col justify-end"
+                >
+                  {/* YouTube Thumbnail */}
+                  <img
+                    src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
+                    alt={item.homeowner}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors" />
+
+                  {/* Bottom Bar: Play Pill & Label */}
+                  <div className="relative z-10 p-4 sm:p-5 flex items-center gap-3">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-ink group-hover:scale-110 transition-all duration-300 shadow-md">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5">
+                        <path d="M5 3l14 9-14 9V3z" />
+                      </svg>
+                    </div>
+                    <span className="text-[12px] sm:text-[13px] font-body font-medium text-white/95 group-hover:text-white transition-colors">
+                      {item.caption || 'Watch Testimonial'}
+                    </span>
                   </div>
                 </div>
+              );
+            }
+
+            // Written Quote Card
+            return (
+              <div
+                key={idx}
+                className="rounded-2xl p-6 sm:p-7 flex flex-col justify-between bg-[#F7F3ED] border border-[#E8DFD3] shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div>
+                  {/* Elegant Golden Quote Mark */}
+                  <span className="text-[36px] sm:text-[42px] font-serif text-[#C49A6C] leading-none mb-1 block select-none">
+                    “
+                  </span>
+                  
+                  {/* Quote Paragraph */}
+                  <p className="text-[13.5px] sm:text-[14.5px] leading-[1.65] text-[#2C3E50] font-body font-normal">
+                    “{item.quote}”
+                  </p>
+                </div>
+
+                {/* Homeowner Tag */}
+                <p className="text-[10px] sm:text-[10.5px] font-body font-bold tracking-[0.16em] uppercase text-[#6B7280] mt-6">
+                  {item.homeowner}
+                </p>
               </div>
-              
-              <p className="mt-4 text-[14px] text-ink font-medium leading-snug line-clamp-2">
-                {video.title}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
 
-      {/* Video Modal Popup */}
+      {/* ── Video Modal Popup ── */}
       {activeVideo && (
         <div 
           className="fixed inset-0 z-[100] bg-ink/90 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10"
@@ -78,11 +194,11 @@ export default function Testimonials() {
         >
           <div 
             className="relative w-full max-w-[1000px] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl animate-fade-in"
-            onClick={(e) => e.stopPropagation()} // Prevent clicks on the video from closing the modal
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button 
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 lg:hover:bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white transition-colors"
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white transition-colors cursor-pointer"
               onClick={() => setActiveVideo(null)}
               aria-label="Close video"
             >
@@ -98,7 +214,7 @@ export default function Testimonials() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen
               className="w-full h-full"
-            ></iframe>
+            />
           </div>
         </div>
       )}

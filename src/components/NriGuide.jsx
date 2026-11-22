@@ -196,7 +196,7 @@ export default function NriGuide() {
       {/* ─────────────────────────────────────────────────────────────
           HERO BANNER (Option 1: Crisp Clean Luxury)
       ───────────────────────────────────────────────────────────── */}
-      <section className="bg-white text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
+      <section className="bg-bg text-ink pt-28 pb-10 sm:pt-32 sm:pb-12 border-b border-line relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 relative z-10">
           <div className="flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.2em] uppercase font-body font-semibold text-muted mb-3">
             <a href="#top" className="hover:text-ink transition-colors">Home</a>
@@ -816,7 +816,7 @@ export default function NriGuide() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION: Start Your Property Journey with Northstar Homes
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-white text-ink border-t border-line relative overflow-hidden">
+      <section className="py-16 lg:py-20 bg-bg text-ink border-t border-line relative overflow-hidden">
         <div className="max-w-[1040px] mx-auto px-6 sm:px-10 text-center relative z-10">
           <h2 className="text-[30px] sm:text-[40px] font-body font-normal text-ink mb-4 leading-tight max-w-[820px] mx-auto">
             Start Your Property Journey with Northstar Homes

@@ -262,22 +262,33 @@ export default function Header() {
 
                   {/* ── HYDERABAD SECTION ── */}
                   <div className="flex flex-col">
-                    {/* Hyderabad City Pill / Button */}
+                    {/* Hyderabad Location Header / Button */}
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         setOpenHyd(prev => !prev);
                       }}
-                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-nav font-semibold text-[16px] transition-all duration-200 cursor-pointer ${
+                      className={`w-full px-4 py-2.5 rounded-[16px] flex items-center justify-between font-nav font-bold text-[16px] transition-all duration-200 cursor-pointer border ${
                         openHyd
-                          ? 'bg-[#0B6FB5] text-white shadow-md'
-                          : 'text-white/95 hover:bg-white/[0.08]'
+                          ? 'bg-[#0B6FB5] border-white/25 text-white shadow-md'
+                          : 'bg-white/[0.08] border-white/12 text-white hover:bg-white/[0.14] hover:border-white/25'
                       }`}
                     >
-                      <span>Hyderabad</span>
+                      <div className="flex items-center gap-2.5">
+                        <svg 
+                          className={`w-4 h-4 shrink-0 transition-colors ${openHyd ? 'text-white' : 'text-[#2EA5FF]'}`} 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span className="tracking-wide">Hyderabad</span>
+                      </div>
                       <svg 
-                        className={`w-4 h-4 transition-transform duration-200 ${openHyd ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                        className={`w-4 h-4 transition-transform duration-200 ${openHyd ? 'rotate-180 text-white' : 'text-white/70'}`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -288,14 +299,14 @@ export default function Header() {
 
                     {/* Hyderabad Ongoing & Completed Projects */}
                     {openHyd && (
-                      <div className="pt-2 pb-1 flex flex-col">
+                      <div className="pt-1.5 pb-1 flex flex-col ml-3 pl-3 border-l border-white/15 my-1">
                         {/* Ongoing Projects list */}
                         {hydProjects.ongoing.map((proj) => (
                           <a
                             key={proj.name}
                             href={proj.href}
                             onClick={(e) => handleNavClick(e, proj.href)}
-                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/90 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                            className="px-3 py-2 text-[14px] font-body font-medium text-white/85 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
                           >
                             {proj.name}
                           </a>
@@ -309,15 +320,15 @@ export default function Header() {
                               e.stopPropagation();
                               setShowCompletedHyd(prev => !prev);
                             }}
-                            className={`w-full px-5 py-2.5 rounded-[18px] flex items-center justify-between text-[15px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
+                            className={`w-full px-3 py-2 rounded-xl flex items-center justify-between text-[13.5px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
                               showCompletedHyd
                                 ? 'bg-white/[0.14] text-white shadow-sm'
-                                : 'text-white/90 hover:bg-white/[0.08]'
+                                : 'text-white/85 hover:bg-white/[0.08]'
                             }`}
                           >
                             <span>Completed Projects</span>
                             <svg 
-                              className={`w-4 h-4 transition-transform duration-200 ${showCompletedHyd ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                              className={`w-3.5 h-3.5 transition-transform duration-200 ${showCompletedHyd ? 'rotate-180 text-white' : 'text-white/70'}`} 
                               fill="none" 
                               stroke="currentColor" 
                               viewBox="0 0 24 24"
@@ -328,13 +339,13 @@ export default function Header() {
 
                           {/* Completed Projects List */}
                           {showCompletedHyd && (
-                            <div className="pl-6 pr-3 py-1 flex flex-col space-y-0.5">
+                            <div className="pl-3 pr-1 py-1 flex flex-col space-y-0.5 border-l border-white/10 ml-2 mt-1">
                               {hydProjects.completed.map((proj) => (
                                 <a
                                   key={proj.name}
                                   href={proj.href}
                                   onClick={(e) => handleNavClick(e, proj.href)}
-                                  className="py-1.5 px-2 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.04]"
+                                  className="py-1.5 px-2.5 text-[13.5px] font-body font-normal text-white/75 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
                                 >
                                   {proj.name}
                                 </a>
@@ -346,27 +357,38 @@ export default function Header() {
                     )}
                   </div>
 
-                  {/* Subtle divider when neither is open */}
-                  {!openHyd && !openVizag && <div className="h-[1px] bg-white/10 my-1 mx-2" />}
+                  {/* Subtle divider between locations */}
+                  <div className="h-[1px] bg-white/10 my-2 mx-1" />
 
                   {/* ── VIZAG SECTION ── */}
-                  <div className="flex flex-col mt-1">
-                    {/* Vizag City Pill / Button */}
+                  <div className="flex flex-col">
+                    {/* Vizag Location Header / Button */}
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         setOpenVizag(prev => !prev);
                       }}
-                      className={`w-full px-5 py-3 rounded-[18px] flex items-center justify-between font-nav font-semibold text-[16px] transition-all duration-200 cursor-pointer ${
+                      className={`w-full px-4 py-2.5 rounded-[16px] flex items-center justify-between font-nav font-bold text-[16px] transition-all duration-200 cursor-pointer border ${
                         openVizag
-                          ? 'bg-[#0B6FB5] text-white shadow-md'
-                          : 'text-white/95 hover:bg-white/[0.08]'
+                          ? 'bg-[#0B6FB5] border-white/25 text-white shadow-md'
+                          : 'bg-white/[0.08] border-white/12 text-white hover:bg-white/[0.14] hover:border-white/25'
                       }`}
                     >
-                      <span>Vizag</span>
+                      <div className="flex items-center gap-2.5">
+                        <svg 
+                          className={`w-4 h-4 shrink-0 transition-colors ${openVizag ? 'text-white' : 'text-[#2EA5FF]'}`} 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span className="tracking-wide">Vizag</span>
+                      </div>
                       <svg 
-                        className={`w-4 h-4 transition-transform duration-200 ${openVizag ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                        className={`w-4 h-4 transition-transform duration-200 ${openVizag ? 'rotate-180 text-white' : 'text-white/70'}`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -377,14 +399,14 @@ export default function Header() {
 
                     {/* Vizag Ongoing & Completed Projects */}
                     {openVizag && (
-                      <div className="pt-2 pb-1 flex flex-col">
+                      <div className="pt-1.5 pb-1 flex flex-col ml-3 pl-3 border-l border-white/15 my-1">
                         {/* Ongoing Projects list */}
                         {vizagProjects.ongoing.map((proj) => (
                           <a
                             key={proj.name}
                             href={proj.href}
                             onClick={(e) => handleNavClick(e, proj.href)}
-                            className="px-5 py-2.5 text-[15px] font-body font-medium text-white/90 hover:text-white hover:translate-x-1 transition-all block cursor-pointer"
+                            className="px-3 py-2 text-[14px] font-body font-medium text-white/85 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
                           >
                             {proj.name}
                           </a>
@@ -398,15 +420,15 @@ export default function Header() {
                               e.stopPropagation();
                               setShowCompletedVizag(prev => !prev);
                             }}
-                            className={`w-full px-5 py-2.5 rounded-[18px] flex items-center justify-between text-[15px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
+                            className={`w-full px-3 py-2 rounded-xl flex items-center justify-between text-[13.5px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
                               showCompletedVizag
                                 ? 'bg-white/[0.14] text-white shadow-sm'
-                                : 'text-white/90 hover:bg-white/[0.08]'
+                                : 'text-white/85 hover:bg-white/[0.08]'
                             }`}
                           >
                             <span>Completed Projects</span>
                             <svg 
-                              className={`w-4 h-4 transition-transform duration-200 ${showCompletedVizag ? 'rotate-180 text-white' : 'text-white/80'}`} 
+                              className={`w-3.5 h-3.5 transition-transform duration-200 ${showCompletedVizag ? 'rotate-180 text-white' : 'text-white/70'}`} 
                               fill="none" 
                               stroke="currentColor" 
                               viewBox="0 0 24 24"
@@ -417,13 +439,13 @@ export default function Header() {
 
                           {/* Completed Projects List */}
                           {showCompletedVizag && (
-                            <div className="pl-6 pr-3 py-1 flex flex-col space-y-0.5">
+                            <div className="pl-3 pr-1 py-1 flex flex-col space-y-0.5 border-l border-white/10 ml-2 mt-1">
                               {vizagProjects.completed.map((proj) => (
                                 <a
                                   key={proj.name}
                                   href={proj.href}
                                   onClick={(e) => handleNavClick(e, proj.href)}
-                                  className="py-1.5 px-2 text-[14px] font-body font-normal text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.04]"
+                                  className="py-1.5 px-2.5 text-[13.5px] font-body font-normal text-white/75 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
                                 >
                                   {proj.name}
                                 </a>

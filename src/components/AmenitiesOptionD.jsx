@@ -567,7 +567,7 @@ export default function AmenitiesOptionD({ project }) {
   if (!project?.amenityCategories || project.amenityCategories.length === 0) return null;
 
   return (
-    <section className="py-20 lg:py-28 bg-white border-b border-line" id="amenities">
+    <section className="py-20 lg:py-28 bg-bg border-b border-line" id="amenities">
       <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12">
 
         {/* ── Section Header ── */}

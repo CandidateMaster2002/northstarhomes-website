@@ -21,66 +21,77 @@ const milestones = [
     italicTitle: 'A Foundation Built on Trust',
     description: 'Northstar Homes was founded with a clear vision to develop communities with integrity, superior craftsmanship, and customer trust. Marking our inaugural step, Veda established our architectural standards.',
     image: imgVeda,
+    projectHref: '#project/veda',
   },
   {
     year: '2013',
     italicTitle: 'Boutique Living Redefined',
     description: 'Expanding our footprint with Garden Suites — an exclusive boutique residential enclave setting new benchmarks for open-plan layouts, natural ventilation, and landscaped privacy.',
     image: imgGardenSuites,
+    projectHref: '#project/garden-suites',
   },
   {
     year: '2014',
     italicTitle: 'Expanding Coastal Horizons',
     description: 'Northstar broadened its horizons across Andhra Pradesh with Eden Gardens in Visakhapatnam, introducing curated gated community living to a discerning coastal audience.',
     image: imgEdenGardens,
+    projectHref: '#project/eden-gardens',
   },
   {
     year: '2015',
     italicTitle: 'Design Innovation & Quality',
     description: 'Delivery of AMG Plaza commercial hub alongside national recognition — awarded "Best Brand in Design Innovation, Quality & Service" by Silicon India.',
     image: imgAmgPlaza,
+    projectHref: '#project/amg-plaza',
   },
   {
     year: '2016',
     italicTitle: 'Triple Excellence Recognition',
     description: 'A landmark year delivering District 1 and the iconic Hillside ultra-luxury villa project. Honoured as Emerging Developer of the Year and Best in Ultra Luxury Villas.',
     image: imgDistrict1,
+    projectHref: '#project/district1',
   },
   {
     year: '2017',
     italicTitle: 'Pinnacle of Villa Planning',
     description: 'Launch of Airport Boulevard near Hyderabad International Airport, acclaimed with prestigious Times Realty Icon awards for best concept and design distinction.',
     image: imgAirport,
+    projectHref: '#project/airport-boulevard',
   },
   {
     year: '2019',
     italicTitle: 'Modern Villa Architecture',
     description: 'Unveiling Allura, premier luxury villas featuring rare dual-road access, pushing the envelope in gated infrastructure and sustainable community spaces.',
     image: imgAllura,
+    projectHref: '#project/allura',
   },
   {
     year: '2020',
     italicTitle: 'Nature-Centric Central Parks',
     description: 'Consolidating our footprint in Vizag with Park Avenue — a harmonious enclave designed around central greenery, Vaastu-led orientation, and comprehensive lifestyle amenities.',
     image: imgParkAve,
+    projectHref: '#project/park-avenue',
   },
   {
     year: '2022',
     italicTitle: 'Grandeur in Abids',
     description: 'Crafting SP Palacio — contemporary luxury apartments designed for breathable living, community spaces, and timeless urban elegance in the heart of Hyderabad.',
     image: imgPalacio,
+    projectHref: '#project/sp-palacio',
   },
   {
     year: '2023',
     italicTitle: 'Nature-Led Villa Communities',
     description: 'Launching Sanctuary along the Srisailam Highway corridor, offering crafted villa plots set amidst nature, awarded Premium Residential Project of the Year.',
     image: imgSanctuary,
+    projectHref: '#project/sanctuary',
   },
   {
     year: '2024',
     italicTitle: 'The Next Era of Communities',
     description: 'Continuing the enduring legacy with Golden Valley, delivering master-planned open plots with contemporary infrastructure, broad avenues, and lasting value.',
     image: imgGoldenValley,
+    projectHref: '#project/golden-valley',
   },
 ];
 
@@ -124,7 +135,7 @@ export default function Timeline() {
   };
 
   return (
-    <section id="legacy" className="bg-white py-14 sm:py-20 overflow-hidden border-t border-line/60">
+    <section id="legacy" className="bg-bg py-14 sm:py-20 overflow-hidden border-t border-line/60">
       
       {/* Eyebrow & Title */}
       <div className="text-center mb-6 sm:mb-10 px-4">
@@ -263,9 +274,27 @@ export default function Timeline() {
                       </h3>
 
                       {/* Description Paragraph */}
-                      <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-white/90 !text-white/90 font-body font-normal leading-[1.65] line-clamp-4 sm:line-clamp-5 drop-shadow-sm">
+                      <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-white/90 !text-white/90 font-body font-normal leading-[1.65] line-clamp-3 sm:line-clamp-4 drop-shadow-sm mb-3 sm:mb-4">
                         {milestone.description}
                       </p>
+
+                      {/* Small "See more →" button / link */}
+                      {milestone.projectHref && (
+                        <a
+                          href={milestone.projectHref}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.location.hash = milestone.projectHref;
+                            window.scrollTo({ top: 0, behavior: 'instant' });
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-[#0B6FB5] text-white text-[12px] sm:text-[13px] font-body font-medium backdrop-blur-md border border-white/30 transition-all duration-200 cursor-pointer shadow-sm group/btn"
+                        >
+                          <span>See more</span>
+                          <svg className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </a>
+                      )}
                     </motion.div>
                   ) : (
                     // ── COLLAPSED / INITIAL GHOST STATE ──
