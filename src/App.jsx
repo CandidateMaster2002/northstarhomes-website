@@ -45,14 +45,14 @@ export default function App() {
     document.body.scrollTop = 0;
   }, [currentHash]);
 
-  if (currentHash.startsWith('#project/') || currentHash === '#sanctuary') {
-    const projectId = currentHash === '#sanctuary' ? 'sanctuary' : currentHash.replace('#project/', '');
+  if (currentHash.startsWith('#project/') || currentHash.startsWith('#sanctuary')) {
+    const cleanHash = currentHash.startsWith('#sanctuary') ? 'sanctuary' : currentHash.replace('#project/', '');
+    const projectId = cleanHash.split('?')[0].split('#')[0];
     return (
       <div className="bg-bg text-ink font-body text-base leading-relaxed flex flex-col min-h-screen">
         <Header />
         <ProjectDetail projectId={projectId} />
         <Footer />
-
       </div>
     );
   }

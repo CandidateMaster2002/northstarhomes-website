@@ -23,20 +23,54 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [copiedBrochure, setCopiedBrochure] = useState(false);
 
+  // Smooth scroll directly to the Experience section and open Brochure tab
+  const scrollToBrochureSection = (e) => {
+    e?.preventDefault();
+    setActiveExperienceTab('brochure');
+    const el = document.getElementById('experience');
+    if (el) {
+      const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
+      const secNavHeight = 56;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerHeight - secNavHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  // URL generator for sharing direct access to brochure section
+  const getShareableBrochureUrl = () => {
+    return `${window.location.origin}/#project/${project.id}?tab=brochure`;
+  };
+
   // Brochure share handlers
   const handleCopyBrochureLink = (e) => {
     e?.preventDefault();
-    const url = project.brochureUrl || window.location.href;
+    const url = getShareableBrochureUrl();
     navigator.clipboard.writeText(url);
     setCopiedBrochure(true);
     setTimeout(() => setCopiedBrochure(false), 2500);
   };
 
   const getWhatsAppShareUrl = () => {
-    const url = project.brochureUrl || window.location.href;
-    const text = `Explore the brochure for ${project.name}: ${url}`;
+    const url = getShareableBrochureUrl();
+    const text = `Explore the official brochure for ${project.name}: ${url}`;
     return `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
   };
+
+  // Auto-scroll to brochure if URL has tab=brochure or #brochure
+  useEffect(() => {
+    if (window.location.hash.includes('brochure') || window.location.search.includes('tab=brochure')) {
+      setActiveExperienceTab('brochure');
+      setTimeout(() => {
+        const el = document.getElementById('experience');
+        if (el) {
+          const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 76;
+          const secNavHeight = 56;
+          const top = el.getBoundingClientRect().top + window.scrollY - headerHeight - secNavHeight;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 500);
+    }
+  }, [projectId]);
 
   // Scroll to top on load/change
   useEffect(() => {
@@ -203,19 +237,18 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               {project.brochureUrl && (
                 <div className="hidden sm:flex items-center gap-1 bg-white/70 p-1 rounded-full border border-line shadow-xs">
-                  {/* Download */}
-                  <a
-                    href={project.brochureUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] tracking-[0.14em] uppercase font-medium text-ink hover:text-accent hover:bg-soft transition-colors"
-                    title="Download Brochure"
+                  {/* View Brochure Section */}
+                  <button
+                    type="button"
+                    onClick={scrollToBrochureSection}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] tracking-[0.14em] uppercase font-medium text-ink hover:text-accent hover:bg-soft transition-colors cursor-pointer"
+                    title="View Brochure"
                   >
                     <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     <span>Brochure</span>
-                  </a>
+                  </button>
 
                   {/* Share on WhatsApp */}
                   <a
@@ -433,7 +466,11 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 5: EXPLORE THE EXPERIENCE (Visual-First Slider)
       ───────────────────────────────────────────────────────────── */}
-      <ExploreExperience project={project} />
+      <ExploreExperience 
+        project={project} 
+        activeTab={activeExperienceTab} 
+        onTabChange={setActiveExperienceTab} 
+      />
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 7: CONSTRUCTION PROGRESS
@@ -816,15 +853,28 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                         </div>
                       </div>
                       
-                      {/* Direct Download Button */}
-                      <a 
-                        href={project.brochureUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 rounded-lg bg-white/15 hover:bg-white text-white hover:text-ink text-[12px] font-medium transition-all shrink-0 cursor-pointer"
-                      >
-                        Download
-                      </a>
+                      {/* View & Download Buttons */}
+                      <div className="flex items-center gap-2">
+                        <button 
+                          type="button"
+                          onClick={scrollToBrochureSection}
+                          className="px-3.5 py-2 rounded-lg bg-accent hover:bg-accent/90 text-white text-[12px] font-medium transition-all shrink-0 cursor-pointer flex items-center gap-1.5 shadow-sm"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                          <span>View</span>
+                        </button>
+                        <a 
+                          href={project.brochureUrl}
+                          download
+                          className="px-3 py-2 rounded-lg bg-white/15 hover:bg-white text-white hover:text-ink text-[12px] font-medium transition-all shrink-0 cursor-pointer"
+                          title="Download PDF"
+                        >
+                          Download
+                        </a>
+                      </div>
                     </div>
 
                     {/* Share Action Row: WhatsApp & Copy Link */}

@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function ExploreExperience({ project }) {
-  const [activeTab, setActiveTab] = useState('photos');
+export default function ExploreExperience({ project, activeTab: controlledTab, onTabChange }) {
+  const [internalTab, setInternalTab] = useState('photos');
+  const activeTab = controlledTab !== undefined ? controlledTab : internalTab;
+  const setActiveTab = onTabChange || setInternalTab;
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedFloorPlanIdx, setSelectedFloorPlanIdx] = useState(0);
+  const [selectedUnitPlanIdx, setSelectedUnitPlanIdx] = useState(0);
+
+  useEffect(() => {
+    setSelectedFloorPlanIdx(0);
+    setSelectedUnitPlanIdx(0);
+  }, [project.id]);
 
   // Dynamic project-specific photo slides — exclusively uses this project's own media
   const photoSlides = [
@@ -69,6 +78,15 @@ export default function ExploreExperience({ project }) {
         </svg>
       )
     },
+    ...(project.unitPlanImages?.length > 0 ? [{
+      id: 'unitplan',
+      label: 'Unit Plans',
+      icon: (
+        <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      )
+    }] : []),
     {
       id: 'brochure',
       label: 'Brochure',
@@ -306,124 +324,358 @@ export default function ExploreExperience({ project }) {
 
         {/* 3. MASTER PLAN TAB */}
         {activeTab === 'masterplan' && (
-          <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line p-6 sm:p-10 flex flex-col items-center justify-center text-center">
-            <div className="w-16 h-16 rounded-full bg-[#EEF5FB] border border-[#0B6FB5]/20 flex items-center justify-center text-[#0B6FB5] mb-5">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-            </div>
-            <span className="text-[11px] tracking-[0.24em] uppercase font-semibold text-accent mb-2 font-body">
-              Community Architecture
-            </span>
-            <h3 className="text-[26px] sm:text-[34px] font-body font-normal text-[#07294A] mb-3">
-              {project.name} Master Plan
-            </h3>
-            <p className="text-[14px] text-muted font-light max-w-xl leading-relaxed mb-6">
-              {project.specs?.find(s => s.label.toLowerCase().includes('area') || s.label.toLowerCase().includes('extent'))?.value 
-                ? `Comprehensive site layout for ${project.shortName || project.name} across ${project.specs?.find(s => s.label.toLowerCase().includes('area') || s.label.toLowerCase().includes('extent'))?.value}, detailing vehicular and pedestrian movement, tower orientation, and open green spaces.`
-                : `Comprehensive layout and architectural blueprint detailing spatial allocations, entry boulevards, internal zoning, and amenity orientation.`}
-            </p>
-            {project.masterPlanLink ? (
-              <a
-                href={project.masterPlanLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all inline-flex items-center gap-2"
-              >
-                <span>View Official Master Plan</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+          <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line flex flex-col">
+            {project.masterPlanImage ? (
+              <div className="w-full flex flex-col">
+                {/* Top Action Bar */}
+                <div className="bg-[#07294A] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+                  <div className="flex items-center gap-2 sm:gap-3 text-white">
+                    <span className="w-2 h-2 rounded-full bg-[#3898E2]" />
+                    <span className="text-[12px] sm:text-[13px] font-medium tracking-wide">
+                      {project.shortName || project.name} Official Master Plan
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={project.masterPlanImage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[11px] sm:text-[12px] font-medium transition-all"
+                      title="Open Full Resolution"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span className="hidden sm:inline">Full Size</span>
+                    </a>
+                    <a
+                      href={project.masterPlanImage}
+                      download
+                      className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-lg bg-accent hover:bg-accent/90 text-white text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all shadow-sm"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+                {/* Master Plan Image Directly Rendered */}
+                <div className="w-full bg-white p-2 sm:p-4 flex items-center justify-center">
+                  <img
+                    src={project.masterPlanImage}
+                    alt={`${project.name} Master Plan`}
+                    className="w-full max-h-[82vh] object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             ) : (
-              <a
-                href="#enquire"
-                className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all"
-              >
-                Request Master Plan Document
-              </a>
+              <div className="w-full aspect-[16/9] p-6 sm:p-10 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#EEF5FB] border border-[#0B6FB5]/20 flex items-center justify-center text-[#0B6FB5] mb-5">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
+                </div>
+                <span className="text-[11px] tracking-[0.24em] uppercase font-semibold text-accent mb-2 font-body">
+                  Community Architecture
+                </span>
+                <h3 className="text-[26px] sm:text-[34px] font-body font-normal text-[#07294A] mb-3">
+                  {project.name} Master Plan
+                </h3>
+                <p className="text-[14px] text-muted font-light max-w-xl leading-relaxed mb-6">
+                  {project.specs?.find(s => s.label.toLowerCase().includes('area') || s.label.toLowerCase().includes('extent'))?.value 
+                    ? `Comprehensive site layout for ${project.shortName || project.name} across ${project.specs?.find(s => s.label.toLowerCase().includes('area') || s.label.toLowerCase().includes('extent'))?.value}, detailing vehicular and pedestrian movement, tower orientation, and open green spaces.`
+                    : `Comprehensive layout and architectural blueprint detailing spatial allocations, entry boulevards, internal zoning, and amenity orientation.`}
+                </p>
+                {project.masterPlanLink && project.masterPlanLink !== '#' ? (
+                  <a
+                    href={project.masterPlanLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all inline-flex items-center gap-2"
+                  >
+                    <span>View Official Master Plan</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                ) : (
+                  <a
+                    href="#enquire"
+                    className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all"
+                  >
+                    Request Master Plan Document
+                  </a>
+                )}
+              </div>
             )}
           </div>
         )}
 
-        {/* 4. FLOOR PLANS / UNIT PLANS TAB */}
-        {activeTab === 'floorplan' && (
-          <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line p-6 sm:p-10 flex flex-col items-center justify-center text-center">
-            <div className="w-16 h-16 rounded-full bg-[#EEF5FB] border border-[#0B6FB5]/20 flex items-center justify-center text-[#0B6FB5] mb-5">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-              </svg>
-            </div>
-            <span className="text-[11px] tracking-[0.24em] uppercase font-semibold text-accent mb-2 font-body">
-              Architectural Layouts
-            </span>
-            <h3 className="text-[26px] sm:text-[34px] font-body font-normal text-[#07294A] mb-3">
-              {project.shortName || project.name} Unit & Floor Plans
-            </h3>
-            <p className="text-[14px] text-muted font-light max-w-xl leading-relaxed mb-6">
-              {project.specs?.find(s => s.label.toLowerCase().includes('type') || s.label.toLowerCase().includes('size') || s.label.toLowerCase().includes('home'))?.value
-                ? `Detailed configurations covering ${project.specs?.find(s => s.label.toLowerCase().includes('type') || s.label.toLowerCase().includes('size') || s.label.toLowerCase().includes('home'))?.value}, featuring precise room dimensions, carpet area, and balcony orientations.`
-                : 'Proportioned floor plans designed for natural lighting, privacy, and functional efficiency.'}
-            </p>
-            {project.floorPlanLink || project.unitPlanLink ? (
-              <a
-                href={project.floorPlanLink || project.unitPlanLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all inline-flex items-center gap-2"
-              >
-                <span>View High-Resolution Floor Plans</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        {/* 4. FLOOR PLANS TAB */}
+        {activeTab === 'floorplan' && (() => {
+          const plans = project.floorPlanImages || [];
+          const activePlan = plans[selectedFloorPlanIdx] || plans[0];
+          const isPdf = activePlan?.url?.toLowerCase().endsWith('.pdf');
+
+          if (plans.length > 0 && isPdf) {
+            return (
+              <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-[#323639] border border-line flex flex-col">
+                <div className="bg-[#202124] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+                  <div className="flex items-center gap-2 sm:gap-3 text-white">
+                    <span className="w-2 h-2 rounded-full bg-[#3898E2]" />
+                    <span className="text-[12px] sm:text-[13px] font-medium tracking-wide">
+                      {project.shortName || project.name} Official Floor Plans
+                    </span>
+                  </div>
+                  <a
+                    href={activePlan.url}
+                    download
+                    className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-accent hover:bg-accent/90 text-white text-[11.5px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all shadow-sm"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span>Download Floor Plans</span>
+                  </a>
+                </div>
+                <div className="w-full h-[70vh] sm:h-[82vh]">
+                  <iframe
+                    src={`${activePlan.url}#toolbar=1&navpanes=1`}
+                    className="w-full h-full border-0"
+                    title={`${project.name} Floor Plans`}
+                  />
+                </div>
+              </div>
+            );
+          }
+
+          if (plans.length > 0) {
+            return (
+              <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line flex flex-col">
+                {/* Top Action Bar */}
+                <div className="bg-[#07294A] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+                  <div className="flex items-center gap-2 sm:gap-3 text-white min-w-0">
+                    <span className="w-2 h-2 rounded-full bg-[#3898E2] shrink-0" />
+                    <span className="text-[12px] sm:text-[13px] font-medium tracking-wide truncate">
+                      {project.shortName || project.name} — {activePlan.label} ({selectedFloorPlanIdx + 1}/{plans.length})
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <a
+                      href={activePlan.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[11px] sm:text-[12px] font-medium transition-all"
+                      title="Open Full Resolution"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span className="hidden sm:inline">Full Size</span>
+                    </a>
+                    <a
+                      href={activePlan.url}
+                      download
+                      className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-lg bg-accent hover:bg-accent/90 text-white text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all shadow-sm"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Plan Selector Pills (when multiple plans exist) */}
+                {plans.length > 1 && (
+                  <div className="bg-[#F8F6F2] px-4 sm:px-6 py-2.5 border-b border-line flex items-center gap-2 overflow-x-auto no-scrollbar">
+                    {plans.map((p, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setSelectedFloorPlanIdx(idx)}
+                        className={`px-3.5 py-1.5 rounded-full text-[11.5px] font-medium whitespace-nowrap transition-all cursor-pointer ${
+                          selectedFloorPlanIdx === idx
+                            ? 'bg-[#07294A] text-white shadow-xs'
+                            : 'bg-white text-[#07294A] border border-line hover:border-accent hover:text-accent'
+                        }`}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Floor Plan Image */}
+                <div className="w-full bg-white p-2 sm:p-4 flex items-center justify-center relative">
+                  <img
+                    src={activePlan.url}
+                    alt={`${project.name} - ${activePlan.label}`}
+                    className="w-full max-h-[78vh] object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line p-6 sm:p-10 flex flex-col items-center justify-center text-center">
+              <div className="w-16 h-16 rounded-full bg-[#EEF5FB] border border-[#0B6FB5]/20 flex items-center justify-center text-[#0B6FB5] mb-5">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                 </svg>
-              </a>
-            ) : (
+              </div>
+              <span className="text-[11px] tracking-[0.24em] uppercase font-semibold text-accent mb-2 font-body">
+                Architectural Layouts
+              </span>
+              <h3 className="text-[26px] sm:text-[34px] font-body font-normal text-[#07294A] mb-3">
+                {project.shortName || project.name} Unit & Floor Plans
+              </h3>
+              <p className="text-[14px] text-muted font-light max-w-xl leading-relaxed mb-6">
+                {project.specs?.find(s => s.label.toLowerCase().includes('type') || s.label.toLowerCase().includes('size') || s.label.toLowerCase().includes('home'))?.value
+                  ? `Detailed configurations covering ${project.specs?.find(s => s.label.toLowerCase().includes('type') || s.label.toLowerCase().includes('size') || s.label.toLowerCase().includes('home'))?.value}, featuring precise room dimensions, carpet area, and balcony orientations.`
+                  : 'Proportioned floor plans designed for natural lighting, privacy, and functional efficiency.'}
+              </p>
               <a
                 href="#enquire"
                 className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all"
               >
                 Request Detailed Floor Plans
               </a>
-            )}
-          </div>
-        )}
+            </div>
+          );
+        })()}
+
+        {/* 4B. UNIT PLANS TAB */}
+        {activeTab === 'unitplan' && project.unitPlanImages?.length > 0 && (() => {
+          const plans = project.unitPlanImages;
+          const activePlan = plans[selectedUnitPlanIdx] || plans[0];
+          return (
+            <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line flex flex-col">
+              {/* Top Action Bar */}
+              <div className="bg-[#07294A] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+                <div className="flex items-center gap-2 sm:gap-3 text-white min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-[#3898E2] shrink-0" />
+                  <span className="text-[12px] sm:text-[13px] font-medium tracking-wide truncate">
+                    {project.shortName || project.name} — {activePlan.label} ({selectedUnitPlanIdx + 1}/{plans.length})
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href={activePlan.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[11px] sm:text-[12px] font-medium transition-all"
+                    title="Open Full Resolution"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    <span className="hidden sm:inline">Full Size</span>
+                  </a>
+                  <a
+                    href={activePlan.url}
+                    download
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-lg bg-accent hover:bg-accent/90 text-white text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all shadow-sm"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span>Download</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Unit Selector Pills */}
+              {plans.length > 1 && (
+                <div className="bg-[#F8F6F2] px-4 sm:px-6 py-2.5 border-b border-line flex items-center gap-2 overflow-x-auto no-scrollbar">
+                  {plans.map((p, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setSelectedUnitPlanIdx(idx)}
+                      className={`px-3.5 py-1.5 rounded-full text-[11.5px] font-medium whitespace-nowrap transition-all cursor-pointer ${
+                        selectedUnitPlanIdx === idx
+                          ? 'bg-[#07294A] text-white shadow-xs'
+                          : 'bg-white text-[#07294A] border border-line hover:border-accent hover:text-accent'
+                      }`}
+                    >
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Unit Plan Image */}
+              <div className="w-full bg-white p-2 sm:p-4 flex items-center justify-center relative">
+                <img
+                  src={activePlan.url}
+                  alt={`${project.name} - ${activePlan.label}`}
+                  className="w-full max-h-[78vh] object-contain rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        })()}
 
         {/* 5. BROCHURE TAB */}
         {activeTab === 'brochure' && (
-          <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-white border border-line p-6 sm:p-10 flex flex-col items-center justify-center text-center">
-            <div className="w-16 h-16 rounded-full bg-[#EEF5FB] border border-[#0B6FB5]/20 flex items-center justify-center text-[#0B6FB5] mb-5">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-            </div>
-            <span className="text-[11px] tracking-[0.24em] uppercase font-semibold text-accent mb-2 font-body">
-              Official Documentation
-            </span>
-            <h3 className="text-[26px] sm:text-[34px] font-body font-normal text-[#07294A] mb-3">
-              {project.name} Project Brochure
-            </h3>
-            <p className="text-[14px] text-muted font-light max-w-xl leading-relaxed mb-6">
-              Download the official documentation featuring layout schematics, architecture notes, specifications, amenities, and location advantages.
-            </p>
+          <div className="w-[86vw] sm:w-[87vw] lg:w-[88vw] max-w-[1400px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative bg-[#323639] border border-line flex flex-col">
             {project.brochureUrl && project.brochureUrl !== '#' ? (
-              <a
-                href={project.brochureUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all inline-flex items-center gap-2"
-              >
-                <span>Download Official Brochure</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-              </a>
+              <div className="w-full flex flex-col">
+                {/* Top Action Bar */}
+                <div className="bg-[#202124] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+                  <div className="flex items-center gap-2 sm:gap-3 text-white">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[12px] sm:text-[13px] font-medium tracking-wide">
+                      {project.shortName || project.name} Official Brochure
+                    </span>
+                  </div>
+                  <a
+                    href={project.brochureUrl}
+                    download
+                    className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-accent hover:bg-accent/90 text-white text-[11.5px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all shadow-sm"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span>Download Brochure</span>
+                  </a>
+                </div>
+
+                {/* Embedded Native Browser PDF Viewer */}
+                <div className="w-full h-[70vh] sm:h-[85vh]">
+                  <iframe
+                    src={`${project.brochureUrl}#toolbar=1&navpanes=1`}
+                    className="w-full h-full border-0"
+                    title={`${project.name} Brochure`}
+                  />
+                </div>
+              </div>
             ) : (
-              <a
-                href="#enquire"
-                className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all"
-              >
-                Request Official Brochure via Email
-              </a>
+              <div className="w-full h-full p-6 sm:p-10 flex flex-col items-center justify-center text-center bg-white">
+                <div className="w-16 h-16 rounded-full bg-[#EEF5FB] border border-[#0B6FB5]/20 flex items-center justify-center text-[#0B6FB5] mb-5">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-[24px] sm:text-[30px] font-body font-normal text-[#07294A] mb-3">
+                  {project.name} Project Brochure
+                </h3>
+                <p className="text-[14px] text-muted font-light max-w-xl leading-relaxed mb-6">
+                  Brochure documentation is currently being compiled for this project.
+                </p>
+                <a
+                  href="#enquire"
+                  className="px-7 py-3 rounded-full bg-[#0B6FB5] hover:bg-[#084E82] text-white text-[12px] tracking-[0.16em] uppercase font-semibold shadow-md transition-all"
+                >
+                  Request Brochure via Email
+                </a>
+              </div>
             )}
           </div>
         )}
