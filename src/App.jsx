@@ -11,7 +11,6 @@ import ProjectLogos from './components/ProjectLogos'
 import WhyNorthstar from './components/WhyNorthstar'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
-import FloatingContact from './components/FloatingContact'
 import ComingSoon from './components/ComingSoon'
 import ProjectDetail from './components/ProjectDetail'
 import Careers from './components/Careers'
@@ -53,7 +52,7 @@ export default function App() {
         <Header />
         <ProjectDetail projectId={projectId} />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -64,7 +63,7 @@ export default function App() {
         <Header />
         <AboutCompany />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -75,7 +74,7 @@ export default function App() {
         <Header />
         <Leadership />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -92,7 +91,7 @@ export default function App() {
         <Header />
         <Awards />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -103,7 +102,7 @@ export default function App() {
         <Header />
         <Careers />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -119,7 +118,7 @@ export default function App() {
         <Header />
         <ContactUs type="general" />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -134,7 +133,7 @@ export default function App() {
         <Header />
         <ContactUs type="channel-partner" />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -150,7 +149,7 @@ export default function App() {
         <Header />
         <ContactUs type="land-owner" />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -166,7 +165,7 @@ export default function App() {
         <Header />
         <ContactUs type="vendor" />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -181,7 +180,7 @@ export default function App() {
         <Header />
         <HomeLoanGuide />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -196,7 +195,7 @@ export default function App() {
         <Header />
         <NriGuide />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -211,7 +210,7 @@ export default function App() {
         <Header />
         <EmiCalculator />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -224,7 +223,7 @@ export default function App() {
         <Header />
         <BlogPost slug={slug} />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -241,7 +240,7 @@ export default function App() {
         <Header />
         <BlogListing />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -256,7 +255,7 @@ export default function App() {
         <Header />
         <Gallery />
         <Footer />
-        <FloatingContact />
+
       </div>
     );
   }
@@ -292,7 +291,7 @@ export default function App() {
         <WhyNorthstar />
         <Testimonials />
         <Footer />
-        <FloatingContact />
+
       </div>
     </ReactLenis>
   )

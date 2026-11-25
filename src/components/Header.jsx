@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import logoImg from '../assets/Northstar-logo_webp_file-removebg-preview.webp'
 import { siteConfig } from '../siteConfig'
 
@@ -9,6 +9,7 @@ const hydProjects = {
     { name: 'SP Palacio', href: '#project/sp-palacio' },
     { name: 'Sanctuary', href: '#project/sanctuary' }
   ],
+  upcoming: [],
   completed: [
     { name: 'Airport Boulevard', href: '#project/airport-boulevard' },
     { name: 'AMG Plaza', href: '#project/amg-plaza' },
@@ -25,19 +26,54 @@ const vizagProjects = {
     { name: 'Park Avenue', href: '#project/park-avenue' },
     { name: 'Golden Valley', href: '#project/golden-valley' }
   ],
+  upcoming: [],
   completed: [
     { name: 'Eden Gardens', href: '#project/eden-gardens' }
   ]
 };
 
 export default function Header() {
+  const headerRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSuperNav, setShowSuperNav] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openHyd, setOpenHyd] = useState(false);
   const [openVizag, setOpenVizag] = useState(false);
+  const [showUpcomingHyd, setShowUpcomingHyd] = useState(false);
+  const [showUpcomingVizag, setShowUpcomingVizag] = useState(false);
   const [showCompletedHyd, setShowCompletedHyd] = useState(false);
   const [showCompletedVizag, setShowCompletedVizag] = useState(false);
+
+  // Dynamically calculate and expose header height to CSS variable --header-height
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = Math.round(headerRef.current.getBoundingClientRect().height);
+        if (height > 0) {
+          document.documentElement.style.setProperty('--header-height', `${height}px`);
+        }
+      }
+    };
+
+    updateHeaderHeight();
+
+    let ro = null;
+    if (typeof window !== 'undefined' && 'ResizeObserver' in window && headerRef.current) {
+      ro = new ResizeObserver(() => {
+        updateHeaderHeight();
+      });
+      ro.observe(headerRef.current);
+    }
+
+    window.addEventListener('resize', updateHeaderHeight);
+    window.addEventListener('scroll', updateHeaderHeight, { passive: true });
+
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener('resize', updateHeaderHeight);
+      window.removeEventListener('scroll', updateHeaderHeight);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,9 +97,10 @@ export default function Header() {
 
   const handleNavClick = (e, targetHash) => {
     setIsMobileMenuOpen(false);
-    setActiveCity(null);
     setShowCompletedHyd(false);
     setShowCompletedVizag(false);
+    setShowUpcomingHyd(false);
+    setShowUpcomingVizag(false);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -74,7 +111,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <header ref={headerRef} className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
       
       {/* ── Thin Super Navbar: Social Media, Direct Line & Email (Hidden on Hero video) ── */}
       <div 
@@ -258,7 +295,7 @@ export default function Header() {
 
               {/* Desktop & Mobile Dropdown Menu matching uploaded mockups */}
               <div className="min-[960px]:absolute min-[960px]:left-1/2 min-[960px]:-translate-x-1/2 min-[960px]:top-full pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 max-[959px]:static max-[959px]:opacity-100 max-[959px]:visible max-[959px]:translate-y-0 max-[959px]:hidden group-hover:max-[959px]:block">
-                <div className="w-[280px] max-h-[82vh] overflow-y-auto no-scrollbar bg-[#07294A]/98 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
+                <div className="w-[290px] max-h-[82vh] overflow-y-auto no-scrollbar bg-[#07294A]/98 backdrop-blur-xl rounded-[22px] p-2.5 border border-white/10 shadow-[0_25px_50px_rgba(0,0,0,0.5)] normal-case tracking-normal flex flex-col text-white">
 
                   {/* ── HYDERABAD SECTION ── */}
                   <div className="flex flex-col">
@@ -297,55 +334,127 @@ export default function Header() {
                       </svg>
                     </button>
 
-                    {/* Hyderabad Ongoing & Completed Projects */}
+                    {/* Hyderabad Content */}
                     {openHyd && (
-                      <div className="pt-1.5 pb-1 flex flex-col ml-3 pl-3 border-l border-white/15 my-1">
+                      <div className="pt-2 pb-1 flex flex-col ml-3 pl-3 border-l border-white/15 my-1 space-y-1">
+                        
                         {/* Ongoing Projects list */}
-                        {hydProjects.ongoing.map((proj) => (
-                          <a
-                            key={proj.name}
-                            href={proj.href}
-                            onClick={(e) => handleNavClick(e, proj.href)}
-                            className="px-3 py-2 text-[14px] font-body font-medium text-white/85 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
-                          >
-                            {proj.name}
-                          </a>
-                        ))}
+                        <div className="flex flex-col space-y-0.5">
+                          {hydProjects.ongoing.map((proj) => (
+                            <a
+                              key={proj.name}
+                              href={proj.href}
+                              onClick={(e) => handleNavClick(e, proj.href)}
+                              className="px-2.5 py-1.5 text-[14px] font-body font-medium text-white/90 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.08]"
+                            >
+                              {proj.name}
+                            </a>
+                          ))}
+                        </div>
 
-                        {/* Completed Projects Button / Trigger (Opens ON CLICK) */}
-                        <div className="mt-1 flex flex-col">
+                        {/* ── Upcoming Projects Category Button ── */}
+                        <div className="pt-1.5 flex flex-col">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowUpcomingHyd(prev => !prev);
+                            }}
+                            className={`w-full px-2.5 py-2 rounded-xl flex items-center justify-between text-[13px] font-nav font-semibold tracking-wide transition-all duration-200 cursor-pointer border ${
+                              showUpcomingHyd
+                                ? 'bg-[#E5A93C]/20 border-[#E5A93C]/40 text-[#F5C26B] shadow-sm'
+                                : 'bg-white/[0.06] border-white/10 text-white/90 hover:bg-white/[0.12] hover:text-white'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                              </svg>
+                              <span>Upcoming Projects</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-white/10 text-white/60 font-mono">
+                                Soon
+                              </span>
+                              <svg 
+                                className={`w-3.5 h-3.5 transition-transform duration-200 ${showUpcomingHyd ? 'rotate-180 text-white' : 'text-white/60'}`} 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+
+                          {/* Upcoming Projects Dropdown Panel (Empty for now) */}
+                          {showUpcomingHyd && (
+                            <div className="pl-3 pr-2 py-1.5 flex flex-col border-l border-white/15 ml-2 mt-1">
+                              {hydProjects.upcoming && hydProjects.upcoming.length > 0 ? (
+                                hydProjects.upcoming.map((proj) => (
+                                  <a
+                                    key={proj.name}
+                                    href={proj.href}
+                                    onClick={(e) => handleNavClick(e, proj.href)}
+                                    className="py-1 px-2 text-[13px] font-body text-white/80 hover:text-white transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
+                                  >
+                                    {proj.name}
+                                  </a>
+                                ))
+                              ) : (
+                                <div className="py-1.5 px-2.5 text-[12px] italic text-white/60 flex items-center gap-1.5 bg-white/[0.04] rounded-lg">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5A93C] animate-pulse"></span>
+                                  Announcing Soon
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* ── Completed Projects Category Button ── */}
+                        <div className="pt-0.5 flex flex-col">
                           <button
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
                               setShowCompletedHyd(prev => !prev);
                             }}
-                            className={`w-full px-3 py-2 rounded-xl flex items-center justify-between text-[13.5px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
+                            className={`w-full px-2.5 py-2 rounded-xl flex items-center justify-between text-[13px] font-nav font-semibold tracking-wide transition-all duration-200 cursor-pointer border ${
                               showCompletedHyd
-                                ? 'bg-white/[0.14] text-white shadow-sm'
-                                : 'text-white/85 hover:bg-white/[0.08]'
+                                ? 'bg-[#38BDF8]/20 border-[#38BDF8]/40 text-[#7DD3FC] shadow-sm'
+                                : 'bg-white/[0.06] border-white/10 text-white/90 hover:bg-white/[0.12] hover:text-white'
                             }`}
                           >
-                            <span>Completed Projects</span>
-                            <svg 
-                              className={`w-3.5 h-3.5 transition-transform duration-200 ${showCompletedHyd ? 'rotate-180 text-white' : 'text-white/70'}`} 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <div className="flex items-center gap-2">
+                              <svg className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <span>Completed Projects</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-white/10 text-white/60 font-mono">
+                                {hydProjects.completed.length}
+                              </span>
+                              <svg 
+                                className={`w-3.5 h-3.5 transition-transform duration-200 ${showCompletedHyd ? 'rotate-180 text-white' : 'text-white/60'}`} 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
                           </button>
 
                           {/* Completed Projects List */}
                           {showCompletedHyd && (
-                            <div className="pl-3 pr-1 py-1 flex flex-col space-y-0.5 border-l border-white/10 ml-2 mt-1">
+                            <div className="pl-3 pr-1 py-1 flex flex-col space-y-0.5 border-l border-white/15 ml-2 mt-1">
                               {hydProjects.completed.map((proj) => (
                                 <a
                                   key={proj.name}
                                   href={proj.href}
                                   onClick={(e) => handleNavClick(e, proj.href)}
-                                  className="py-1.5 px-2.5 text-[13.5px] font-body font-normal text-white/75 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
+                                  className="py-1 px-2.5 text-[13px] font-body text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
                                 >
                                   {proj.name}
                                 </a>
@@ -353,6 +462,7 @@ export default function Header() {
                             </div>
                           )}
                         </div>
+
                       </div>
                     )}
                   </div>
@@ -397,44 +507,116 @@ export default function Header() {
                       </svg>
                     </button>
 
-                    {/* Vizag Ongoing & Completed Projects */}
+                    {/* Vizag Content */}
                     {openVizag && (
-                      <div className="pt-1.5 pb-1 flex flex-col ml-3 pl-3 border-l border-white/15 my-1">
+                      <div className="pt-2 pb-1 flex flex-col ml-3 pl-3 border-l border-white/15 my-1 space-y-1">
+                        
                         {/* Ongoing Projects list */}
-                        {vizagProjects.ongoing.map((proj) => (
-                          <a
-                            key={proj.name}
-                            href={proj.href}
-                            onClick={(e) => handleNavClick(e, proj.href)}
-                            className="px-3 py-2 text-[14px] font-body font-medium text-white/85 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
-                          >
-                            {proj.name}
-                          </a>
-                        ))}
+                        <div className="flex flex-col space-y-0.5">
+                          {vizagProjects.ongoing.map((proj) => (
+                            <a
+                              key={proj.name}
+                              href={proj.href}
+                              onClick={(e) => handleNavClick(e, proj.href)}
+                              className="px-2.5 py-1.5 text-[14px] font-body font-medium text-white/90 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.08]"
+                            >
+                              {proj.name}
+                            </a>
+                          ))}
+                        </div>
 
-                        {/* Completed Projects Button / Trigger (Opens ON CLICK) */}
-                        <div className="mt-1 flex flex-col">
+                        {/* ── Upcoming Projects Category Button ── */}
+                        <div className="pt-1.5 flex flex-col">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowUpcomingVizag(prev => !prev);
+                            }}
+                            className={`w-full px-2.5 py-2 rounded-xl flex items-center justify-between text-[13px] font-nav font-semibold tracking-wide transition-all duration-200 cursor-pointer border ${
+                              showUpcomingVizag
+                                ? 'bg-[#E5A93C]/20 border-[#E5A93C]/40 text-[#F5C26B] shadow-sm'
+                                : 'bg-white/[0.06] border-white/10 text-white/90 hover:bg-white/[0.12] hover:text-white'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <svg className="w-3.5 h-3.5 text-[#E5A93C] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                              </svg>
+                              <span>Upcoming Projects</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-white/10 text-white/60 font-mono">
+                                Soon
+                              </span>
+                              <svg 
+                                className={`w-3.5 h-3.5 transition-transform duration-200 ${showUpcomingVizag ? 'rotate-180 text-white' : 'text-white/60'}`} 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+
+                          {/* Upcoming Projects Dropdown Panel (Empty for now) */}
+                          {showUpcomingVizag && (
+                            <div className="pl-3 pr-2 py-1.5 flex flex-col border-l border-white/15 ml-2 mt-1">
+                              {vizagProjects.upcoming && vizagProjects.upcoming.length > 0 ? (
+                                vizagProjects.upcoming.map((proj) => (
+                                  <a
+                                    key={proj.name}
+                                    href={proj.href}
+                                    onClick={(e) => handleNavClick(e, proj.href)}
+                                    className="py-1 px-2 text-[13px] font-body text-white/80 hover:text-white transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
+                                  >
+                                    {proj.name}
+                                  </a>
+                                ))
+                              ) : (
+                                <div className="py-1.5 px-2.5 text-[12px] italic text-white/60 flex items-center gap-1.5 bg-white/[0.04] rounded-lg">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5A93C] animate-pulse"></span>
+                                  Announcing Soon
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* ── Completed Projects Category Button ── */}
+                        <div className="pt-0.5 flex flex-col">
                           <button
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
                               setShowCompletedVizag(prev => !prev);
                             }}
-                            className={`w-full px-3 py-2 rounded-xl flex items-center justify-between text-[13.5px] font-nav font-semibold transition-all duration-200 cursor-pointer ${
+                            className={`w-full px-2.5 py-2 rounded-xl flex items-center justify-between text-[13px] font-nav font-semibold tracking-wide transition-all duration-200 cursor-pointer border ${
                               showCompletedVizag
-                                ? 'bg-white/[0.14] text-white shadow-sm'
-                                : 'text-white/85 hover:bg-white/[0.08]'
+                                ? 'bg-[#38BDF8]/20 border-[#38BDF8]/40 text-[#7DD3FC] shadow-sm'
+                                : 'bg-white/[0.06] border-white/10 text-white/90 hover:bg-white/[0.12] hover:text-white'
                             }`}
                           >
-                            <span>Completed Projects</span>
-                            <svg 
-                              className={`w-3.5 h-3.5 transition-transform duration-200 ${showCompletedVizag ? 'rotate-180 text-white' : 'text-white/70'}`} 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <div className="flex items-center gap-2">
+                              <svg className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <span>Completed Projects</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-white/10 text-white/60 font-mono">
+                                {vizagProjects.completed.length}
+                              </span>
+                              <svg 
+                                className={`w-3.5 h-3.5 transition-transform duration-200 ${showCompletedVizag ? 'rotate-180 text-white' : 'text-white/60'}`} 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
                           </button>
 
                           {/* Completed Projects List */}
@@ -445,7 +627,7 @@ export default function Header() {
                                   key={proj.name}
                                   href={proj.href}
                                   onClick={(e) => handleNavClick(e, proj.href)}
-                                  className="py-1.5 px-2.5 text-[13.5px] font-body font-normal text-white/75 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
+                                  className="py-1 px-2.5 text-[13px] font-body text-white/80 hover:text-white hover:translate-x-1 transition-all block cursor-pointer rounded-lg hover:bg-white/[0.05]"
                                 >
                                   {proj.name}
                                 </a>
@@ -453,6 +635,7 @@ export default function Header() {
                             </div>
                           )}
                         </div>
+
                       </div>
                     )}
                   </div>

@@ -19,10 +19,10 @@
   --color-ph1: #E4EEF7;
   --color-ph2: #D2E1EF;
 
-  /* ── Typography (Client Specifications) ── */
-  /* Main Headings & Subheadings: Playfair Display Medium */
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  /* ── Typography: Montserrat Only (All Sections) ── */
+  /* Headings & Subheadings: Montserrat (matches home page) */
+  --font-heading: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Body Content: Montserrat Regular */
   --font-body: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -42,10 +42,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Main Headings: Playfair Display Medium · Deep Navy */
+  /* Headings: Montserrat (consistent with body) */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 500; /* Playfair Display Medium */
+    font-family: var(--font-body);
+    font-weight: 600; /* Montserrat SemiBold for headings */
     color: var(--color-ink); /* Deep Navy (#07294A) */
     letter-spacing: -0.01em;
   }
@@ -177,10 +177,10 @@
 }
 
 
-/* ── Mandated Client Typography Utilities ── */
+/* ── Typography Utilities: All Montserrat ── */
 .font-heading {
-  font-family: var(--font-heading);
-  font-weight: 500; /* Playfair Display Medium */
+  font-family: var(--font-body);
+  font-weight: 600; /* Montserrat SemiBold */
 }
 
 .font-body {
@@ -193,7 +193,7 @@
   font-weight: 500; /* Montserrat Medium */
 }
 
-/* ── Project Detail Pages: Section Headings in Montserrat Regular ── */
+/* ── Project Detail Pages: Headings in Montserrat ── */
 .project-detail-page h1,
 .project-detail-page h2,
 .project-detail-page h3,
@@ -202,5 +202,5 @@
 .project-detail-page h6,
 .project-detail-page .font-heading {
   font-family: var(--font-body) !important;
-  font-weight: 400 !important;
+  font-weight: 600 !important;
 }

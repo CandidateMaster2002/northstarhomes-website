@@ -26,85 +26,173 @@ const statsData = [
   { value: '13L', label: 'Lakhs Sft Delivered' },
 ];
 
-// Customer video testimonials provided by client
-const testimonialsData = [
+// Combined curated testimonials (All 13 authentic videos & written reviews) in checkerboard grid matching home page
+const testimonialsGrid = [
+  // ── ROW 1 ──
   {
-    project: 'Garden Suites',
-    title: 'Customer Experience at Garden Suites',
-    url: 'https://www.youtube.com/watch?v=1tioxCia_tg&list=PLJg41rg9rZHoRZJRt6MFfoco7yU3RA_K8&index=8',
-    embedId: '1tioxCia_tg'
+    type: 'video',
+    id: '1tioxCia_tg',
+    homeowner: 'GARDEN SUITES HOMEOWNER',
+    caption: 'Watch Testimonial'
   },
   {
-    project: 'District 1',
-    title: 'Life & Community at District 1 (Video 1)',
-    url: 'https://www.youtube.com/watch?v=FKe_OYnkQdE&list=PLJg41rg9rZHoRZJRt6MFfoco7yU3RA_K8&index=4',
-    embedId: 'FKe_OYnkQdE'
+    type: 'quote',
+    quote: 'The planning, the amenities and the overall experience have been truly exceptional.',
+    homeowner: 'PARK AVENUE HOMEOWNER'
   },
   {
-    project: 'District 1',
-    title: 'Resident Testimonial — District 1 (Video 2)',
-    url: 'https://www.youtube.com/watch?v=5_WoLtNDpz4&list=PLJg41rg9rZHoRZJRt6MFfoco7yU3RA_K8&index=2',
-    embedId: '5_WoLtNDpz4'
+    type: 'video',
+    id: 'FKe_OYnkQdE',
+    homeowner: 'DISTRICT 1 HOMEOWNER',
+    caption: 'Watch Testimonial'
   },
   {
-    project: 'District 1',
-    title: 'Homeowner Reflections — District 1 (Video 3)',
-    url: 'https://www.youtube.com/watch?v=JZGHM_--MUo&t=9s',
-    embedId: 'JZGHM_--MUo'
+    type: 'quote',
+    quote: 'A community that truly values its residents. It already feels like home.',
+    homeowner: 'EDEN GARDEN HOMEOWNER'
+  },
+
+  // ── ROW 2 ──
+  {
+    type: 'quote',
+    quote: 'The location, connectivity and everyday convenience make living here so easy.',
+    homeowner: 'ALLURA HOMEOWNER'
   },
   {
-    project: 'District 1',
-    title: 'Quality & Community — District 1 (Video 4)',
-    url: 'https://www.youtube.com/watch?v=VfGoMCO_7pY&t=74s',
-    embedId: 'VfGoMCO_7pY'
+    type: 'video',
+    id: '5_WoLtNDpz4',
+    homeowner: 'DISTRICT 1 HOMEOWNER',
+    caption: 'Watch Testimonial'
   },
   {
-    project: 'Hillside',
-    title: 'Villa Living at Northstar Hillside (Video 1)',
-    url: 'https://www.youtube.com/watch?v=cjoz_eESxWU&list=PLJg41rg9rZHoRZJRt6MFfoco7yU3RA_K8&index=11',
-    embedId: 'cjoz_eESxWU'
+    type: 'quote',
+    quote: 'Excellent build quality and thoughtful design. Every detail feels so well considered.',
+    homeowner: 'HILL SIDE HOMEOWNER'
   },
   {
-    project: 'Hillside',
-    title: 'Gated Luxury & Green Living at Hillside (Video 2)',
-    url: 'https://www.youtube.com/watch?v=Hb1kTRisg1M&t=2s',
-    embedId: 'Hb1kTRisg1M'
+    type: 'video',
+    id: 'JZGHM_--MUo',
+    homeowner: 'DISTRICT 1 HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+
+  // ── ROW 3 ──
+  {
+    type: 'video',
+    id: 'VfGoMCO_7pY',
+    homeowner: 'DISTRICT 1 HOMEOWNER',
+    caption: 'Watch Testimonial'
   },
   {
-    project: 'Eden Garden',
-    title: 'Family Living at Northstar Eden Garden, Vizag',
-    url: 'https://www.youtube.com/watch?v=dbDrWb69YVw&list=PLJg41rg9rZHoRZJRt6MFfoco7yU3RA_K8&index=1',
-    embedId: 'dbDrWb69YVw'
+    type: 'quote',
+    quote: 'What we love most is the thoughtful mix of green spaces, recreation and a true sense of community.',
+    homeowner: 'NORTHSTAR HOMEOWNER'
   },
   {
-    project: 'Park Avenue',
-    title: 'Modern Living at Northstar Park Avenue (Video 1)',
-    url: 'https://www.youtube.com/watch?v=0EIa0DBWzhs',
-    embedId: '0EIa0DBWzhs'
+    type: 'video',
+    id: 'cjoz_eESxWU',
+    homeowner: 'HILLSIDE HOMEOWNER',
+    caption: 'Watch Testimonial'
   },
   {
-    project: 'Park Avenue',
-    title: 'Resident Snapshot — Park Avenue (Shorts)',
-    url: 'https://www.youtube.com/shorts/YTfDS-I4Aiw',
-    embedId: 'YTfDS-I4Aiw'
+    type: 'quote',
+    quote: "A lifestyle that's peaceful, well-connected and perfect for our family.",
+    homeowner: 'PARK AVENUE HOMEOWNER'
+  },
+
+  // ── ROW 4 ──
+  {
+    type: 'quote',
+    quote: 'From the first visit to handover, the entire journey was smooth, transparent and trustworthy.',
+    homeowner: 'ALLURA HOMEOWNER'
   },
   {
-    project: 'Allura',
-    title: 'Luxury Villa Community — Northstar Allura (Video 1)',
-    url: 'https://www.youtube.com/watch?v=2AIT4t0M0kE',
-    embedId: '2AIT4t0M0kE'
+    type: 'video',
+    id: 'Hb1kTRisg1M',
+    homeowner: 'HILLSIDE HOMEOWNER',
+    caption: 'Watch Testimonial'
   },
   {
-    project: 'Allura',
-    title: 'Homeowner Story — Northstar Allura (Video 2)',
-    url: 'https://www.youtube.com/watch?v=dUbepaBZnqw&t=2s',
-    embedId: 'dUbepaBZnqw'
+    type: 'quote',
+    quote: "The amenities are a big plus — there's something for every member of the family.",
+    homeowner: 'EDEN GARDEN HOMEOWNER'
   },
   {
-    project: 'Airport Boulevard',
-    title: 'Smart Villa Living at Northstar Airport Boulevard',
-    url: 'https://www.youtube.com/watch?v=bKjdmNlv8q4',
-    embedId: 'bKjdmNlv8q4'
+    type: 'video',
+    id: 'dbDrWb69YVw',
+    homeowner: 'EDEN GARDEN HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+
+  // ── ROW 5 ──
+  {
+    type: 'video',
+    id: '0EIa0DBWzhs',
+    homeowner: 'PARK AVENUE HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'The serene environment and spacious design exceeded our expectations. Truly a peaceful sanctuary for our family.',
+    homeowner: 'GARDEN SUITES HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: 'YTfDS-I4Aiw',
+    homeowner: 'PARK AVENUE HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'From day one, the construction quality and attention to detail gave us complete peace of mind.',
+    homeowner: 'DISTRICT 1 HOMEOWNER'
+  },
+
+  // ── ROW 6 ──
+  {
+    type: 'quote',
+    quote: 'The privacy, open layouts and premium specifications in our villa are simply unmatched.',
+    homeowner: 'ALLURA HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: '2AIT4t0M0kE',
+    homeowner: 'ALLURA HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'The sprawling green surroundings and clubhouse facilities make every weekend feel like a luxury retreat.',
+    homeowner: 'HILLSIDE HOMEOWNER'
+  },
+  {
+    type: 'video',
+    id: 'dUbepaBZnqw',
+    homeowner: 'ALLURA HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+
+  // ── ROW 7 ──
+  {
+    type: 'video',
+    id: 'bKjdmNlv8q4',
+    homeowner: 'AIRPORT BOULEVARD HOMEOWNER',
+    caption: 'Watch Testimonial'
+  },
+  {
+    type: 'quote',
+    quote: 'Strategically located with rapid appreciation and incredible architecture. Northstar delivered beyond promises.',
+    homeowner: 'AIRPORT BOULEVARD HOMEOWNER'
+  },
+  {
+    type: 'quote',
+    quote: 'Northstar sets the benchmark in transparency, craftsmanship and lifelong community building.',
+    homeowner: 'NORTHSTAR HOMEOWNER'
+  },
+  {
+    type: 'quote',
+    quote: 'A developer that genuinely listens to homeowners and delivers enduring value across every square foot.',
+    homeowner: 'NORTHSTAR HOMEOWNER'
   }
 ];
 
@@ -616,67 +704,87 @@ export default function AboutCompany() {
 
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 7: CUSTOMER TESTIMONIALS (Video Gallery)
+          SECTION 7: CUSTOMER TESTIMONIALS (Stories That Feel Like Home)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg border-b border-[#D8E6F2]" id="testimonials">
-        <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
+      <section className="py-20 lg:py-28 bg-bg border-b border-line overflow-hidden" id="testimonials">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-10">
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-            <div>
-              <span className="text-[11px] sm:text-[12px] tracking-[0.24em] uppercase text-[#0B6FB5] font-nav font-semibold block mb-2">
-                HEAR FROM OUR COMMUNITY
-              </span>
-              <h2 className="text-[32px] sm:text-[44px] lg:text-[48px] font-heading font-normal text-[#07294A] leading-tight">
-                Resident Experiences
-              </h2>
+          {/* ── Section Header matching Home Page Testimonials ── */}
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3">
+              <span className="w-8 sm:w-12 h-[1px] bg-[#C49A6C]/60" />
+              <p className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-[#8C6D46] font-body font-semibold">
+                OUR HOMEOWNERS
+              </p>
+              <span className="w-8 sm:w-12 h-[1px] bg-[#C49A6C]/60" />
             </div>
-            <p className="text-[14px] sm:text-[15px] font-body text-[#556475] max-w-[420px]">
-              Direct reflections and authentic homebuyer journeys across our completed developments.
-            </p>
+            <h2 className="text-[32px] sm:text-[42px] lg:text-[48px] font-body font-normal text-ink tracking-tight mb-4">
+              Stories That Feel Like Home
+            </h2>
+            <div className="w-12 sm:w-16 h-[2px] bg-[#C49A6C] mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {testimonialsData.map((t, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: (idx % 3) * 0.08 }}
-                onClick={() => setSelectedVideo(t)}
-                className="group bg-white rounded-lg border border-[#D8E6F2] overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                {/* Video Thumbnail */}
-                <div className="relative aspect-[16/9] bg-[#07294A] overflow-hidden">
-                  <img
-                    src={`https://img.youtube.com/vi/${t.embedId}/hqdefault.jpg`}
-                    alt={t.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-white/95 text-[#07294A] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                      <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+          {/* ── 4-Column Grid: Alternating Video & Written Reviews matching Home Page ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {testimonialsGrid.map((item, idx) => {
+              if (item.type === 'video') {
+                return (
+                  <div
+                    key={idx}
+                    onClick={() => setSelectedVideo(item)}
+                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-black/10 flex flex-col justify-end"
+                  >
+                    {/* YouTube Thumbnail */}
+                    <img
+                      src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
+                      alt={item.homeowner}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 group-hover:from-black/90 transition-colors" />
+
+                    {/* Bottom Bar: Play Pill & Label */}
+                    <div className="relative z-10 p-4 sm:p-5 flex items-center gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-ink group-hover:scale-110 transition-all duration-300 shadow-md">
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5">
+                          <path d="M5 3l14 9-14 9V3z" />
+                        </svg>
+                      </div>
+                      <span className="text-[12px] sm:text-[13px] font-body font-medium text-white/95 group-hover:text-white transition-colors">
+                        {item.caption || 'Watch Testimonial'}
+                      </span>
                     </div>
                   </div>
+                );
+              }
 
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#07294A]/90 text-[10px] uppercase tracking-wider text-white font-nav">
-                    {t.project}
-                  </span>
-                </div>
+              // Written Quote Card
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl p-6 sm:p-7 flex flex-col justify-between bg-[#F7F3ED] border border-[#E8DFD3] shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <div>
+                    {/* Elegant Golden Quote Mark */}
+                    <span className="text-[36px] sm:text-[42px] font-serif text-[#C49A6C] leading-none mb-1 block select-none">
+                      “
+                    </span>
+                    
+                    {/* Quote Paragraph */}
+                    <p className="text-[13.5px] sm:text-[14.5px] leading-[1.65] text-[#2C3E50] font-body font-normal">
+                      “{item.quote}”
+                    </p>
+                  </div>
 
-                <div className="p-5">
-                  <h3 className="text-[16px] font-heading font-medium text-[#07294A] group-hover:text-[#0B6FB5] transition-colors leading-snug line-clamp-2">
-                    {t.title}
-                  </h3>
+                  {/* Homeowner Tag */}
+                  <p className="text-[10px] sm:text-[10.5px] font-body font-bold tracking-[0.16em] uppercase text-[#6B7280] mt-6">
+                    {item.homeowner}
+                  </p>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -751,34 +859,35 @@ export default function AboutCompany() {
       <AnimatePresence>
         {selectedVideo && (
           <div 
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md"
+            className="fixed inset-0 z-[100] bg-ink/90 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10"
             onClick={() => setSelectedVideo(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="relative max-w-[900px] w-full bg-black rounded-xl overflow-hidden shadow-2xl"
+              className="relative max-w-[1000px] w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setSelectedVideo(null)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Close"
+                className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white transition-colors cursor-pointer"
+                aria-label="Close video"
               >
-                &times;
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-5 h-5" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
 
-              <div className="aspect-[16/9] w-full">
-                <iframe
-                  src={`https://www.youtube.com/embed/${selectedVideo.embedId}?autoplay=1`}
-                  title={selectedVideo.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full border-0"
-                />
-              </div>
+              <iframe
+                src={`https://www.youtube.com/embed/${selectedVideo.id || selectedVideo.embedId}?autoplay=1`}
+                title={selectedVideo.homeowner || selectedVideo.title || "Homeowner Testimonial"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
             </motion.div>
           </div>
         )}

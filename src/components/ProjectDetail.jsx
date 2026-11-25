@@ -51,7 +51,9 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   useEffect(() => {
     const handleScroll = () => {
       const sectionIds = ['overview', 'narrative', 'amenities', 'experience', 'location'];
-      const scrollPosition = window.pageYOffset + 240;
+      const headerEl = document.querySelector('header');
+      const headerH = headerEl ? headerEl.offsetHeight : 76;
+      const scrollPosition = window.pageYOffset + headerH + 120;
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const id = sectionIds[i];
         const el = document.getElementById(id);
@@ -146,7 +148,10 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 2: SECONDARY STICKY SUB-NAVIGATION BAR (Lodha Malabar secodaryNav)
       ───────────────────────────────────────────────────────────── */}
-      <section className="secodaryNav sticky top-[72px] lg:top-[80px] z-30 bg-bg/95 backdrop-blur-md border-b border-line shadow-[0_4px_20px_rgba(7,41,74,0.04)]">
+      <section 
+        className="secodaryNav sticky z-40 bg-bg/95 backdrop-blur-md border-b border-line shadow-[0_4px_20px_rgba(7,41,74,0.04)] transition-[top] duration-300"
+        style={{ top: 'var(--header-height, 76px)' }}
+      >
         <div className="max-w-[1620px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-14 sm:h-16 gap-4">
             
@@ -176,7 +181,11 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                       e.preventDefault();
                       const el = document.getElementById(item.id);
                       if (el) {
-                        const top = el.getBoundingClientRect().top + window.pageYOffset - 140;
+                        const headerEl = document.querySelector('header');
+                        const headerH = headerEl ? headerEl.offsetHeight : 76;
+                        const secNavEl = document.querySelector('.secodaryNav');
+                        const secNavH = secNavEl ? secNavEl.offsetHeight : 60;
+                        const top = el.getBoundingClientRect().top + window.pageYOffset - (headerH + secNavH + 16);
                         window.scrollTo({ top, behavior: 'smooth' });
                         setActiveSection(item.id);
                       }
