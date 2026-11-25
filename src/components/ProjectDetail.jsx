@@ -17,11 +17,7 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
   // Form State
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
     email: '',
-    option: 'Plotted Development (343 – 1,000 Sq. Yds.)',
-    plotSize: '343 – 500 Sq. Yds. (Villa Plot)',
-    date: '',
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -915,113 +911,45 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    {/* Full Name */}
+
+                    {/* Name */}
                     <div>
                       <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                        Full Name *
+                        Name *
                       </label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         required
-                        placeholder="e.g. Rahul Sharma"
+                        placeholder="Your name"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[14px] focus:outline-none focus:border-accent transition-colors"
                       />
                     </div>
 
-                    {/* Mobile & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                          Mobile Number *
-                        </label>
-                        <input 
-                          type="tel" 
-                          required
-                          placeholder="+91 98765 43210"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[14px] focus:outline-none focus:border-accent transition-colors"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                          Email Address
-                        </label>
-                        <input 
-                          type="email" 
-                          placeholder="rahul@example.com"
-                          value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[14px] focus:outline-none focus:border-accent transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Preferred Option */}
+                    {/* Email */}
                     <div>
                       <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                        Preferred Option *
+                        Email *
                       </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                        {project.enquiry?.options?.map((opt, i) => (
-                          <button
-                            key={i}
-                            type="button"
-                            onClick={() => setFormData({...formData, option: opt})}
-                            className={`py-2 px-2.5 text-[11.5px] rounded-lg border text-center transition-all cursor-pointer font-medium ${
-                              formData.option === opt 
-                                ? 'bg-ink text-white border-ink shadow-sm' 
-                                : 'bg-soft text-muted border-line hover:border-accent'
-                            }`}
-                          >
-                            {opt.split(' ')[0]} {opt.split(' ')[1] || ''}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Preferred Plot Size & Date */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                          Preferred Plot Size
-                        </label>
-                        <select
-                          value={formData.plotSize}
-                          onChange={(e) => setFormData({...formData, plotSize: e.target.value})}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[13.5px] focus:outline-none focus:border-accent transition-colors cursor-pointer"
-                        >
-                          {project.enquiry?.plotSizes?.map((sz, i) => (
-                            <option key={i} value={sz}>{sz}</option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                          Preferred Site Visit Date
-                        </label>
-                        <input 
-                          type="date" 
-                          value={formData.date}
-                          onChange={(e) => setFormData({...formData, date: e.target.value})}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[13.5px] focus:outline-none focus:border-accent transition-colors"
-                        />
-                      </div>
+                      <input
+                        type="email"
+                        required
+                        placeholder="your@email.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[14px] focus:outline-none focus:border-accent transition-colors"
+                      />
                     </div>
 
                     {/* Message */}
                     <div>
                       <label className="block text-[11px] font-semibold tracking-wider uppercase text-muted mb-1.5">
-                        Message (Optional)
+                        Message
                       </label>
-                      <textarea 
-                        rows="2"
-                        placeholder="Share any specific requirements or questions..."
+                      <textarea
+                        rows="3"
+                        placeholder="How can we help you?"
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         className="w-full px-3.5 py-2.5 rounded-lg border border-line bg-soft text-ink text-[13.5px] focus:outline-none focus:border-accent transition-colors resize-none"
@@ -1029,8 +957,8 @@ export default function ProjectDetail({ projectId = 'sanctuary' }) {
                     </div>
 
                     {/* Submit CTA */}
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       className="w-full py-3 rounded-lg bg-accent text-white font-semibold text-[12.5px] tracking-[0.16em] uppercase hover:bg-accent/90 transition-all shadow-md cursor-pointer transform hover:-translate-y-0.5"
                     >
                       Enquire Now
