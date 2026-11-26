@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import heroVideo from '../assets/hero video eden compr.mp4';
+import heroVideo from '../assets/hero video eden without eden logo.mp4';
 
 // Rich architecture & community imagery for visual sections
 import imgAllura from '../assets/projects/allura.webp';
 import imgSpPalacio from '../assets/projects/sp-palacio.webp';
 import imgSanctuary from '../assets/projects/sanctuary.webp';
-import imgParkAvenue from '../assets/projects/park-avenue.webp';
+import imgParkAvenue from '../assets/project_images/park-avenue/Copy_of_night_new_final.webp';
 import imgDistrict1 from '../assets/projects/district1.webp';
 import imgEdenGardens from '../assets/projects/eden-gardens.webp';
 import imgGardenSuites from '../assets/projects/garden-suites.webp';
 import imgHillside from '../assets/projects/hillside.webp';
-import imgHeaderside from '../assets/extracted_images/images/headerside.jpg';
-import imgHouse from '../assets/extracted_images/images/house-img.jpeg';
+import imgHeaderside from '../assets/project_images/allura/Copy_of_DSC07879_copy.webp';
+import imgHouse from '../assets/project_images/sp-palacio/Copy_of_SP_elevation.webp';
 import imgWeAlways from '../assets/extracted_images/images/we-always.jpg';
 
 // Track record stats from client

@@ -1,7 +1,7 @@
 import imgAllura from '../assets/projects/allura.webp';
 import imgSpPalacio from '../assets/projects/sp-palacio.webp';
 import imgSanctuary from '../assets/projects/sanctuary.webp';
-import imgParkAvenue from '../assets/projects/park-avenue.webp';
+import imgParkAvenue from '../assets/project_images/park-avenue/Copy_of_night_new_final.webp';
 import imgGoldenValley from '../assets/projects/golden-valley.webp';
 import imgDistrict1 from '../assets/projects/district1.webp';
 import imgAirportBoulevard from '../assets/projects/airport-boulevard.webp';
@@ -25,7 +25,7 @@ import logoEdenGardens from '../assets/project-logos/eden-gardens.webp';
 import logoLeela from '../assets/project-logos/leela.webp';
 import logoAmgPlaza from '../assets/project-logos/amg-plaza.webp';
 import logoGardenSuites from '../assets/project-logos/garden-suites.webp';
-import heroVideoPlaceholder from '../assets/hero video eden compr.mp4';
+import heroVideoPlaceholder from '../assets/hero video eden without eden logo.mp4';
 
 // SP Palacio Render Images
 import imgSpPalacio1 from '../assets/SP Palacio Render Images/1.Copy of Arieal One Final.webp';

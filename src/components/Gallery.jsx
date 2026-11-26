@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import imgAllura from '../assets/projects/allura.webp';
 import imgSpPalacio from '../assets/projects/sp-palacio.webp';
 import imgSanctuary from '../assets/projects/sanctuary.webp';
-import imgParkAvenue from '../assets/projects/park-avenue.webp';
+import imgParkAvenue from '../assets/project_images/park-avenue/Copy_of_night_new_final.webp';
 import imgGoldenValley from '../assets/projects/golden-valley.webp';
 import imgDistrict1 from '../assets/projects/district1.webp';
 import imgAirportBoulevard from '../assets/projects/airport-boulevard.webp';
@@ -25,7 +25,7 @@ import imgBlog1 from '../assets/blogs/blog_1268.webp';
 import imgBlog2 from '../assets/blogs/blog_1274.webp';
 import imgBlog3 from '../assets/blogs/blog_1306.webp';
 import imgBlog4 from '../assets/blogs/blog_1314.webp';
-import videoHero from '../assets/hero video eden compr.mp4';
+import videoHero from '../assets/hero video eden without eden logo.mp4';
 
 // Northstar Homes gallery media collection
 export const galleryMedia = [
