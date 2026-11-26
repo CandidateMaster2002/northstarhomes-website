@@ -1,19 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Clean image placeholder without any invented text
-function ImagePlaceholder({ label = "Image Placeholder", height = "h-[280px] sm:h-[360px]" }) {
+// CSS-only decorative visual panels (no images needed)
+function DecorativePanel({ icon, accentText, items = [], variant = 'default' }) {
+  const bgMap = {
+    default: 'bg-gradient-to-br from-[#07294A] via-[#0A3D6B] to-[#0B6FB5]',
+    light: 'bg-gradient-to-br from-[#EEF5FB] via-[#F4F8FC] to-white',
+    warm: 'bg-gradient-to-br from-[#07294A] via-[#0B4F7A] to-[#1A7BC5]',
+  };
+  const isLight = variant === 'light';
+
   return (
-    <div className={`w-full ${height} rounded-2xl bg-gradient-to-br from-[#07294A]/10 via-[#0B6FB5]/5 to-transparent border border-line relative overflow-hidden flex flex-col items-center justify-center p-6 text-center group`}>
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#07294A_1px,transparent_1px)] [background-size:16px_16px]" />
-      <div className="w-12 h-12 rounded-full bg-white shadow-sm border border-line flex items-center justify-center mb-2.5 text-accent group-hover:scale-105 transition-transform">
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.6" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
+    <div className={`w-full rounded-2xl ${bgMap[variant]} relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between min-h-[340px] sm:min-h-[380px]`}>
+      {/* Geometric pattern */}
+      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+      <div className={`absolute top-0 right-0 w-40 h-40 rounded-full ${isLight ? 'bg-[#0B6FB5]/5' : 'bg-white/5'} -translate-y-1/3 translate-x-1/3`} />
+      <div className={`absolute bottom-0 left-0 w-32 h-32 rounded-full ${isLight ? 'bg-[#0B6FB5]/5' : 'bg-white/5'} translate-y-1/3 -translate-x-1/3`} />
+
+      {/* Icon */}
+      <div className={`w-14 h-14 rounded-2xl ${isLight ? 'bg-[#0B6FB5]/10 text-accent' : 'bg-white/10 text-white'} flex items-center justify-center mb-6 relative z-10 backdrop-blur-sm`}>
+        {icon}
       </div>
-      <span className="text-[11px] tracking-[0.22em] uppercase font-body font-semibold text-accent relative z-10">
-        [ {label} ]
-      </span>
+
+      {/* Content */}
+      <div className="relative z-10 mt-auto">
+        {accentText && (
+          <span className={`text-[11px] tracking-[0.2em] uppercase font-body font-semibold ${isLight ? 'text-accent' : 'text-[#7EB8E0]'} block mb-3`}>
+            {accentText}
+          </span>
+        )}
+        {items.length > 0 && (
+          <div className="space-y-2">
+            {items.map((item, i) => (
+              <div key={i} className={`flex items-center gap-2.5 text-[13px] font-medium ${isLight ? 'text-ink' : 'text-white/90'}`}>
+                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isLight ? 'bg-accent' : 'bg-[#7EB8E0]'}`} />
+                {item}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -291,7 +317,12 @@ export default function HomeLoanGuide() {
             </div>
 
             <div className="lg:col-span-5">
-              <ImagePlaceholder label="Image Placeholder" height="h-[380px]" />
+              <DecorativePanel
+                variant="default"
+                icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>}
+                accentText="Smart Budgeting"
+                items={['Assess your income & EMI capacity', 'Plan for all costs upfront', 'Build an emergency cushion']}
+              />
             </div>
           </div>
 
@@ -307,7 +338,12 @@ export default function HomeLoanGuide() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-5 order-2 lg:order-1">
-              <ImagePlaceholder label="Image Placeholder" height="h-[360px]" />
+              <DecorativePanel
+                variant="warm"
+                icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008H15.75v-.008zm0 2.25h.008v.008H15.75V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0012 2.25z" /></svg>}
+                accentText="EMI Planning"
+                items={['Loan amount & interest rate', 'Tenure vs total cost tradeoff', 'Plan before you commit']}
+              />
             </div>
 
             <div className="lg:col-span-7 order-1 lg:order-2">
@@ -423,7 +459,15 @@ export default function HomeLoanGuide() {
             ))}
           </div>
 
-          <ImagePlaceholder label="Image Placeholder" height="h-[240px]" />
+          {/* Decorative visual */}
+          <div className="max-w-[880px] mx-auto">
+            <DecorativePanel
+              variant="light"
+              icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>}
+              accentText="Your Loan Journey"
+              items={['Budget → Explore → Apply → Verify → Sanction → Disburse → Register']}
+            />
+          </div>
 
         </div>
       </section>
@@ -558,7 +602,12 @@ export default function HomeLoanGuide() {
             </div>
 
             <div className="lg:col-span-5">
-              <ImagePlaceholder label="Image Placeholder" height="h-[360px]" />
+              <DecorativePanel
+                variant="default"
+                icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>}
+                accentText="Key Details in Your Sanction Letter"
+                items={['Approved loan amount & tenure', 'Interest rate & EMI', 'Processing charges & validity']}
+              />
             </div>
           </div>
 
@@ -724,7 +773,12 @@ export default function HomeLoanGuide() {
             </div>
 
             <div className="lg:col-span-5">
-              <ImagePlaceholder label="Image Placeholder" height="h-[380px]" />
+              <DecorativePanel
+                variant="warm"
+                icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>}
+                accentText="Northstar Is With You"
+                items={['Cost sheet & payment schedule clarity', 'Banking partner coordination', 'Agreement & registration support']}
+              />
             </div>
 
           </div>
@@ -885,7 +939,7 @@ export default function HomeLoanGuide() {
             <button
               type="button"
               onClick={() => window.print()}
-              className="px-8 py-3.5 rounded-full border border-white/30 text-white text-[12px] tracking-[0.16em] uppercase font-semibold hover:bg-white/10 transition-all cursor-pointer"
+              className="px-8 py-3.5 rounded-full border border-line text-muted text-[12px] tracking-[0.16em] uppercase font-semibold hover:border-accent hover:text-accent bg-soft/40 transition-all cursor-pointer"
             >
               Download Home Loan Checklist
             </button>
