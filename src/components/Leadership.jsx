@@ -12,6 +12,7 @@ import harishwarImg from '../assets/leadership/harishwar-reddy.jpeg';
 import kiranImg from '../assets/leadership/kiran.jpeg';
 import swathiImg from '../assets/leadership/swathi-reddy.jpeg';
 import subhashImg from '../assets/leadership/subhash.jpeg';
+import teamHeroImg from '../assets/team-hero-image.jpeg';
 
 // 1. Leadership (Board of 3 with verbatim bio paragraphs for popup)
 const guidingMembers = [
@@ -141,15 +142,19 @@ export default function Leadership() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-[#1A1A1A] pt-28 sm:pt-36 pb-28">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12">
+    <main className="min-h-screen bg-bg text-[#1A1A1A] pb-28">
+      {/* ── Full-Bleed Pure Hero Image (No Text Overlay, Entire Team Visible) ── */}
+      <section className="relative w-full h-[65vh] sm:h-[82vh] lg:h-[92vh] bg-[#07294A] overflow-hidden mb-16 sm:mb-24">
+        <img
+          src={teamHeroImg}
+          alt="Northstar Homes Leadership and Team"
+          className="w-full h-full object-cover object-[50%_72%]"
+        />
+        {/* Subtle top gradient only behind navbar so header links remain legible */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/55 via-black/20 to-transparent pointer-events-none" />
+      </section>
 
-        {/* Page Title */}
-        <div className="text-center mb-16 sm:mb-20">
-          <h1 className="text-[34px] sm:text-[44px] lg:text-[50px] font-heading font-normal text-[#1A1A1A] tracking-tight">
-            Leadership
-          </h1>
-        </div>
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12">
 
         {/* ── Category 1: Guiding Leadership (Interactive popup on click) ── */}
         <section className="mb-20 sm:mb-24">
