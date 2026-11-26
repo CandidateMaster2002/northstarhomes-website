@@ -33,6 +33,47 @@ import imgSpPalacio2 from '../assets/SP Palacio Render Images/2.Copy of SP eleva
 import imgSpPalacio3 from '../assets/SP Palacio Render Images/3.Copy of Podium Final.webp';
 import imgSpPalacio4 from '../assets/SP Palacio Render Images/4.Copy of MP Hall One Final.webp';
 
+// Narrative Section Images (per-project unique images)
+import imgSanctuary1 from '../assets/project_images/sanctuary/img1Copy_of_DSC03143.webp';
+import imgSanctuary2 from '../assets/project_images/sanctuary/img2Copy_of_DSC02982.webp';
+import imgSanctuary3 from '../assets/project_images/sanctuary/img3Copy_of_DSC03014.webp';
+import imgSanctuary4 from '../assets/project_images/sanctuary/img4Copy_of_DSC03089.webp';
+import imgAllura1 from '../assets/project_images/allura/img1.webp';
+import imgAllura2 from '../assets/project_images/allura/img2.Copy_of_DSC07664.webp';
+import imgAllura3 from '../assets/project_images/allura/img3Copy_of_DSC07749_copy.webp';
+import imgAllura4 from '../assets/project_images/allura/img4.webp';
+import imgParkAvenue1 from '../assets/project_images/park-avenue/img1Copy_of_Day_Elevation_.webp';
+import imgParkAvenue2 from '../assets/project_images/park-avenue/img2PA_Construction_4.webp';
+import imgParkAvenue3 from '../assets/project_images/park-avenue/img3Copy_of_Central_View_2.webp';
+import imgParkAvenue4 from '../assets/project_images/park-avenue/img4.webp';
+import imgGoldenValley1 from '../assets/project_images/golden-valley/img1.webp';
+import imgGoldenValley2 from '../assets/project_images/golden-valley/img2Copy_of_GV-A3-Brochure-01_24.webp';
+import imgGoldenValley3 from '../assets/project_images/golden-valley/img3golden-valley2 - Copy.webp';
+import imgDistrict11 from '../assets/project_images/district-1/img1143L3241.webp';
+import imgDistrict12 from '../assets/project_images/district-1/img2.webp';
+import imgDistrict13 from '../assets/project_images/district-1/img3143L3317.webp';
+import imgAirportBoulevard1 from '../assets/project_images/airport-boulevard/img1West_Villa_Front_view.webp';
+import imgAirportBoulevard2 from '../assets/project_images/airport-boulevard/img2Play_Area_View.webp';
+import imgAirportBoulevard3 from '../assets/project_images/airport-boulevard/img3Sitting_Area_View.webp';
+import imgHillside1 from '../assets/project_images/hillside/img1143L5195.webp';
+import imgHillside2 from '../assets/project_images/hillside/img2North_East_Villa.webp';
+import imgHillside3 from '../assets/project_images/hillside/img3143L5431.webp';
+import imgVeda1 from '../assets/project_images/veda/img1North_facing-Night_view.webp';
+import imgVeda2 from '../assets/project_images/veda/img2.webp';
+import imgVeda3 from '../assets/project_images/veda/img3NW_VIEW_copy.webp';
+import imgEdenGardens1 from '../assets/project_images/eden-gardens/img1EG_Building_View_2.jpg.webp';
+import imgEdenGardens2 from '../assets/project_images/eden-gardens/img2IMG_4698.jpg.webp';
+import imgEdenGardens3 from '../assets/project_images/eden-gardens/img3eg_image.jpg.webp';
+import imgLeela1 from '../assets/project_images/leela/img1.webp';
+import imgLeela2 from '../assets/project_images/leela/img2The_Leela_night-view.webp';
+import imgLeela3 from '../assets/project_images/leela/img3parking-view-1.webp';
+import imgAmgPlaza1 from '../assets/project_images/amg-plaza/img1.webp';
+import imgAmgPlaza2 from '../assets/project_images/amg-plaza/img2.webp';
+import imgAmgPlaza3 from '../assets/project_images/amg-plaza/img3img1 - Copy.webp';
+import imgGardenSuites1 from '../assets/project_images/garden-suites/img1.webp';
+import imgGardenSuites2 from '../assets/project_images/garden-suites/img2.webp';
+import imgGardenSuites3 from '../assets/project_images/garden-suites/img3.webp';
+
 export const projectsData = {
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -80,7 +121,7 @@ export const projectsData = {
           'Close enough to everything that matters, yet removed from the pace of the city.',
           'A rare balance of connectivity, calm and open living.'
         ],
-        image: imgSanctuary,
+        image: imgSanctuary1,
         imageCaption: 'Sanctuary Master Layout & Location · Near Tukkuguda, South Hyderabad',
         placeholderNote: 'Aerial Masterplan & Nature Landscape Render'
       },
@@ -92,7 +133,7 @@ export const projectsData = {
           'Walk among fragrant gardens, flowering trees and landscapes designed to bring nature closer.',
           'At Sanctuary, the outdoors isn\'t somewhere you visit — it is where life unfolds.'
         ],
-        image: imgSanctuary,
+        image: imgSanctuary2,
         imageCaption: 'Tree-Lined Avenues & Layered Greens · Pocket Parks',
         placeholderNote: 'Botanical Gardens & Tree-Lined Avenues Render'
       },
@@ -104,7 +145,7 @@ export const projectsData = {
           'A place to build around your family, your aspirations and your idea of home.',
           'Because some homes are created not just for today, but for generations.'
         ],
-        image: imgSanctuary,
+        image: imgSanctuary3,
         imageCaption: 'Crafted Villa Architecture & Plotted Enclave · 63 Addresses',
         placeholderNote: 'Villa Architecture & Plotted Layout Render'
       },
@@ -116,7 +157,7 @@ export const projectsData = {
           'Everyday experiences have been thoughtfully designed around wellness, leisure and togetherness.',
           'Sanctuary is no longer something to imagine — it is ready to be experienced.'
         ],
-        image: imgSanctuary,
+        image: imgSanctuary4,
         imageCaption: 'Clubhouse Amenities, Swimming Pool & Gathering Decks',
         placeholderNote: 'Clubhouse Facilities & Active Wellness Render'
       }
@@ -303,7 +344,7 @@ export const projectsData = {
           'Allura places you at the heart of this corridor — close to the Financial District, Neopolis, and the city\'s most ambitious new addresses.',
           'An address that positions your family at the front of what\'s next.'
         ],
-        image: imgAllura,
+        image: imgAllura1,
         imageCaption: 'Northstar Allura · Kokapet, Hyderabad'
       },
       {
@@ -314,7 +355,7 @@ export const projectsData = {
           'Wide internal roads, a Zen garden, an aroma garden and a reflexology path create a neighbourhood that invites you to slow down.',
           'This is a place that feels distinctly your own — from the moment you arrive.'
         ],
-        image: imgAllura,
+        image: imgAllura2,
         imageCaption: 'Community Greens & Private Villa Enclave · Allura'
       },
       {
@@ -325,7 +366,7 @@ export const projectsData = {
           'Herbal gardens, an aroma garden and a walking track make the outdoors as engaging as indoors.',
           'Allura is designed so that every day has something worth stepping outside for.'
         ],
-        image: imgAllura,
+        image: imgAllura3,
         imageCaption: '14,000 Sq. Ft. Clubhouse & Lifestyle Amenities · Allura'
       },
       {
@@ -336,7 +377,7 @@ export const projectsData = {
           'Plots ranging from 267 to 420 Sq. Yds. mean each home has room to breathe around it.',
           'A scale that makes space feel generous and life feel considered.'
         ],
-        image: imgAllura,
+        image: imgAllura4,
         imageCaption: '4 BHK Villa Architecture · 4,019 – 4,910 Sq. Ft.'
       }
     ],
@@ -633,7 +674,7 @@ export const projectsData = {
           'Park Avenue places you here, with major tech employers, NH-16 and Highfields International School all within easy reach.',
           'An address that keeps pace with the way Vizag is growing.'
         ],
-        image: imgParkAvenue,
+        image: imgParkAvenue1,
         imageCaption: 'Northstar Park Avenue · Madhurawada, Visakhapatnam'
       },
       {
@@ -644,7 +685,7 @@ export const projectsData = {
           'Homes planned to bring in natural light, ventilation and a sense of ease that makes everyday life feel more considered.',
           'A building sized to feel like a community — not a crowd.'
         ],
-        image: imgParkAvenue,
+        image: imgParkAvenue2,
         imageCaption: '243 Apartments · 2 BHK, 2.5 BHK & 3 BHK'
       },
       {
@@ -655,7 +696,7 @@ export const projectsData = {
           'A swimming pool, kids\' pool, jogging track, badminton and basketball courts bring activity options without leaving home.',
           'At Park Avenue, the outdoors is as well-planned as the indoors.'
         ],
-        image: imgParkAvenue,
+        image: imgParkAvenue3,
         imageCaption: 'Half-Acre Central Park & Community Recreation'
       },
       {
@@ -666,7 +707,7 @@ export const projectsData = {
           'A 10,500 Sft clubhouse adds shared space that extends the feeling of home beyond your front door.',
           'Space that grows with your family, in a neighbourhood already built for the future.'
         ],
-        image: imgParkAvenue,
+        image: imgParkAvenue4,
         imageCaption: '10,500 Sft Clubhouse & Community Facilities'
       }
     ],
@@ -793,7 +834,7 @@ export const projectsData = {
           'Golden Valley puts you here, in Madhurawada, where much of that momentum is concentrated.',
           'This is not just a home. It is a position in a city finding its pace.'
         ],
-        image: imgGoldenValley,
+        image: imgGoldenValley1,
         imageCaption: 'Northstar Golden Valley · Madhurawada, Visakhapatnam'
       },
       {
@@ -804,7 +845,7 @@ export const projectsData = {
           'IBM, Cyient, Navayuga and other major employers are roughly 3 km away.',
           'Golden Valley\'s location keeps work close, the coast closer, and everyday life straightforward.'
         ],
-        image: imgGoldenValley,
+        image: imgGoldenValley2,
         imageCaption: 'IT Corridor, NH-16 & Coastal Proximity · Madhurawada'
       },
       {
@@ -815,7 +856,7 @@ export const projectsData = {
           'A minimart, reading room, business lounge, guest rooms and senior citizen area ensure that the community is planned for every stage of life.',
           'Everything a neighbourhood needs — built into one address.'
         ],
-        image: imgGoldenValley,
+        image: imgGoldenValley3,
         imageCaption: '35,000 Sft Clubhouse & Full-Community Amenities'
       }
     ],
@@ -940,7 +981,7 @@ export const projectsData = {
           'District 1 brought a distinctive architectural identity to apartment living in the Financial District.',
           'Its approach to design went on to earn Northstar recognised honours in 2016 and 2017.'
         ],
-        image: imgDistrict1,
+        image: imgDistrict11,
         imageCaption: 'District 1 Tower Façade · Financial District, Gachibowli'
       },
       {
@@ -950,7 +991,7 @@ export const projectsData = {
           'Around 70% of the two-acre development is kept open, giving the residential tower more space around it.',
           'A considered way of bringing openness into one of Hyderabad\'s busiest urban districts.'
         ],
-        image: imgDistrict1,
+        image: imgDistrict12,
         imageCaption: '70% Open Landscaped Grounds · Financial District'
       },
       {
@@ -960,7 +1001,7 @@ export const projectsData = {
           'Set within Hyderabad\'s Financial District, District 1 keeps major workplaces, healthcare and the Gachibowli business ecosystem close.',
           'An address that makes one of the city\'s most important employment districts part of everyday life.'
         ],
-        image: imgDistrict1,
+        image: imgDistrict13,
         imageCaption: 'Gachibowli Tech Corridor & Financial District Proximity'
       }
     ],
@@ -1083,7 +1124,7 @@ export const projectsData = {
           'Set in Thukkuguda — close to the Hyderabad International Airport and the ORR — this community was built around the idea that connectivity and calm can coexist.',
           'A smart villa community spread across 9.5 acres.'
         ],
-        image: imgAirportBoulevard,
+        image: imgAirportBoulevard1,
         imageCaption: 'Northstar Airport Boulevard · Thukkuguda, Hyderabad'
       },
       {
@@ -1094,7 +1135,7 @@ export const projectsData = {
           'Wide roads, landscaped greens and a thoughtfully laid-out community plan make everyday life more relaxed.',
           'A delivered community for those who value space, privacy and ease of access.'
         ],
-        image: imgAirportBoulevard,
+        image: imgAirportBoulevard2,
         imageCaption: 'Smart Villa Community · 9.5 Acres'
       },
       {
@@ -1105,7 +1146,7 @@ export const projectsData = {
           'Everything South Hyderabad has to offer — schools, healthcare, commerce — is close at hand.',
           'An address that works as hard as the people who chose it.'
         ],
-        image: imgAirportBoulevard,
+        image: imgAirportBoulevard3,
         imageCaption: 'Airport & ORR Proximity · South Hyderabad'
       }
     ],
@@ -1226,7 +1267,7 @@ export const projectsData = {
           'Traffic-free outdoor spaces turn that shared green into a place for walking, play and everyday time outside.',
           'A community where the view from your window is always worth looking at.'
         ],
-        image: imgHillside,
+        image: imgHillside1,
         imageCaption: '1-Acre Central Park · All 37 Villas Face the Green'
       },
       {
@@ -1237,7 +1278,7 @@ export const projectsData = {
           'Family time, work, guests and downtime each have room of their own.',
           'Plots ranging from 385 to 447 Sq. Yds. mean each villa has generous space around it as well.'
         ],
-        image: imgHillside,
+        image: imgHillside2,
         imageCaption: '4 BHK Villas · 385 – 447 Sq. Yds. · 4 Covered Car Parks'
       },
       {
@@ -1248,7 +1289,7 @@ export const projectsData = {
           'The natural landscape of Gandipet forms the backdrop, while the city remains within easy reach.',
           'A villa address that balances open living with urban access.'
         ],
-        image: imgHillside,
+        image: imgHillside3,
         imageCaption: 'Gandipet · Financial District Corridor · Western Hyderabad'
       }
     ],
@@ -1369,7 +1410,7 @@ export const projectsData = {
           'Just 20 residences across five levels bring a welcome sense of privacy to life in the middle of the city.',
           'A building that feels like a home — not a housing complex.'
         ],
-        image: imgVeda,
+        image: imgVeda1,
         imageCaption: 'Northstar Veda · Himayatnagar, Hyderabad'
       },
       {
@@ -1380,7 +1421,7 @@ export const projectsData = {
           'Together with bay windows, that planning brings more daylight and air into everyday spaces.',
           'Homes designed so that light is part of living — not something you have to seek out.'
         ],
-        image: imgVeda,
+        image: imgVeda2,
         imageCaption: 'Triple-Aspect Homes & Bay Windows · Natural Light Planning'
       },
       {
@@ -1391,7 +1432,7 @@ export const projectsData = {
           'Healthcare, schools, restaurants, shopping and metro connectivity are all within easy reach.',
           'Veda places you at the centre of a neighbourhood that has been part of Hyderabad\'s fabric for decades.'
         ],
-        image: imgVeda,
+        image: imgVeda3,
         imageCaption: 'Himayatnagar · Central Hyderabad Connectivity'
       }
     ],
@@ -1517,7 +1558,7 @@ export const projectsData = {
           'A thoughtful piece of planning that lets the city\'s coastal character become part of everyday life.',
           'Homes designed to work with Vizag\'s climate — not against it.'
         ],
-        image: imgEdenGardens,
+        image: imgEdenGardens1,
         imageCaption: 'T-Shaped Planning · Natural Light & Coastal Breeze · Eden Garden'
       },
       {
@@ -1528,7 +1569,7 @@ export const projectsData = {
           'Simple planning choices that make coming home feel more personal.',
           'At 1,788 to 3,584 Sft, these are homes that give family life real room to unfold.'
         ],
-        image: imgEdenGardens,
+        image: imgEdenGardens2,
         imageCaption: 'Private Corridors & Generous Balconies · 1,788 – 3,584 Sft'
       },
       {
@@ -1539,7 +1580,7 @@ export const projectsData = {
           'A residential address that lets the city\'s best qualities become part of daily life.',
           'The hills, the sea and the city — all from one address.'
         ],
-        image: imgEdenGardens,
+        image: imgEdenGardens3,
         imageCaption: 'Near Kailasagiri & Vizag Coast · MVP Colony Proximity'
       }
     ],
@@ -1664,7 +1705,7 @@ export const projectsData = {
           'Generous 3 and 4 BHK homes, from 1,958 to 2,917 Sq. Ft., give family life more room to unfold.',
           'A building where you know your neighbours — and that feels like it was built for you.'
         ],
-        image: imgLeela,
+        image: imgLeela1,
         imageCaption: 'Northstar Leela · Padmarao Nagar, Secunderabad'
       },
       {
@@ -1675,7 +1716,7 @@ export const projectsData = {
           'Landscaped lift lobbies bring greenery into arrival spaces, and the homes are planned for abundant natural light and ventilation.',
           'A building that starts feeling like home the moment you walk in.'
         ],
-        image: imgLeela,
+        image: imgLeela2,
         imageCaption: 'Open-Sky Basement, Landscaped Lobbies & Light Planning'
       },
       {
@@ -1686,7 +1727,7 @@ export const projectsData = {
           'Rail, metro, healthcare, shopping and everyday conveniences are all within comfortable reach.',
           'At Leela, the city is already around you — without you having to go looking for it.'
         ],
-        image: imgLeela,
+        image: imgLeela3,
         imageCaption: 'Padmarao Nagar · Rail, Metro & Everyday Connectivity'
       }
     ],
@@ -1805,7 +1846,7 @@ export const projectsData = {
           'Commercial planning shaped equally around attention and access.',
           'A building that works as hard for the businesses inside it as for the people who visit them.'
         ],
-        image: imgAmgPlaza,
+        image: imgAmgPlaza1,
         imageCaption: 'Northstar AMG Plaza · Dual-Facing Commercial Building · West Marredpally'
       },
       {
@@ -1816,7 +1857,7 @@ export const projectsData = {
           'Different levels were given different roles, creating more than one reason to visit the building.',
           'A development where the mix of uses creates footfall — and footfall creates value.'
         ],
-        image: imgAmgPlaza,
+        image: imgAmgPlaza2,
         imageCaption: 'Multi-Level Mixed Use · Retail, Commercial & Dining'
       },
       {
@@ -1827,7 +1868,7 @@ export const projectsData = {
           'AMG Plaza is placed to serve the daily needs of the area while drawing from a wider catchment.',
           'A commercial address built for where the neighbourhood already was — and where it is heading.'
         ],
-        image: imgAmgPlaza,
+        image: imgAmgPlaza3,
         imageCaption: 'West Marredpally · Established Commercial Neighbourhood · Secunderabad'
       }
     ],
@@ -1944,7 +1985,7 @@ export const projectsData = {
           'A smaller residential setting where space feels more personal and coming home feels distinctly your own.',
           'The kind of address where privacy is not an extra — it is built into the very structure of the building.'
         ],
-        image: imgGardenSuites,
+        image: imgGardenSuites1,
         imageCaption: 'Northstar Garden Suites · One Home Per Floor · Banjara Hills'
       },
       {
@@ -1955,7 +1996,7 @@ export const projectsData = {
           'The interiors open naturally towards balconies, making outdoor space part of everyday life.',
           'At Garden Suites, the boundary between inside and outside is intentionally softened.'
         ],
-        image: imgGardenSuites,
+        image: imgGardenSuites2,
         imageCaption: 'Double-Height Sit-Outs, Hanging Gardens & Generous Balconies'
       },
       {
@@ -1966,7 +2007,7 @@ export const projectsData = {
           'Garden Suites takes that address and distils it into just four homes — a quieter, more private interpretation of Banjara Hills living.',
           'All that Banjara Hills offers, without the compromise of density.'
         ],
-        image: imgGardenSuites,
+        image: imgGardenSuites3,
         imageCaption: 'Road No. 12, Banjara Hills · Hyderabad\'s Premier Address'
       }
     ],
